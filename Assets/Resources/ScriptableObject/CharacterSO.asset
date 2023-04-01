@@ -24,4 +24,4 @@ MonoBehaviour:
       MaxHP: 90
       bulletTypes: 
       ATK: 20
-      ATKInterval: 0
+      ATKInterval: 3

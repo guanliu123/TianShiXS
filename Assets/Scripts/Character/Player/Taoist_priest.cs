@@ -27,7 +27,11 @@ namespace Player
 
         public override void Attack()
         {
-            PoolManager.GetInstance().GetObj("Bullet", "Sword").transform.position=this.gameObject.transform.position;
+            GameObject t = PoolManager.GetInstance().GetObj(NameCenter.SwordName);
+            t.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.2f, gameObject.transform.position.z);
+
+            IInitBullet initBullet = t.GetComponent<IInitBullet>();
+            initBullet.InitInfo(ATK);
         }
     }
 

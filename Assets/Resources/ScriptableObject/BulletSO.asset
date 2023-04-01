@@ -16,7 +16,7 @@ MonoBehaviour:
   - bulletType: 0
     bulletData:
       bulletName: Sword
-      existTime: 5
+      existTime: 12
       isMovable: 1
       moveSpeed: 5
       moveTime: 0

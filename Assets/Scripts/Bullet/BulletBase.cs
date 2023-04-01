@@ -1,18 +1,27 @@
+using Bat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BulletBase : MonoBehaviour
+public interface IInitBullet
+{
+    void InitInfo(float ATK);
+}
+
+public class BulletBase : MonoBehaviour, IInitBullet
 {
     public BulletData bulletData;
     public BulletType bulletType;
 
     public event UnityAction bulletAction;
-    IDamage targetIDamage;
 
-    private float baseATK;
+    protected LayerMask playerBulletMask;
+    protected LayerMask enemyBulletMask;
 
+    protected IDamage targetIDamage;
+
+    protected float baseATK;
     private float exitTimer = 0;
     private Vector3 moveDir;
     private float moveTimer=0f;
@@ -21,17 +30,19 @@ public class BulletBase : MonoBehaviour
     protected void Start()
     {
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
+
+        playerBulletMask = LayerMask.GetMask("Enemy");//玩家发射出去的子弹的layermask
+        enemyBulletMask = LayerMask.GetMask("Player");//敌人发射出去的子弹的layermask
+
         if (bulletData.isMovable)
         {
             bulletAction += BaseMove;
             moveDir = gameObject.transform.forward;
         }
         if (bulletData.isRotatable) bulletAction += BaseRotate;
+
+        bulletAction += AttackCheck;
         bulletAction += Retrieve;
-    }
-    protected void OnEnable()
-    {
-        //Invoke(nameof(Retrieve), bulletData.existTime);
     }
 
     // Update is called once per frame
@@ -40,7 +51,7 @@ public class BulletBase : MonoBehaviour
         if (bulletAction != null) bulletAction();
     }
 
-    public void SetInfo(float ATK)
+    public void InitInfo(float ATK)
     {
         baseATK = ATK;
     }
@@ -71,6 +82,28 @@ public class BulletBase : MonoBehaviour
         if (exitTimer < bulletData.existTime) return;
 
         exitTimer = 0;
-        PoolManager.GetInstance().PushObj("Bullet", this.gameObject);
+        PoolManager.GetInstance().PushObj(bulletData.bulletName, this.gameObject);
+    }
+    protected virtual void RetrieveInstant()
+    {
+        exitTimer = 0;
+        PoolManager.GetInstance().PushObj(bulletData.bulletName, this.gameObject);
+    }
+
+    protected virtual void AttackCheck()
+    {
+
+    }
+
+    //如果有类似Sword这样需要获取子物体所有点位以便发射射线进行检测的子弹类型，调用这个方法
+    protected List<GameObject> FindChilds()
+    {
+        List<GameObject> t=new List<GameObject>();
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            t.Add(gameObject.transform.GetChild(i).gameObject);
+        }
+
+        return t;
     }
 }

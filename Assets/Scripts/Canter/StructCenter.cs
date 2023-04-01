@@ -24,6 +24,7 @@ public struct ResourceDatas
 [Serializable]
    public struct CharacterData
 {
+    [Header("角色名称")] public string name;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色攻击力")] public float ATK;

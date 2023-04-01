@@ -56,6 +56,7 @@ public class CharacterBase : MonoBehaviour,IDamage
     public void TakeDamage(float damage)
     {
         nowHP -= damage;
+        if (nowHP <= 0) DiedEvent();
     }
 
     public void TransitionState(CharacterStateType characterStateType)
@@ -70,5 +71,10 @@ public class CharacterBase : MonoBehaviour,IDamage
     public virtual void Attack()
     {
         
+    }
+
+    public virtual void DiedEvent()
+    {
+        PoolManager.GetInstance().PushObj(characterData.name, this.gameObject);
     }
 }

@@ -8,16 +8,14 @@ public class MapManager : BaseManager<MapManager>
 {
     private List<GameObject> mapSquares = ResourceManager.GetInstance().Loads<GameObject>(ResourceType.MapSquare);
 
-    public GameObject enemy=ResourceManager.GetInstance().LoadByPath<GameObject>("Prefab/Enemy/Enemy");
-
     public float movementRate = 5f;
 
     private float[] mapSquareSize = new float[2] {10, 20 };//宽，长
-    public int defaultNum = 4;//初始生成这么多地图块
+    public int defaultNum = 5;//初始生成这么多地图块
     private List<GameObject> exitingSquare=new List<GameObject>();//当前场上存在的地图块顺序
     public float awayDistance=15f;//当最后面的地面块距离玩家这么远时将地图块移动到最前端，并且加入队列末端
 
-    public int enemyDensity = 1;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
+    public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
     public List<Vector3> enemyPoints = new List<Vector3>();//已经生成了敌人的点位，不能重复在一个点上生成敌人
 
     public MapManager()
@@ -104,7 +102,7 @@ public class MapManager : BaseManager<MapManager>
             Vector3 _newPoint = InstantRandomPoint(ground);
             while(enemyPoints.Contains(_newPoint)) _newPoint = InstantRandomPoint(ground);
 
-            GameObject t = PoolManager.GetInstance().GetObj("Enemy","Bat");
+            GameObject t = PoolManager.GetInstance().GetObj(NameCenter.BatName);
             if (t == null) return;
             t.transform.position = _newPoint;
             t.transform.parent = enemyList.transform;

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Bullet\Sword.cs" />
     <Compile Include="Assets\Scripts\Canter\EnumCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\EventCenter.cs" />
+    <Compile Include="Assets\Scripts\Canter\NameCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\StructCenter.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Bat\Bat.cs" />

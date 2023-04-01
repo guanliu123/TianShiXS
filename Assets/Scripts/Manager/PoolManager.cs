@@ -51,12 +51,11 @@ public class PoolManager : BaseManager<PoolManager>
     private GameObject poolObj;
 
     /// <summary>
-    /// 从对象池中获取物体
+    /// 从对象池中取物体
     /// </summary>
-    /// <param name="poolName">目标物品所在的对象池名称</param>
-    /// <param name="objName">目标物品名称</param>
+    /// <param name="poolName">物体所在对象池名称（就是想取出的物体名称）</param>
     /// <returns></returns>
-    public GameObject GetObj(string poolName,string objName)
+    public GameObject GetObj(string poolName)
     {
         /*if (poolDic.ContainsKey(objName) && poolDic[objName].poolList.Count > 0)
             return poolDic[objName].GetObj();
@@ -67,7 +66,7 @@ public class PoolManager : BaseManager<PoolManager>
             return poolDic[poolName].GetObj();
 
         else
-            return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(objName));
+            return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
 
     //从缓存池中取出
