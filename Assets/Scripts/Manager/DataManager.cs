@@ -52,11 +52,15 @@ public class DataManager : BaseManager<DataManager>
     /// <returns></returns>
     public string AskAPath(string objName)
     {
-        foreach(var item in objPathDic)
+        
+        foreach (var item in objPathDic)
         {
-            if (item.Value.ContainsKey(objName)) return item.Value[objName];
+            if (item.Value.ContainsKey(objName))
+            {
+                return item.Value[objName];
+            }
         }
-
+        
         return null;
     }
 

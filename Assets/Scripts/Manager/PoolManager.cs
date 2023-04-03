@@ -6,7 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 //可以改为用ID存储到缓存池
 public class PoolData
 {
-    
+
     //缓存池中可能有多个不同种类的物体，为方便管理故需要设置一个父物体
     public GameObject fatherObj;
     //使用List链式结构来存储物体
@@ -62,8 +62,10 @@ public class PoolManager : BaseManager<PoolManager>
 
         else 
             return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(objName));*/
+
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
             return poolDic[poolName].GetObj();
+
 
         else
             return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
@@ -83,7 +85,7 @@ public class PoolManager : BaseManager<PoolManager>
 
         }
     }
-    
+
     //使用时注意objName，使用动态加载出来的物体的this.name会在原名后加上（clone)字样，此时使用this.name进行PushObj操作时，实际是创建了另一个池子，所以使用时推荐直接使用"objName"的方式而不是this.name的方式
     /// <summary>
     /// 将物体加入对象池

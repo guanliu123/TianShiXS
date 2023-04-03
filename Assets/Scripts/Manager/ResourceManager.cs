@@ -11,6 +11,7 @@ public class ResourceManager : BaseManager<ResourceManager>
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
     public T LoadByName<T>(string objName) where T : Object
     {
+        
         T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
         return res;
     }
