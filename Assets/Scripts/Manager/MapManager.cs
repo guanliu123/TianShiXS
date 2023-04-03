@@ -24,7 +24,11 @@ public class MapManager : BaseManager<MapManager>
         if (mapSquares.Count <=0) return;
 
         nowLevel = DataManager.GetInstance().AskLevelData(0);
-        for(int i = 0; i < defaultNum; i++)
+        
+    }
+    private void InitMapSquare()
+    {
+        for (int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
             {
@@ -45,8 +49,9 @@ public class MapManager : BaseManager<MapManager>
         nowLevel = DataManager.GetInstance().AskLevelData(levelNum-1);
     }
 
-    public void BeginMapCreate()
+    public void StartMapCreate()
     {
+        InitMapSquare();
         MonoManager.GetInstance().AddUpdateListener(MapRunning);
     }
 

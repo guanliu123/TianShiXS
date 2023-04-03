@@ -11,7 +11,7 @@ public class testmap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MapManager.GetInstance().BeginMapCreate();
+            MapManager.GetInstance().StartMapCreate();
         }
         if (Input.GetKeyDown(KeyCode.K)) GameObject.Instantiate(t, Vector3.zero, Quaternion.identity);
     }
