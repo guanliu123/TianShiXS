@@ -19,4 +19,6 @@ MonoBehaviour:
       num: 6
       baseEnemyNum: 2
       riseEnemyNum: 1
+      baseBuffDoor: 1
+      riseBuffDoor: 0
       characterType: 2

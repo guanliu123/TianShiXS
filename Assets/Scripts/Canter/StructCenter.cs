@@ -69,6 +69,8 @@ public struct LevelData
     [Header("关卡总波次")] public int num;
     [Header("波次敌人基础数量")] public int baseEnemyNum;
     [Header("敌人增长数量")] public int riseEnemyNum;
+    [Header("波次buff门基础数量")] public int baseBuffDoor;
+    [Header("波次buff门增长数量")] public int riseBuffDoor;
     [Header("关卡boss")] public CharacterType characterType;
 }
 
