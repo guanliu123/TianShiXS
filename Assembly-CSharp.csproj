@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Base\BaseManager.cs" />
-    <Compile Include="Assets\Scripts\Base\BasePanel.cs" />
     <Compile Include="Assets\Scripts\Base\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Base\MonoController.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
@@ -79,7 +78,23 @@
     <Compile Include="Assets\Scripts\Manager\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResourceManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\UIManager.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\GameRoot.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\MainPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\StartPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Scene\SceneBase.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\MainScene.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\StartScene.cs" />
+    <Compile Include="Assets\Scripts\UI\FileHelper\FileHelper.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFrameWork\BasePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\PanelManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFrameWork\UIType.cs" />
+    <Compile Include="Assets\Scripts\UI\UIFrameWork\UiTools\UITool.cs" />
+    <Compile Include="Assets\Scripts\UI\Utilization\SingletonBase.cs" />
     <Compile Include="Assets\Test\testmap.cs" />
   </ItemGroup>
   <ItemGroup>
