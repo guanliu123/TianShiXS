@@ -8,16 +8,19 @@ public class DataManager : BaseManager<DataManager>
     private ResourcepathSO resourcepathSO;
     private CharacterSO characterSO;
     private BulletSO bulletSO;
+    private LevelSO levelSO;
 
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     private Dictionary<CharacterType, CharacterData> characterDatasDic=new Dictionary<CharacterType, CharacterData>();
     private Dictionary<BulletType, BulletData> bulletDatasDic = new Dictionary<BulletType, BulletData>();
+    private Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
 
     public DataManager()
     {
         resourcepathSO = ResourceManager.GetInstance().LoadByPath<ResourcepathSO>("ScriptableObject/ResourcepathSO");
         characterSO = ResourceManager.GetInstance().LoadByPath<CharacterSO>("ScriptableObject/CharacterSO");
         bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
+        levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
 
         List<ResourceDatas> t = resourcepathSO.resourcePaths;
         foreach(var item in t)
@@ -35,6 +38,10 @@ public class DataManager : BaseManager<DataManager>
         foreach(var item in bulletSO.bulletdatas)
         {
             bulletDatasDic.Add(item.bulletType, item.bulletData);
+        }
+        foreach(var item in levelSO.leveldatas)
+        {
+            levelDatasDic.Add(item.id, item.levelData);
         }
     }
 
@@ -80,6 +87,13 @@ public class DataManager : BaseManager<DataManager>
         BulletData t=new BulletData();
 
         if (bulletDatasDic.ContainsKey(bulletType)) t = bulletDatasDic[bulletType];
+
+        return t;
+    }
+    public LevelData AskLevelData(int levelNum)
+    {
+        LevelData t = new LevelData();
+        if (levelDatasDic.ContainsKey(levelNum)) t = levelDatasDic[levelNum];
 
         return t;
     }

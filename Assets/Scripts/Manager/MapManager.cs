@@ -7,6 +7,7 @@ using UnityEngine;
 public class MapManager : BaseManager<MapManager>
 {
     private List<GameObject> mapSquares = ResourceManager.GetInstance().Loads<GameObject>(ResourceType.MapSquare);
+    private LevelData nowLevel;
 
     public float movementRate = 5f;
 
@@ -21,6 +22,8 @@ public class MapManager : BaseManager<MapManager>
     public MapManager()
     {
         if (mapSquares.Count <=0) return;
+
+        nowLevel = DataManager.GetInstance().AskLevelData(0);
         for(int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
@@ -35,6 +38,11 @@ public class MapManager : BaseManager<MapManager>
                 exitingSquare.Add(GameObject.Instantiate(mapSquares[Random.Range(0, mapSquares.Count)], nextSquare, Quaternion.identity));
             }
         }
+    }
+
+    public void ChangeLevel(int levelNum)
+    {
+        nowLevel = DataManager.GetInstance().AskLevelData(levelNum-1);
     }
 
     public void BeginMapCreate()
@@ -64,7 +72,7 @@ public class MapManager : BaseManager<MapManager>
             t.transform.position = new Vector3(t.transform.position.x, t.transform.position.y,
                 exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[1]);
             exitingSquare.Add(t);
-            EnemyCreate(t);
+            ItemCreate(t);
         }
     }
 
@@ -89,10 +97,10 @@ public class MapManager : BaseManager<MapManager>
     }
 
     /// <summary>
-    /// 在一片地面上随机生成敌人
+    /// 在一片地面上随机生成和门
     /// </summary>
     /// <param name="ground"></param>
-    void EnemyCreate(GameObject ground)
+    void ItemCreate(GameObject ground)
     {
         GameObject enemyList = new GameObject("EnemyList");
         int n = Random.Range(0, enemyDensity + 1);

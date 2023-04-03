@@ -14,7 +14,9 @@ using UnityEngine;
 public enum CharacterType
 {
     Player,
-    Bat,
+    Bat,//ÆÕÍ¨òùòğĞ¡¹Ö
+    Coins,//Í­Ç®boss
+    TaoWu,//—ƒè»boss
 }
 
 public enum CharacterStateType

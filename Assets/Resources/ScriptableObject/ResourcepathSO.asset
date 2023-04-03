@@ -20,9 +20,11 @@ MonoBehaviour:
   - resourceType: 1
     resourceNPs:
     - name: Plane1
-      path: Prefab/Map/Plane1
+      path: Prefabs/Map/Ground/Plane1
     - name: Plane2
-      path: Prefab/Map/Plane2
+      path: Prefabs/Map/Ground/Plane2
+    - name: Plane3
+      path: Prefabs/Map/Ground/Plane3
   - resourceType: 2
     resourceNPs:
     - name: Bat

@@ -60,3 +60,23 @@ public struct BulletDatas
 }
 
 #endregion
+
+#region 关卡数据
+[Serializable] 
+public struct LevelData
+{
+    [Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
+    [Header("关卡总波次")] public int num;
+    [Header("波次敌人基础数量")] public int baseEnemyNum;
+    [Header("敌人增长数量")] public int riseEnemyNum;
+    [Header("关卡boss")] public CharacterType characterType;
+}
+
+[Serializable]
+public struct LevelDatas
+{
+    [Header("关卡序号")] public int id;
+    public LevelData levelData;
+}
+
+#endregion

@@ -10,4 +10,6 @@ public static class NameCenter
 
     //======================敌人========================//
     public static string BatName="Bat";
+    public static string BOSS1Name = "Coins";
+    public static string BOSS2Name = "TaoWu";
 }
