@@ -65,11 +65,14 @@ public struct BulletDatas
 [Serializable] 
 public struct LevelData
 {
+    [Header("关卡地面类型")] public List<GameObject> planes;
     [Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
-    [Header("关卡总波次")] public int num;
+    [Header("关卡总波次")] public int waveNum;
     [Header("波次敌人基础数量")] public int baseEnemyNum;
     [Header("敌人增长数量")] public int riseEnemyNum;
-    [Header("关卡boss")] public CharacterType characterType;
+    [Header("波次buff门基础数量")] public int baseBuffDoorNum;
+    [Header("波次buff门增长数量")] public int riseBuffDoorNum;
+    [Header("关卡boss")] public CharacterType bossType;
 }
 
 [Serializable]

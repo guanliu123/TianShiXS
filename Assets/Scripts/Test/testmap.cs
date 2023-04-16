@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class testmap : MonoBehaviour
 {
-    public GameObject t;
+    public int nowLevel;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            MapManager.GetInstance().ChangeLevel(nowLevel);
             MapManager.GetInstance().StartMapCreate();
         }
-        if (Input.GetKeyDown(KeyCode.K)) GameObject.Instantiate(t, Vector3.zero, Quaternion.identity);
     }
 }

@@ -15,13 +15,43 @@ MonoBehaviour:
   characterdatas:
   - characterType: 0
     characterData:
+      name: 
       MaxHP: 100
       bulletTypes: 00000000
       ATK: 30
       ATKInterval: 0.82
   - characterType: 1
     characterData:
+      name: 
       MaxHP: 90
-      bulletTypes: 
+      bulletTypes: 03000000
       ATK: 20
       ATKInterval: 3
+  - characterType: 2
+    characterData:
+      name: Eagle
+      MaxHP: 90
+      bulletTypes: 03000000
+      ATK: 20
+      ATKInterval: 3
+  - characterType: 3
+    characterData:
+      name: Laser
+      MaxHP: 70
+      bulletTypes: 00000000
+      ATK: 40
+      ATKInterval: 4
+  - characterType: 4
+    characterData:
+      name: Coins
+      MaxHP: 500
+      bulletTypes: 03000000
+      ATK: 40
+      ATKInterval: 4
+  - characterType: 5
+    characterData:
+      name: TaoWu
+      MaxHP: 500
+      bulletTypes: 03000000
+      ATK: 40
+      ATKInterval: 4

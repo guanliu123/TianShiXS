@@ -7,9 +7,10 @@ using System.Threading;
 public class StartScene : SceneBase
 {
     private static readonly string sceneName = "Scenes/StartScene";
+
     public override void OnEnter()
     {
-        if(SceneManager.GetActiveScene().name!=sceneName)
+        if(SceneManager.GetActiveScene().name!="StartScene")
         {
             //SceneManager.LoadScene(sceneName);
             GameRoot.Instance.SwitchScene(sceneName);
@@ -19,6 +20,8 @@ public class StartScene : SceneBase
         {
             PanelManager.Instance.Push(new StartPanel());
         }
+        //MapManager.GetInstance().ChangeLevel(0);
+        MapManager.GetInstance().StartMapCreate();
     }
 
     public override void OnExit()

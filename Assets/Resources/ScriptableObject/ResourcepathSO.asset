@@ -29,7 +29,29 @@ MonoBehaviour:
     resourceNPs:
     - name: Bat
       path: Prefabs/Enemy/NormalEnemy/Bat/Bat
+    - name: Coins
+      path: Prefabs/Enemy/BOSS/BOSS1
+    - name: TaoWu
+      path: Prefabs/Enemy/BOSS/TaoWu
+    - name: Eagle
+      path: Prefabs/Enemy/NormalEnemy/Eagle
+    - name: Laser
+      path: Prefabs/Enemy/NormalEnemy/Laser
   - resourceType: 3
     resourceNPs:
-    - name: Sword
-      path: Prefabs/Bullet/Sword/Sword
+    - name: BaseSword
+      path: Prefabs/Bullet/Sword/BaseSword
+    - name: AttackSword
+      path: Prefabs/Bullet/Sword/AttackSword
+    - name: MoreSword
+      path: Prefabs/Bullet/Sword/MoreSword
+    - name: NormalBullet
+      path: Prefabs/Bullet/EnemyBullet/NormalBullet
+  - resourceType: 5
+    resourceNPs:
+    - name: DamageText
+      path: Prefabs/UI/DamageText
+  - resourceType: 4
+    resourceNPs:
+    - name: BuffDoors
+      path: Prefabs/Map/Item/BuffDoors

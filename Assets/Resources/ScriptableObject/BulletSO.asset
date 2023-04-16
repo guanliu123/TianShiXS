@@ -15,10 +15,43 @@ MonoBehaviour:
   bulletdatas:
   - bulletType: 0
     bulletData:
-      bulletName: Sword
-      existTime: 12
+      bulletName: BaseSword
+      existTime: 5
       isMovable: 1
-      moveSpeed: 5
+      moveSpeed: 12
+      moveTime: 0
+      stopTime: 0
+      isRotatable: 0
+      rotateSpeed: 0
+      rotateInterval: 0
+  - bulletType: 1
+    bulletData:
+      bulletName: AttackSword
+      existTime: 5
+      isMovable: 1
+      moveSpeed: 12
+      moveTime: 0
+      stopTime: 0
+      isRotatable: 0
+      rotateSpeed: 0
+      rotateInterval: 0
+  - bulletType: 2
+    bulletData:
+      bulletName: MoreSword
+      existTime: 5
+      isMovable: 1
+      moveSpeed: 12
+      moveTime: 0
+      stopTime: 0
+      isRotatable: 0
+      rotateSpeed: 0
+      rotateInterval: 0
+  - bulletType: 3
+    bulletData:
+      bulletName: NormalBullet
+      existTime: 4
+      isMovable: 1
+      moveSpeed: 8
       moveTime: 0
       stopTime: 0
       isRotatable: 0

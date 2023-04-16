@@ -16,7 +16,6 @@ public class RolePanel : BasePanel
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
-
             PanelManager.Instance.Pop();
         });
     }
