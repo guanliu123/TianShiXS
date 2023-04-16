@@ -6,18 +6,21 @@ using UIFrameWork;
 public class MainScene : SceneBase
 {
     private static readonly string sceneName = "Scenes/MainScene";
+
     public override void OnEnter()
     {
         if (SceneManager.GetActiveScene().name != sceneName)
         {
-            //SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
             GameRoot.Instance.SwitchScene(sceneName);
             SceneManager.sceneLoaded += SceneLoaded;
         }
         else
         {
-            PanelManager.Instance.Push(new MainPanel());
+            //PanelManager.Instance.Push(new MainPanel());
+            PanelManager.Instance.Push(new GamePanel());
         }
+        MapManager.GetInstance().StartMapCreate();
     }
 
     public override void OnExit()
@@ -28,6 +31,7 @@ public class MainScene : SceneBase
 
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PanelManager.Instance.Push(new MainPanel());
+        //PanelManager.Instance.Push(new MainPanel());
+        PanelManager.Instance.Push(new GamePanel());
     }
 }

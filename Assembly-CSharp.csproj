@@ -56,22 +56,38 @@
     <Analyzer Include="D:\DevelopmentTools\VS2019\mainapp\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\Base\BaseManager.cs" />
     <Compile Include="Assets\Scripts\Base\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Base\MonoController.cs" />
+    <Compile Include="Assets\Scripts\BuffDoor\BuffDoor.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
-    <Compile Include="Assets\Scripts\Bullet\Sword.cs" />
+    <Compile Include="Assets\Scripts\Bullet\EnemyAttack\NormalBullet.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Sword\AttackSword.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Sword\BaseSword.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Sword\MoreSword.cs" />
     <Compile Include="Assets\Scripts\Canter\EnumCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\EventCenter.cs" />
-    <Compile Include="Assets\Scripts\Canter\NameCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\StructCenter.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Bat\Bat.cs" />
+    <Compile Include="Assets\Scripts\Character\EnemyStates.cs" />
+    <Compile Include="Assets\Scripts\Character\HPSlider.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Taoist_priest.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\TestController.cs" />
     <Compile Include="Assets\Scripts\Data\BulletSO.cs" />
     <Compile Include="Assets\Scripts\Data\CharacterSO.cs" />
     <Compile Include="Assets\Scripts\Data\LevelSO.cs" />
     <Compile Include="Assets\Scripts\Data\ResourcepathSO.cs" />
+    <Compile Include="Assets\Scripts\Manager\BulletManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager.cs" />
     <Compile Include="Assets\Scripts\Manager\InputManager.cs" />
     <Compile Include="Assets\Scripts\Manager\MapManager.cs" />
@@ -82,9 +98,12 @@
     <Compile Include="Assets\Scripts\Test\testmap.cs" />
     <Compile Include="Assets\Scripts\UI\Application\GameRoot.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\GamePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\LevelPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\MainPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\RolePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\SkillPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\StartPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneBase.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
@@ -97,6 +116,11 @@
     <Compile Include="Assets\Scripts\UI\UIFrameWork\UIType.cs" />
     <Compile Include="Assets\Scripts\UI\UIFrameWork\UiTools\UITool.cs" />
     <Compile Include="Assets\Scripts\UI\Utilization\SingletonBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\DOTween\DOTween.XML" />
+    <None Include="Assets\DOTween\DOTween.dll" />
+    <None Include="Assets\DOTween\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -284,6 +308,9 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:\GameDevelopment\Unity\2019.4.29f1c110\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\GameDevelopment\Unity\2019.4.29f1c110\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

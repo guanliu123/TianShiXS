@@ -34,15 +34,17 @@ public class BulletBase : MonoBehaviour, IInitBullet
         playerBulletMask = LayerMask.GetMask("Enemy");//玩家发射出去的子弹的layermask
         enemyBulletMask = LayerMask.GetMask("Player");//敌人发射出去的子弹的layermask
 
-        if (bulletData.isMovable)
-        {
-            bulletAction += BaseMove;
-            moveDir = gameObject.transform.forward;
-        }
+        if (bulletData.isMovable) bulletAction += BaseMove;
         if (bulletData.isRotatable) bulletAction += BaseRotate;
 
         bulletAction += AttackCheck;
         bulletAction += Retrieve;
+    }
+
+    protected void OnEnable()
+    {
+        
+        moveDir = Vector3.forward;
     }
 
     // Update is called once per frame
@@ -95,6 +97,11 @@ public class BulletBase : MonoBehaviour, IInitBullet
 
     }
 
+    public virtual void BulletEvolution(EvolutionType evolutionType)
+    {
+
+    }
+
     //如果有类似Sword这样需要获取子物体所有点位以便发射射线进行检测的子弹类型，调用这个方法
     protected List<GameObject> FindChilds()
     {
@@ -105,5 +112,9 @@ public class BulletBase : MonoBehaviour, IInitBullet
         }
 
         return t;
+    }
+    protected virtual void HitEvent()
+    {
+
     }
 }

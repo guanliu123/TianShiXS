@@ -1,13 +1,15 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface IDamage
 {
-    void TakeDamage(float damage);
+    void TakeDamage(float damage,Transform damagePoint);
+    void ShowDamage(float damage,Transform point);
 }
 
-public class CharacterBase : MonoBehaviour,IDamage
+public class CharacterBase : MonoBehaviour, IDamage
 {
     public CharacterData characterData;
 
@@ -22,6 +24,7 @@ public class CharacterBase : MonoBehaviour,IDamage
     public float ATKInterval;
 
     public Animator animator;
+    public HPSlider hpSlider;
 
     protected void Awake()
     {
@@ -53,10 +56,25 @@ public class CharacterBase : MonoBehaviour,IDamage
         if (currentState != null) currentState.OnUpdate();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage,Transform damagePoint)
     {
         nowHP -= damage;
+        if (hpSlider) hpSlider.UpdateHPSlider(maxHP, nowHP);
+        ShowDamage(damage, damagePoint);
         if (nowHP <= 0) DiedEvent();
+    }
+    public void ShowDamage(float damage,Transform point)
+    {
+        GameObject obj = PoolManager.GetInstance().GetObj("DamageText");
+
+        obj.transform.position = point.position;
+        obj.GetComponent<TextMesh>().text = damage + "";
+
+        Vector3 cameraPoint = new Vector3(Screen.width / 2, 0, Screen.height / 2);
+        obj.transform.LookAt(Camera.main.ScreenToWorldPoint(cameraPoint));
+
+        float posY = obj.transform.position.y + 1f;
+        obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("DamageText", obj); });
     }
 
     public void TransitionState(CharacterStateType characterStateType)
@@ -76,5 +94,11 @@ public class CharacterBase : MonoBehaviour,IDamage
     public virtual void DiedEvent()
     {
         PoolManager.GetInstance().PushObj(characterData.name, this.gameObject);
+        if (characterType != CharacterType.Player) Taoist_priest._instance.nowEnergy += 10f;
+    }
+
+    public void SetHP()
+    {
+        throw new System.NotImplementedException();
     }
 }

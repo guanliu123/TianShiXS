@@ -22,7 +22,8 @@ public class GameRoot : MonoBehaviour
 
     public void SwitchScene(string sceneName)
     {
-        StartCoroutine(Delay(sceneName));
+        SceneManager.LoadScene(sceneName);
+        //StartCoroutine(Delay(sceneName));
     }
 
     private IEnumerator Delay(string sceneName)
