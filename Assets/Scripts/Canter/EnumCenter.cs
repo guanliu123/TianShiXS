@@ -43,3 +43,8 @@ public enum BulletType
     NormalBullet,
 }
 
+public enum CameraPointType
+{
+    MainPoint,
+}
+

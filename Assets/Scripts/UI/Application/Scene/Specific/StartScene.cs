@@ -20,8 +20,7 @@ public class StartScene : SceneBase
         {
             PanelManager.Instance.Push(new StartPanel());
         }
-        //MapManager.GetInstance().ChangeLevel(0);
-        MapManager.GetInstance().StartMapCreate();
+        //MapManager.GetInstance().StartMapCreate();
     }
 
     public override void OnExit()

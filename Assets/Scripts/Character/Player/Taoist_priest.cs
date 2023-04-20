@@ -8,7 +8,7 @@ public class Taoist_priest : CharacterBase
     public static Taoist_priest _instance = new Taoist_priest();
 
     private BulletType nowBullet = BulletType.BaseSword;
-    public float nowEnergy=0f;
+    
 
     // Start is called before the first frame update
     void Awake()
