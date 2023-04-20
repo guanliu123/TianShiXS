@@ -25,6 +25,16 @@ public class StartPanel : BasePanel
         {
             PanelManager.Instance.Push(new LevelPanel());
         });
+        UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", panel).onClick.AddListener(() =>
+        {
+            GameManager.GetInstance().StartGame();
+            PanelManager.Instance.Clear();
+            PanelManager.Instance.Push(new GamePanel());
+        });
+        UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
+        {
+            AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
+        });
         //UITool.GetOrAddComponentInChildren<Button>("Btn_Play", panel).onClick.AddListener(() =>
         //{
         //    SceneSystem.Instance.SetScene(new MainScene());

@@ -94,7 +94,7 @@ public class CharacterBase : MonoBehaviour, IDamage
     public virtual void DiedEvent()
     {
         PoolManager.GetInstance().PushObj(characterData.name, this.gameObject);
-        if (characterType != CharacterType.Player) Taoist_priest._instance.nowEnergy += 10f;
+        if (characterType != CharacterType.Player) GameManager.GetInstance().ChangeEnergy(10f);
     }
 
     public void SetHP()

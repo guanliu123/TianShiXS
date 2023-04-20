@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Data\ResourcepathSO.cs" />
     <Compile Include="Assets\Scripts\Manager\BulletManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\InputManager.cs" />
     <Compile Include="Assets\Scripts\Manager\MapManager.cs" />
     <Compile Include="Assets\Scripts\Manager\MonoManager.cs" />

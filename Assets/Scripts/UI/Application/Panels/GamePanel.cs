@@ -22,9 +22,7 @@ public class GamePanel : BasePanel
         {
             if (value >= 1)
             {
-                PanelManager.Instance.Push(new SkillPanel());
-                Time.timeScale = 0f;
-                Taoist_priest._instance.nowEnergy = 0f;
+                GameManager.GetInstance().CallSkillPanel();
             }
         });
 
@@ -36,6 +34,6 @@ public class GamePanel : BasePanel
     }
     public void EnergySliderListener()
     {
-        energySlider.value = Taoist_priest._instance.nowEnergy / 100f;
+        energySlider.value = GameManager.GetInstance().playerEnergy / 100f;
     }
 }

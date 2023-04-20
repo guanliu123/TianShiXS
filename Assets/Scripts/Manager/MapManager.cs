@@ -9,7 +9,7 @@ public class MapManager : BaseManager<MapManager>
 {
     private List<GameObject> mapSquares=new List<GameObject>();
 
-    private bool isStart;
+    //private bool isStart;
 
     private LevelData nowLevel;
 
@@ -38,28 +38,13 @@ public class MapManager : BaseManager<MapManager>
         mapSquares = nowLevel.planes;
     }
 
-    public void StartGame()
-    {
-        isStart = true;
-        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-
-        player.AddComponent<Taoist_priest>();
-        player.AddComponent<TestController>();
-
-        Camera mainCamera = Camera.main;
-        mainCamera.transform.DOMove(cameraPoint, 1f);
-        mainCamera.transform.DORotate(cameraRotation, 1f);
-    }
     private void InitMap()
     {
-        //Debug.Log(mapSquares);
         exitingSquare.Clear();
         for (int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
             {
-                //Debug.Log(mapSquares);
-                //Debug.Log(GameObject.Instantiate(mapSquares[Random.Range(0, mapSquares.Count)]));
                 exitingSquare.Add(GameObject.Instantiate(mapSquares[Random.Range(0, mapSquares.Count)], Vector3.zero, Quaternion.identity));
             }
             else
@@ -137,7 +122,7 @@ public class MapManager : BaseManager<MapManager>
     /// <param name="ground"></param>
     void ItemCreate(GameObject ground)
     {
-        if (!isStart) return;
+        //if (!isStart) return;
         EnemyCreate(ground);
         if (requireEnemy <= 0) WaveIncrease();
         if (nowWave == nowLevel.waveNum + 2)

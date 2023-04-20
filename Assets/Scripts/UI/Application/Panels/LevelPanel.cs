@@ -21,23 +21,13 @@ public class LevelPanel : BasePanel {
         });
         for(int i = 1; i <= 3; i++)
         {
-
-            /*UITool.GetOrAddComponentInChildren<Button>("Level_Btn" + i, panel).onClick.AddListener(() =>
-            {
-                MapManager.GetInstance().ChangeLevel(i);
-                PanelManager.Instance.Clear();
-                SceneSystem.Instance.SetScene(new MainScene());
-            });*/
             AddListener(UITool.GetOrAddComponentInChildren<Button>("Level_Btn"+i,panel), i);
         }
     }
     void AddListener(Button button, int parameter)
     {
         button.onClick.AddListener(delegate {
-            MapManager.GetInstance().ChangeLevel(parameter);
-            MapManager.GetInstance().StartGame();
-            PanelManager.Instance.Clear();
-            PanelManager.Instance.Push(new GamePanel());
+            GameManager.GetInstance().ChangeLevel(parameter);
         });
     }
 }
