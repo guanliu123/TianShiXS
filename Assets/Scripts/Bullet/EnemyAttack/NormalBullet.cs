@@ -20,7 +20,7 @@ public class NormalBullet : BulletBase
         Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, enemyBulletMask);
         if (hits.Length > 0)
         {
-            targetIDamage = hits[0].gameObject.GetComponent<IDamage>();
+            targetIDamage = hits[0].gameObject.GetComponentInParent<IDamage>();
             targetIDamage.TakeDamage(baseATK, hits[0].transform);
 
             RetrieveInstant();

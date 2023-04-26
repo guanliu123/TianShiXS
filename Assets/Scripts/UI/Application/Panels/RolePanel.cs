@@ -18,5 +18,13 @@ public class RolePanel : BasePanel
         {
             PanelManager.Instance.Pop();
         });
+        UITool.GetOrAddComponentInChildren<Button>("Player2_Btn", panel).onClick.AddListener(() => 
+        { 
+            GameManager.GetInstance().ChangeRole(CharacterType.JinYiWei); 
+        });
+        UITool.GetOrAddComponentInChildren<Button>("Player3_Btn", panel).onClick.AddListener(() =>
+        {
+            GameManager.GetInstance().ChangeRole(CharacterType.KuiJia);
+        });
     }
 }

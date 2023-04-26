@@ -35,6 +35,11 @@ public class StartPanel : BasePanel
         {
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
         });
+
+        UITool.GetOrAddComponentInChildren<Button>("Box_Btn", panel).onClick.AddListener(() =>
+        {
+            PanelManager.Instance.Push(new BoxPanel());
+        });
         //UITool.GetOrAddComponentInChildren<Button>("Btn_Play", panel).onClick.AddListener(() =>
         //{
         //    SceneSystem.Instance.SetScene(new MainScene());

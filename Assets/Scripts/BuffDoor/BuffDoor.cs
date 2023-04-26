@@ -21,7 +21,7 @@ public class BuffDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>() != null)
+        if (other.GetComponentInParent<Player>() != null)
         {
             Player._instance.ChangeBullet(evolutionType);
             PoolManager.GetInstance().PushObj(BuffDoorType.BuffDoors.ToString(), gameObject.transform.parent.gameObject);

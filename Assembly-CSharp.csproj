@@ -97,8 +97,11 @@
     <Compile Include="Assets\Scripts\Manager\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Prop\Money.cs" />
+    <Compile Include="Assets\Scripts\Prop\PropBase.cs" />
     <Compile Include="Assets\Scripts\Test\testmap.cs" />
     <Compile Include="Assets\Scripts\UI\Application\GameRoot.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\BoxPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\GamePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\LevelPanel.cs" />

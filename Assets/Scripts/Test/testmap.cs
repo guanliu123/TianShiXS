@@ -11,6 +11,7 @@ public class testmap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameManager.GetInstance().PlayerEvolution();
         }
     }
 }
