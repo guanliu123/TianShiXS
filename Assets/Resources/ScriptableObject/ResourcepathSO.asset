@@ -25,6 +25,10 @@ MonoBehaviour:
       path: Prefabs/Map/Ground/Plane2
     - name: Plane3
       path: Prefabs/Map/Ground/Plane3
+    - name: NormalGround
+      path: Prefabs/Map/Ground/NormalGround
+    - name: WidthPlane
+      path: Prefabs/Map/Ground/WidthPlane
   - resourceType: 2
     resourceNPs:
     - name: Bat

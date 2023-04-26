@@ -20,7 +20,7 @@ public class MainScene : SceneBase
             //PanelManager.Instance.Push(new MainPanel());
             PanelManager.Instance.Push(new GamePanel());
         }
-        MapManager.GetInstance().StartMapCreate();
+        //LevelManager.GetInstance().StartMapCreate();
     }
 
     public override void OnExit()

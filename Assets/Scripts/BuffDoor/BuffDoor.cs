@@ -21,9 +21,9 @@ public class BuffDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Taoist_priest>() != null)
+        if (other.GetComponent<Player>() != null)
         {
-            Taoist_priest._instance.ChangeBullet(evolutionType);
+            Player._instance.ChangeBullet(evolutionType);
             PoolManager.GetInstance().PushObj(BuffDoorType.BuffDoors.ToString(), gameObject.transform.parent.gameObject);
         }
     }

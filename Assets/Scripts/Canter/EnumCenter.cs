@@ -46,5 +46,6 @@ public enum BulletType
 public enum CameraPointType
 {
     MainPoint,
+    HighPoint,
 }
 

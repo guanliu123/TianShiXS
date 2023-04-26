@@ -25,7 +25,7 @@ namespace EnemyStates {
 
         public void OnUpdate()
         {
-            distance = (character.gameObject.transform.position - Taoist_priest._instance.gameObject.transform.position).magnitude;
+            distance = (character.gameObject.transform.position - Player._instance.gameObject.transform.position).magnitude;
             if (distance < 30)
             {
                 character.TransitionState(CharacterStateType.PrepareAttack);
@@ -58,7 +58,7 @@ namespace EnemyStates {
         public void OnUpdate()
         {
             timer += Time.deltaTime;
-            character.gameObject.transform.LookAt(Taoist_priest._instance.transform);
+            character.gameObject.transform.LookAt(Player._instance.transform);
             if (timer > character.ATKInterval)
             {
                 character.TransitionState(CharacterStateType.Attack);
