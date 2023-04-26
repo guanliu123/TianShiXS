@@ -29,6 +29,8 @@ public struct ResourceDatas
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色攻击力")] public float ATK;
     [Header("角色攻击间隔")] public float ATKInterval;
+    [Header("角色死亡增加能量")] public float energy;
+    [Header("角色死亡掉落金币")] public int money;
 }
 
 [Serializable]
@@ -62,17 +64,30 @@ public struct BulletDatas
 #endregion
 
 #region 关卡数据
+[Serializable]
+public struct StageData
+{
+    [Header("阶段编号")] public int StageNum;
+    [Header("是否属于特殊阶段")] public bool isSpecial;
+    [Header("是否boss战")] public bool isBoss;
+    [Header("BOSS类型")] public CharacterType[] BOSSType;
+    [Header("关卡波次及敌人数量")] public int[] WaveEnemyNum;
+    [Header("每波敌人类型")] public CharacterType[] WaveEnemyType;
+}
+
 [Serializable] 
 public struct LevelData
 {
-    [Header("关卡地面类型")] public List<GameObject> planes;
-    [Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
+    [Header("关卡普通地面类型")] public List<GameObject> normalPlanes;
+    [Header("关卡特殊地面类型")] public List<GameObject> widthPlanes;
+    /*[Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
     [Header("关卡总波次")] public int waveNum;
     [Header("波次敌人基础数量")] public int baseEnemyNum;
     [Header("敌人增长数量")] public int riseEnemyNum;
     [Header("波次buff门基础数量")] public int baseBuffDoorNum;
     [Header("波次buff门增长数量")] public int riseBuffDoorNum;
-    [Header("关卡boss")] public CharacterType bossType;
+    [Header("关卡boss")] public CharacterType bossType;*/
+    [Header("关卡阶段")] public List<StageData> StageDatas;
 }
 
 [Serializable]

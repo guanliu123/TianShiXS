@@ -6,39 +6,43 @@ using UnityEngine;
 
 public class GameManager : BaseManager<GameManager>
 {
-    public static GameManager Instance { get; private set; }
-
-    private Dictionary<CameraPointType, Vector3> cameraPos = new Dictionary<CameraPointType, Vector3>();
-    private Dictionary<CameraPointType, Vector3> cameraRot = new Dictionary<CameraPointType, Vector3>();
+    //public static GameManager Instance { get; private set; }
 
     public float playerEnergy { get; private set; }
+    public int playerMoney {get; private set;}
+
+    public CharacterType nowPlayerType { get; private set; }
+
+    public int existEnemy { get; private set; }
 
     public GameManager(){
-        cameraPos.Add(CameraPointType.MainPoint, new Vector3(0, 4.3f, -7.15f));
-        cameraRot.Add(CameraPointType.MainPoint, new Vector3(11.75f, 0, 0));
+        ChangeRole();
+    }
+
+    public void ChangeRole(CharacterType playerType=CharacterType.Player)
+    {
+        nowPlayerType = playerType;
     }
 
     public void ChangeLevel(int levelNum)
     {
-        MapManager.GetInstance().ChangeLevel(levelNum);
+        LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 
     public void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
 
-        player.AddComponent<Taoist_priest>();
+        player.AddComponent<Player>();
         player.AddComponent<TestController>();
 
-        MapManager.GetInstance().StartMapCreate();
+        LevelManager.GetInstance().StartMapCreate();
         CameraMove(CameraPointType.MainPoint, 1f);
     }
 
-    private void CameraMove(CameraPointType cameraPointType,float moveTime)
+    public void CameraMove(CameraPointType cameraPointType,float moveTime)
     {
-        Camera mainCamera = Camera.main;
-        mainCamera.transform.DOMove(cameraPos[cameraPointType], moveTime);
-        mainCamera.transform.DORotate(cameraRot[cameraPointType], moveTime);
+        CameraManager.GetInstance().CameraMove(cameraPointType, moveTime);
     }
 
     public void ChangeEnergy(float num)
@@ -46,10 +50,28 @@ public class GameManager : BaseManager<GameManager>
         playerEnergy += num;
         if (playerEnergy < 0) playerEnergy = 0;
     }
+    public void ChangeMoney(int money)
+    {
+        playerMoney += money;
+    }
+
     public void CallSkillPanel()
     {
         PanelManager.Instance.Push(new SkillPanel());
         Time.timeScale = 0f;
         ChangeEnergy(-playerEnergy);
+    }
+
+    public void EnemyDecrease()
+    {
+        existEnemy--;
+        if (existEnemy <= 0)
+        {
+            LevelManager.GetInstance().WaveIncrease();
+        }
+    }
+    public void EnemyIncrease()
+    {
+        existEnemy++;
     }
 }

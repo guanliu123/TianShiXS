@@ -11,8 +11,6 @@ public class testmap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MapManager.GetInstance().ChangeLevel(nowLevel);
-            MapManager.GetInstance().StartMapCreate();
         }
     }
 }

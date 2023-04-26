@@ -20,6 +20,8 @@ MonoBehaviour:
       bulletTypes: 00000000
       ATK: 30
       ATKInterval: 0.82
+      energy: 0
+      money: 0
   - characterType: 1
     characterData:
       name: 
@@ -27,6 +29,8 @@ MonoBehaviour:
       bulletTypes: 03000000
       ATK: 20
       ATKInterval: 3
+      energy: 10
+      money: 2
   - characterType: 2
     characterData:
       name: Eagle
@@ -34,6 +38,8 @@ MonoBehaviour:
       bulletTypes: 03000000
       ATK: 20
       ATKInterval: 3
+      energy: 0
+      money: 0
   - characterType: 3
     characterData:
       name: Laser
@@ -41,6 +47,8 @@ MonoBehaviour:
       bulletTypes: 00000000
       ATK: 40
       ATKInterval: 4
+      energy: 0
+      money: 0
   - characterType: 4
     characterData:
       name: Coins
@@ -48,6 +56,8 @@ MonoBehaviour:
       bulletTypes: 03000000
       ATK: 40
       ATKInterval: 4
+      energy: 0
+      money: 0
   - characterType: 5
     characterData:
       name: TaoWu
@@ -55,3 +65,5 @@ MonoBehaviour:
       bulletTypes: 03000000
       ATK: 40
       ATKInterval: 4
+      energy: 0
+      money: 0

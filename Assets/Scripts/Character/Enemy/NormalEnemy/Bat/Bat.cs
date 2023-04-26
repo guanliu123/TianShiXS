@@ -10,6 +10,7 @@ namespace Bat {
         void Awake()
         {
             base.Awake();
+            characterEvent += Recovery;
             characterType = CharacterType.Bat;
             statesDic.Add(CharacterStateType.Idle, new NormalIdleState(this));
             statesDic.Add(CharacterStateType.PrepareAttack, new NormalPrepareAttackState(this));
