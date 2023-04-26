@@ -44,7 +44,7 @@ public class CharacterBase : MonoBehaviour, IDamage
     protected void OnEnable()//从对象池取出的时候会置为初始状态
     {
         nowHP = maxHP;
-        if (characterType != CharacterType.Player) GameManager.GetInstance().EnemyIncrease();
+        if (characterType != CharacterType.DaoShi) GameManager.GetInstance().EnemyIncrease();
         TransitionState(CharacterStateType.Idle);
     }
 
@@ -107,12 +107,12 @@ public class CharacterBase : MonoBehaviour, IDamage
 
     public virtual void DiedEvent()
     {
-        PoolManager.GetInstance().PushObj(characterData.name, this.gameObject);
-        if (characterType != CharacterType.Player)
+        if (characterType != CharacterType.DaoShi)
         {
             GameManager.GetInstance().ChangeEnergy(characterData.energy);//改成读入数据中的增长能量值 
             FallMoney();
         }
+        PoolManager.GetInstance().PushObj(characterData.name, this.gameObject);    
     }
 
     private void OnDisable()
@@ -122,8 +122,11 @@ public class CharacterBase : MonoBehaviour, IDamage
 
     public void FallMoney()
     {
-        GameManager.GetInstance().ChangeMoney(characterData.money);
-        //生成金币的方式
+        for(int i = 0; i < characterData.money; i++)
+        {
+            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString());
+            t.transform.position = gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1));
+        }
     }
 
     public void SetHP()

@@ -59,3 +59,27 @@ MonoBehaviour:
     resourceNPs:
     - name: BuffDoors
       path: Prefabs/Map/Item/BuffDoors
+  - resourceType: 6
+    resourceNPs:
+    - name: Money
+      path: Prefabs/Prop/Money
+    - name: HuLu
+      path: Prefabs/Prop/HuLu
+    - name: DaoQi
+      path: Prefabs/Prop/DaoQi
+    - name: Banners
+      path: Prefabs/Prop/Banners
+    - name: Bell
+      path: Prefabs/Prop/Bell
+    - name: Sword
+      path: Prefabs/Prop/Sword
+  - resourceType: 7
+    resourceNPs:
+    - name: DaoShi
+      path: Prefabs/Player/DaoShi
+    - name: JinYiWei
+      path: Prefabs/Player/JinYiWei
+    - name: KuiJia
+      path: Prefabs/Player/KuiJia
+    - name: XiaKe
+      path: Prefabs/Player/XiaKe

@@ -15,11 +15,15 @@ public class GameManager : BaseManager<GameManager>
 
     public int existEnemy { get; private set; }
 
+    public int existBOSS { get; private set; }
+
+    private int evolutionNum = 0;
+
     public GameManager(){
         ChangeRole();
     }
 
-    public void ChangeRole(CharacterType playerType=CharacterType.Player)
+    public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
     {
         nowPlayerType = playerType;
     }
@@ -32,9 +36,13 @@ public class GameManager : BaseManager<GameManager>
     public void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-
+        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString());
+        
         player.AddComponent<Player>();
-        player.AddComponent<TestController>();
+        player.AddComponent<PlayerController>();
+        player.transform.position = Vector3.zero;
+        playerObj.transform.position = Vector3.zero;
+        playerObj.transform.parent = player.transform;
 
         LevelManager.GetInstance().StartMapCreate();
         CameraMove(CameraPointType.MainPoint, 1f);
@@ -70,8 +78,19 @@ public class GameManager : BaseManager<GameManager>
             LevelManager.GetInstance().WaveIncrease();
         }
     }
+
     public void EnemyIncrease()
     {
         existEnemy++;
+    }
+
+    public void PlayerEvolution()
+    {
+        switch (evolutionNum)
+        {
+            case 0:
+                PoolManager.GetInstance().GetObj(PropType.HuLu.ToString()).transform.parent=Player._instance.transform;break;
+        }
+        evolutionNum++;
     }
 }

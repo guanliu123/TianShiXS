@@ -7,7 +7,9 @@ using UIFrameWork;
 public class GamePanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/GamePanel";
+
     public Slider energySlider;
+    public Text moneyText;
 
     public GamePanel() : base(new UIType(path))
     {
@@ -25,15 +27,21 @@ public class GamePanel : BasePanel
                 GameManager.GetInstance().CallSkillPanel();
             }
         });
+        moneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
 
         MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
     }
     public void GameUIEvent()
     {
         EnergySliderListener();
+        MoneyListener();
     }
     public void EnergySliderListener()
     {
         energySlider.value = GameManager.GetInstance().playerEnergy / 100f;
+    }
+    public void MoneyListener()
+    {
+        moneyText.text = GameManager.GetInstance().playerMoney + "";
     }
 }

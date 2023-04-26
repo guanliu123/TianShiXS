@@ -11,16 +11,21 @@ using UnityEngine;
         Bullet,
         BuffDoor,
         UI,
+        Prop,
+        Player,
     }
 
 public enum CharacterType
 {
-    Player,
+    DaoShi,
     Bat,//普通蝙蝠小怪
     Eagle,//老鹰
     Laser,//激光怪物
     Coins,//铜钱boss
     TaoWu,//梼杌boss
+    JinYiWei,
+    KuiJia,
+    XiaKe,
 }
 
 public enum CharacterStateType
@@ -47,5 +52,15 @@ public enum CameraPointType
 {
     MainPoint,
     HighPoint,
+}
+
+public enum PropType
+{
+    Money,
+    HuLu,
+    DaoQi,
+    Sword,
+    Bell,
+    Banners,
 }
 

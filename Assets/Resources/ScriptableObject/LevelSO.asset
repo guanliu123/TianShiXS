@@ -24,14 +24,14 @@ MonoBehaviour:
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0300000004000000
+        WaveEnemyNum: 09000000
         WaveEnemyType: 01000000
       - StageNum: 1
         isSpecial: 1
         isBoss: 0
         BOSSType: 
         WaveEnemyNum: 0300000005000000
-        WaveEnemyType: 0100000003000000
+        WaveEnemyType: 01000000
       - StageNum: 2
         isSpecial: 0
         isBoss: 0
@@ -42,8 +42,8 @@ MonoBehaviour:
         isSpecial: 1
         isBoss: 1
         BOSSType: 04000000
-        WaveEnemyNum: 
-        WaveEnemyType: 
+        WaveEnemyNum: 03000000
+        WaveEnemyType: 01000000
   - id: 1
     levelData:
       normalPlanes:

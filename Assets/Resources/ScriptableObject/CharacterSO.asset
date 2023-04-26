@@ -19,7 +19,7 @@ MonoBehaviour:
       MaxHP: 100
       bulletTypes: 00000000
       ATK: 30
-      ATKInterval: 0.82
+      ATKInterval: 1
       energy: 0
       money: 0
   - characterType: 1
@@ -65,5 +65,32 @@ MonoBehaviour:
       bulletTypes: 03000000
       ATK: 40
       ATKInterval: 4
+      energy: 0
+      money: 0
+  - characterType: 6
+    characterData:
+      name: JinYiWei
+      MaxHP: 100
+      bulletTypes: 03000000
+      ATK: 40
+      ATKInterval: 1.5
+      energy: 0
+      money: 0
+  - characterType: 7
+    characterData:
+      name: KuiJia
+      MaxHP: 150
+      bulletTypes: 03000000
+      ATK: 30
+      ATKInterval: 1
+      energy: 0
+      money: 0
+  - characterType: 8
+    characterData:
+      name: KuiJia
+      MaxHP: 100
+      bulletTypes: 03000000
+      ATK: 30
+      ATKInterval: 0.8
       energy: 0
       money: 0
