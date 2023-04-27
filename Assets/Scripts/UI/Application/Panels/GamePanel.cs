@@ -28,6 +28,12 @@ public class GamePanel : BasePanel
             }
         });
         moneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
+        UITool.GetOrAddComponentInChildren<Button>("Quit_Btn", panel).onClick.AddListener(() =>
+        {
+            GameManager.GetInstance().QuitGame();
+            PanelManager.Instance.Clear();
+            PanelManager.Instance.Push(new StartPanel());
+        });
 
         MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
     }

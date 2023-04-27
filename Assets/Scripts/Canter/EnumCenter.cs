@@ -26,6 +26,7 @@ public enum CharacterType
     JinYiWei,
     KuiJia,
     XiaKe,
+    ShiXu,
 }
 
 public enum CharacterStateType

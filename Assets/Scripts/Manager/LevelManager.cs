@@ -70,10 +70,23 @@ public class LevelManager : BaseManager<LevelManager>
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
     }
 
-    public void StartMapCreate()
+    public void Start()
     {
         InitMap();
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
+    }
+
+    public void Stop()
+    {
+        MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
+        for(int i = 0; i < exitingSquare.Count; i++)
+        {
+            RetrieveItem(exitingSquare[i]);
+            GameObject.Destroy(exitingSquare[i]);
+        }
+
+        PoolManager.GetInstance().Clear();
+        exitingSquare.Clear();
     }
 
     void LevelEvent()
@@ -117,7 +130,6 @@ public class LevelManager : BaseManager<LevelManager>
             exitingSquare.RemoveAt(0);
             RetrieveItem(t);
             GameObject.Destroy(t);
-            //RecovryGround(t);
 
             t2.transform.position = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x, exitingSquare[exitingSquare.Count - 1].transform.position.y,
                 exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
@@ -128,6 +140,8 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void PrepareChangeStage()
     {
+        if (isSp == nowLevel.StageDatas[nowStage].isSpecial) return;
+
         isSp = !isSp;
         if (isSp)
         {
