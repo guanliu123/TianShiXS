@@ -94,3 +94,12 @@ MonoBehaviour:
       ATKInterval: 0.8
       energy: 0
       money: 0
+  - characterType: 9
+    characterData:
+      name: ShiXu
+      MaxHP: 120
+      bulletTypes: 03000000
+      ATK: 30
+      ATKInterval: 0.8
+      energy: 0
+      money: 0

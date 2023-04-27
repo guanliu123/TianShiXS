@@ -26,6 +26,7 @@ public class SkillPanel : BasePanel
             {
                 RandomSkill();
                 Time.timeScale = 1;
+                GameManager.GetInstance().PlayerEvolution();
                 PanelManager.Instance.Pop();
             });
         }

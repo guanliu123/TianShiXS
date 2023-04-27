@@ -125,6 +125,7 @@ public class CharacterBase : MonoBehaviour, IDamage
         for(int i = 0; i < characterData.money; i++)
         {
             GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString());
+            
             t.transform.position = gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1));
         }
     }

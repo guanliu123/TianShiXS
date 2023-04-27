@@ -83,3 +83,5 @@ MonoBehaviour:
       path: Prefabs/Player/KuiJia
     - name: XiaKe
       path: Prefabs/Player/XiaKe
+    - name: ShiXu
+      path: Prefabs/Player/ShiXu

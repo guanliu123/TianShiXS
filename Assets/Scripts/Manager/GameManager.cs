@@ -39,13 +39,32 @@ public class GameManager : BaseManager<GameManager>
         GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString());
         
         player.AddComponent<Player>();
-        player.AddComponent<PlayerController>();
+        //player.AddComponent<PlayerController>();
+        player.AddComponent<TestController>();
         player.transform.position = Vector3.zero;
-        playerObj.transform.position = Vector3.zero;
+        //playerObj.transform.position = Vector3.zero;
         playerObj.transform.parent = player.transform;
 
-        LevelManager.GetInstance().StartMapCreate();
+        LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
+    }
+    public void QuitGame()
+    {
+        GameObject t=GameObject.FindGameObjectsWithTag("Player")[0];
+
+            for (int i = 0; t != null && i < t.transform.childCount; i++)
+            {
+                var child = t.transform.GetChild(i).gameObject;
+            GameObject.Destroy(child);
+            }
+
+        LevelManager.GetInstance().Stop();
+
+    }
+
+    public void PlayerReset()
+    {
+        Player._instance.transform.DOMove(Vector3.zero, 1f);
     }
 
     public void CameraMove(CameraPointType cameraPointType,float moveTime)
@@ -88,9 +107,20 @@ public class GameManager : BaseManager<GameManager>
     {
         switch (evolutionNum)
         {
-            case 0:
-                PoolManager.GetInstance().GetObj(PropType.HuLu.ToString()).transform.parent=Player._instance.transform;break;
+            case 0:AddEvolutionProp(PropType.HuLu);break;
+            case 1:AddEvolutionProp(PropType.DaoQi);break;
+            case 2:AddEvolutionProp(PropType.Bell);break;
+            case 3:AddEvolutionProp(PropType.Banners);break;
+            case 4:AddEvolutionProp(PropType.Sword);break;
+
         }
         evolutionNum++;
+    }
+
+    public void AddEvolutionProp(PropType propType)
+    {
+        GameObject t = PoolManager.GetInstance().GetObj(propType.ToString());
+        t.transform.position = Player._instance.transform.position;
+        t.transform.parent = Player._instance.transform;
     }
 }

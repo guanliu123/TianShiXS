@@ -13,7 +13,7 @@ public class Money : PropBase
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.DOMove(Player._instance.gameObject.transform.position, 0.7f);
+        gameObject.transform.DOMove(Player._instance.gameObject.transform.position+Vector3.up, 1f);
     }
 
     private void OnTriggerEnter(Collider other)
