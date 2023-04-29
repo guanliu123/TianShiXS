@@ -47,6 +47,7 @@ public class GameManager : BaseManager<GameManager>
 
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
+        CameraManager.GetInstance().StartCameraEvent();
     }
     public void QuitGame()
     {
@@ -55,11 +56,13 @@ public class GameManager : BaseManager<GameManager>
             for (int i = 0; t != null && i < t.transform.childCount; i++)
             {
                 var child = t.transform.GetChild(i).gameObject;
-            GameObject.Destroy(child);
+                GameObject.Destroy(child);
             }
 
         LevelManager.GetInstance().Stop();
-
+        GameObject.Destroy(t.GetComponent<Player>());
+        GameObject.Destroy(t.GetComponent<TestController>());
+        CameraManager.GetInstance().StopCameraEvent();
     }
 
     public void PlayerReset()

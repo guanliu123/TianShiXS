@@ -12,6 +12,7 @@ namespace Bat {
             base.Awake();
             characterEvent += Recovery;
             characterType = CharacterType.Bat;
+            characterTag = "Enemy";
             statesDic.Add(CharacterStateType.Idle, new NormalIdleState(this));
             statesDic.Add(CharacterStateType.PrepareAttack, new NormalPrepareAttackState(this));
             statesDic.Add(CharacterStateType.Attack, new NormalAttackState(this));

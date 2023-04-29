@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\UI\Application\Panels\BoxPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\GamePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\HandbookPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\LevelPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\MainPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\RolePanel.cs" />
