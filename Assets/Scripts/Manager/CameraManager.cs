@@ -18,7 +18,16 @@ public class CameraManager : BaseManager<CameraManager>
         cameraPos.Add(CameraPointType.HighPoint, new Vector3(0, 16.78f, -9.18f));
         cameraRot.Add(CameraPointType.HighPoint, new Vector3(45f, 0, 0));
 
-        MonoManager.GetInstance().AddUpdateListener(CameraEvent);    
+        //MonoManager.GetInstance().AddUpdateListener(CameraEvent);    
+    }
+
+    public void StartCameraEvent()
+    {
+        MonoManager.GetInstance().AddUpdateListener(CameraEvent);
+    }
+    public void StopCameraEvent()
+    {
+        MonoManager.GetInstance().RemoveUpdeteListener(CameraEvent);
     }
 
     private void CameraEvent()

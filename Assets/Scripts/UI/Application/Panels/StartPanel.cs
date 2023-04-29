@@ -21,6 +21,10 @@ public class StartPanel : BasePanel
         {
             PanelManager.Instance.Push(new RolePanel());
         });
+        UITool.GetOrAddComponentInChildren<Button>("Handbook_Btn", panel).onClick.AddListener(() =>
+        {
+            PanelManager.Instance.Push(new HandbookPanel());
+        });
         UITool.GetOrAddComponentInChildren<Button>("Level_Btn", panel).onClick.AddListener(() =>
         {
             PanelManager.Instance.Push(new LevelPanel());
@@ -31,6 +35,7 @@ public class StartPanel : BasePanel
             PanelManager.Instance.Clear();
             PanelManager.Instance.Push(new GamePanel());
         });
+
         UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
         {
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
