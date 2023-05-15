@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -38,21 +39,34 @@ public class MonoManager : BaseManager<MonoManager>
         controller.RemoveFiUpdateListener(func);
     }
 
-    //此处要改为用字典记录的方法
     //开启协程方法及其重载方法，使用时注意选择
-    public Coroutine StartCoroutine(IEnumerator routine)
+    public Coroutine StartCoroutine(CoroutineType coroutineType, IEnumerator enumerator, bool restart = false)
     {
-        return controller.StartCoroutine(routine);
+        int id = (int)coroutineType;
+        //return controller.StartCoroutine(routine);
+        return controller.Create(id, enumerator, restart);
     }
 
-    public Coroutine StartCoroutine(string methodName, [DefaultValue("null")] object value)
+    public Coroutine StartCoroutine(IEnumerator enumerator)
+    {
+        return controller.Create(enumerator);
+    }
+
+    public void KillCoroutine(CoroutineType coroutineType)
+    {
+        controller.Kill((int)coroutineType);
+    }
+
+    /*public Coroutine StartCoroutine(string methodName, [DefaultValue("null")] object value)
     {
         return controller.StartCoroutine(methodName, value);
-    }
-
-    public Coroutine StartCoroutine(string methodName)
+    }*/
+    /// <summary>
+    ///     通过调用此类中方法开启的协程必须在结束时写上这个或者kill方法并且传入id
+    /// </summary>
+    /// <param name="id">此协程的id</param>
+    public void CoroutineStopped(CoroutineType coroutineType)
     {
-        return controller.StartCoroutine(methodName);
+        controller.CoroutineStopped((int)coroutineType);
     }
-
 }

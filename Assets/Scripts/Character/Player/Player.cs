@@ -7,7 +7,7 @@ public class Player : CharacterBase
 {
     public static Player _instance = new Player();
 
-    private BulletType nowBullet = BulletType.BaseSword;
+    //private BulletType nowBullet = BulletType.BaseSword;
     
     // Start is called before the first frame update
     void Awake()
@@ -19,12 +19,8 @@ public class Player : CharacterBase
         characterTag = "Player";
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        base.Update();
+        InitData();
     }
 
     public override void Attack()
@@ -35,15 +31,29 @@ public class Player : CharacterBase
         IInitBullet initBullet = t.GetComponent<IInitBullet>();
         initBullet.InitInfo(ATK);*/
 
-        BulletManager.GetInstance().ShootBullet(gameObject.transform, nowBullet, ATK);
+        //BulletManager.GetInstance().ShootBullet(gameObject.transform, nowBullet, ATK);
+        base.Attack();
     }
 
     public void ChangeBullet(EvolutionType evolutionType)
     {
-        switch (evolutionType)
+        /*switch (evolutionType)
         {
             case EvolutionType.Attck: nowBullet = BulletType.AttackSword; break;
             case EvolutionType.Num: nowBullet = BulletType.MoreSword; break;
+        }*/
+    }
+
+    public void Evolute(BuffType bulletEvolutionType)
+    {
+        BulletEvolute(bulletEvolutionType);
+    }
+
+    public void BulletEvolute(BuffType bulletEvolutionType)
+    {
+        foreach (var item in nowBullet)
+        {
+            BulletManager.GetInstance().BulletEvolute(bulletEvolutionType, item.Key);
         }
     }
 }
@@ -64,6 +74,7 @@ namespace PlayerStates
         public void OnEnter()
         {
             //character.animator.Play("Idle");
+            character.AddCharacterEvent(character.Attack);
         }
 
         public void OnExit()
@@ -73,11 +84,11 @@ namespace PlayerStates
 
         public void OnUpdate()
         {
-            timer += Time.deltaTime;
+            /*timer += Time.deltaTime;
             if (timer > character.ATKInterval)
             {
                 character.TransitionState(CharacterStateType.Attack);
-            }
+            }*/
         }
     }
 
@@ -89,6 +100,7 @@ namespace PlayerStates
         {
             this.character = character;
         }
+
         public void OnEnter()
         {
             //character.animator.Play("Attack");
@@ -103,8 +115,6 @@ namespace PlayerStates
         public void OnUpdate()
         {
         }
-
-
     }
     #endregion
 }

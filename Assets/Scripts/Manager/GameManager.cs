@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UIFrameWork;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : BaseManager<GameManager>
 {
@@ -13,7 +14,7 @@ public class GameManager : BaseManager<GameManager>
 
     public CharacterType nowPlayerType { get; private set; }
 
-    public int existEnemy { get; private set; }
+    public List<GameObject> enemyList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
 
@@ -40,7 +41,7 @@ public class GameManager : BaseManager<GameManager>
         
         player.AddComponent<Player>();
         //player.AddComponent<PlayerController>();
-        player.AddComponent<TestController>();
+        player.AddComponent<PlayerController>();
         player.transform.position = Vector3.zero;
         //playerObj.transform.position = Vector3.zero;
         playerObj.transform.parent = player.transform;
@@ -51,18 +52,19 @@ public class GameManager : BaseManager<GameManager>
     }
     public void QuitGame()
     {
-        GameObject t=GameObject.FindGameObjectsWithTag("Player")[0];
+        GameObject t = GameObject.FindGameObjectsWithTag("Player")[0];
 
-            for (int i = 0; t != null && i < t.transform.childCount; i++)
-            {
-                var child = t.transform.GetChild(i).gameObject;
-                GameObject.Destroy(child);
-            }
+        for (int i = 0; t != null && i < t.transform.childCount; i++)
+        {
+            var child = t.transform.GetChild(i).gameObject;
+            GameObject.Destroy(child);
+        }
 
         LevelManager.GetInstance().Stop();
         GameObject.Destroy(t.GetComponent<Player>());
-        GameObject.Destroy(t.GetComponent<TestController>());
+        GameObject.Destroy(t.GetComponent<PlayerController>());
         CameraManager.GetInstance().StopCameraEvent();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PlayerReset()
@@ -92,18 +94,18 @@ public class GameManager : BaseManager<GameManager>
         ChangeEnergy(-playerEnergy);
     }
 
-    public void EnemyDecrease()
+    public void EnemyDecrease(GameObject obj)
     {
-        existEnemy--;
-        if (existEnemy <= 0)
+        enemyList.Remove(obj);
+        if (enemyList.Count <= 0)
         {
             LevelManager.GetInstance().WaveIncrease();
         }
     }
 
-    public void EnemyIncrease()
+    public void EnemyIncrease(GameObject obj)
     {
-        existEnemy++;
+        enemyList.Add(obj);
     }
 
     public void PlayerEvolution()

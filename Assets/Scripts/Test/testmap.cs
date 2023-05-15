@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class testmap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.GetInstance().PlayerEvolution();
+            foreach (var step in Enum.GetValues(typeof(BulletType)))
+            {
+                
+            }
         }
     }
 }

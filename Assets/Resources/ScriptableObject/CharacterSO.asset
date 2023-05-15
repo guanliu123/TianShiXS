@@ -15,91 +15,81 @@ MonoBehaviour:
   characterdatas:
   - characterType: 0
     characterData:
-      name: 
       MaxHP: 100
-      bulletTypes: 00000000
-      ATK: 30
-      ATKInterval: 1
+      bulletTypes: 01000000
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 1
     characterData:
-      name: 
       MaxHP: 90
-      bulletTypes: 03000000
-      ATK: 20
-      ATKInterval: 3
+      bulletTypes: 02000000
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 10
       money: 2
   - characterType: 2
     characterData:
-      name: Eagle
       MaxHP: 90
       bulletTypes: 03000000
-      ATK: 20
-      ATKInterval: 3
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 3
     characterData:
-      name: Laser
       MaxHP: 70
       bulletTypes: 00000000
-      ATK: 40
-      ATKInterval: 4
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 4
     characterData:
-      name: Coins
       MaxHP: 500
       bulletTypes: 03000000
-      ATK: 40
-      ATKInterval: 4
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 5
     characterData:
-      name: TaoWu
       MaxHP: 500
       bulletTypes: 03000000
-      ATK: 40
-      ATKInterval: 4
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 6
     characterData:
-      name: JinYiWei
       MaxHP: 100
       bulletTypes: 03000000
-      ATK: 40
-      ATKInterval: 1.5
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 7
     characterData:
-      name: KuiJia
       MaxHP: 150
       bulletTypes: 03000000
-      ATK: 30
-      ATKInterval: 1
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 8
     characterData:
-      name: KuiJia
       MaxHP: 100
       bulletTypes: 03000000
-      ATK: 30
-      ATKInterval: 0.8
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0
   - characterType: 9
     characterData:
-      name: ShiXu
       MaxHP: 120
       bulletTypes: 03000000
-      ATK: 30
-      ATKInterval: 0.8
+      Aggressivity: 0
+      ATKSpeed: 0
       energy: 0
       money: 0

@@ -64,6 +64,8 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Scripts\BUFF\BuffBase.cs" />
+    <Compile Include="Assets\Scripts\BUFF\BurnBuff.cs" />
     <Compile Include="Assets\Scripts\Base\BaseManager.cs" />
     <Compile Include="Assets\Scripts\Base\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Base\MonoController.cs" />
@@ -71,8 +73,9 @@
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
     <Compile Include="Assets\Scripts\Bullet\EnemyAttack\NormalBullet.cs" />
     <Compile Include="Assets\Scripts\Bullet\Sword\AttackSword.cs" />
-    <Compile Include="Assets\Scripts\Bullet\Sword\BaseSword.cs" />
     <Compile Include="Assets\Scripts\Bullet\Sword\MoreSword.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Sword\Sword.cs" />
+    <Compile Include="Assets\Scripts\Bullet\TrackingBullet\TrackingBullet.cs" />
     <Compile Include="Assets\Scripts\Canter\EnumCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\EventCenter.cs" />
     <Compile Include="Assets\Scripts\Canter\StructCenter.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Assets\Scripts\Data\CharacterSO.cs" />
     <Compile Include="Assets\Scripts\Data\LevelSO.cs" />
     <Compile Include="Assets\Scripts\Data\ResourcepathSO.cs" />
+    <Compile Include="Assets\Scripts\Manager\BuffManager.cs" />
     <Compile Include="Assets\Scripts\Manager\BulletManager.cs" />
     <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager.cs" />

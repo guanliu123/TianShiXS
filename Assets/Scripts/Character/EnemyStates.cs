@@ -59,10 +59,10 @@ namespace EnemyStates {
         {
             timer += Time.deltaTime;
             character.gameObject.transform.LookAt(Player._instance.transform);
-            if (timer > character.ATKInterval)
+            /*if (timer > character.ATKInterval)
             {
                 character.TransitionState(CharacterStateType.Attack);
-            }
+            }*/
         }
     }
 

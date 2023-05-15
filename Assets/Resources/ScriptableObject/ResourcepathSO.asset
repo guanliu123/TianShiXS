@@ -43,14 +43,12 @@ MonoBehaviour:
       path: Prefabs/Enemy/NormalEnemy/Laser
   - resourceType: 3
     resourceNPs:
-    - name: BaseSword
-      path: Prefabs/Bullet/Sword/BaseSword
-    - name: AttackSword
-      path: Prefabs/Bullet/Sword/AttackSword
-    - name: MoreSword
-      path: Prefabs/Bullet/Sword/MoreSword
+    - name: Sword
+      path: Prefabs/Bullet/Sword/Sword
     - name: NormalBullet
       path: Prefabs/Bullet/EnemyBullet/NormalBullet
+    - name: TrackingBullet
+      path: Prefabs/Bullet/TrackingBullet
   - resourceType: 5
     resourceNPs:
     - name: DamageText
