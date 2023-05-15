@@ -13,47 +13,51 @@ MonoBehaviour:
   m_Name: BulletSO
   m_EditorClassIdentifier: 
   bulletdatas:
-  - bulletType: 0
-    bulletData:
-      bulletName: BaseSword
-      existTime: 5
-      isMovable: 1
-      moveSpeed: 12
-      moveTime: 0
-      stopTime: 0
-      isRotatable: 0
-      rotateSpeed: 0
-      rotateInterval: 0
   - bulletType: 1
     bulletData:
-      bulletName: AttackSword
-      existTime: 5
-      isMovable: 1
-      moveSpeed: 12
-      moveTime: 0
-      stopTime: 0
-      isRotatable: 0
+      transmissionFrequency: 0.7
+      isRandomShoot: 0
+      existTime: 1.5
+      moveSpeed: 20
       rotateSpeed: 0
-      rotateInterval: 0
+      buffList: 
+      evolvableList: 0000000001000000020000000300000004000000
+      crit: 0.1
+      critRate: 1.2
+      baseATK: 30
   - bulletType: 2
     bulletData:
-      bulletName: MoreSword
+      transmissionFrequency: 0
+      isRandomShoot: 0
       existTime: 5
-      isMovable: 1
-      moveSpeed: 12
-      moveTime: 0
-      stopTime: 0
-      isRotatable: 0
+      moveSpeed: 10
       rotateSpeed: 0
-      rotateInterval: 0
+      buffList: 
+      evolvableList: 
+      crit: 0.1
+      critRate: 1.2
+      baseATK: 10
+  - bulletType: 0
+    bulletData:
+      transmissionFrequency: 0.8
+      isRandomShoot: 0
+      existTime: 0
+      moveSpeed: 0
+      rotateSpeed: 0
+      buffList: 
+      evolvableList: 
+      crit: 0.1
+      critRate: 1.2
+      baseATK: 10
   - bulletType: 3
     bulletData:
-      bulletName: NormalBullet
-      existTime: 4
-      isMovable: 1
+      transmissionFrequency: 0.5
+      isRandomShoot: 1
+      existTime: 10
       moveSpeed: 8
-      moveTime: 0
-      stopTime: 0
-      isRotatable: 0
       rotateSpeed: 0
-      rotateInterval: 0
+      buffList: 
+      evolvableList: 
+      crit: 0.1
+      critRate: 1.2
+      baseATK: 10

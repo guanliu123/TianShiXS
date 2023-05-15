@@ -24,11 +24,10 @@ public struct ResourceDatas
 [Serializable]
    public struct CharacterData
 {
-    [Header("角色名称")] public string name;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
-    [Header("角色攻击力")] public float ATK;
-    [Header("角色攻击间隔")] public float ATKInterval;
+    [Header("角色基础攻击力加成")] public float Aggressivity;
+    [Header("角色基础攻速加成")] public float ATKSpeed;
     [Header("角色死亡增加能量")] public float energy;
     [Header("角色死亡掉落金币")] public int money;
 }
@@ -44,15 +43,21 @@ public struct CharacterDatas{
 [Serializable]
 public struct BulletData
 {
-    [Header("子弹名称")] public string bulletName;
+    [Header("发射频率")] public float transmissionFrequency;
+    [Header("是否向随即方向发射")] public bool isRandomShoot;
     [Header("子弹存在时间")] public float existTime;
-    [Header("子弹能否移动")] public bool isMovable;
+    //[Header("子弹能否移动")] public bool isMovable;
     [Header("移动速度")] public float moveSpeed;
-    [Header("移动时间")] public float moveTime;
-    [Header("停止时间")] public float stopTime;
-    [Header("子弹能否旋转")] public bool isRotatable;
+    //[Header("移动时间")] public float moveTime;
+    //[Header("停止时间")] public float stopTime;
+    //[Header("子弹能否旋转")] public bool isRotatable;
     [Header("旋转速度")] public float rotateSpeed;
-    [Header("旋转间隔")] public float rotateInterval;
+    //[Header("旋转间隔")] public float rotateInterval;
+    [Header("初始附带特殊列表")] public List<BuffType> buffList;
+    [Header("可进化方向")] public List<BuffType> evolvableList;
+    [Header("暴击率")] public float crit;
+    [Header("暴击倍率")] public float critRate;
+    [Header("基础攻击力")] public float baseATK;
 }
 [Serializable]
 public struct BulletDatas

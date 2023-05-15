@@ -34,6 +34,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
     public List<Vector3> enemyPoints = new List<Vector3>();//已经生成了敌人的点位，不能重复在一个点上生成敌人
+
     public Vector3 specialPoint=new Vector3(0,2,20);//特殊阶段生成固定敌人的大致位置
     public Vector3 bossPoint = new Vector3(0, 2, 25);
     
@@ -201,8 +202,11 @@ public class LevelManager : BaseManager<LevelManager>
     /// <param name="ground"></param>
     void RetrieveItem(GameObject ground)
     {
-
         Transform enemyList = ground.transform.Find("EnemyList");
+        if (!enemyList) return;
+
+        GameObject.Destroy(enemyList.gameObject);
+        /*Transform enemyList = ground.transform.Find("EnemyList");
 
         if (enemyList != null)
         {
@@ -213,7 +217,7 @@ public class LevelManager : BaseManager<LevelManager>
             }
 
             GameObject.Destroy(enemyList.gameObject);
-        }
+        }*/
 
     }
 

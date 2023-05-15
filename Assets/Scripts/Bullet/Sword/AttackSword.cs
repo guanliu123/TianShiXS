@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackSword : BulletBase
 {
-    private float AttackIncrease=0.5f;
+    /*private float AttackIncrease=0.5f;
     List<GameObject> checkPoints;
 
     private void Awake()
@@ -29,11 +29,11 @@ public class AttackSword : BulletBase
 
             if (Physics.Raycast(ray, out hit, distence, playerBulletMask))
             {
-                targetIDamage = hit.collider.gameObject.GetComponent<IDamage>();
-                targetIDamage.TakeDamage(baseATK*(1+AttackIncrease),hit.transform);
+                targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
+                targetIAttck.TakeDamage(increaseATK*(1+AttackIncrease));
 
                 RetrieveInstant();
             }
         }
-    }
+    }*/
 }

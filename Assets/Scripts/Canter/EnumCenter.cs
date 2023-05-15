@@ -43,10 +43,10 @@ public enum BuffDoorType
 
 public enum BulletType
 {
-    BaseSword,
-    AttackSword,
-    MoreSword,
-    NormalBullet,
+    NULL,
+    Sword,
+    BaseBullet,
+    TrackingBullet,
 }
 
 public enum CameraPointType
@@ -65,3 +65,16 @@ public enum PropType
     Banners,
 }
 
+public enum BuffType
+{
+    Burn,//燃烧
+    Frost,//冰冻
+    Poison,//毒药
+    Multiply,//倍增
+    Crit,//暴击
+}
+
+public enum CoroutineType {//各种主要的固定协程事件如火烧buff，在这里注册才好在协程管理中统一调度并且存入字典
+    BurnBuff,
+    PoisonBuff,
+}

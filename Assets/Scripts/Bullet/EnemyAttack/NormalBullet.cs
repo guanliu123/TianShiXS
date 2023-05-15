@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NormalBullet : BulletBase
 {
-    private void Awake()
+
+    /*private void Awake()
     {
         bulletType = BulletType.NormalBullet;
     }
@@ -20,10 +21,10 @@ public class NormalBullet : BulletBase
         Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, enemyBulletMask);
         if (hits.Length > 0)
         {
-            targetIDamage = hits[0].gameObject.GetComponentInParent<IDamage>();
-            targetIDamage.TakeDamage(baseATK, hits[0].transform);
+            targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
+            targetIAttck.TakeDamage(increaseATK);
 
-            RetrieveInstant();
+            //RetrieveInstant();
         }
-    }
+    }*/
 }
