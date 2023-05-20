@@ -9,11 +9,13 @@ public class DataManager : BaseManager<DataManager>
     private CharacterSO characterSO;
     private BulletSO bulletSO;
     private LevelSO levelSO;
+    private BuffSO buffSO;
 
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     private Dictionary<CharacterType, CharacterData> characterDatasDic=new Dictionary<CharacterType, CharacterData>();
     public Dictionary<BulletType, BulletData> bulletDatasDic = new Dictionary<BulletType, BulletData>();
     private Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
+    private Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
 
     public DataManager()
     {
@@ -21,8 +23,9 @@ public class DataManager : BaseManager<DataManager>
         characterSO = ResourceManager.GetInstance().LoadByPath<CharacterSO>("ScriptableObject/CharacterSO");
         bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
         levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
+        buffSO = ResourceManager.GetInstance().LoadByPath<BuffSO>("ScriptableObject/BuffSo");
 
-        List<ResourceDatas> t = resourcepathSO.resourcePaths;
+        List <ResourceDatas> t = resourcepathSO.resourcePaths;
         foreach(var item in t)
         {
             objPathDic.Add(item.resourceType, new Dictionary<string, string>());
@@ -42,6 +45,10 @@ public class DataManager : BaseManager<DataManager>
         foreach(var item in levelSO.leveldatas)
         {
             levelDatasDic.Add(item.id, item.levelData);
+        }
+        foreach(var item in buffSO.buffdatas)
+        {
+            buffDataDic.Add(item.buffType, item.buffData);
         }
     }
 
@@ -98,6 +105,14 @@ public class DataManager : BaseManager<DataManager>
     {
         LevelData t = new LevelData();
         if (levelDatasDic.ContainsKey(levelNum)) t = levelDatasDic[levelNum];
+
+        return t;
+    }
+    public BuffData AskBuffDate(BuffType buffType)
+    {
+        BuffData t = new BuffData();
+
+        if (buffDataDic.ContainsKey(buffType)) t = buffDataDic[buffType];
 
         return t;
     }

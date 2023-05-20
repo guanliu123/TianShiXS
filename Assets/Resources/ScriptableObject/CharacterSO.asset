@@ -16,7 +16,7 @@ MonoBehaviour:
   - characterType: 0
     characterData:
       MaxHP: 100
-      bulletTypes: 01000000
+      bulletTypes: 0100000003000000
       Aggressivity: 0
       ATKSpeed: 0
       energy: 0
@@ -40,15 +40,15 @@ MonoBehaviour:
   - characterType: 3
     characterData:
       MaxHP: 70
-      bulletTypes: 00000000
+      bulletTypes: 04000000
       Aggressivity: 0
       ATKSpeed: 0
-      energy: 0
+      energy: 20
       money: 0
   - characterType: 4
     characterData:
-      MaxHP: 500
-      bulletTypes: 03000000
+      MaxHP: 300
+      bulletTypes: 06000000
       Aggressivity: 0
       ATKSpeed: 0
       energy: 0

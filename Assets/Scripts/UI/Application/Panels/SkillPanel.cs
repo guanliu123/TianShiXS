@@ -20,20 +20,30 @@ public class SkillPanel : BasePanel
         {
             PanelManager.Instance.Pop();
         });
-        for(int i = 1; i <= 3; i++)
+        List<SkillUpgrade> su= GameManager.GetInstance().RandomSkill();
+        for (int i = 1; i <= 3; i++)
         {
-            UITool.GetOrAddComponentInChildren<Button>("Skill_Btn" + i, panel).onClick.AddListener(() =>
+            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn" + i, panel);
+            t.GetComponentInChildren<Text>().text = su[i-1].describe;
+            SkillPromote(t, i , su);
+            /*t.onClick.AddListener(() =>
             {
-                RandomSkill();
+                BulletManager.GetInstance().BulletEvolute(su[i-1].buffType,su[i-1].bulletType);
                 Time.timeScale = 1;
                 GameManager.GetInstance().PlayerEvolution();
                 PanelManager.Instance.Pop();
-            });
+            });*/
+
         }
     }
 
-    public void RandomSkill()
+    void SkillPromote(Button button, int parameter,List<SkillUpgrade> su)
     {
-        Debug.Log("获得技能");
+        button.onClick.AddListener(delegate {
+            BulletManager.GetInstance().BulletEvolute(su[parameter - 1].buffType, su[parameter - 1].bulletType);
+            Time.timeScale = 1;
+            GameManager.GetInstance().PlayerEvolution();
+            PanelManager.Instance.Pop();
+        });
     }
 }

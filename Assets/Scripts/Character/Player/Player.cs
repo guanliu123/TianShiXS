@@ -35,20 +35,6 @@ public class Player : CharacterBase
         base.Attack();
     }
 
-    public void ChangeBullet(EvolutionType evolutionType)
-    {
-        /*switch (evolutionType)
-        {
-            case EvolutionType.Attck: nowBullet = BulletType.AttackSword; break;
-            case EvolutionType.Num: nowBullet = BulletType.MoreSword; break;
-        }*/
-    }
-
-    public void Evolute(BuffType bulletEvolutionType)
-    {
-        BulletEvolute(bulletEvolutionType);
-    }
-
     public void BulletEvolute(BuffType bulletEvolutionType)
     {
         foreach (var item in nowBullet)

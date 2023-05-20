@@ -2,15 +2,18 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEditor.PlayerSettings;
 
 public interface IAttack
 {
-    void TakeDamage(float damage);
+    void TakeDamage(float damage,DamageType damageType=DamageType.Default);
     //void ShowDamage(float damage);
-    void TakeBuff(BuffType buffType);
+    void TakeMove();
+    void TakeBuff(GameObject attacker,GameObject bullet,BuffType buffType, int piles = 1);
 }
 
 public class CharacterBase : MonoBehaviour, IAttack
@@ -29,9 +32,9 @@ public class CharacterBase : MonoBehaviour, IAttack
     public float ATKSpeed;//攻速加成
 
 
-    public Dictionary<BuffType, float> buffDic=new Dictionary<BuffType, float>();//里面存放的是每个buff和其对应的持续时间
+    public Dictionary<BuffType, (int,float)> buffDic=new Dictionary<BuffType, (int, float)>();//里面存放的是每个buff和其对应的层数与持续时间
     public Dictionary<BulletType, float> nowBullet = new Dictionary<BulletType, float>();//存放角色的攻击方式（弹幕类型,值是每种子弹的攻击间隔）
-    public Dictionary<BulletType, List<BuffType>> bulletBuff = new Dictionary<BulletType, List<BuffType>>();
+    //public Dictionary<BulletType, List<BuffType>> bulletBuff = new Dictionary<BulletType, List<BuffType>>();
     public Dictionary<BulletType, float> bulletTimer = new Dictionary<BulletType, float>();
 
     public Animator animator;
@@ -42,6 +45,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     protected void Awake()
     {
         animator = this.gameObject.GetComponent<Animator>();
+        characterEvent += BuffCheck;
     }
 
     /*protected void Start()
@@ -57,6 +61,25 @@ public class CharacterBase : MonoBehaviour, IAttack
         TransitionState(CharacterStateType.Idle);
     }
 
+    protected void BuffCheck()
+    {
+        for(int i = 0; i < buffDic.Count; i++)
+        {
+            var item = buffDic.ElementAt(i);
+            float t = item.Value.Item2 - Time.deltaTime;
+            if (t<= 0.0001)
+            {
+                buffDic[item.Key]= BuffManager.GetInstance().Buffs[item.Key].OnZero(this.gameObject, item.Value.Item1);
+                if (buffDic[item.Key].Item1 <= 0)
+                {
+                    BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
+                    buffDic.Remove(item.Key);
+                }
+            }
+            else buffDic[item.Key] = (item.Value.Item1, t);
+        }
+    }
+
     protected void InitData()
     {
         characterData = DataManager.GetInstance().AskCharacterData(characterType);
@@ -68,7 +91,7 @@ public class CharacterBase : MonoBehaviour, IAttack
         foreach(var item in characterData.bulletTypes)
         {
             nowBullet.Add(item, DataManager.GetInstance().AskBulletData(item).transmissionFrequency);
-            bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);
+            //bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);
             bulletTimer.Add(item, nowBullet[item]);
         }
     }
@@ -79,32 +102,31 @@ public class CharacterBase : MonoBehaviour, IAttack
         if(characterEvent!=null) characterEvent();
     }
 
-    public void TakeDamage(float damage)
+    public void AddHP(float add)
     {
-        nowHP -= damage;
+        nowHP = Mathf.Min(maxHP, nowHP + add);
+    }
+
+    public void TakeDamage(float damage,DamageType damageType=DamageType.Default)
+    {
+        nowHP=nowHP - damage>0?nowHP-damage:0;
         if (hpSlider) hpSlider.UpdateHPSlider(maxHP, nowHP);
-        //ShowDamage(damage);
+        GameManager.GetInstance().ShowDamage(this.transform,damage);
         if (nowHP <= 0) DiedEvent();
     }
-    public void ShowDamage(float damage)
+    
+    public void TakeMove()
     {
-        GameObject obj = PoolManager.GetInstance().GetObj("DamageText");
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-        //obj.transform.position = point.position;
-        obj.transform.position = screenPos;
-        obj.GetComponent<TextMesh>().text = damage + "";
-        
-        /*Vector3 cameraPoint = new Vector3(Screen.width / 2, 0, Screen.height / 2);
-        obj.transform.LookAt(Camera.main.ScreenToWorldPoint(cameraPoint));*/
-
-        float posY = obj.transform.position.y + 1f;
-        obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("DamageText", obj); });
     }
-
-    public void TakeBuff(BuffType buffType)
+    public void TakeBuff(GameObject attacker,GameObject bullet, BuffType buffType,int piles=1)
     {
-        //BuffManager.GetInstance().Buffs[buffType].OnAdd(gameObject);
+        if (!buffDic.ContainsKey(buffType))
+        {
+            buffDic.Add(buffType, (piles,DataManager.GetInstance().AskBuffDate(buffType).duration));
+            BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker,bullet, this.gameObject);
+        }
+        else BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker,this.gameObject,piles);
     }
 
     public void TransitionState(CharacterStateType characterStateType)
@@ -136,20 +158,23 @@ public class CharacterBase : MonoBehaviour, IAttack
             GameManager.GetInstance().ChangeEnergy(characterData.energy);            
             FallMoney();
         }
-
-        PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);    
+        Recovery(); 
     }
+
+    public void VisibleCheck()
+    {
+        if (!gameObject.GetComponentInChildren<SkinnedMeshRenderer>().isVisible) Recovery();
+    }
+
     public void Recovery()
     {
-        if (!gameObject.GetComponentInChildren<SkinnedMeshRenderer>().isVisible)
+        if (characterTag != "Player") GameManager.GetInstance().EnemyDecrease(this.gameObject);
+        foreach (var item in buffDic)
         {
-            PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
+            BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
         }
-    }
-
-    private void OnDisable()
-    {
-        if(characterTag != "Player") GameManager.GetInstance().EnemyDecrease(this.gameObject);
+        buffDic.Clear();
+        PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
     }
 
     public void FallMoney()
@@ -168,13 +193,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     }
     public void RemoveCharacterEvent(UnityAction unityAction)
     {
+
         characterEvent -= unityAction;
-    }
-    public void Evolut(BuffType bulletEvolutionType)
-    {
-        foreach(var item in bulletBuff)
-        {
-            
-        }
     }
 }

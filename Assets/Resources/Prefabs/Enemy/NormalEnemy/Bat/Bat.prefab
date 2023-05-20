@@ -596,16 +596,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData:
-    name: 
     MaxHP: 0
     bulletTypes: 
-    ATK: 0
-    ATKInterval: 0
+    Aggressivity: 0
+    ATKSpeed: 0
+    energy: 0
+    money: 0
   characterType: 1
+  characterTag: 
   maxHP: 0
   nowHP: 0
-  ATK: 0
-  ATKInterval: 0
+  aggressivity: 0
+  ATKSpeed: 0
   animator: {fileID: 0}
   hpSlider: {fileID: 0}
 --- !u!65 &5212657474520713938
@@ -903,6 +905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 759245295811066949, guid: 28399ed08ad8efc44a7b01eca898d378,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 806442888620806471, guid: 28399ed08ad8efc44a7b01eca898d378,
         type: 3}
