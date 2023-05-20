@@ -20,11 +20,13 @@ MonoBehaviour:
       existTime: 1.5
       moveSpeed: 20
       rotateSpeed: 0
-      buffList: 
+      buffList: 03000000
       evolvableList: 0000000001000000020000000300000004000000
-      crit: 0.1
-      critRate: 1.2
-      baseATK: 30
+      crit: 0
+      critRate: 1
+      baseATK: 20
+      damageInterval: 0
+      isFollowShooter: 0
   - bulletType: 2
     bulletData:
       transmissionFrequency: 0
@@ -34,9 +36,11 @@ MonoBehaviour:
       rotateSpeed: 0
       buffList: 
       evolvableList: 
-      crit: 0.1
-      critRate: 1.2
+      crit: 0
+      critRate: 1
       baseATK: 10
+      damageInterval: 0
+      isFollowShooter: 0
   - bulletType: 0
     bulletData:
       transmissionFrequency: 0.8
@@ -46,18 +50,64 @@ MonoBehaviour:
       rotateSpeed: 0
       buffList: 
       evolvableList: 
-      crit: 0.1
-      critRate: 1.2
+      crit: 0
+      critRate: 1
       baseATK: 10
+      damageInterval: 0
+      isFollowShooter: 0
   - bulletType: 3
     bulletData:
-      transmissionFrequency: 0.5
+      transmissionFrequency: 1
       isRandomShoot: 1
       existTime: 10
       moveSpeed: 8
       rotateSpeed: 0
       buffList: 
+      evolvableList: 04000000
+      crit: 0
+      critRate: 1
+      baseATK: 6
+      damageInterval: 0
+      isFollowShooter: 0
+  - bulletType: 4
+    bulletData:
+      transmissionFrequency: 4
+      isRandomShoot: 0
+      existTime: 3
+      moveSpeed: 0
+      rotateSpeed: 3
+      buffList: 
       evolvableList: 
-      crit: 0.1
-      critRate: 1.2
+      crit: 0
+      critRate: 1
       baseATK: 10
+      damageInterval: 1
+      isFollowShooter: 1
+  - bulletType: 6
+    bulletData:
+      transmissionFrequency: 8
+      isRandomShoot: 0
+      existTime: 8
+      moveSpeed: 6
+      rotateSpeed: 0
+      buffList: 
+      evolvableList: 
+      crit: 0
+      critRate: 1
+      baseATK: 0
+      damageInterval: 0
+      isFollowShooter: 0
+  - bulletType: 5
+    bulletData:
+      transmissionFrequency: 0
+      isRandomShoot: 0
+      existTime: 5
+      moveSpeed: 0
+      rotateSpeed: 0
+      buffList: 02000000
+      evolvableList: 
+      crit: 0
+      critRate: 1
+      baseATK: 10
+      damageInterval: 2
+      isFollowShooter: 0

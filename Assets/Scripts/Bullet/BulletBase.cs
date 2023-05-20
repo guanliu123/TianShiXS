@@ -1,4 +1,4 @@
-using Bat;
+ï»¿using Bat;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,18 +26,17 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     protected float increaseATK;
     private float existTimer = 0;
 
+    public bool isCrit;
+
 
     protected void Start()
     {
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
 
-        playerBulletMask = LayerMask.GetMask("Enemy");//Íæ¼Ò·¢Éä³öÈ¥µÄ×Óµ¯µÄlayermask
-        enemyBulletMask = LayerMask.GetMask("Player");//µĞÈË·¢Éä³öÈ¥µÄ×Óµ¯µÄlayermask
+        playerBulletMask = LayerMask.GetMask("Enemy");//ç©å®¶å‘å°„å‡ºå»çš„å­å¼¹çš„layermask
+        enemyBulletMask = LayerMask.GetMask("Player");//æ•Œäººå‘å°„å‡ºå»çš„å­å¼¹çš„layermask
 
         //nowBuffs = bulletData.buffList;
-
-        if (bulletData.moveSpeed>0) bulletAction += Move;
-        if (bulletData.rotateSpeed>0) bulletAction += Rotate;
 
         bulletAction += Recovery;
         bulletAction += AttackCheck;
@@ -45,7 +44,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void InitATK(float ATK)
     {
-        increaseATK =bulletData.baseATK + ATK;
+        increaseATK = bulletData.baseATK + ATK;
     }
 
     protected void OnEnable()
@@ -68,18 +67,18 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void Move()
     {
-        gameObject.transform.Translate(transform.forward*bulletData.moveSpeed*Time.deltaTime);
+        gameObject.transform.Translate(transform.forward * bulletData.moveSpeed * Time.deltaTime);
     }
     public virtual void Rotate()
     {
-        
+
     }
 
-    //Èç¹ûÓĞÀàËÆSwordÕâÑùĞèÒª»ñÈ¡×ÓÎïÌåËùÓĞµãÎ»ÒÔ±ã·¢ÉäÉäÏß½øĞĞ¼ì²âµÄ×Óµ¯ÀàĞÍ£¬µ÷ÓÃÕâ¸ö·½·¨
-    protected List<GameObject> FindChilds()
+    //å¦‚æœæœ‰ç±»ä¼¼Swordè¿™æ ·éœ€è¦è·å–å­ç‰©ä½“æ‰€æœ‰ç‚¹ä½ä»¥ä¾¿å‘å°„å°„çº¿è¿›è¡Œæ£€æµ‹çš„å­å¼¹ç±»å‹ï¼Œè°ƒç”¨è¿™ä¸ªæ–¹æ³•
+    protected List<GameObject> FindChilds(GameObject obj)
     {
         List<GameObject> t = new List<GameObject>();
-        for (int i = 0; i < gameObject.transform.childCount; i++)
+        for (int i = 0; i < obj.transform.childCount; i++)
         {
             t.Add(gameObject.transform.GetChild(i).gameObject);
         }
@@ -94,11 +93,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void HitEvent()
     {
-        foreach(var item in BulletManager.GetInstance().BulletDic[bulletType].buffList)
-        {
-            
-        }
-    } 
+    }
 
     protected void Recovery()
     {
@@ -116,110 +111,3 @@ public class BulletBase : MonoBehaviour, IBulletEvent
         PoolManager.GetInstance().PushObj(bulletType.ToString(), this.gameObject);
     }
 }
-
-/*public BulletData bulletData;
-    public BulletType bulletType;
-
-    public event UnityAction bulletAction;
-
-    protected LayerMask playerBulletMask;
-    protected LayerMask enemyBulletMask;
-
-    protected IDamage targetIDamage;
-
-    protected float baseATK;
-    private float exitTimer = 0;
-    private Vector3 moveDir;
-    private float moveTimer=0f;
-    private float rotateTimer = 0f;
-
-    protected void Start()
-    {
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
-
-        playerBulletMask = LayerMask.GetMask("Enemy");//Íæ¼Ò·¢Éä³öÈ¥µÄ×Óµ¯µÄlayermask
-        enemyBulletMask = LayerMask.GetMask("Player");//µĞÈË·¢Éä³öÈ¥µÄ×Óµ¯µÄlayermask
-
-        if (bulletData.isMovable) bulletAction += BaseMove;
-        if (bulletData.isRotatable) bulletAction += BaseRotate;
-
-        bulletAction += AttackCheck;
-        bulletAction += Retrieve;
-    }
-
-    protected void OnEnable()
-    {
-        
-        moveDir = Vector3.forward;
-    }
-
-    // Update is called once per frame
-    protected void Update()
-    {
-        if (bulletAction != null) bulletAction();
-    }
-
-    public void InitInfo(float ATK)
-    {
-        baseATK = ATK;
-    }
-
-    void BaseMove()
-    {
-        if (bulletData.stopTime > 0)
-        {
-            moveTimer += Time.deltaTime;
-            if (moveTimer > bulletData.moveTime + bulletData.stopTime) moveTimer = 0;
-            else if (moveTimer > bulletData.moveTime) return;
-        }
-        gameObject.transform.Translate(moveDir * bulletData.moveSpeed * Time.deltaTime);
-    }
-    void BaseRotate()
-    {
-        rotateTimer += Time.deltaTime;
-        if (rotateTimer > bulletData.moveTime)
-        {
-            gameObject.transform.Rotate(Vector3.up * bulletData.rotateSpeed * Time.deltaTime);
-            rotateTimer = 0;
-        }
-    }
-
-    protected virtual void Retrieve()
-    {
-        exitTimer += Time.deltaTime;
-        if (exitTimer < bulletData.existTime) return;
-
-        exitTimer = 0;
-        PoolManager.GetInstance().PushObj(bulletData.bulletType.ToString(), this.gameObject);
-    }
-    protected virtual void RetrieveInstant()
-    {
-        exitTimer = 0;
-        PoolManager.GetInstance().PushObj(bulletData.bulletType.ToString(), this.gameObject);
-    }
-
-    protected virtual void AttackCheck()
-    {
-
-    }
-
-    public virtual void BulletEvolution(EvolutionType evolutionType)
-    {
-
-    }
-
-    //Èç¹ûÓĞÀàËÆSwordÕâÑùĞèÒª»ñÈ¡×ÓÎïÌåËùÓĞµãÎ»ÒÔ±ã·¢ÉäÉäÏß½øĞĞ¼ì²âµÄ×Óµ¯ÀàĞÍ£¬µ÷ÓÃÕâ¸ö·½·¨
-    protected List<GameObject> FindChilds()
-    {
-        List<GameObject> t=new List<GameObject>();
-        for (int i = 0; i < gameObject.transform.childCount; i++)
-        {
-            t.Add(gameObject.transform.GetChild(i).gameObject);
-        }
-
-        return t;
-    }
-    protected virtual void HitEvent()
-    {
-
-    }*/

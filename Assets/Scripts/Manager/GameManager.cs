@@ -1,9 +1,11 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : BaseManager<GameManager>
 {
@@ -20,8 +22,14 @@ public class GameManager : BaseManager<GameManager>
 
     private int evolutionNum = 0;
 
+    private Dictionary<DamageType, Color> damageColor = new Dictionary<DamageType, Color>();
+    //private GameObject gameCanvas;
+
     public GameManager(){
         ChangeRole();
+        damageColor.Add(DamageType.Default, Color.red);
+        damageColor.Add(DamageType.Burn, Color.yellow);
+        //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
 
     public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
@@ -41,7 +49,8 @@ public class GameManager : BaseManager<GameManager>
         
         player.AddComponent<Player>();
         //player.AddComponent<PlayerController>();
-        player.AddComponent<PlayerController>();
+        player.AddComponent<TestController>();
+        player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero;
         //playerObj.transform.position = Vector3.zero;
         playerObj.transform.parent = player.transform;
@@ -62,8 +71,9 @@ public class GameManager : BaseManager<GameManager>
 
         LevelManager.GetInstance().Stop();
         GameObject.Destroy(t.GetComponent<Player>());
-        GameObject.Destroy(t.GetComponent<PlayerController>());
+        GameObject.Destroy(t.GetComponent<TestController>());
         CameraManager.GetInstance().StopCameraEvent();
+        CameraMove(CameraPointType.OrginPoint, 1f);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -94,6 +104,10 @@ public class GameManager : BaseManager<GameManager>
         ChangeEnergy(-playerEnergy);
     }
 
+    public void EnemyIncrease(GameObject obj)
+    {
+        enemyList.Add(obj);
+    }
     public void EnemyDecrease(GameObject obj)
     {
         enemyList.Remove(obj);
@@ -103,9 +117,61 @@ public class GameManager : BaseManager<GameManager>
         }
     }
 
-    public void EnemyIncrease(GameObject obj)
+    public void ShowDamage(Transform point,float damage)
     {
-        enemyList.Add(obj);
+        GameObject obj = PoolManager.GetInstance().GetObj("DamageText");
+
+        Vector3 randomOffset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        obj.transform.position = point.position+randomOffset;
+        obj.GetComponent<TextMesh>().text = "-" + damage;
+
+        Vector3 cameraPoint = new Vector3(Screen.width / 2, 0, Screen.height / 2);
+        obj.transform.LookAt(Camera.main.ScreenToWorldPoint(cameraPoint));
+
+        float posY = obj.transform.position.y + 1f;
+        obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("DamageText", obj); });
+
+        /*GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage");
+
+        obj.transform.parent = gameCanvas.transform;
+        obj.GetComponent<FloatDamage>().Init(point, damage);*/
+    }
+
+    public List<SkillUpgrade> RandomSkill()
+    {
+        List<(BulletType,BuffType)> choices=new List<(BulletType, BuffType)>();
+        List<SkillUpgrade> skillUpgrades = new List<SkillUpgrade>();
+        BulletType t1;
+        BuffType t2;
+
+        
+        for (int i = 0; i < 3; i++)
+        {
+            int randomNum = 0;//防止一直抽不到不同的buff死循环
+            do
+            {
+                int t = Random.Range(0, Player._instance.nowBullet.Count);
+                t1 = Player._instance.nowBullet.ElementAt(t).Key;
+                
+                t= Random.Range(0,
+                    BulletManager.GetInstance().BulletDic[t1].evolvableList.Count);
+                t2 = BulletManager.GetInstance().BulletDic[t1].evolvableList[t];
+
+                randomNum++;
+            } while (choices.Contains((t1,t2))&&randomNum<3);
+            choices.Add((t1,t2));
+
+            SkillUpgrade item;
+
+            item.icon = null;
+            item.bulletType = choices[i].Item1;
+            item.buffType = choices[i].Item2;
+            item.describe = "为" + item.bulletType.ToString() + "弹幕添加" + item.buffType.ToString() + "效果";
+
+            skillUpgrades.Add(item);
+        }
+
+        return skillUpgrades;
     }
 
     public void PlayerEvolution()

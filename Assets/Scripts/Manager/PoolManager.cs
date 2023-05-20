@@ -13,7 +13,7 @@ public class PoolData
     public List<GameObject> poolList;
 
     //构造函数，进行PoolData的一些初始化
-    public PoolData(GameObject obj, GameObject poolObj)
+    public PoolData(GameObject obj, GameObject poolObj,bool resetFather=false)
     {
         fatherObj = obj;
         fatherObj.transform.parent = poolObj.transform;
@@ -35,6 +35,7 @@ public class PoolData
         GameObject obj = null;
         obj = poolList[0];
         poolList.RemoveAt(0);
+        if (!obj) return obj;
         obj.SetActive(true);
         obj.transform.parent = null;
         return obj;
@@ -57,15 +58,10 @@ public class PoolManager : BaseManager<PoolManager>
     /// <returns></returns>
     public GameObject GetObj(string poolName)
     {
-        /*if (poolDic.ContainsKey(objName) && poolDic[objName].poolList.Count > 0)
-            return poolDic[objName].GetObj();
-
-        else 
-            return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(objName));*/
-
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
+        {
             return poolDic[poolName].GetObj();
-
+        }
 
         else
             return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));

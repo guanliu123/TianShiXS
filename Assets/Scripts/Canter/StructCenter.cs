@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #region 资源路径名称相关数据
 [Serializable]
@@ -55,15 +56,43 @@ public struct BulletData
     //[Header("旋转间隔")] public float rotateInterval;
     [Header("初始附带特殊列表")] public List<BuffType> buffList;
     [Header("可进化方向")] public List<BuffType> evolvableList;
-    [Header("暴击率")] public float crit;
-    [Header("暴击倍率")] public float critRate;
+    [Header("暴击率(百分制，暴击倍率同")] public int crit;
+    [Header("暴击倍率")] public int critRate;
     [Header("基础攻击力")] public float baseATK;
+    [Header("伤害间隔")] public float damageInterval;
+    [Header("是否跟随射出物体")] public bool isFollowShooter;
 }
 [Serializable]
 public struct BulletDatas
 {
     [Header("子弹类型")] public BulletType bulletType;
     public BulletData bulletData;
+}
+
+#endregion
+
+#region Buff数据
+[Serializable]
+public struct BuffData
+{
+    [Header("持续时间")] public float duration;
+}
+
+[Serializable]
+public struct BuffDatas
+{
+    [Header("Buff类型")] public BuffType buffType;
+    public BuffData buffData;
+}
+#endregion
+
+#region 技能升级结构体
+public struct SkillUpgrade
+{
+    public Image icon;//对应技能的图标
+    public string describe;//对应技能的描述
+    public BulletType bulletType;//选中的技能所属子弹
+    public BuffType buffType;//选中的技能类型
 }
 
 #endregion

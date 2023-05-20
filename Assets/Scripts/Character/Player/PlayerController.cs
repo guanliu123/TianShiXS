@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //获取当前触摸到的物体
+                    if (hit.collider.gameObject != this.gameObject) return;
                     currTouchObj = hit.collider.transform;
                 }
             }
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
                     currTouchObj.Translate(touchDeltaPos.x, touchDeltaPos.y, 0, Space.World);
                 }
             }
+
+            currTouchObj = null;
         }
     }
 
