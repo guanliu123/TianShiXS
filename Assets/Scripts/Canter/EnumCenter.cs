@@ -50,6 +50,7 @@ public enum BulletType
     LaserBullet,
     PoisonousFloor,
     GasBomb,
+    Fanshaped,
 }
 
 public enum CameraPointType

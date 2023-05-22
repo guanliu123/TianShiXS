@@ -8,7 +8,7 @@ public class PoisonousFloor : BulletBase
     private void Awake()
     {
         bulletType = BulletType.PoisonousFloor;
-
+        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
         bulletAction += Move;
     }
     protected override void AttackCheck()

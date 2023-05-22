@@ -15,6 +15,9 @@ public class BuffManager : BaseManager<BuffManager>
         Buffs.Add(BuffType.Burn, new BurnBuff());
         Buffs.Add(BuffType.Poison, new PoisonBuff());
         Buffs.Add(BuffType.Vampirism, new VampirismBuff());
+        Buffs.Add(BuffType.Frost, new BuffBase());//后续加了冰冻buff脚本要换上去
+        Buffs.Add(BuffType.Crit, new BulletCrit());
+        Buffs.Add(BuffType.Multiply, new BulletMultiply());
     }
 
     public void AddToBuffList(BuffType buffType, GameObject character)

@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Base\BaseManager.cs" />
     <Compile Include="Assets\Scripts\Base\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Base\MonoController.cs" />
+    <Compile Include="Assets\Scripts\Bullet\AOE\Fanshaped.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
     <Compile Include="Assets\Scripts\Bullet\EnemyAttack\GasBomb.cs" />
     <Compile Include="Assets\Scripts\Bullet\EnemyAttack\LaserBullet.cs" />
@@ -88,7 +89,7 @@
     <Compile Include="Assets\Scripts\Canter\StructCenter.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\BOSS\BigMouse.cs" />
-    <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Bat\Bat.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Bat.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Laser.cs" />
     <Compile Include="Assets\Scripts\Character\EnemyStates.cs" />
     <Compile Include="Assets\Scripts\Character\HPSlider.cs" />

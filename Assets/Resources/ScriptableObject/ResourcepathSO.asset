@@ -55,6 +55,8 @@ MonoBehaviour:
       path: Prefabs/Bullet/EnemyBullet/GasBomb
     - name: PoisonousFloor
       path: Prefabs/Bullet/EnemyBullet/PoisonousFloor
+    - name: Fanshaped
+      path: Prefabs/Bullet/PlayerBullet/Fanshaped
   - resourceType: 5
     resourceNPs:
     - name: DamageText

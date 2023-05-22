@@ -28,15 +28,12 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public bool isCrit;
 
-
     protected void Start()
     {
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
+        //bulletData = DataManager.GetInstance().AskBulletData(bulletType);
 
         playerBulletMask = LayerMask.GetMask("Enemy");//玩家发射出去的子弹的layermask
         enemyBulletMask = LayerMask.GetMask("Player");//敌人发射出去的子弹的layermask
-
-        //nowBuffs = bulletData.buffList;
 
         bulletAction += Recovery;
         bulletAction += AttackCheck;
@@ -80,7 +77,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
         List<GameObject> t = new List<GameObject>();
         for (int i = 0; i < obj.transform.childCount; i++)
         {
-            t.Add(gameObject.transform.GetChild(i).gameObject);
+            t.Add(obj.transform.GetChild(i).gameObject);
         }
 
         return t;

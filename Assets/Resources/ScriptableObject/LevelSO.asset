@@ -24,14 +24,14 @@ MonoBehaviour:
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0400000005000000
+        WaveEnemyNum: 0700000009000000
         WaveEnemyType: 01000000
       - StageNum: 1
         isSpecial: 1
         isBoss: 0
         BOSSType: 
         WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 0100000003000000
+        WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0
         isBoss: 0
@@ -42,5 +42,5 @@ MonoBehaviour:
         isSpecial: 1
         isBoss: 1
         BOSSType: 04000000
-        WaveEnemyNum: 03000000
-        WaveEnemyType: 0100000003000000
+        WaveEnemyNum: 02000000
+        WaveEnemyType: 03000000

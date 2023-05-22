@@ -57,6 +57,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     protected void OnEnable()//从对象池取出的时候会置为初始状态
     {
         nowHP = maxHP;
+
         if (characterTag!="Player") GameManager.GetInstance().EnemyIncrease(this.gameObject);
         TransitionState(CharacterStateType.Idle);
     }
@@ -142,6 +143,20 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         foreach(var item in nowBullet)
         {
+            if (item.Key == BulletType.NULL)//近战攻击
+            {
+                if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
+                {
+                    TransitionState(CharacterStateType.Attack);
+                    Player._instance.TakeDamage(BulletManager.GetInstance().BulletDic[item.Key].baseATK + aggressivity);
+                    bulletTimer[item.Key] = item.Value;
+                }
+                else
+                {
+                    bulletTimer[item.Key] -= (1 + ATKSpeed) * Time.deltaTime;
+                }
+                continue;
+            }
             bulletTimer[item.Key] -= (1+ATKSpeed)*Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {

@@ -13,6 +13,7 @@ public class LaserBullet : BulletBase
     private void Awake()
     {
         bulletType = BulletType.LaserBullet;
+        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
         checkPoints = FindChilds(transform.GetChild(0).gameObject);
 
         bulletAction += Rotate;
@@ -23,17 +24,13 @@ public class LaserBullet : BulletBase
         base.Update();
     }
 
+    public override void OnEnter()
+    {
+        attackTimer = 0f;
+    }
+
     public override void Rotate()
     {
-        /*float dot = Vector3.Dot(transform.forward, Player._instance.transform.forward);
-        float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
-
-        transform.Rotate(transform.up * angle * bulletData.rotateSpeed * Time.deltaTime);*/
-
-        /*Vector3 vec = ( transform.position- Player._instance.transform.position);
-        Quaternion rotate = Quaternion.LookRotation(vec);
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, rotate, bulletData.rotateSpeed*Time.deltaTime);*/
-
         Vector3 direction = Player._instance.gameObject.transform.position - transform.position;
         direction.y = 0; // 只在水平面上旋转
 
@@ -57,12 +54,12 @@ public class LaserBullet : BulletBase
             float distence = (checkPoints[i + 1].transform.position - checkPoints[i].transform.position).magnitude;
 
             RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, distence, enemyBulletMask))
+     
+            if (Physics.Raycast(ray, out hit, distence))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null) return;
-
+                
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
                     targetIAttck.TakeBuff(this.gameObject, gameObject,item.Key,item.Value);
@@ -73,6 +70,8 @@ public class LaserBullet : BulletBase
                     targetIAttck.TakeDamage(increaseATK * (1 + (float)bulletData.critRate / 100));
                     isCrit = false;
                 }
+                else {targetIAttck.TakeDamage(increaseATK); }
+
                 attackTimer = bulletData.damageInterval;
             }
         }
