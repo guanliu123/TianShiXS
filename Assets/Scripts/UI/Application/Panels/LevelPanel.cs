@@ -19,7 +19,7 @@ public class LevelPanel : BasePanel {
         {
             PanelManager.Instance.Pop();
         });
-        for(int i = 1; i <= 3; i++)
+        for(int i = 1; i <= 1; i++)
         {
             AddListener(UITool.GetOrAddComponentInChildren<Button>("Level_Btn"+i,panel), i);
         }

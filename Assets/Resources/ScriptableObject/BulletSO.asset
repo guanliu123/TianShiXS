@@ -15,12 +15,12 @@ MonoBehaviour:
   bulletdatas:
   - bulletType: 1
     bulletData:
-      transmissionFrequency: 0.7
+      transmissionFrequency: 0.4
       isRandomShoot: 0
       existTime: 1.5
       moveSpeed: 20
       rotateSpeed: 0
-      buffList: 03000000
+      buffList: 
       evolvableList: 0000000001000000020000000300000004000000
       crit: 0
       critRate: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
       isFollowShooter: 0
   - bulletType: 0
     bulletData:
-      transmissionFrequency: 0.8
+      transmissionFrequency: 0.5
       isRandomShoot: 0
       existTime: 0
       moveSpeed: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
       isFollowShooter: 0
   - bulletType: 3
     bulletData:
-      transmissionFrequency: 1
+      transmissionFrequency: 0.6
       isRandomShoot: 1
       existTime: 10
       moveSpeed: 8
@@ -66,16 +66,16 @@ MonoBehaviour:
       evolvableList: 04000000
       crit: 0
       critRate: 1
-      baseATK: 6
+      baseATK: 3
       damageInterval: 0
       isFollowShooter: 0
   - bulletType: 4
     bulletData:
-      transmissionFrequency: 4
+      transmissionFrequency: 6
       isRandomShoot: 0
-      existTime: 3
+      existTime: 2
       moveSpeed: 0
-      rotateSpeed: 3
+      rotateSpeed: 1
       buffList: 
       evolvableList: 
       crit: 0
@@ -109,5 +109,19 @@ MonoBehaviour:
       crit: 0
       critRate: 1
       baseATK: 10
+      damageInterval: 2
+      isFollowShooter: 0
+  - bulletType: 7
+    bulletData:
+      transmissionFrequency: 1.5
+      isRandomShoot: 0
+      existTime: 3
+      moveSpeed: 0
+      rotateSpeed: 0
+      buffList: 02000000
+      evolvableList: 
+      crit: 0
+      critRate: 1
+      baseATK: 30
       damageInterval: 2
       isFollowShooter: 0

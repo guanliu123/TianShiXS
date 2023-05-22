@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class TaiChiDart : BulletBase
 {
-    /*private void Awake()
-    {
-        bulletType = BulletType.Sword;
-    }*/
-
     List<GameObject> checkPoints;
 
     private void Awake()
     {
         bulletType = BulletType.TaiChiDart;
+        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
         checkPoints = FindChilds(this.gameObject);
 
         bulletAction += Move;

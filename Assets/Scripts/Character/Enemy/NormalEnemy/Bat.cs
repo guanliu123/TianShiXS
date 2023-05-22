@@ -15,30 +15,18 @@ namespace Bat {
             //AddCharacterEvent(VisibleCheck);
             
             statesDic.Add(CharacterStateType.Idle, new NormalIdleState(this));
-            statesDic.Add(CharacterStateType.PrepareAttack, new NormalPrepareAttackState(this));
             statesDic.Add(CharacterStateType.Attack, new NormalAttackState(this));
 
             InitData();
 
             characterEvent += CheckDistancce;
+            characterEvent += Attack;
         }
 
-        // Update is called once per frame
-        /*void Update()
-        {
-            base.Update();
-        }*/
 
         public void CheckDistancce()
         {
             if ((Player._instance.transform.position - transform.position).z > 1.5f) Recovery();
-        }
-
-        public override void Attack()
-        {
-            /*BulletManager.GetInstance().ShootBullet(gameObject.transform,
-                characterData.bulletTypes[Random.Range(0, characterData.bulletTypes.Count)],
-                characterData.ATK);*/
         }
     }
 

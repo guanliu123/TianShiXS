@@ -81,19 +81,19 @@ public class BulletManager : BaseManager<BulletManager>
             GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString());
             if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
             {
-                   Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 5f, instantPos.y, instantPos.z);
+                   Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 2f, instantPos.y, instantPos.z);
                     t.transform.position = point;      
             }
             else
             {
                 if (i < n / 2)
                 {
-                    Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 2f, instantPos.y, instantPos.z);
+                    Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
                     t.transform.position = point;
                 }
                 else
                 {
-                    Vector3 point = new Vector3(instantPos.x + (i - n / 2+1) * 2f, instantPos.y, instantPos.z);
+                    Vector3 point = new Vector3(instantPos.x + (i - n / 2+1) * 1f, instantPos.y, instantPos.z);
                     t.transform.position = point;
                 }
             }

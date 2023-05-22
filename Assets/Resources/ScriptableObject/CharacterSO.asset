@@ -24,7 +24,7 @@ MonoBehaviour:
   - characterType: 1
     characterData:
       MaxHP: 90
-      bulletTypes: 02000000
+      bulletTypes: 00000000
       Aggressivity: 0
       ATKSpeed: 0
       energy: 10
