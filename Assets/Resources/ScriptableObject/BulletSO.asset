@@ -27,6 +27,7 @@ MonoBehaviour:
       baseATK: 20
       damageInterval: 0
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 2
     bulletData:
       transmissionFrequency: 0
@@ -41,6 +42,7 @@ MonoBehaviour:
       baseATK: 10
       damageInterval: 0
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 0
     bulletData:
       transmissionFrequency: 0.5
@@ -55,6 +57,7 @@ MonoBehaviour:
       baseATK: 10
       damageInterval: 0
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 3
     bulletData:
       transmissionFrequency: 0.6
@@ -63,12 +66,13 @@ MonoBehaviour:
       moveSpeed: 8
       rotateSpeed: 0
       buffList: 
-      evolvableList: 04000000
+      evolvableList: 0400000001000000
       crit: 0
       critRate: 1
       baseATK: 3
       damageInterval: 0
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 4
     bulletData:
       transmissionFrequency: 6
@@ -77,12 +81,13 @@ MonoBehaviour:
       moveSpeed: 0
       rotateSpeed: 1
       buffList: 
-      evolvableList: 
+      evolvableList: 01000000
       crit: 0
       critRate: 1
       baseATK: 10
       damageInterval: 1
       isFollowShooter: 1
+      shootProbability: 1
   - bulletType: 6
     bulletData:
       transmissionFrequency: 8
@@ -97,6 +102,7 @@ MonoBehaviour:
       baseATK: 0
       damageInterval: 0
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 5
     bulletData:
       transmissionFrequency: 0
@@ -104,13 +110,14 @@ MonoBehaviour:
       existTime: 5
       moveSpeed: 0
       rotateSpeed: 0
-      buffList: 02000000
+      buffList: 
       evolvableList: 
       crit: 0
       critRate: 1
       baseATK: 10
       damageInterval: 2
       isFollowShooter: 0
+      shootProbability: 1
   - bulletType: 7
     bulletData:
       transmissionFrequency: 2
@@ -118,10 +125,26 @@ MonoBehaviour:
       existTime: 0.5
       moveSpeed: 0
       rotateSpeed: 0
-      buffList: 02000000
-      evolvableList: 
+      buffList: 
+      evolvableList: 01000000
       crit: 0
       critRate: 0
       baseATK: 50
       damageInterval: 2
       isFollowShooter: 0
+      shootProbability: 1
+  - bulletType: 9
+    bulletData:
+      transmissionFrequency: 1.5
+      isRandomShoot: 1
+      existTime: 1.5
+      moveSpeed: 20
+      rotateSpeed: 0
+      buffList: 02000000
+      evolvableList: 
+      crit: 0
+      critRate: 0
+      baseATK: 5
+      damageInterval: 0
+      isFollowShooter: 0
+      shootProbability: 0.2

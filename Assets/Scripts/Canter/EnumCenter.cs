@@ -53,6 +53,7 @@ public enum BulletType
     GasBomb,
     Fanshaped,
     NULL,
+    FlowerDart,//毒镖
 }
 
 public enum CameraPointType
@@ -84,9 +85,9 @@ public enum BuffType
     NULL,
 }
 
-public enum Evolutionarytype
+public enum SkillType
 {
-
+    
 }
 
 public enum CoroutineType {//各种主要的固定协程事件如火烧buff，在这里注册才好在协程管理中统一调度并且存入字典

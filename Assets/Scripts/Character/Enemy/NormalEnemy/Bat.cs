@@ -19,8 +19,8 @@ namespace Bat {
 
             InitData();
 
-            characterEvent += CheckDistance;
-            characterEvent += Attack;
+            characterPassiveEvent += CheckDistance;
+            characterActiveEvent += Attack;
         }
     }
 

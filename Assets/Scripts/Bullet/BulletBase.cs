@@ -41,7 +41,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void InitATK(float ATK)
     {
-        increaseATK = bulletData.baseATK + ATK;
+        increaseATK += bulletData.baseATK + ATK;
     }
 
     protected void OnEnable()
@@ -56,6 +56,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     public virtual void OnEnter()
     {
         if (GameManager.GetInstance().enemyList.Count <= 0) RecoveryInstant();
+        increaseATK = 0;
     }
     public virtual void OnExit()
     {

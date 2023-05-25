@@ -12,17 +12,22 @@ public class BurnBuff : BuffBase
         buffData = DataManager.GetInstance().AskBuffDate(buffType);
 
         triggerInterval = 0.5f;
+        _probability = buffData.probability;
+        _duration = buffData.duration;
     }
-    public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
+        if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
+
         BuffManager.GetInstance().AddToBuffList(buffType,_taker);
+        return (1, _duration);
     }
 
     public override void OnUpdate(GameObject _taker)
     {
         IAttack t = _taker.GetComponent<IAttack>();
         if (!_taker) return;
-        //int n = _taker.GetComponent<CharacterBase>().buffDic[buffType].Item1;
+
         t.ChangeHealth(-5f,HPType.Burn);
     }
 

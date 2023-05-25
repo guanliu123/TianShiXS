@@ -11,10 +11,15 @@ public class PoisonBuff : BuffBase
         buffData = DataManager.GetInstance().AskBuffDate(buffType);
 
         triggerInterval = 1f;
+        _probability = buffData.probability;
+        _duration = buffData.duration;
     }
-    public override void OnAdd(GameObject _attacker, GameObject bullet, GameObject _taker)
+    public override (int,float) OnAdd(GameObject _attacker, GameObject bullet, GameObject _taker)
     {
+        if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
         BuffManager.GetInstance().AddToBuffList(buffType, _taker);
+        return (BulletManager.GetInstance().BulletBuffs[bullet.GetComponent<BulletBase>().bulletType][BuffType.Poison]
+            ,_duration);
     }
 
     public override void OnUpdate(GameObject _taker)

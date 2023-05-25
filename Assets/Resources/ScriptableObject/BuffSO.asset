@@ -22,3 +22,6 @@ MonoBehaviour:
   - buffType: 3
     buffData:
       duration: 0
+  - buffType: 1
+    buffData:
+      duration: 1.5
