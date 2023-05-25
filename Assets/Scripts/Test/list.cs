@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public GameObject GoDrag;
+
     /// <summary>
     /// 所有的数据
     /// </summary>
@@ -38,7 +40,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             }
             if (value < 0)
             {
-                value = dragDataList.Count;
+                value = dragDataList.Count - 1;
             }
             curSelectIndex = value;
         }
@@ -54,7 +56,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         /// <summary>
         /// 默认缩放
         /// </summary>
-        public float defaultScaleValue;
+        public Vector3 defaultScaleValue;
 
         /// <summary>
         /// 是否显示
@@ -66,7 +68,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         /// </summary>
         public Vector3 defaultPos;
 
-        public CircleDragData(int index, float defaultScaleValue, bool isActive, Vector3 defaultPos)
+        public CircleDragData(int index, Vector3 defaultScaleValue, bool isActive, Vector3 defaultPos)
         {
             this.index = index;
             this.defaultScaleValue = defaultScaleValue;
@@ -79,14 +81,14 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     private void Awake()
     {
-        Init();
+        Init();   
     }
 
     private void Init()
     {
         for(int i=0;i<goList.Count;i++)
         {
-            CircleDragData data = new CircleDragData(i, 1f, goList[i].gameObject.activeSelf, goList[i].transform.localPosition);
+            CircleDragData data = new CircleDragData(i, goList[i].transform.localScale, goList[i].gameObject.activeSelf, goList[i].transform.localPosition);
             dragDataList.Add(data);
         }
 
@@ -99,8 +101,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
-
         if (eventData.position.x > dragOffset.x)
         {
             DragRight();
@@ -109,23 +109,43 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         {
             DragLeft();
         }
-
         dragOffset = Vector2.zero;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        
+
     }
 
-    private void DragLeft()
+    //private void OnDrag(GameObject go, Vector2 delta)
+    //{
+    //    dragOffset += delta;
+    //}
+
+    //private void OnDragEnd(GameObject go)
+    //{
+    //    Debug.Log(dragOffset);
+
+    //    if (dragOffset.x >= 0)
+    //    {
+    //        DragRight();
+    //    }
+    //    else
+    //    {
+    //        DragLeft();
+    //    }
+
+    //    dragOffset = Vector2.zero;
+    //}
+
+    public void DragLeft()
     {
         CurSelectIndex++;
         Debug.Log("left" + CurSelectIndex);
         DragEndEffect();
     }
 
-    private void DragRight()
+    public void DragRight()
     {
         CurSelectIndex--;
         Debug.Log("right" + CurSelectIndex);
@@ -142,15 +162,11 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             var gotoPos = data.defaultPos;
             var gotoScale = data.defaultScaleValue;
             bool gotoActive = data.isActive;
-            var gotoColor = new Color(gotoScale, gotoScale, gotoScale);
+            //var gotoColor = new Color(gotoScale, gotoScale, gotoScale);
 
             go.transform.DOLocalMove(gotoPos, 0.3f);
-            go.SetActive(gotoActive);
-
-
-            //var tweenTime = 0.3f;
-
-
+            go.transform.DOScale(gotoScale, 0.3f);
+            //go.SetActive
         }
     }
 
