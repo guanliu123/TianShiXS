@@ -117,27 +117,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
     }
 
-    //private void OnDrag(GameObject go, Vector2 delta)
-    //{
-    //    dragOffset += delta;
-    //}
-
-    //private void OnDragEnd(GameObject go)
-    //{
-    //    Debug.Log(dragOffset);
-
-    //    if (dragOffset.x >= 0)
-    //    {
-    //        DragRight();
-    //    }
-    //    else
-    //    {
-    //        DragLeft();
-    //    }
-
-    //    dragOffset = Vector2.zero;
-    //}
-
     public void DragLeft()
     {
         CurSelectIndex++;
@@ -166,8 +145,14 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
             go.transform.DOLocalMove(gotoPos, 0.3f);
             go.transform.DOScale(gotoScale, 0.3f);
-            //go.SetActive
+            //System.Threading.Thread.Sleep(300);
+            go.SetActive(gotoActive);
         }
+    }
+
+    private void SetGotoActive()
+    {
+
     }
 
     private int GetCorrectIndex(int i)
