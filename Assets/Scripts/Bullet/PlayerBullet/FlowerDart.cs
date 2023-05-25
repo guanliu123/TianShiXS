@@ -1,23 +1,31 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaiChiDart : BulletBase
+public class FlowerDart : BulletBase
 {
     List<GameObject> checkPoints;
-
     private void Awake()
     {
-        bulletType = BulletType.TaiChiDart;
+        bulletType = BulletType.FlowerDart;
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
-        checkPoints = FindChilds(this.gameObject);
+        checkPoints = FindChilds(transform.GetChild(0).gameObject);
 
         bulletAction += Move;
     }
-    // Update is called once per frame
-    void Update()
+
+    public override void Move()
     {
-        base.Update();
+        if (GameManager.GetInstance().enemyList.Count <= 0)
+        {
+            base.Move();
+        }
+        else
+        {
+            Vector3 target = GameManager.GetInstance().enemyList[0].transform.position;
+            transform.forward = Vector3.Slerp(transform.forward, target - transform.position, 0.5f / Vector3.Distance(transform.position, target));
+            transform.position += transform.forward * bulletData.moveSpeed * Time.deltaTime;
+        }
     }
 
     protected override void AttackCheck()
@@ -32,23 +40,22 @@ public class TaiChiDart : BulletBase
             if (Physics.Raycast(ray, out hit, distence, playerBulletMask))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
-                if (targetIAttck==null) return;
-              
+                if (targetIAttck == null) return;
+
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
-                    targetIAttck.TakeBuff(Player._instance.gameObject,gameObject, item.Key, item.Value);
+                    targetIAttck.TakeBuff(Player._instance.gameObject, gameObject, item.Key, item.Value);
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(-increaseATK*
+                    targetIAttck.ChangeHealth(-bulletATK *
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else { targetIAttck.ChangeHealth(-increaseATK); }
+                else { targetIAttck.ChangeHealth(-bulletATK); }
 
                 RecoveryInstant();
             }
         }
     }
-
 }

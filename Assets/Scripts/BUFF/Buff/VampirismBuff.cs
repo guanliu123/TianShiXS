@@ -12,11 +12,15 @@ public class VampirismBuff : BuffBase
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
-    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+
+    public override (int, float) Init()
     {
         if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
-
-        _attacker.GetComponent<CharacterBase>().ChangeHealth(5f, HPType.Treatment);
         return (1, _duration);
+    }
+
+    public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
+        _attacker.GetComponent<CharacterBase>().ChangeHealth(5f, HPType.Treatment);
     }
 }

@@ -8,6 +8,11 @@ public class BulletManager : BaseManager<BulletManager>
     //存储每种子弹目前拥有的附加效果类型和进化次数
     public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
     public Dictionary<BulletType, float> increaseProbability = new Dictionary<BulletType, float>();
+    public Dictionary<BulletType, float> increaseATK = new Dictionary<BulletType, float>();
+    public Dictionary<BulletType, float> increaseShoot = new Dictionary<BulletType, float>();
+    public Dictionary<BulletType, float> increaseTime = new Dictionary<BulletType, float>();
+    public Dictionary<BulletType, bool> haveSpecialEvolved = new Dictionary<BulletType, bool>();
+
     //存每种子弹先挂载效果的层数
     public Dictionary<BulletType, Dictionary<BuffType,int>> BulletBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();
     /*public Dictionary<BulletType, Dictionary<BuffType, int>> EvolvableBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();*/
@@ -21,6 +26,11 @@ public class BulletManager : BaseManager<BulletManager>
         {
             BulletBuffs.Add(item.Key, new Dictionary<BuffType, int>());
             increaseProbability.Add(item.Key, 0);
+            increaseATK.Add(item.Key, 0);
+            increaseShoot.Add(item.Key, 0);
+            increaseTime.Add(item.Key, 0);
+            haveSpecialEvolved.Add(item.Key, false);
+
             foreach(var t in item.Value.buffList)
             {
                 BulletBuffs[item.Key].Add(t, 1);

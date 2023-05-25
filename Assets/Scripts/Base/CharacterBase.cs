@@ -84,6 +84,13 @@ public class CharacterBase : MonoBehaviour, IAttack
         }
     }
 
+    public void AddBullet(BulletType bulletType)
+    {
+        if (nowBullet.ContainsKey(bulletType)) return;
+        nowBullet.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
+        bulletTimer.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
+    }
+
     protected void InitData()
     {
         characterData = DataManager.GetInstance().AskCharacterData(characterType);
@@ -152,7 +159,9 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (!buffDic.ContainsKey(buffType))
         {
-            buffDic.Add(buffType, BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker, bullet, this.gameObject));           
+            (int, float) t = (piles, 0f);
+            buffDic.Add(buffType, BuffManager.GetInstance().Buffs[buffType].Init());
+            if(buffDic[buffType].Item1!=0) BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker, bullet, this.gameObject);           
         }
         else
         {
@@ -187,11 +196,11 @@ public class CharacterBase : MonoBehaviour, IAttack
                 }
                 else
                 {
-                    bulletTimer[item.Key] -= (1 + ATKSpeed) * Time.deltaTime;
+                    bulletTimer[item.Key] -= (1 + ATKSpeed + BulletManager.GetInstance().increaseShoot[item.Key]) * Time.deltaTime;
                 }
                 continue;
             }
-            bulletTimer[item.Key] -= (1+ATKSpeed)*Time.deltaTime;
+            bulletTimer[item.Key] -= (1+ATKSpeed + BulletManager.GetInstance().increaseShoot[item.Key]) *Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {
                 BulletManager.GetInstance().BulletLauncher(gameObject.transform, item.Key, aggressivity);
@@ -204,8 +213,8 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (characterTag != "Player")
         {
-            GameManager.GetInstance().ChangeEnergy(characterData.energy);            
-            FallMoney();
+            GameManager.GetInstance().ChangeEnergy(characterData.energy);
+            GameManager.GetInstance().FallMoney(transform, characterData.money);
         }
         else
         {
@@ -228,15 +237,5 @@ public class CharacterBase : MonoBehaviour, IAttack
         }
         buffDic.Clear();
         PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
-    }
-
-    public void FallMoney()
-    {
-        for(int i = 0; i < characterData.money; i++)
-        {
-            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString());
-            
-            t.transform.position = gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1));
-        }
-    }
+    } 
 }

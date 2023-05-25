@@ -59,6 +59,14 @@ MonoBehaviour:
       path: Prefabs/Bullet/PlayerBullet/Fanshaped
     - name: FlowerDart
       path: Prefabs/Bullet/PlayerBullet/FlowerDart
+    - name: PerpetualBullet
+      path: Prefabs/Bullet/PlayerBullet/PerpetualBullet
+    - name: FireBall
+      path: Prefabs/Bullet/PlayerBullet/FireBall
+    - name: RotateBullet
+      path: Prefabs/Bullet/PlayerBullet/RotateBullet
+    - name: BounceBullet
+      path: Prefabs/Bullet/PlayerBullet/BounceBullet
   - resourceType: 5
     resourceNPs:
     - name: DamageText

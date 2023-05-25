@@ -18,7 +18,7 @@ public class LaserBullet : BulletBase
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
         checkPoints = FindChilds(transform.GetChild(0).gameObject);
 
-        bulletAction += Rotate;
+        bulletAction += Rotat;
     }
     // Update is called once per frame
     void Update()
@@ -31,7 +31,7 @@ public class LaserBullet : BulletBase
         attackTimer = 0f;
     }
 
-    public override void Rotate()
+    public override void Rotat()
     {
         Vector3 direction = Player._instance.gameObject.transform.position - transform.position;
         direction.y = 0; // 只在水平面上旋转
@@ -69,11 +69,11 @@ public class LaserBullet : BulletBase
 
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(-increaseATK *
+                    targetIAttck.ChangeHealth(-bulletATK *
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else {targetIAttck.ChangeHealth(-increaseATK); }
+                else {targetIAttck.ChangeHealth(-bulletATK); }
 
                 attackTimer = bulletData.damageInterval;
             }

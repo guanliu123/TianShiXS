@@ -26,26 +26,22 @@ public class SkillManager : BaseManager<SkillManager>
                 occurredSkill.Add(item.id, 1);
                 skillDatas.Add(item.id, item);
                 Debug.Log("将技能" + item.describe + "加入技能池");
-            }          
+            }
+            
         }
-    }
-
-    public void AddSkill(int id, ISkill skill)
-    {
-        if (skillEvent.ContainsKey(id)) return;
-        skillEvent.Add(id, skill);
+        InitSkill();
     }
 
     public void UpdateSkillPool(int usedId)
     {
-        int n = skillPool.ElementAt(usedId).Value - 1;
+        int n = skillPool[usedId] - 1;
         if (n <= 0)
         {
-            skillPool.Remove(skillPool.ElementAt(usedId).Key);
-            if (!occurredSkill.ContainsKey(skillPool.ElementAt(usedId).Key)) 
-                occurredSkill.Add(skillPool.ElementAt(usedId).Key, 1);
+            skillPool.Remove(usedId);
+            if (!occurredSkill.ContainsKey(usedId)) 
+                occurredSkill.Add(usedId, 1);
         }
-        else skillPool[skillPool.ElementAt(usedId).Key]--;
+        else skillPool[usedId]--;
 
         foreach (var item in skillSO.skilldatas)
         {
@@ -145,5 +141,42 @@ public class SkillManager : BaseManager<SkillManager>
 
             skillUpgrades.Add(item);
         }*/
+    }
+
+    private void InitSkill()
+    {
+        skillEvent.Add(0, new AddCritProbability());
+        skillEvent.Add(1, new AddCritRate());
+        skillEvent.Add(2, new AddPosionWeapon());
+        skillEvent.Add(3, new AddPosionPile());
+        skillEvent.Add(4, new AddShootPosionProbability());
+        skillEvent.Add(5, new AddForst());
+        skillEvent.Add(6, new AddForstProbability());
+        skillEvent.Add(7, new AddForstTime());
+        skillEvent.Add(8, new AddForstDamage());
+        skillEvent.Add(9, new AddBulletDamage());
+        skillEvent.Add(10, new AddFanshaped());
+        skillEvent.Add(11, new IncreaseFanshapedAttack());
+        skillEvent.Add(12, new AddLaserBullet());
+        skillEvent.Add(13, new IncreaseLaserTime());
+        skillEvent.Add(14, new AddPerpetualBullet());
+        skillEvent.Add(15, new IncreasePerpetualTrack());
+        skillEvent.Add(16, new IncreasePerpetualNum());
+        skillEvent.Add(17, new AddFireBall());
+        skillEvent.Add(18, new IncreaseFireSize());
+        skillEvent.Add(19, new IncreaseFireTrack());
+        skillEvent.Add(20, new AddRotateBullet());
+        skillEvent.Add(21, new AddRotateBulletDivision());
+        skillEvent.Add(22, new AddBounceBullet());
+        skillEvent.Add(23, new EvolveBounceBullet());
+        skillEvent.Add(24, new AddBulletShoot());
+        skillEvent.Add(25, new AddVampirism());
+        skillEvent.Add(26, new AddMaxHP());
+        skillEvent.Add(27, new AddMoney());
+        skillEvent.Add(28, new AddBulletTrack());
+        skillEvent.Add(29, new AddReflect());
+        skillEvent.Add(30, new AddEnergy());
+        skillEvent.Add(31, new AddShield());
+        skillEvent.Add(32, new IncreaseSpeed());
     }
 }

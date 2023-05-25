@@ -29,7 +29,7 @@ public class PoisonousFloor : BulletBase
             {
                 targetIAttck.TakeBuff(this.gameObject,gameObject, item.Key, item.Value);
             }
-            targetIAttck.ChangeHealth(-increaseATK);
+            targetIAttck.ChangeHealth(-bulletATK);
 
             attackTimer = bulletData.damageInterval;
         }

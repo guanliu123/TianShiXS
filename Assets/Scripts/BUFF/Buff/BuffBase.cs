@@ -4,8 +4,9 @@ using UnityEngine;
 
 public interface IBuff
 {
-    //void OnNewly();//当该buff新增到子弹附带的效果列表中时
-    (int, float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
+    (int, float) Init();//当子弹刚被添加上时
+
+    void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
     void OnUpdate(GameObject _taker);//持续的时候
 
     (int, float) OnSuperpose(GameObject _attacker, GameObject _taker, int plies = 1);//进化的时候
@@ -32,9 +33,12 @@ public class BuffBase : IBuff
 
     }*/
 
-    public virtual (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
-    {
+    public virtual (int, float) Init() {
         return (0, 0);
+    }
+
+    public virtual void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
     }
 
     public virtual void OnEnd(GameObject _taker)
