@@ -4,5 +4,31 @@ using UnityEngine;
 
 public class ForstBuff : BuffBase
 {
-    
+    public ForstBuff()
+    {
+        buffType = BuffType.Frost;
+        buffData = DataManager.GetInstance().AskBuffDate(buffType);
+
+        _probability = buffData.probability;
+        _duration = buffData.duration;
+    }
+
+    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
+        if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
+
+        IAttack t = _taker.GetComponent<IAttack>();
+        if (t==null) return (0,0);
+
+        t.TakeMove(-100, _duration);
+        return (1, _duration);
+    }
+
+    public override void OnEnd(GameObject _taker)
+    {
+        CharacterBase t = _taker.GetComponent<CharacterBase>();
+
+        t.canActive = true;
+        t.animator.speed = 1;
+    }
 }

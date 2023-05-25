@@ -20,6 +20,7 @@ public class Player : CharacterBase
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
 
+        characterActiveEvent += Attack;
         InitData();
     }
 
@@ -60,7 +61,7 @@ namespace PlayerStates
         public void OnEnter()
         {
             //character.animator.Play("Idle");
-            character.AddCharacterEvent(character.Attack);
+            //character.AddCharacterEvent(character.Attack);
         }
 
         public void OnExit()

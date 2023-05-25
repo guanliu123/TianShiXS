@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IBuff
 {
     //void OnNewly();//当该buff新增到子弹附带的效果列表中时
-    void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
+    (int, float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
     void OnUpdate(GameObject _taker);//持续的时候
 
     (int, float) OnSuperpose(GameObject _attacker, GameObject _taker, int plies = 1);//进化的时候
@@ -22,15 +22,19 @@ public class BuffBase : IBuff
     public BuffType buffType;
     public CoroutineType coroutineType;//给假如存在持续作用效果的buff开的协程类型
     public BuffData buffData;
-    protected float triggerInterval;
+
+    public float _duration;
+    public float triggerInterval;
+    public float _probability;
 
     /*public virtual void OnNewly()
     {
 
     }*/
 
-    public virtual void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    public virtual (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
+        return (0, 0);
     }
 
     public virtual void OnEnd(GameObject _taker)

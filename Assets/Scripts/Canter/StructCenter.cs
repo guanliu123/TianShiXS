@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Skills;
 
 #region 资源路径名称相关数据
 [Serializable]
@@ -57,10 +58,11 @@ public struct BulletData
     [Header("初始附带特殊列表")] public List<BuffType> buffList;
     [Header("可进化方向")] public List<BuffType> evolvableList;
     [Header("暴击率(百分制，暴击倍率同")] public int crit;
-    [Header("暴击倍率")] public int critRate;
+    [Header("暴击倍率")] public float critRate;
     [Header("基础攻击力")] public float baseATK;
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
+    [Header("发射几率")] public float shootProbability;
 }
 [Serializable]
 public struct BulletDatas
@@ -76,6 +78,7 @@ public struct BulletDatas
 public struct BuffData
 {
     [Header("持续时间")] public float duration;
+    [Header("触发几率")] public float probability;
 }
 
 [Serializable]
@@ -86,15 +89,26 @@ public struct BuffDatas
 }
 #endregion
 
-#region 技能升级结构体
+#region 技能相关结构体
 public struct SkillUpgrade
 {
     public Image icon;//对应技能的图标
+    public string name;//对应技能名字
     public string describe;//对应技能的描述
-    public BulletType bulletType;//选中的技能所属子弹
-    public BuffType buffType;//选中的技能类型
+    public ISkill skill;
 }
-
+[Serializable]
+public struct SkillDatas
+{
+    [Header("技能ID")] public int id;
+    [Header("技能名字")] public string name;
+    [Header("技能图标")] public Image icon;
+    [Header("技能描述")] public string describe;
+    [Header("技能出现概率")] public float probability;
+    [Header("技能可出现次数")] public int num;
+    [Header("前置技能id列表")] public List<int> beforeSkills;
+    //[Header("技能品级")]
+}
 #endregion
 
 #region 关卡数据

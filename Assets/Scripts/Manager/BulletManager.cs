@@ -7,6 +7,7 @@ public class BulletManager : BaseManager<BulletManager>
 {
     //存储每种子弹目前拥有的附加效果类型和进化次数
     public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
+    public Dictionary<BulletType, float> increaseProbability = new Dictionary<BulletType, float>();
     //存每种子弹先挂载效果的层数
     public Dictionary<BulletType, Dictionary<BuffType,int>> BulletBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();
     /*public Dictionary<BulletType, Dictionary<BuffType, int>> EvolvableBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();*/
@@ -19,6 +20,7 @@ public class BulletManager : BaseManager<BulletManager>
         foreach(var item in BulletDic)
         {
             BulletBuffs.Add(item.Key, new Dictionary<BuffType, int>());
+            increaseProbability.Add(item.Key, 0);
             foreach(var t in item.Value.buffList)
             {
                 BulletBuffs[item.Key].Add(t, 1);
@@ -42,9 +44,10 @@ public class BulletManager : BaseManager<BulletManager>
     }
     private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity)
     {
+        if (UnityEngine.Random.Range(0, 100) > 
+            (BulletDic[bulletType].shootProbability+increaseProbability[bulletType]) * 100) return;//概率发射
+
         int n;
-        /*Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);*/
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
         if (!BulletBuffs[bulletType].ContainsKey(BuffType.Multiply)) n = 1;
@@ -69,9 +72,10 @@ public class BulletManager : BaseManager<BulletManager>
     }
     private void StraightLauncher(Transform shooter, BulletType bulletType, float aggressivity)
     {
+        if (UnityEngine.Random.Range(0, 100) > 
+            (BulletDic[bulletType].shootProbability + increaseProbability[bulletType]) * 100) return;//概率发射
+
         int n;
-        /*Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);*/
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
         if (!BulletBuffs[bulletType].ContainsKey(BuffType.Multiply)) n = 1;

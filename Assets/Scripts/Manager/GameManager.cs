@@ -11,12 +11,10 @@ public class GameManager : BaseManager<GameManager>
 {
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;
-
     public float playerEnergy { get; private set; }
     public int playerMoney {get; private set;}
 
     public CharacterType nowPlayerType { get; private set; }
-
     public List<GameObject> enemyList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
@@ -25,6 +23,10 @@ public class GameManager : BaseManager<GameManager>
 
     private Dictionary<HPType, Color> damageColor = new Dictionary<HPType, Color>();
     //private GameObject gameCanvas;
+
+    //=====================所有会因为技能变化的公共数据==========================//
+    public float critProbability;
+    public float critRate;//子弹暴击倍率
 
     public GameManager(){
         ChangeRole();
@@ -139,52 +141,10 @@ public class GameManager : BaseManager<GameManager>
         //obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", obj); });
     }
 
-    public List<SkillUpgrade> RandomSkill()
+    /*public List<SkillUpgrade> RandomSkill()
     {
-        List<(BulletType,BuffType)> choices=new List<(BulletType, BuffType)>();
-        List<SkillUpgrade> skillUpgrades = new List<SkillUpgrade>();
-        BulletType t1=BulletType.NULL;
-        BuffType t2=BuffType.NULL;
-
         
-        for (int i = 0; i < 3; i++)
-        {
-            int randomNum = 0;//防止一直抽不到不同的buff死循环
-            do
-            {
-                if (Player._instance.nowBullet.Count <= 0) break;
-                int t = Random.Range(0, Player._instance.nowBullet.Count);
-                t1 = Player._instance.nowBullet.ElementAt(t).Key;
-
-                randomNum++;
-
-                if (BulletManager.GetInstance().BulletDic[t1].evolvableList.Count <= 0) continue;
-                t= Random.Range(0,
-                    BulletManager.GetInstance().BulletDic[t1].evolvableList.Count);
-                t2 = BulletManager.GetInstance().BulletDic[t1].evolvableList[t];              
-            } while (choices.Contains((t1,t2))&&randomNum<3);
-
-            choices.Add((t1, t2));
-            SkillUpgrade item;   
-           
-            item.icon = null;
-            item.bulletType = choices[i].Item1;
-            item.buffType = choices[i].Item2;
-            
-            if (t1 == BulletType.NULL || t2 == BuffType.NULL)
-            {
-                item.describe = "当前无可进化技能！";
-            }
-            else
-            {
-                item.describe = "为" + item.bulletType.ToString() + "弹幕添加" + item.buffType.ToString() + "效果";
-            }
-
-            skillUpgrades.Add(item);
-        }
-
-        return skillUpgrades;
-    }
+    }*/
 
     public void PlayerEvolution()
     {
