@@ -28,7 +28,7 @@ public class HPSlider : MonoBehaviour
     private void Update()
     {
         //使用  Vector3.ProjectOnPlane （投影向量，投影平面法向量）用于计算某个向量在某个平面上的投影向量  
-        Vector3 lookPoint = Vector3.ProjectOnPlane(gameObject.transform.transform.position - Camera.main.transform.position, Camera.main.transform.forward);
+        Vector3 lookPoint = Vector3.ProjectOnPlane(gameObject.transform.position - Camera.main.transform.position, Camera.main.transform.forward);
         gameObject.transform.LookAt(Camera.main.transform.position + lookPoint);
         /*if (target != null)
         {

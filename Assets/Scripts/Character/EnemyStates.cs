@@ -61,8 +61,6 @@ namespace EnemyStates {
     {
         CharacterBase character;
         bool isMove;
-        float pauseTime = 1f;
-        float pauseTimer;
         float moveSpeed = 2f;
         float rotateSpeed = 1f;
         Vector3 target;
@@ -75,7 +73,6 @@ namespace EnemyStates {
         public void OnEnter()
         {
             isMove = false;
-            pauseTimer = 0f;
         }
 
         public void OnExit()

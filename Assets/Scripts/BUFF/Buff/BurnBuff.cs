@@ -23,7 +23,7 @@ public class BurnBuff : BuffBase
         IAttack t = _taker.GetComponent<IAttack>();
         if (!_taker) return;
         //int n = _taker.GetComponent<CharacterBase>().buffDic[buffType].Item1;
-        t.TakeDamage(5);
+        t.ChangeHealth(-5f,HPType.Burn);
     }
 
     public override void OnEnd(GameObject _taker)

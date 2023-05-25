@@ -24,6 +24,7 @@ public class SkillPanel : BasePanel
         for (int i = 1; i <= 3; i++)
         {
             var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn" + i, panel);
+                   
             t.GetComponentInChildren<Text>().text = su[i-1].describe;
             SkillPromote(t, i , su);
             /*t.onClick.AddListener(() =>

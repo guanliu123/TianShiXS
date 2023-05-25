@@ -11,6 +11,6 @@ public class VampirismBuff : BuffBase
     }
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
-        _attacker.GetComponent<CharacterBase>().AddHP(5f);
+        _attacker.GetComponent<CharacterBase>().ChangeHealth(5f, HPType.Treatment);
     }
 }

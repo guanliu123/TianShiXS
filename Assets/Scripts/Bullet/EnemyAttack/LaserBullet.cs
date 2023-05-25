@@ -4,6 +4,8 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
 using DG.Tweening;
+using static UnityEngine.UI.Image;
+using System.Drawing;
 
 public class LaserBullet : BulletBase
 {
@@ -50,12 +52,12 @@ public class LaserBullet : BulletBase
         }
         for (int i = 0; i < checkPoints.Count - 1; i++)
         {
-            Ray ray = new Ray(checkPoints[i].transform.position, checkPoints[i + 1].transform.position);
-            float distence = (checkPoints[i + 1].transform.position - checkPoints[i].transform.position).magnitude;
-
+            Ray ray = new Ray(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position);
+            float distance = (checkPoints[i + 1].transform.position - checkPoints[i].transform.position).magnitude;
             RaycastHit hit;
-     
-            if (Physics.Raycast(ray, out hit, distence))
+            Debug.DrawRay(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position * distance);
+
+            if (Physics.Raycast(ray, out hit, distance, enemyBulletMask))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null) return;
@@ -67,10 +69,10 @@ public class LaserBullet : BulletBase
 
                 if (isCrit)
                 {
-                    targetIAttck.TakeDamage(increaseATK * (1 + (float)bulletData.critRate / 100));
+                    targetIAttck.ChangeHealth(-increaseATK * (1 + (float)bulletData.critRate / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else {targetIAttck.TakeDamage(increaseATK); }
+                else {targetIAttck.ChangeHealth(-increaseATK); }
 
                 attackTimer = bulletData.damageInterval;
             }
