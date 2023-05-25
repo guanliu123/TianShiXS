@@ -43,10 +43,10 @@ public class TrackingBullet : BulletBase
             }
             if (isCrit)
             {
-                targetIAttck.TakeDamage(increaseATK * (1 + (float)bulletData.critRate / 100));
+                targetIAttck.ChangeHealth(-increaseATK * (1 + (float)bulletData.critRate / 100), HPType.Crit);
                 isCrit = false;
             }
-            else { targetIAttck.TakeDamage(increaseATK); }
+            else { targetIAttck.ChangeHealth(-increaseATK); }
 
             RecoveryInstant();
         }

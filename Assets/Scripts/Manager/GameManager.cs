@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class GameManager : BaseManager<GameManager>
 {
     //public static GameManager Instance { get; private set; }
+    public GameObject mainCanvas;
 
     public float playerEnergy { get; private set; }
     public int playerMoney {get; private set;}
@@ -22,13 +23,14 @@ public class GameManager : BaseManager<GameManager>
 
     private int evolutionNum = 0;
 
-    private Dictionary<DamageType, Color> damageColor = new Dictionary<DamageType, Color>();
+    private Dictionary<HPType, Color> damageColor = new Dictionary<HPType, Color>();
     //private GameObject gameCanvas;
 
     public GameManager(){
         ChangeRole();
-        damageColor.Add(DamageType.Default, Color.red);
-        damageColor.Add(DamageType.Burn, Color.yellow);
+        damageColor.Add(HPType.Default, Color.red);
+        damageColor.Add(HPType.Burn, Color.yellow);
+        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
 
@@ -51,7 +53,7 @@ public class GameManager : BaseManager<GameManager>
         //player.AddComponent<PlayerController>();
         player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero;
+        player.transform.position = Vector3.zero+Vector3.up;
         //playerObj.transform.position = Vector3.zero;
         playerObj.transform.parent = player.transform;
 
@@ -63,18 +65,24 @@ public class GameManager : BaseManager<GameManager>
     {
         GameObject t = GameObject.FindGameObjectsWithTag("Player")[0];
 
-        for (int i = 0; t != null && i < t.transform.childCount; i++)
+        for (int i = 1; t != null && i < t.transform.childCount; i++)
         {
             var child = t.transform.GetChild(i).gameObject;
             GameObject.Destroy(child);
         }
 
+        for(int i = 0; i < enemyList.Count; i++)
+        {
+            GameObject.Destroy(enemyList[i]);
+        }
+        enemyList.Clear();
+
         LevelManager.GetInstance().Stop();
         GameObject.Destroy(t.GetComponent<Player>());
         GameObject.Destroy(t.GetComponent<TestController>());
         CameraManager.GetInstance().StopCameraEvent();
+        MonoManager.GetInstance().KillAllCoroutines();
         CameraMove(CameraPointType.OrginPoint, 1f);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PlayerReset()
@@ -117,32 +125,26 @@ public class GameManager : BaseManager<GameManager>
         }
     }
 
-    public void ShowDamage(Transform point,float damage)
+    public void ShowDamage(Transform point,float damage,HPType  hpType)
     {
-        GameObject obj = PoolManager.GetInstance().GetObj("DamageText");
+        GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage");
 
-        Vector3 randomOffset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        obj.transform.position = point.position+randomOffset;
-        obj.GetComponent<TextMesh>().text = "-" + damage;
+        //Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+        obj.transform.parent = mainCanvas.transform;
+        //obj.transform.position = point.position+randomOffset;
+        
+        obj.GetComponent<FloatDamage>().Init(point, damage, hpType);
 
-        Vector3 cameraPoint = new Vector3(Screen.width / 2, 0, Screen.height / 2);
-        obj.transform.LookAt(Camera.main.ScreenToWorldPoint(cameraPoint));
-
-        float posY = obj.transform.position.y + 1f;
-        obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("DamageText", obj); });
-
-        /*GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage");
-
-        obj.transform.parent = gameCanvas.transform;
-        obj.GetComponent<FloatDamage>().Init(point, damage);*/
+        //float posY = obj.transform.position.y + 1f;
+        //obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", obj); });
     }
 
     public List<SkillUpgrade> RandomSkill()
     {
         List<(BulletType,BuffType)> choices=new List<(BulletType, BuffType)>();
         List<SkillUpgrade> skillUpgrades = new List<SkillUpgrade>();
-        BulletType t1;
-        BuffType t2;
+        BulletType t1=BulletType.NULL;
+        BuffType t2=BuffType.NULL;
 
         
         for (int i = 0; i < 3; i++)
@@ -150,23 +152,33 @@ public class GameManager : BaseManager<GameManager>
             int randomNum = 0;//防止一直抽不到不同的buff死循环
             do
             {
+                if (Player._instance.nowBullet.Count <= 0) break;
                 int t = Random.Range(0, Player._instance.nowBullet.Count);
                 t1 = Player._instance.nowBullet.ElementAt(t).Key;
-                
-                t= Random.Range(0,
-                    BulletManager.GetInstance().BulletDic[t1].evolvableList.Count);
-                t2 = BulletManager.GetInstance().BulletDic[t1].evolvableList[t];
 
                 randomNum++;
+
+                if (BulletManager.GetInstance().BulletDic[t1].evolvableList.Count <= 0) continue;
+                t= Random.Range(0,
+                    BulletManager.GetInstance().BulletDic[t1].evolvableList.Count);
+                t2 = BulletManager.GetInstance().BulletDic[t1].evolvableList[t];              
             } while (choices.Contains((t1,t2))&&randomNum<3);
-            choices.Add((t1,t2));
 
-            SkillUpgrade item;
-
+            choices.Add((t1, t2));
+            SkillUpgrade item;   
+           
             item.icon = null;
             item.bulletType = choices[i].Item1;
             item.buffType = choices[i].Item2;
-            item.describe = "为" + item.bulletType.ToString() + "弹幕添加" + item.buffType.ToString() + "效果";
+            
+            if (t1 == BulletType.NULL || t2 == BuffType.NULL)
+            {
+                item.describe = "当前无可进化技能！";
+            }
+            else
+            {
+                item.describe = "为" + item.bulletType.ToString() + "弹幕添加" + item.buffType.ToString() + "效果";
+            }
 
             skillUpgrades.Add(item);
         }

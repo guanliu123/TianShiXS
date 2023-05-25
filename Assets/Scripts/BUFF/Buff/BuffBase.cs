@@ -45,7 +45,7 @@ public class BuffBase : IBuff
 
     public virtual (int,float) OnSuperpose(GameObject _attacker, GameObject _taker, int plies = 1)
     {
-        return (plies, 0);
+        return (0, 0);
     }
 
     public IEnumerator OnSustain(List<GameObject> _takers)

@@ -69,4 +69,8 @@ public class MonoManager : BaseManager<MonoManager>
     {
         controller.CoroutineStopped((int)coroutineType);
     }
+    public void KillAllCoroutines()
+    {
+        controller.KillAllCoroutines();
+    }
 }

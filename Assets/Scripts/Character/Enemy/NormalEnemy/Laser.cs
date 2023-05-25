@@ -18,7 +18,8 @@ public class Laser : CharacterBase
 
         InitData();
 
-        characterEvent += Attack;
+        characterEvent += CheckDistance;
+        characterEvent += Attack;     
     }
 
 }

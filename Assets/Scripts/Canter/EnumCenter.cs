@@ -43,7 +43,8 @@ public enum BuffDoorType
 
 public enum BulletType
 {
-    NULL,
+    
+    Combat,
     TaiChiDart,
     BaseBullet,
     TrackingBullet,
@@ -51,6 +52,7 @@ public enum BulletType
     PoisonousFloor,
     GasBomb,
     Fanshaped,
+    NULL,
 }
 
 public enum CameraPointType
@@ -72,12 +74,14 @@ public enum PropType
 
 public enum BuffType
 {
+    
     Burn,//È¼ÉÕ
     Frost,//±ù¶³
     Poison,//¶¾Ò©
     Vampirism,//ÎüÑª
     Multiply,//±¶Ôö
     Crit,//±©»÷
+    NULL,
 }
 
 public enum Evolutionarytype
@@ -90,8 +94,11 @@ public enum CoroutineType {//¸÷ÖÖÖ÷ÒªµÄ¹Ì¶¨Ğ­³ÌÊÂ¼şÈç»ğÉÕbuff£¬ÔÚÕâÀï×¢²á²ÅºÃÔÚĞ
     PoisonBuff,
 }
 
-public enum DamageType
+public enum HPType
 {
     Default,
+    Treatment,
     Burn,
+    Poison,
+    Crit,
 }

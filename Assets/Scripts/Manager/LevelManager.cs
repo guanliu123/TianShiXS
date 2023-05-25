@@ -236,8 +236,11 @@ public class LevelManager : BaseManager<LevelManager>
 
             if (!isChange)
             {
-                Vector3 _newPoint = InstantRandomPoint(ground);
-                while (enemyPoints.Contains(_newPoint)) _newPoint = InstantRandomPoint(ground);
+                Vector3 _newPoint;
+                do
+                {
+                    _newPoint = InstantRandomPoint(ground);
+                }while (enemyPoints.Contains(_newPoint));
 
                 t.transform.position = _newPoint;
                 t.transform.parent = enemyList.transform;
@@ -246,8 +249,11 @@ public class LevelManager : BaseManager<LevelManager>
             }
             else
             {
-                Vector3 _newPoint = InstantRandomPoint();
-                while (enemyPoints.Contains(_newPoint)) _newPoint = InstantRandomPoint();
+                Vector3 _newPoint;
+                do
+                {
+                    _newPoint = InstantRandomPoint();
+                } while (enemyPoints.Contains(_newPoint));
 
                 t.transform.position = _newPoint;
             }
@@ -307,7 +313,7 @@ public class LevelManager : BaseManager<LevelManager>
         float _x = parent.transform.position.x + Random.Range(-mapSquareSize[0, 0] / 2, mapSquareSize[0, 0] / 2);
         float _z = parent.transform.position.z + Random.Range(-mapSquareSize[0, 1] / 2, mapSquareSize[0, 1] / 2);
 
-        return new Vector3(_x, 1, _z);
+        return new Vector3(_x, 0, _z);
     }
 
     Vector3 InstantRandomPoint()
@@ -315,6 +321,6 @@ public class LevelManager : BaseManager<LevelManager>
         float _x = specialPoint.x + Random.Range(-2, 2);
         float _z= specialPoint.z+ Random.Range(-2, 2);
 
-        return new Vector3(_x, 1, _z);
+        return new Vector3(_x, 0, _z);
     }
 }

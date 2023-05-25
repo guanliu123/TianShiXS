@@ -19,14 +19,8 @@ namespace Bat {
 
             InitData();
 
-            characterEvent += CheckDistancce;
+            characterEvent += CheckDistance;
             characterEvent += Attack;
-        }
-
-
-        public void CheckDistancce()
-        {
-            if ((Player._instance.transform.position - transform.position).z > 1.5f) Recovery();
         }
     }
 
