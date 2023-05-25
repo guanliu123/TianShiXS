@@ -118,4 +118,9 @@ public class MonoController : MonoBehaviour
     {
         if (CoroutinesDic.ContainsKey(id)) CoroutinesDic.Remove(id);
     }
+
+    public void KillAllCoroutines()
+    {
+        StopAllCoroutines();
+    }
 }

@@ -10,7 +10,7 @@ using static UnityEditor.PlayerSettings;
 
 public interface IAttack
 {
-    void TakeDamage(float damage,DamageType damageType=DamageType.Default);
+    void ChangeHealth(float damage,HPType damageType=HPType.Default);
     //void ShowDamage(float damage);
     void TakeMove();
     void TakeBuff(GameObject attacker,GameObject bullet,BuffType buffType, int piles = 1);
@@ -103,16 +103,13 @@ public class CharacterBase : MonoBehaviour, IAttack
         if(characterEvent!=null) characterEvent();
     }
 
-    public void AddHP(float add)
+    public void ChangeHealth(float variation,HPType hpType=HPType.Default)
     {
-        nowHP = Mathf.Min(maxHP, nowHP + add);
-    }
+        if (variation > 0) nowHP = Mathf.Min(maxHP, nowHP + variation);
+        else nowHP= nowHP + variation > 0 ? nowHP + variation : 0;
 
-    public void TakeDamage(float damage,DamageType damageType=DamageType.Default)
-    {
-        nowHP=nowHP - damage>0?nowHP-damage:0;
         if (hpSlider) hpSlider.UpdateHPSlider(maxHP, nowHP);
-        GameManager.GetInstance().ShowDamage(this.transform,damage);
+        GameManager.GetInstance().ShowDamage(this.transform,variation, hpType);
         if (nowHP <= 0) DiedEvent();
     }
     
@@ -127,7 +124,13 @@ public class CharacterBase : MonoBehaviour, IAttack
             buffDic.Add(buffType, (piles,DataManager.GetInstance().AskBuffDate(buffType).duration));
             BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker,bullet, this.gameObject);
         }
-        else BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker,this.gameObject,piles);
+        else
+        {
+            (int, float) t =
+                (buffDic[buffType].Item1 + BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker, this.gameObject, piles).Item1
+                , buffDic[buffType].Item2 + BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker, this.gameObject, piles).Item2);
+            buffDic[buffType] = t;
+        }
     }
 
     public void TransitionState(CharacterStateType characterStateType)
@@ -143,12 +146,13 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         foreach(var item in nowBullet)
         {
-            if (item.Key == BulletType.NULL)//近战攻击
+            if (item.Key == BulletType.Combat)//近战攻击
             {
                 if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
                 {
                     TransitionState(CharacterStateType.Attack);
-                    Player._instance.TakeDamage(BulletManager.GetInstance().BulletDic[item.Key].baseATK + aggressivity);
+                    Player._instance.ChangeHealth(
+                        -BulletManager.GetInstance().BulletDic[item.Key].baseATK + aggressivity);
                     bulletTimer[item.Key] = item.Value;
                 }
                 else
@@ -173,12 +177,16 @@ public class CharacterBase : MonoBehaviour, IAttack
             GameManager.GetInstance().ChangeEnergy(characterData.energy);            
             FallMoney();
         }
+        else
+        {
+            GameManager.GetInstance().QuitGame();
+        }
         Recovery(); 
     }
 
-    public void VisibleCheck()
+    public void CheckDistance()
     {
-        if (!gameObject.GetComponentInChildren<SkinnedMeshRenderer>().isVisible) Recovery();
+        if ((Player._instance.transform.position - transform.position).z > 1.5f) Recovery();
     }
 
     public void Recovery()

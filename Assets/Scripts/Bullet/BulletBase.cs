@@ -88,9 +88,6 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     }
 
-    public virtual void HitEvent()
-    {
-    }
 
     protected void Recovery()
     {

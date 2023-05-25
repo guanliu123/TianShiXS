@@ -43,8 +43,10 @@ public class BulletManager : BaseManager<BulletManager>
     private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity)
     {
         int n;
+        /*Vector3 instantPos = new Vector3(
+                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);*/
         Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);
+                    shooter.transform.position.x, 1f, shooter.transform.position.z);
         if (!BulletBuffs[bulletType].ContainsKey(BuffType.Multiply)) n = 1;
         else
         {
@@ -68,8 +70,10 @@ public class BulletManager : BaseManager<BulletManager>
     private void StraightLauncher(Transform shooter, BulletType bulletType, float aggressivity)
     {
         int n;
+        /*Vector3 instantPos = new Vector3(
+                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);*/
         Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, shooter.transform.position.y + 1f, shooter.transform.position.z);
+                    shooter.transform.position.x, 1f, shooter.transform.position.z);
         if (!BulletBuffs[bulletType].ContainsKey(BuffType.Multiply)) n = 1;
         else
         {
