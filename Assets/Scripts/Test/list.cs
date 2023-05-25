@@ -38,7 +38,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             }
             if (value < 0)
             {
-                value = dragDataList.Count - 1;
+                value = dragDataList.Count;
             }
             curSelectIndex = value;
         }
@@ -57,20 +57,20 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         public float defaultScaleValue;
 
         /// <summary>
-        /// UI层级
+        /// 是否显示
         /// </summary>
-        public int panelDepth;
+        public bool isActive;
 
         /// <summary>
         /// 默认位置
         /// </summary>
         public Vector3 defaultPos;
 
-        public CircleDragData(int index, float defaultScaleValue, int panelDepth, Vector3 defaultPos)
+        public CircleDragData(int index, float defaultScaleValue, bool isActive, Vector3 defaultPos)
         {
             this.index = index;
             this.defaultScaleValue = defaultScaleValue;
-            this.panelDepth = panelDepth;
+            this.isActive = isActive;
             this.defaultPos = defaultPos;
         }
     }
@@ -86,7 +86,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         for(int i=0;i<goList.Count;i++)
         {
-            CircleDragData data = new CircleDragData(0, 1f, 5, goList[i].transform.localPosition);
+            CircleDragData data = new CircleDragData(i, 1f, goList[i].gameObject.activeSelf, goList[i].transform.localPosition);
             dragDataList.Add(data);
         }
 
@@ -103,11 +103,11 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
 
         if (eventData.position.x > dragOffset.x)
         {
-            DragLeft();
+            DragRight();
         }
         else
         {
-            DragRight();
+            DragLeft();
         }
 
         dragOffset = Vector2.zero;
@@ -141,10 +141,14 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             var data = dragDataList[GetCorrectIndex(i)];
             var gotoPos = data.defaultPos;
             var gotoScale = data.defaultScaleValue;
-            var gotoDepth = data.panelDepth;
+            bool gotoActive = data.isActive;
             var gotoColor = new Color(gotoScale, gotoScale, gotoScale);
 
-            var tweenTime = 0.3f;
+            go.transform.DOLocalMove(gotoPos, 0.3f);
+            go.SetActive(gotoActive);
+
+
+            //var tweenTime = 0.3f;
 
 
         }
