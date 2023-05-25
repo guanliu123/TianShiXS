@@ -54,6 +54,10 @@ public enum BulletType
     Fanshaped,
     NULL,
     FlowerDart,//¶¾ïÚ
+    PerpetualBullet,//Á¬»÷µ¯Ä»
+    FireBall,
+    RotateBullet,
+    BounceBullet,
 }
 
 public enum CameraPointType
@@ -83,6 +87,7 @@ public enum BuffType
     Multiply,//±¶Ôö
     Crit,//±©»÷
     NULL,
+    Reflect,//·´µ¯ÉËº¦
 }
 
 public enum SkillType

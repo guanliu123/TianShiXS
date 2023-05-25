@@ -27,7 +27,7 @@ MonoBehaviour:
       bulletTypes: 00000000
       Aggressivity: 0
       ATKSpeed: 0
-      energy: 100
+      energy: 5
       money: 2
   - characterType: 2
     characterData:

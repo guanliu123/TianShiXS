@@ -13,15 +13,18 @@ public class ForstBuff : BuffBase
         _duration = buffData.duration;
     }
 
-    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    public override (int, float) Init()
     {
         if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
+        return (1, _duration);
+    }
 
+    public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
         IAttack t = _taker.GetComponent<IAttack>();
-        if (t==null) return (0,0);
+        if (t==null) return;
 
         t.TakeMove(-100, _duration);
-        return (1, _duration);
     }
 
     public override void OnEnd(GameObject _taker)

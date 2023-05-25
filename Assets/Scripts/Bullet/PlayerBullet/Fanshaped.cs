@@ -69,11 +69,11 @@ public class Fanshaped : BulletBase
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(-increaseATK * 
+                    targetIAttck.ChangeHealth(-bulletATK * 
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else { targetIAttck.ChangeHealth(-increaseATK); }
+                else { targetIAttck.ChangeHealth(-bulletATK); }
 
                 unAttachable.Add(targetIAttck,bulletData.damageInterval);
             }

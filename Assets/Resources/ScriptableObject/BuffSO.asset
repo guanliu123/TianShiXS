@@ -16,12 +16,16 @@ MonoBehaviour:
   - buffType: 0
     buffData:
       duration: 3
+      probability: 1
   - buffType: 2
     buffData:
       duration: 3
+      probability: 1
   - buffType: 3
     buffData:
       duration: 0
+      probability: 1
   - buffType: 1
     buffData:
       duration: 1.5
+      probability: 1

@@ -17,11 +17,16 @@ public class BulletCrit : BuffBase
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
-    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+
+    public override (int, float) Init()
     {
         if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
 
+        return (1, _duration);
+    }
 
+    public override void  OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
         int t = Random.Range(0, 100);
         BulletType _type = _bullet.GetComponent<BulletBase>().bulletType;
         if (!critDic.ContainsKey(_type)) critDic.Add(_type, 
@@ -36,8 +41,6 @@ public class BulletCrit : BuffBase
         else
         {
             critDic[_type] = (critDic[_type].Item1 +critGrowthRate, critDic[_type].Item2);
-        }
-
-        return (1, buffData.duration);
+        }       
     }
 }

@@ -33,6 +33,7 @@ public class BuffManager : BaseManager<BuffManager>
     public void RemoveFromBuffList(BuffType buffType, GameObject character)
     {
         //将传入的物体移出对应的buff列表，如果移出后字典的相应列表为空，则将该buff移出字典，并且停止对应协程
+        if (!buffList.ContainsKey(buffType) || !buffList[buffType].Contains(character)) return;
         buffList[buffType].Remove(character);
         if (buffList[buffType].Count <= 0)
         {

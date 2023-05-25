@@ -23,7 +23,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     protected LayerMask playerBulletMask;
     protected LayerMask enemyBulletMask;
 
-    protected float increaseATK;
+    protected float bulletATK;
     private float existTimer = 0;
 
     public bool isCrit;
@@ -41,7 +41,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void InitATK(float ATK)
     {
-        increaseATK += bulletData.baseATK + ATK;
+        bulletATK = bulletData.baseATK + ATK + BulletManager.GetInstance().increaseATK[bulletType];
     }
 
     protected void OnEnable()
@@ -56,7 +56,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     public virtual void OnEnter()
     {
         if (GameManager.GetInstance().enemyList.Count <= 0) RecoveryInstant();
-        increaseATK = 0;
+        SpecialEvolution();
     }
     public virtual void OnExit()
     {
@@ -67,7 +67,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     {
         gameObject.transform.Translate(transform.forward * bulletData.moveSpeed * Time.deltaTime);
     }
-    public virtual void Rotate()
+    public virtual void Rotat()
     {
 
     }
@@ -88,12 +88,15 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     {
 
     }
-
+    protected virtual void SpecialEvolution()
+    {
+        
+    }
 
     protected void Recovery()
     {
         existTimer += Time.deltaTime;
-        if (existTimer < bulletData.existTime) return;
+        if (existTimer < bulletData.existTime + BulletManager.GetInstance().increaseTime[bulletType]) return;
 
         existTimer = 0;
         OnExit();

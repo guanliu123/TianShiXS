@@ -27,6 +27,8 @@ public class GameManager : BaseManager<GameManager>
     //=====================所有会因为技能变化的公共数据==========================//
     public float critProbability;
     public float critRate;//子弹暴击倍率
+    public int increaseMoney;
+    public float increaseEnergy;
 
     public GameManager(){
         ChangeRole();
@@ -62,6 +64,15 @@ public class GameManager : BaseManager<GameManager>
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
+
+        Init();
+    }
+    public void Init()
+    {
+        critProbability=0;
+        critRate=0;
+        increaseMoney=0;
+        increaseEnergy = 0;
     }
     public void QuitGame()
     {
@@ -99,8 +110,18 @@ public class GameManager : BaseManager<GameManager>
 
     public void ChangeEnergy(float num)
     {
-        playerEnergy += num;
+        playerEnergy += (num+increaseEnergy);
         if (playerEnergy < 0) playerEnergy = 0;
+    }
+
+    public void FallMoney(Transform point, int num)
+    {
+        for (int i = 0; i < num + increaseMoney; i++)
+        {
+            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString());
+
+            t.transform.position = point.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+        }
     }
     public void ChangeMoney(int money)
     {

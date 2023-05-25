@@ -15,12 +15,16 @@ public class BurnBuff : BuffBase
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
-    public override (int,float) OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+
+    public override (int, float) Init()
     {
         if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
-
-        BuffManager.GetInstance().AddToBuffList(buffType,_taker);
         return (1, _duration);
+    }
+
+    public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
+    {
+        BuffManager.GetInstance().AddToBuffList(buffType,_taker);
     }
 
     public override void OnUpdate(GameObject _taker)

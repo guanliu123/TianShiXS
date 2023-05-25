@@ -14,18 +14,23 @@ public class PoisonBuff : BuffBase
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
-    public override (int,float) OnAdd(GameObject _attacker, GameObject bullet, GameObject _taker)
+
+    public override (int, float) Init()
     {
         if (Random.Range(0, 100) > _probability * 100) return (0, 0);//buff没有触发 
+        return (1, _duration);
+    }
+
+    public override void OnAdd(GameObject _attacker, GameObject bullet, GameObject _taker)
+    {
         BuffManager.GetInstance().AddToBuffList(buffType, _taker);
-        return (BulletManager.GetInstance().BulletBuffs[bullet.GetComponent<BulletBase>().bulletType][BuffType.Poison]
-            ,_duration);
     }
 
     public override void OnUpdate(GameObject _taker)
     {
         IAttack t = _taker.GetComponent<IAttack>();
         if (!_taker) return;
+
         int n = _taker.GetComponent<CharacterBase>().buffDic[buffType].Item1;
         t.ChangeHealth(-7 * n,HPType.Poison);
     }
