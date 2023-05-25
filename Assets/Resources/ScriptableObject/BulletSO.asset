@@ -113,15 +113,15 @@ MonoBehaviour:
       isFollowShooter: 0
   - bulletType: 7
     bulletData:
-      transmissionFrequency: 1.5
+      transmissionFrequency: 2
       isRandomShoot: 0
-      existTime: 3
+      existTime: 0.5
       moveSpeed: 0
       rotateSpeed: 0
       buffList: 02000000
       evolvableList: 
       crit: 0
-      critRate: 1
-      baseATK: 30
+      critRate: 0
+      baseATK: 50
       damageInterval: 2
       isFollowShooter: 0

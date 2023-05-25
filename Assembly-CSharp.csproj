@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\BUFF\Buff\BulletCrit.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\BulletMultiply.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\BurnBuff.cs" />
+    <Compile Include="Assets\Scripts\BUFF\Buff\ForstBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\PoisonBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\VampirismBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\BuffDoor\BuffDoor.cs" />

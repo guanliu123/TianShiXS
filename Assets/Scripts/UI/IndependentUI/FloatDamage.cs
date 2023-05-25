@@ -10,24 +10,32 @@ public class FloatDamage : MonoBehaviour
     private RectTransform mRect;
     private Camera mainCamera;
 
-    private Dictionary<DamageType, Color> colorDic = new Dictionary<DamageType, Color>();
+    private Dictionary<HPType, Color> colorDic = new Dictionary<HPType, Color>();
 
     public void Awake()
     {
         mtext = GetComponent<Text>();
+        mRect = GetComponent<RectTransform>();
         mainCamera = Camera.main;
-        colorDic.Add(DamageType.Default, Color.red);
+
+        colorDic.Add(HPType.Default, new Color(255,0,0));
+        colorDic.Add(HPType.Treatment, new Color(0, 255, 0));
+        colorDic.Add(HPType.Burn, new Color(255,117,0));
+        colorDic.Add(HPType.Poison, new Color(17, 140, 100));
+        colorDic.Add(HPType.Crit, new Color(255,215,0));
     }
 
-    public void Init(Transform point,float damage,DamageType damageType=DamageType.Default)
+    public void Init(Transform point,float damage,HPType hpType=HPType.Default)
     {
-        mtext.text = damage + "";
-        mtext.color = colorDic[damageType];
+        if(damage<0) mtext.text = "" + damage;
+        else mtext.text = "+" + damage;
 
-        Vector3 randomOffset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
+        mtext.color = colorDic[hpType];
+
+        Vector3 randomOffset = new Vector3(Random.Range(-0.5f,0.5f), Random.Range(-0.5f, 0.5f), 0);
         mRect.position = RectTransformUtility.WorldToScreenPoint(mainCamera, point.position + randomOffset);
 
-        float posY = transform.position.y + 3f;
+        float posY = transform.position.y + 1f;
         transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", gameObject); });
     }
 }
