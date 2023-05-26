@@ -36,12 +36,14 @@ public class PlayerController : MonoBehaviour
                 if (isHorizontalMode)
                 {
                     // 水平模式下只能在x轴上移动
-                    transform.position = new Vector3(objectStartPosition.x + delta.x / Screen.width, objectStartPosition.y, objectStartPosition.z);
+                    //transform.position = new Vector3(objectStartPosition.x + delta.x / Screen.width, objectStartPosition.y, objectStartPosition.z);
+			transform.position = new Vector3(objectStartPosition.x + delta.x, objectStartPosition.y, objectStartPosition.z);
                 }
                 else
                 {
                     // 垂直模式下只能在xoz平面上移动
-                    transform.position = new Vector3(objectStartPosition.x + delta.x / Screen.width, objectStartPosition.y, objectStartPosition.z + delta.y / Screen.height);
+                    //transform.position = new Vector3(objectStartPosition.x + delta.x / Screen.width, objectStartPosition.y, objectStartPosition.z + delta.y / Screen.height);
+			transform.position = new Vector3(objectStartPosition.x + delta.x, objectStartPosition.y, objectStartPosition.z + delta.y);
                 }
             }
             else if (touch.phase == TouchPhase.Ended)

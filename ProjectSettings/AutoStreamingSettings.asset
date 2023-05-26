@@ -11,13 +11,20 @@ AutoStreamingSettings:
   mMeshes: []
   mAnimations: []
   mSharedSceneAssets: []
-  mScenes: []
+  mScenes:
+  - onDemandDownload: 1
+    assetPath: Assets/Scenes/StartScene.unity
+    localFileId: -1
+    cloudAssetName: 
+    rtMem: 161566
+    warningFlag: 0
+    refs: []
   mConfigCCD:
     useCCD: 0
-    uosSecret: 
-    uosAppid: 
-    bucketUuid: 
-    bucketName: 
-    badgeName: 
+    uosSecret: 780adaedfae844da96365c83c80c2905
+    uosAppid: 052e9d1c-8bbb-4fa8-88c3-273217994988
+    bucketUuid: e8d9107f-5283-47d5-97c0-363166da077b
+    bucketName: Test3
+    badgeName: latest
     ttAppid: 
-    targetPlatfrom: 
+    targetPlatfrom: Bytedance

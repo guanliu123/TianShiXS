@@ -204,7 +204,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.83
+  m_Radius: 1.77
   m_Center: {x: 0, y: 1, z: 0.21}
 --- !u!95 &8169305755830754928
 Animator:
@@ -238,6 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData:
+    tag: 
+    name: 
+    icon: {fileID: 0}
     MaxHP: 0
     bulletTypes: 
     Aggressivity: 0
@@ -252,6 +255,7 @@ MonoBehaviour:
   ATKSpeed: 0
   animator: {fileID: 0}
   hpSlider: {fileID: 0}
+  canActive: 0
 --- !u!1 &3254455489658593709
 GameObject:
   m_ObjectHideFlags: 0

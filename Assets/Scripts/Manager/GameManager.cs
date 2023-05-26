@@ -65,8 +65,8 @@ public class GameManager : BaseManager<GameManager>
         GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString());
         
         player.AddComponent<Player>();
-        //player.AddComponent<PlayerController>();
-        player.AddComponent<TestController>();
+        player.AddComponent<PlayerController>();
+        //player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero+ Vector3.up;
         //playerObj.transform.position = Vector3.zero;
@@ -109,7 +109,8 @@ public class GameManager : BaseManager<GameManager>
         LevelManager.GetInstance().Stop();
         MonoManager.GetInstance().ClearActions();
         GameObject.Destroy(t.GetComponent<Player>());
-        GameObject.Destroy(t.GetComponent<TestController>());
+        // GameObject.Destroy(t.GetComponent<TestController>());
+        GameObject.Destroy(t.GetComponent<PlayerController>());
         MonoManager.GetInstance().KillAllCoroutines();       
         CameraMove(CameraPointType.OrginPoint, 1f);
         PanelManager.Instance.Push(new FailPanel());
