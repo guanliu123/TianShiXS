@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,48 +58,66 @@ public class PlayerController : MonoBehaviour
     {
         isHorizontalMode = !isHorizontalMode;
     }
-    /*public Transform currTouchObj;
-    private Camera mainCamera;
-    private float moveSpeed;
-
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
-
-private void Update()
-{
-    CtrlTouchObjMove();    
+   
 }
+*/
 
-private void CtrlTouchObjMove()
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
 {
-    if (Input.touchCount == 1)
+    private bool isDragging = false; // 是否正在拖动角色
+    private bool isHorizontalMode = true; // 是否处于水平模式
+
+    private Vector3 touchPosition; // 手指按下的屏幕位置
+    private Vector3 offset; // 角色物体与手指按下位置的偏移量
+
+    private void Update()
     {
-        Touch firstTouch = Input.GetTouch(0);
-        if (firstTouch.phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            Ray ray = mainCamera.ScreenPointToRay(firstTouch.position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
             {
-                //获取当前触摸到的物体
-                if (hit.collider.gameObject != this.gameObject) return;
-                currTouchObj = hit.collider.transform;
+                // 检测手指是否按在角色物体上
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+                {
+                    isDragging = true;
+                    touchPosition = touch.position;
+                    offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, 10.0f));
+                }
+            }
+            else if (touch.phase == TouchPhase.Moved && isDragging)
+            {
+                // 根据操作模式拖动角色
+                Vector3 newPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10.0f)) + offset;
+
+                if (isHorizontalMode)
+                {
+                    newPosition.y = transform.position.y;
+                    newPosition.z = transform.position.z;
+                }
+                else
+                {
+                    newPosition.y = transform.position.y;
+                }
+
+                transform.position = newPosition;
+            }
+            else if (touch.phase == TouchPhase.Ended && isDragging)
+            {
+                isDragging = false;
             }
         }
-
-        if (Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            if (currTouchObj)
-            {
-                Vector3 touchDeltaPos = Input.GetTouch(0).deltaPosition;
-                currTouchObj.Translate(touchDeltaPos.x, touchDeltaPos.y, 0, Space.World);
-            }
-        }
-
-        currTouchObj = null;
     }
-}*/
 
+    // 切换操作模式
+    public void SwitchMode()
+    {
+        isHorizontalMode = !isHorizontalMode;
+    }
 }
