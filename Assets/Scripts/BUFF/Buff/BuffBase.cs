@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBuff
 {
-    (int, float) Init();//当子弹刚被添加上时
+    (int, float) Init();//当Buff刚被添加上时
 
     void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
     void OnUpdate(GameObject _taker);//持续的时候
@@ -27,11 +27,6 @@ public class BuffBase : IBuff
     public float _duration;
     public float triggerInterval;
     public float _probability;
-
-    /*public virtual void OnNewly()
-    {
-
-    }*/
 
     public virtual (int, float) Init() {
         return (0, 0);

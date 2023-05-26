@@ -98,8 +98,12 @@ public class CharacterBase : MonoBehaviour, IAttack
         nowHP = maxHP;
         aggressivity = characterData.Aggressivity;
         ATKSpeed = characterData.ATKSpeed;
+        if (hpSlider)
+        {
+            hpSlider.UpdateHPSlider(maxHP, nowHP);
+        }
 
-        foreach(var item in characterData.bulletTypes)
+        foreach (var item in characterData.bulletTypes)
         {
             nowBullet.Add(item, DataManager.GetInstance().AskBulletData(item).transmissionFrequency);
             //bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);
@@ -136,7 +140,6 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (speed<=-99)
         {
-            Debug.Log("冻结敌人");
             animator.speed = 0;
             if (this.transform.parent != null)//当前角色有父物体（跟随地板移动）则只限制其行动
             {
@@ -236,6 +239,6 @@ public class CharacterBase : MonoBehaviour, IAttack
             BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
         }
         buffDic.Clear();
-        PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
+        if(characterTag!="Player") PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
     } 
 }

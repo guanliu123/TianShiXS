@@ -39,6 +39,10 @@ public class MonoManager : BaseManager<MonoManager>
         controller.RemoveFiUpdateListener(func);
     }
 
+    public void ClearActions()
+    {
+        controller.ClearActions();
+    }
     //开启协程方法及其重载方法，使用时注意选择
     public Coroutine StartCoroutine(CoroutineType coroutineType, IEnumerator enumerator, bool restart = false)
     {

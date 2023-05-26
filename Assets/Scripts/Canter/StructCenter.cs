@@ -26,6 +26,9 @@ public struct ResourceDatas
 [Serializable]
    public struct CharacterData
 {
+    [Header("角色标签")] public string tag;
+    [Header("角色名称")] public string name;
+    [Header("角色立绘")] public Image icon;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色基础攻击力加成")] public float Aggressivity;
@@ -36,7 +39,7 @@ public struct ResourceDatas
 
 [Serializable]
 public struct CharacterDatas{
-    [Header("角色类型")] public CharacterType characterType;
+    [Header("角色类型")] public CharacterType characterType;       
     public CharacterData characterData;
 }
 #endregion
@@ -77,6 +80,7 @@ public struct BulletDatas
 [Serializable]
 public struct BuffData
 {
+    [Header("buff图标")] public Image icon;
     [Header("持续时间")] public float duration;
     [Header("触发几率")] public float probability;
 }

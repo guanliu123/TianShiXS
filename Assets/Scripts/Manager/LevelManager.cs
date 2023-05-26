@@ -85,7 +85,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void Stop()
     {
-        MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
+        //MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
         for(int i = 0; i < exitingSquare.Count; i++)
         {
             RetrieveItem(exitingSquare[i]);
@@ -188,6 +188,7 @@ public class LevelManager : BaseManager<LevelManager>
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
         }
+        GameManager.GetInstance().SwitchMode();
     }
 
     /// <summary>
