@@ -1,0 +1,145 @@
+{
+    "jsonversion": "1.0.0",
+    "uniqueName": "com.DefaultCompany.TianShiXS",
+    "displayName": "TianShiXS",
+    "iconUrl": "https://a.unity.cn/client_api/v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content/icon.png",
+    "bundles": [
+        {
+            "abi": "",
+            "filename": "first.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content/first.zip",
+            "keep_after_unzip": true,
+            "is_main_resource": true,
+            "parent_dir_type": "PACKAGE",
+            "size": 16777718,
+            "md5": "398e8e5de846dd3a2c37cbc55af088c4",
+            "engine_folder": "",
+            "sub_dir": "",
+            "unzip_files": []
+        },
+        {
+            "abi": "",
+            "filename": "game_res.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content/game_res.zip",
+            "keep_after_unzip": false,
+            "is_main_resource": false,
+            "parent_dir_type": "PACKAGE",
+            "size": 68734834,
+            "md5": "20c1d15dc6d9cda3b85f1beca3d64d04",
+            "engine_folder": "",
+            "sub_dir": "",
+            "unzip_files": [
+                {
+                    "filename": "data.unity3d",
+                    "md5": "867fb490249c6de0a31651a237ba6c32",
+                    "parent_dir_type": "PACKAGE",
+                    "sub_dir": ""
+                }
+            ]
+        },
+        {
+            "abi": "arm64-v8a",
+            "filename": "gamelibs_arm64-v8a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content/gamelibs_arm64-v8a.zip",
+            "keep_after_unzip": false,
+            "is_main_resource": false,
+            "parent_dir_type": "PACKAGE",
+            "size": 10103501,
+            "md5": "3fc2c9746885bf01a386c205ff141037",
+            "engine_folder": "",
+            "sub_dir": "",
+            "unzip_files": [
+                {
+                    "filename": "libil2cpp.so",
+                    "md5": "b51ffec24cf58b990543335412dbbb71",
+                    "parent_dir_type": "PACKAGE",
+                    "sub_dir": "sos"
+                },
+                {
+                    "filename": "libunity.so",
+                    "md5": "b0568b31bf41e7e29370e78790f94799",
+                    "parent_dir_type": "PACKAGE",
+                    "sub_dir": "sos"
+                }
+            ]
+        },
+        {
+            "abi": "armeabi-v7a",
+            "filename": "gamelibs_armeabi-v7a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content/gamelibs_armeabi-v7a.zip",
+            "keep_after_unzip": false,
+            "is_main_resource": false,
+            "parent_dir_type": "PACKAGE",
+            "size": 9260105,
+            "md5": "8232c1d6fbc5125f0cd901299d125cf3",
+            "engine_folder": "",
+            "sub_dir": "",
+            "unzip_files": [
+                {
+                    "filename": "libil2cpp.so",
+                    "md5": "ff3ff2f0f2453cb32bbba5afd27abcfc",
+                    "parent_dir_type": "PACKAGE",
+                    "sub_dir": "sos"
+                },
+                {
+                    "filename": "libunity.so",
+                    "md5": "f411fd7b2ea17d3d38d14b1c025bde14",
+                    "parent_dir_type": "PACKAGE",
+                    "sub_dir": "sos"
+                }
+            ]
+        },
+        {
+            "abi": "arm64-v8a",
+            "filename": "engine_arm64-v8a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/0e74562a-4f30-45af-86a5-c4ee12cd0344/release_by_badge/c110/content/engine_arm64-v8a.zip",
+            "keep_after_unzip": false,
+            "is_main_resource": false,
+            "parent_dir_type": "INTERNAL_FILES",
+            "size": 257257,
+            "md5": "a9a394861cc3cf0f3940cab639ba6c5f",
+            "engine_folder": "2019_il2cpp_c110_s",
+            "sub_dir": "",
+            "unzip_files": [
+                {
+                    "filename": "libmain.so",
+                    "md5": "e66374092bf063d4e7e4d701f6e2dfca",
+                    "parent_dir_type": "LIBRARY",
+                    "sub_dir": ""
+                },
+                {
+                    "filename": "unity default resources",
+                    "md5": "8730b9d1bdb8ae584aed015b79859fc8",
+                    "parent_dir_type": "LIBRARY",
+                    "sub_dir": ""
+                }
+            ]
+        },
+        {
+            "abi": "armeabi-v7a",
+            "filename": "engine_armeabi-v7a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/0e74562a-4f30-45af-86a5-c4ee12cd0344/release_by_badge/c110/content/engine_armeabi-v7a.zip",
+            "keep_after_unzip": false,
+            "is_main_resource": false,
+            "parent_dir_type": "INTERNAL_FILES",
+            "size": 264824,
+            "md5": "dd737a5481249819769214d69fdf3eff",
+            "engine_folder": "2019_il2cpp_c110_s",
+            "sub_dir": "",
+            "unzip_files": [
+                {
+                    "filename": "libmain.so",
+                    "md5": "a8596f648425a15ef098d559b74c69ff",
+                    "parent_dir_type": "LIBRARY",
+                    "sub_dir": ""
+                },
+                {
+                    "filename": "unity default resources",
+                    "md5": "8730b9d1bdb8ae584aed015b79859fc8",
+                    "parent_dir_type": "LIBRARY",
+                    "sub_dir": ""
+                }
+            ]
+        }
+    ]
+}
