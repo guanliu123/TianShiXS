@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+//using System.Numerics;
 using UIFrameWork;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : BaseManager<GameManager>
@@ -38,6 +38,17 @@ public class GameManager : BaseManager<GameManager>
         //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
 
+    public List<CharacterDatas> GetRole()
+    {
+        List<CharacterDatas> players = new List<CharacterDatas>();
+
+        foreach(var item in DataManager.GetInstance().characterSO.characterdatas)
+        {
+            if (item.characterData.tag == "Player") players.Add(item);
+        }
+
+        return players;
+    }
     public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
     {
         nowPlayerType = playerType;
@@ -57,7 +68,7 @@ public class GameManager : BaseManager<GameManager>
         //player.AddComponent<PlayerController>();
         player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero+Vector3.up;
+        player.transform.position = Vector3.zero+ Vector3.up;
         //playerObj.transform.position = Vector3.zero;
         playerObj.transform.parent = player.transform;
 
@@ -73,10 +84,15 @@ public class GameManager : BaseManager<GameManager>
         critRate=0;
         increaseMoney=0;
         increaseEnergy = 0;
+
+        evolutionNum = 0;
+        playerEnergy = 0;
+        playerMoney = 0;
     }
     public void QuitGame()
     {
         GameObject t = GameObject.FindGameObjectsWithTag("Player")[0];
+        t.transform.GetChild(0).gameObject.SetActive(false);
 
         for (int i = 1; t != null && i < t.transform.childCount; i++)
         {
@@ -91,16 +107,22 @@ public class GameManager : BaseManager<GameManager>
         enemyList.Clear();
 
         LevelManager.GetInstance().Stop();
+        MonoManager.GetInstance().ClearActions();
         GameObject.Destroy(t.GetComponent<Player>());
         GameObject.Destroy(t.GetComponent<TestController>());
-        CameraManager.GetInstance().StopCameraEvent();
-        MonoManager.GetInstance().KillAllCoroutines();
+        MonoManager.GetInstance().KillAllCoroutines();       
         CameraMove(CameraPointType.OrginPoint, 1f);
+        PanelManager.Instance.Push(new FailPanel());
     }
 
     public void PlayerReset()
     {
-        Player._instance.transform.DOMove(Vector3.zero, 1f);
+        Player._instance.transform.DOMove(Vector3.zero+Vector3.up, 1f);
+    }
+    public void SwitchMode()
+    {
+        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        t.SwitchMode();
     }
 
     public void CameraMove(CameraPointType cameraPointType,float moveTime)
@@ -184,7 +206,9 @@ public class GameManager : BaseManager<GameManager>
     public void AddEvolutionProp(PropType propType)
     {
         GameObject t = PoolManager.GetInstance().GetObj(propType.ToString());
-        t.transform.position = Player._instance.transform.position;
+        t.transform.position = new Vector3(Player._instance.transform.position.x
+            , Player._instance.transform.position.y-1
+            , Player._instance.transform.position.z);
         t.transform.parent = Player._instance.transform;
     }
 }

@@ -15,7 +15,10 @@ MonoBehaviour:
   characterdatas:
   - characterType: 0
     characterData:
-      MaxHP: 100
+      tag: Player
+      name: "\u666E\u901A\u9053\u58EB"
+      icon: {fileID: 0}
+      MaxHP: 1
       bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
@@ -23,14 +26,20 @@ MonoBehaviour:
       money: 0
   - characterType: 1
     characterData:
+      tag: Enemy
+      name: 
+      icon: {fileID: 0}
       MaxHP: 90
       bulletTypes: 00000000
       Aggressivity: 0
       ATKSpeed: 0
-      energy: 5
+      energy: 15
       money: 2
   - characterType: 2
     characterData:
+      tag: Enemy
+      name: 
+      icon: {fileID: 0}
       MaxHP: 90
       bulletTypes: 03000000
       Aggressivity: 0
@@ -39,6 +48,9 @@ MonoBehaviour:
       money: 0
   - characterType: 3
     characterData:
+      tag: Enemy
+      name: 
+      icon: {fileID: 0}
       MaxHP: 70
       bulletTypes: 04000000
       Aggressivity: 0
@@ -47,6 +59,9 @@ MonoBehaviour:
       money: 0
   - characterType: 4
     characterData:
+      tag: Enemy
+      name: 
+      icon: {fileID: 0}
       MaxHP: 300
       bulletTypes: 06000000
       Aggressivity: 0
@@ -55,6 +70,9 @@ MonoBehaviour:
       money: 0
   - characterType: 5
     characterData:
+      tag: Enemy
+      name: 
+      icon: {fileID: 0}
       MaxHP: 500
       bulletTypes: 03000000
       Aggressivity: 0
@@ -63,6 +81,9 @@ MonoBehaviour:
       money: 0
   - characterType: 6
     characterData:
+      tag: Player
+      name: "\u9526\u8863\u536B\u9053\u58EB"
+      icon: {fileID: 0}
       MaxHP: 100
       bulletTypes: 03000000
       Aggressivity: 0
@@ -71,6 +92,9 @@ MonoBehaviour:
       money: 0
   - characterType: 7
     characterData:
+      tag: Player
+      name: "\u91D1\u543E\u536B"
+      icon: {fileID: 0}
       MaxHP: 150
       bulletTypes: 03000000
       Aggressivity: 0
@@ -79,6 +103,9 @@ MonoBehaviour:
       money: 0
   - characterType: 8
     characterData:
+      tag: Player
+      name: "\u4FA0\u5BA2"
+      icon: {fileID: 0}
       MaxHP: 100
       bulletTypes: 03000000
       Aggressivity: 0
@@ -87,6 +114,9 @@ MonoBehaviour:
       money: 0
   - characterType: 9
     characterData:
+      tag: Player
+      name: "\u65F6\u5E8F"
+      icon: {fileID: 0}
       MaxHP: 120
       bulletTypes: 03000000
       Aggressivity: 0

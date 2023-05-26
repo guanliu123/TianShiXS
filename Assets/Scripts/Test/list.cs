@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using UIFrameWork;
 
 public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public GameObject GoDrag;
+    public RolePanel _panel;
 
     /// <summary>
     /// 所有的数据
@@ -15,8 +17,9 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     private List<CircleDragData> dragDataList = new List<CircleDragData>();
 
     /// <summary>
-    /// 所有的物体
-    /// </summary>
+    /// 角色数据和goList下标严格对应
+    /// </summary>   
+    public List<CharacterDatas> playerList = new List<CharacterDatas>();
     public List<GameObject> goList = new List<GameObject>();
 
     /// <summary>
@@ -91,7 +94,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
             CircleDragData data = new CircleDragData(i, goList[i].transform.localScale, goList[i].gameObject.activeSelf, goList[i].transform.localPosition);
             dragDataList.Add(data);
         }
-
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -121,6 +123,7 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         CurSelectIndex++;
         Debug.Log("left" + CurSelectIndex);
+        _panel.UpdatePlayerPanel(curSelectIndex);
         DragEndEffect();
     }
 
@@ -128,7 +131,13 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         CurSelectIndex--;
         Debug.Log("right" + CurSelectIndex);
+        _panel.UpdatePlayerPanel(curSelectIndex);
         DragEndEffect();
+    }
+
+    private void updatePanel()
+    {
+        
     }
 
     private void DragEndEffect()

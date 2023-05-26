@@ -12,7 +12,6 @@ public class RotateBullet : BulletBase
 
         bulletAction += Move;
         bulletAction += Division;
-        bulletAction += Rotat;
     }
     // Update is called once per frame
     void Update()
@@ -26,13 +25,8 @@ public class RotateBullet : BulletBase
     }
     protected override void SpecialEvolution()
     {
-        base.SpecialEvolution();
-        divisionTimer = 1f;
-    }
-
-    public override void Rotat()
-    {
-        transform.Rotate(Vector3.forward * bulletData.rotateSpeed * Time.deltaTime);
+        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
+        divisionTimer = 0.3f;
     }
 
     public void Division()
@@ -43,7 +37,7 @@ public class RotateBullet : BulletBase
             if (divisionTimer <= 0)
             {
                 BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0);
-                divisionTimer = 1f;
+                divisionTimer = 0.3f;
             }
         }
     }

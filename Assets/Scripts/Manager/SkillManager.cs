@@ -23,11 +23,9 @@ public class SkillManager : BaseManager<SkillManager>
             if (item.num > 0 && item.beforeSkills.Count <= 0)
             {
                 skillPool.Add(item.id, item.num);
-                occurredSkill.Add(item.id, 1);
-                skillDatas.Add(item.id, item);
-                Debug.Log("将技能" + item.describe + "加入技能池");
+                occurredSkill.Add(item.id, 1);               
             }
-            
+            skillDatas.Add(item.id, item);
         }
         InitSkill();
     }
@@ -48,7 +46,6 @@ public class SkillManager : BaseManager<SkillManager>
             if (item.beforeSkills.Contains(usedId) && !occurredSkill.ContainsKey(item.id))
             {
                 skillPool.Add(item.id, item.num);
-                Debug.Log("将技能" + item.describe + "加入技能池");
             }
         }
     }
@@ -56,7 +53,8 @@ public class SkillManager : BaseManager<SkillManager>
     public List<SkillUpgrade> RandomSkill()
     {        
         List<SkillUpgrade> skillUpgrades = new List<SkillUpgrade>();
-        List<int> selectedList = new List<int>();
+        HashSet<int> indices = new HashSet<int>();
+
         int t;
 
         for (int i = 0; i < 3; i++)
@@ -76,7 +74,9 @@ public class SkillManager : BaseManager<SkillManager>
                 do
                 {
                     t = Random.Range(0, skillPool.Count);
-                } while (selectedList.Contains(t));
+                } while (indices.Contains(t));
+                
+                indices.Add(t);
             }
             if (t == -1)
             {
@@ -88,6 +88,7 @@ public class SkillManager : BaseManager<SkillManager>
                 skillUpgrades.Add(temp);
                 continue;
             }
+
             SkillDatas data = skillDatas[skillPool.ElementAt(t).Key];
 
             temp.icon = data.icon;

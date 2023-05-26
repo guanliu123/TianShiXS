@@ -29,6 +29,11 @@ public class MonoController : MonoBehaviour
         if (fixedUpdateEvent != null)
             fixedUpdateEvent();
     }
+    public void ClearActions()
+    {
+        updateEvent = null;
+        fixedUpdateEvent = null;
+    }
 
     //对方法添加监听
     public void AddUpdateListener(UnityAction func)
