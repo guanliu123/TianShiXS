@@ -13,7 +13,7 @@ namespace UIFrameWork
         {
             if (uIType == null)
                 return null;
-            GameObject parent = GameObject.Find("Canvas");
+            GameObject parent = GameObject.Find("Canvas/SafeAreaRect");
             if (!parent)
             {
                 Debug.LogError("无Canvas对象，请查询是否存在所有UI的根");
