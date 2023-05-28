@@ -24,6 +24,18 @@ public class Player : CharacterBase
         InitData();
     }
 
+    public void InitPlayer()
+    {
+        this.characterType = GameManager.GetInstance().nowPlayerType;
+        characterTag = "Player";
+        InitData();
+    }
+    public void ClearPlayer()
+    {
+        nowBullet.Clear();
+        bulletTimer.Clear();
+    }
+
     public override void Attack()
     {
         /*GameObject t = PoolManager.GetInstance().GetObj(nowBullet.ToString());

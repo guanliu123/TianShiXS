@@ -87,7 +87,7 @@ PlayerSettings:
   useFontStreaming: 0
   useCCD: 1
   maxCacheSize: 175
-  autoStreamingId: /v1/buckets/e8d9107f-5283-47d5-97c0-363166da077b/release_by_badge/latest/content
+  autoStreamingId: /v1/buckets/39289b33-632f-404d-a4ba-817cfe5ab5cb/release_by_badge/v3/content
   instantGameAppId: 052e9d1c-8bbb-4fa8-88c3-273217994988
   bakeCollisionMeshes: 0
   forceSingleInstance: 0

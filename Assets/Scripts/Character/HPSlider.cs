@@ -15,14 +15,14 @@ public class HPSlider : MonoBehaviour
     private void Awake()
     {
         hp = this.gameObject.GetComponent<Slider>();
-        //mRect = GetComponent<RectTransform>();
-        gameObject.transform.parent.parent.GetComponent<CharacterBase>().hpSlider = this;
+        //mRect = GetComponent<RectTransform>();      
         //target = Player._instance.transform;
         cameraToLookAt = Camera.main;
     }
     private void OnEnable()
     {
         hp.value = 1;
+        gameObject.transform.parent.parent.GetComponent<CharacterBase>().hpSlider = this;
     }
 
     private void Update()

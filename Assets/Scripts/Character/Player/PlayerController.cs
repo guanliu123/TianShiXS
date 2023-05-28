@@ -119,5 +119,6 @@ public class PlayerController : MonoBehaviour
     public void SwitchMode()
     {
         isHorizontalMode = !isHorizontalMode;
+        isDragging = false;
     }
 }

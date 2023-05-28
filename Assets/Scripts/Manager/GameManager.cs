@@ -64,7 +64,7 @@ public class GameManager : BaseManager<GameManager>
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString());
         
-        player.AddComponent<Player>();
+        player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
@@ -107,7 +107,8 @@ public class GameManager : BaseManager<GameManager>
         enemyList.Clear();
 
         LevelManager.GetInstance().Stop();
-        MonoManager.GetInstance().ClearActions();
+        MonoManager.GetInstance().ClearActions(); 
+        t.GetComponent<Player>().ClearPlayer();
         GameObject.Destroy(t.GetComponent<Player>());
         // GameObject.Destroy(t.GetComponent<TestController>());
         GameObject.Destroy(t.GetComponent<PlayerController>());

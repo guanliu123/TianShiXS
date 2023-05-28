@@ -105,9 +105,10 @@ public class CharacterBase : MonoBehaviour, IAttack
 
         foreach (var item in characterData.bulletTypes)
         {
-            nowBullet.Add(item, DataManager.GetInstance().AskBulletData(item).transmissionFrequency);
+            if(!nowBullet.ContainsKey(item)) nowBullet.Add(item, DataManager.GetInstance().AskBulletData(item).transmissionFrequency);
+
             //bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);
-            bulletTimer.Add(item, nowBullet[item]);
+            if(!bulletTimer.ContainsKey(item)) bulletTimer.Add(item, nowBullet[item]);
         }
     }
 
