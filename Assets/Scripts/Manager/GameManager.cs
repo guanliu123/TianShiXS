@@ -68,9 +68,11 @@ public class GameManager : BaseManager<GameManager>
         player.AddComponent<PlayerController>();
         //player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero+ Vector3.up;
-        //playerObj.transform.position = Vector3.zero;
+        //player.transform.position = Vector3.zero+ Vector3.up; 
+        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
+        
         playerObj.transform.parent = player.transform;
+        playerObj.transform.position = new Vector3(0, 0, -1);
 
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);

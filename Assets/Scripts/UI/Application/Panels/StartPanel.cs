@@ -9,6 +9,9 @@ using Unity;
 public class StartPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/StartScenePanel";
+    private GameObject topArea;
+    private GameObject midArea;
+
     public StartPanel():base(new UIType(path))
     {
         
@@ -16,6 +19,8 @@ public class StartPanel : BasePanel
     public override void OnEnter()
     {   
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        topArea = UITool.FindChildGameObject("TopArea", panel);
+        midArea = UITool.FindChildGameObject("MidArea", panel);
 
         UITool.GetOrAddComponentInChildren<Button>("Role_Btn", panel).onClick.AddListener(() =>
         {
@@ -65,6 +70,21 @@ public class StartPanel : BasePanel
         //        imgClose.enabled = false;
         //    }
         //});
+    }
+
+    public override void OnPause()
+    {
+        SetAreaActive(false);
+    }
+
+    public override void OnResume()
+    {
+        SetAreaActive(true);
+    }
+    private void SetAreaActive(bool isShow)
+    {
+        topArea.SetActive(isShow);
+        midArea.SetActive(isShow);
     }
 
 }

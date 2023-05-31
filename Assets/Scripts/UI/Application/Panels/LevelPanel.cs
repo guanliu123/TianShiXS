@@ -30,4 +30,5 @@ public class LevelPanel : BasePanel {
             GameManager.GetInstance().ChangeLevel(parameter);
         });
     }
+
 }

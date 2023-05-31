@@ -13,8 +13,8 @@ public class CameraManager : BaseManager<CameraManager>
 
     public CameraManager(){
         mainCamera = Camera.main;
-        cameraPos.Add(CameraPointType.MainPoint, new Vector3(0, 4.3f, -7.15f));
-        cameraRot.Add(CameraPointType.MainPoint, new Vector3(11.75f, 0, 0));
+        cameraPos.Add(CameraPointType.MainPoint, new Vector3(0, 3.77f, -3f));
+        cameraRot.Add(CameraPointType.MainPoint, new Vector3(25f, 0, 0));
         cameraPos.Add(CameraPointType.HighPoint, new Vector3(0, 16.78f, -9.18f));
         cameraRot.Add(CameraPointType.HighPoint, new Vector3(45f, 0, 0));
         cameraPos.Add(CameraPointType.OrginPoint, new Vector3(2.16f,4.55f,-7.1f));
