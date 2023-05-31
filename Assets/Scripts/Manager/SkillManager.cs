@@ -33,13 +33,11 @@ public class SkillManager : BaseManager<SkillManager>
     public void UpdateSkillPool(int usedId)
     {
         int n = skillPool[usedId] - 1;
-        if (n <= 0)
-        {
-            skillPool.Remove(usedId);
-            if (!occurredSkill.ContainsKey(usedId)) 
-                occurredSkill.Add(usedId, 1);
-        }
+        if (n <= 0) skillPool.Remove(usedId);
         else skillPool[usedId]--;
+            
+        if (!occurredSkill.ContainsKey(usedId)) occurredSkill.Add(usedId, 1);
+        else occurredSkill[usedId]++;
 
         foreach (var item in skillSO.skilldatas)
         {
@@ -90,8 +88,13 @@ public class SkillManager : BaseManager<SkillManager>
             }
 
             SkillDatas data = skillDatas[skillPool.ElementAt(t).Key];
+            int iconNum = 0;
+            if (occurredSkill.ContainsKey(skillPool.ElementAt(t).Key))
+            {
+                iconNum = Mathf.Min(occurredSkill[skillPool.ElementAt(t).Key], data.icon.Length - 1);
+            }
 
-            temp.icon = data.icon;
+            temp.icon = data.icon[iconNum];
             temp.name = data.name;
             temp.describe = data.describe;
             temp.skill = skillEvent[data.id];

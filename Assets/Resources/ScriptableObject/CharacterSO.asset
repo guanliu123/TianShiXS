@@ -17,7 +17,7 @@ MonoBehaviour:
     characterData:
       tag: Player
       name: "\u666E\u901A\u9053\u58EB"
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: c49b94b7b89cf4a48b9e19978d0e9630, type: 3}
       MaxHP: 100
       bulletTypes: 01000000
       Aggressivity: 0
@@ -28,18 +28,18 @@ MonoBehaviour:
     characterData:
       tag: Enemy
       name: 
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 0b09264703cf53949b98202c52722327, type: 3}
       MaxHP: 90
       bulletTypes: 00000000
       Aggressivity: 0
       ATKSpeed: 0
-      energy: 15
+      energy: 100
       money: 2
   - characterType: 2
     characterData:
       tag: Enemy
       name: 
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: ae3f548b33ae74e43b376b69f2f4953a, type: 3}
       MaxHP: 90
       bulletTypes: 03000000
       Aggressivity: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     characterData:
       tag: Enemy
       name: 
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 3f7a5675ca569bc41b4b39f77e2d2a17, type: 3}
       MaxHP: 70
       bulletTypes: 04000000
       Aggressivity: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     characterData:
       tag: Enemy
       name: 
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: e347b96f688901545872e4c09c15e9e4, type: 3}
       MaxHP: 500
       bulletTypes: 03000000
       Aggressivity: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
     characterData:
       tag: Player
       name: "\u9526\u8863\u536B\u9053\u58EB"
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: ca8b6d7cf099928449d520e0bcb75f95, type: 3}
       MaxHP: 100
       bulletTypes: 03000000
       Aggressivity: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     characterData:
       tag: Player
       name: "\u91D1\u543E\u536B"
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 96471d327e448c2429c05f3be52f1a28, type: 3}
       MaxHP: 150
       bulletTypes: 03000000
       Aggressivity: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     characterData:
       tag: Player
       name: "\u4FA0\u5BA2"
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 6dd151828a4805643b34b07f5d27a5d7, type: 3}
       MaxHP: 100
       bulletTypes: 03000000
       Aggressivity: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     characterData:
       tag: Player
       name: "\u65F6\u5E8F"
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 14c1ad00df930b64bb32624d2760e38d, type: 3}
       MaxHP: 120
       bulletTypes: 03000000
       Aggressivity: 0

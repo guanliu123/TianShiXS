@@ -28,7 +28,7 @@ public struct ResourceDatas
 {
     [Header("角色标签")] public string tag;
     [Header("角色名称")] public string name;
-    [Header("角色立绘")] public Image icon;
+    [Header("角色立绘")] public Sprite icon;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色基础攻击力加成")] public float Aggressivity;
@@ -80,7 +80,7 @@ public struct BulletDatas
 [Serializable]
 public struct BuffData
 {
-    [Header("buff图标")] public Image icon;
+    [Header("buff图标")] public Sprite icon;
     [Header("持续时间")] public float duration;
     [Header("触发几率")] public float probability;
 }
@@ -96,7 +96,7 @@ public struct BuffDatas
 #region 技能相关结构体
 public struct SkillUpgrade
 {
-    public Image icon;//对应技能的图标
+    public Sprite icon;//对应技能的图标
     public string name;//对应技能名字
     public string describe;//对应技能的描述
     public ISkill skill;
@@ -106,7 +106,7 @@ public struct SkillDatas
 {
     [Header("技能ID")] public int id;
     [Header("技能名字")] public string name;
-    [Header("技能图标")] public Image icon;
+    [Header("技能图标")] public Sprite[] icon;
     [Header("技能描述")] public string describe;
     [Header("技能出现概率")] public float probability;
     [Header("技能可出现次数")] public int num;

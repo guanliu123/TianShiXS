@@ -596,6 +596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData:
+    tag: 
+    name: 
+    icon: {fileID: 0}
     MaxHP: 0
     bulletTypes: 
     Aggressivity: 0
@@ -610,6 +613,7 @@ MonoBehaviour:
   ATKSpeed: 0
   animator: {fileID: 0}
   hpSlider: {fileID: 0}
+  canActive: 0
 --- !u!65 &5212657474520713938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -673,7 +677,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 0fbbc13c300e3b64f8f7c1436e248991, type: 3}
+  - {fileID: 2100000, guid: 1137b4558fe2dc14ead9c8bde2cdb2f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
