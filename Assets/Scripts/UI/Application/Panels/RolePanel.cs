@@ -24,7 +24,8 @@ public class RolePanel : BasePanel
 
         //UpdatePlayerPanel(0);
 
-        UITool.GetOrAddComponentInChildren<PortraitList>("Portrait_List", panel)._panel = this;
+        var t= UITool.GetOrAddComponentInChildren<PortraitList>("Portrait_List", panel);
+        t._panel = this;
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
@@ -34,6 +35,14 @@ public class RolePanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("Use_Btn", panel).onClick.AddListener(() =>
         {
             GameManager.GetInstance().ChangeRole(choosePlayer);
+        });
+        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
+        {
+            t.DragLeft();
+        });
+        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
+        {
+            t.DragRight();
         });
     }
 

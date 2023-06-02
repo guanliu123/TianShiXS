@@ -138,6 +138,15 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         CurSelectIndex--;
         DragEndEffect(false);
     }
+
+    public void LeftButton_Click()
+    {
+        DragLeft();
+    }
+    public void RightButton_Click()
+    {
+        DragRight();
+    }
     /// <summary>
     /// 滑动动画
     /// </summary>

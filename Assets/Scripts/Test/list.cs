@@ -133,11 +133,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
         DragEndEffect();
     }
 
-    private void updatePanel()
-    {
-        
-    }
-
     private void DragEndEffect()
     {
         //Debug.Log(CurSelectIndex);
