@@ -12,6 +12,7 @@ public class DataManager : BaseManager<DataManager>
     private BulletSO bulletSO;
     private LevelSO levelSO;
     private BuffSO buffSO;
+    public SkillSO skillSO;
 
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     public Dictionary<CharacterType, CharacterData> characterDatasDic=new Dictionary<CharacterType, CharacterData>();
@@ -26,6 +27,7 @@ public class DataManager : BaseManager<DataManager>
         bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
         levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
         buffSO = ResourceManager.GetInstance().LoadByPath<BuffSO>("ScriptableObject/BuffSo");
+        skillSO= ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
         List <ResourceDatas> t = resourcepathSO.resourcePaths;
         foreach(var item in t)

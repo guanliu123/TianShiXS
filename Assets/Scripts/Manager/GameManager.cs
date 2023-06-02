@@ -15,7 +15,9 @@ public class GameManager : BaseManager<GameManager>
     public int levelMoney {get; private set;}
 
     public CharacterType nowPlayerType { get; private set; }
-    public int playerNum;
+    public int playerCount;
+    public int enemyCount;
+    public int skillCount;
 
     public List<GameObject> enemyList = new List<GameObject>();
 
@@ -36,7 +38,7 @@ public class GameManager : BaseManager<GameManager>
         //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
 
-    public List<CharacterDatas> GetRole()
+    public List<CharacterDatas> GetPlayerRole()
     {
         List<CharacterDatas> players = new List<CharacterDatas>();
 
@@ -45,9 +47,32 @@ public class GameManager : BaseManager<GameManager>
             if (item.characterData.tag == CharacterTag.Player) players.Add(item);
         }
 
-        playerNum = players.Count;
+        playerCount = players.Count;
         return players;
     }
+    public List<CharacterDatas> GetEnemyRole()
+    {
+        List<CharacterDatas> enemys = new List<CharacterDatas>();
+        foreach(var item in DataManager.GetInstance().characterSO.characterdatas)
+        {
+            if (item.characterData.tag == CharacterTag.Enemy) enemys.Add(item);
+        }
+
+        enemyCount = enemys.Count;
+        return enemys;
+    }
+    public List<SkillDatas> GetSkills()
+    {
+        List<SkillDatas> skills = new List<SkillDatas>();
+        foreach(var item in DataManager.GetInstance().skillSO.skilldatas)
+        {
+            skills.Add(item);
+        }
+
+        skillCount = skills.Count;
+        return skills;
+    }
+
     public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
     {
         nowPlayerType = playerType;

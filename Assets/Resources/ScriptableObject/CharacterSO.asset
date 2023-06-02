@@ -28,7 +28,7 @@ MonoBehaviour:
   - characterType: 1
     characterData:
       tag: 1
-      name: 
+      name: "\u8759\u8760"
       icon: {fileID: 21300000, guid: 0b09264703cf53949b98202c52722327, type: 3}
       MaxHP: 90
       bulletTypes: 00000000
@@ -40,7 +40,7 @@ MonoBehaviour:
   - characterType: 2
     characterData:
       tag: 1
-      name: 
+      name: "\u9E70"
       icon: {fileID: 21300000, guid: ae3f548b33ae74e43b376b69f2f4953a, type: 3}
       MaxHP: 90
       bulletTypes: 03000000
@@ -52,7 +52,7 @@ MonoBehaviour:
   - characterType: 3
     characterData:
       tag: 1
-      name: 
+      name: "\u75DE\u8001\u677F"
       icon: {fileID: 21300000, guid: 3f7a5675ca569bc41b4b39f77e2d2a17, type: 3}
       MaxHP: 70
       bulletTypes: 04000000
@@ -64,7 +64,7 @@ MonoBehaviour:
   - characterType: 4
     characterData:
       tag: 1
-      name: 
+      name: "\u5927\u4ED3\u9F20"
       icon: {fileID: 0}
       MaxHP: 300
       bulletTypes: 06000000
@@ -76,7 +76,7 @@ MonoBehaviour:
   - characterType: 5
     characterData:
       tag: 1
-      name: 
+      name: "\u68BC\u674C"
       icon: {fileID: 21300000, guid: e347b96f688901545872e4c09c15e9e4, type: 3}
       MaxHP: 500
       bulletTypes: 03000000

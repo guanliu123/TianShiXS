@@ -6,12 +6,18 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UIFrameWork;
 
+public interface IDragButton
+{
+    void LeftButton_Click();
+    void RightButton_Click();
+}
+
 /// <summary>
 /// 角色立绘列表
 /// </summary>
-public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler,IDragButton
 {
-    public RolePanel _panel;
+    public HandbookPanel _panel;
     /// <summary>
     /// 立绘
     /// </summary>
@@ -57,13 +63,13 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         set
         {
             //在这里限制选择的索引在List范围内
-            if (value > GameManager.GetInstance().playerNum - 1)
+            if (value > GameManager.GetInstance().enemyCount - 1)
             {
                 value = 0;
             }
             if (value < 0)
             {
-                value = GameManager.GetInstance().playerNum - 1;
+                value = GameManager.GetInstance().enemyCount - 1;
             }
             curSelectIndex = value;
         }
@@ -82,11 +88,11 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        currentPortrait = PoolManager.GetInstance().GetObj("Portrait");
+        currentPortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
         currentPortrait.transform.localPosition = midTemp.localPosition;
-        _panel.UpdatePlayerPanel(0, currentPortrait);
+        _panel.UpdateEnemyPanel(0, currentPortrait);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -166,26 +172,26 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
 
         expirePortrait = currentPortrait;
         destroyList.Add(expirePortrait);
-        currentPortrait = preparePortrait;     
+        currentPortrait = preparePortrait;
     }
 
-   // private void DragReset()
+    // private void DragReset()
     //{
-        //if (offfsetx > -200 && offfsetx < 200)
-        //{
-            //currentPortrait.transform.localPosition = midTemp.localPosition;
-           // CurSelectIndex = lastIndex;
-            //lastIndex = 0;
-            //Destroy(preparePortrait);
-        //}
+    //if (offfsetx > -200 && offfsetx < 200)
+    //{
+    //currentPortrait.transform.localPosition = midTemp.localPosition;
+    // CurSelectIndex = lastIndex;
+    //lastIndex = 0;
+    //Destroy(preparePortrait);
+    //}
 
-        //isDrag = false;
+    //isDrag = false;
 
     //}
     //private void Draging()
     //{
-        //currentPortrait.transform.localPosition = new Vector3(currentPortrait.transform.localPosition.x - offfsetx, currentPortrait.transform.localPosition.y, 0);
-        //preparePortrait.transform.localPosition = new Vector3(preparePortrait.transform.localPosition.x - offfsetx, preparePortrait.transform.localPosition.y, 0);
+    //currentPortrait.transform.localPosition = new Vector3(currentPortrait.transform.localPosition.x - offfsetx, currentPortrait.transform.localPosition.y, 0);
+    //preparePortrait.transform.localPosition = new Vector3(preparePortrait.transform.localPosition.x - offfsetx, preparePortrait.transform.localPosition.y, 0);
     //}
     /// <summary>
     /// 生成立绘
@@ -195,8 +201,8 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     private void InsPortrait(bool flag, int i)
     {
         //GameObject.Instantiate<GameObject>(portraits[i]);
-        preparePortrait = PoolManager.GetInstance().GetObj("Portrait");
-        _panel.UpdatePlayerPanel(i, preparePortrait);
+        preparePortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
+        _panel.UpdateEnemyPanel(i, preparePortrait);
         preparePortrait.transform.SetParent(transform);
         preparePortrait.transform.localScale = new Vector3(1, 1, 1);
         if (flag)
@@ -214,7 +220,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         {
             if (destroyList[i].transform.localPosition.x <= -999 || destroyList[i].transform.localPosition.x >= 999)
             {
-                PoolManager.GetInstance().PushObj("Portrait", destroyList[i]);
+                PoolManager.GetInstance().PushObj("EnemyPortrait", destroyList[i]);
                 destroyList.Remove(destroyList[i]);
             }
         }

@@ -126,7 +126,6 @@
     <Compile Include="Assets\Scripts\Skill\SkillBase.cs" />
     <Compile Include="Assets\Scripts\Skill\Skills.cs" />
     <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\Test\PortraitList.cs" />
     <Compile Include="Assets\Scripts\Test\list.cs" />
     <Compile Include="Assets\Scripts\Test\testlist.cs" />
     <Compile Include="Assets\Scripts\Test\testmap.cs" />
@@ -146,8 +145,11 @@
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\MainScene.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\StartScene.cs" />
+    <Compile Include="Assets\Scripts\UI\EnemyPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\FileHelper\FileHelper.cs" />
     <Compile Include="Assets\Scripts\UI\IndependentUI\FloatDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerPortraitList.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\UIFrameWork\BasePanel.cs" />
     <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\PanelManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\UIManager.cs" />

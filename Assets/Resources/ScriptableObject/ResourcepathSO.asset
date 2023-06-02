@@ -71,8 +71,12 @@ MonoBehaviour:
     resourceNPs:
     - name: FloatDamage
       path: Prefabs/UI/FloatDamage
-    - name: Portrait
-      path: Prefabs/UI/Portrait
+    - name: PlayerPortrait
+      path: Prefabs/UI/PlayerPortrait
+    - name: EnemyPortrait
+      path: Prefabs/UI/EnemyPortrait
+    - name: SkillPortrait
+      path: Prefabs/UI/SkillPortrait
   - resourceType: 4
     resourceNPs:
     - name: BuffDoors

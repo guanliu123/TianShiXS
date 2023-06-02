@@ -20,11 +20,11 @@ public class RolePanel : BasePanel
     {
         panel = UIManager.Instance.GetSingleUI(UIType);
 
-        players= GameManager.GetInstance().GetRole();
+        players= GameManager.GetInstance().GetPlayerRole();
 
         //UpdatePlayerPanel(0);
 
-        var t= UITool.GetOrAddComponentInChildren<PortraitList>("Portrait_List", panel);
+        var t= UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", panel);
         t._panel = this;
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
