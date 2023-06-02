@@ -123,7 +123,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         CurSelectIndex++;
         Debug.Log("left" + CurSelectIndex);
-        _panel.UpdatePlayerPanel(curSelectIndex);
         DragEndEffect();
     }
 
@@ -131,7 +130,6 @@ public class list : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHand
     {
         CurSelectIndex--;
         Debug.Log("right" + CurSelectIndex);
-        _panel.UpdatePlayerPanel(curSelectIndex);
         DragEndEffect();
     }
 

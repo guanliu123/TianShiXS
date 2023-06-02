@@ -41,10 +41,10 @@ public class StartPanel : BasePanel
             PanelManager.Instance.Push(new GamePanel());
         });
 
-        UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
+        /*UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
         {
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
-        });
+        });*/
 
         UITool.GetOrAddComponentInChildren<Button>("Box_Btn", panel).onClick.AddListener(() =>
         {

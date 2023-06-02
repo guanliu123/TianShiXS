@@ -69,10 +69,10 @@ MonoBehaviour:
       path: Prefabs/Bullet/PlayerBullet/BounceBullet
   - resourceType: 5
     resourceNPs:
-    - name: DamageText
-      path: Prefabs/UI/DamageText
     - name: FloatDamage
       path: Prefabs/UI/FloatDamage
+    - name: Portrait
+      path: Prefabs/UI/Portrait
   - resourceType: 4
     resourceNPs:
     - name: BuffDoors

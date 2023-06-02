@@ -12,16 +12,16 @@ public class GameManager : BaseManager<GameManager>
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;
     public float playerEnergy { get; private set; }
-    public int playerMoney {get; private set;}
+    public int levelMoney {get; private set;}
 
     public CharacterType nowPlayerType { get; private set; }
+    public int playerNum;
+
     public List<GameObject> enemyList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
 
     private int evolutionNum = 0;
-
-    private Dictionary<HPType, Color> damageColor = new Dictionary<HPType, Color>();
     //private GameObject gameCanvas;
 
     //=====================所有会因为技能变化的公共数据==========================//
@@ -32,8 +32,6 @@ public class GameManager : BaseManager<GameManager>
 
     public GameManager(){
         ChangeRole();
-        damageColor.Add(HPType.Default, Color.red);
-        damageColor.Add(HPType.Burn, Color.yellow);
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
@@ -44,9 +42,10 @@ public class GameManager : BaseManager<GameManager>
 
         foreach(var item in DataManager.GetInstance().characterSO.characterdatas)
         {
-            if (item.characterData.tag == "Player") players.Add(item);
+            if (item.characterData.tag == CharacterTag.Player) players.Add(item);
         }
 
+        playerNum = players.Count;
         return players;
     }
     public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
@@ -89,7 +88,7 @@ public class GameManager : BaseManager<GameManager>
 
         evolutionNum = 0;
         playerEnergy = 0;
-        playerMoney = 0;
+        levelMoney = 0;
     }
     public void QuitGame()
     {
@@ -112,10 +111,11 @@ public class GameManager : BaseManager<GameManager>
         MonoManager.GetInstance().ClearActions(); 
         t.GetComponent<Player>().ClearPlayer();
         GameObject.Destroy(t.GetComponent<Player>());
-        // GameObject.Destroy(t.GetComponent<TestController>());
+        //GameObject.Destroy(t.GetComponent<TestController>());
         GameObject.Destroy(t.GetComponent<PlayerController>());
         MonoManager.GetInstance().KillAllCoroutines();       
         CameraMove(CameraPointType.OrginPoint, 1f);
+        DataCenter.Money += levelMoney;
         PanelManager.Instance.Push(new FailPanel());
     }
 
@@ -151,7 +151,7 @@ public class GameManager : BaseManager<GameManager>
     }
     public void ChangeMoney(int money)
     {
-        playerMoney += money;
+        levelMoney += money;
     }
 
     public void CallSkillPanel()
@@ -178,20 +178,10 @@ public class GameManager : BaseManager<GameManager>
     {
         GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage");
 
-        //Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
         obj.transform.parent = mainCanvas.transform;
-        //obj.transform.position = point.position+randomOffset;
         
         obj.GetComponent<FloatDamage>().Init(point, damage, hpType);
-
-        //float posY = obj.transform.position.y + 1f;
-        //obj.transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", obj); });
     }
-
-    /*public List<SkillUpgrade> RandomSkill()
-    {
-        
-    }*/
 
     public void PlayerEvolution()
     {

@@ -24,9 +24,9 @@ public struct ResourceDatas
 
 #region 角色相关数据
 [Serializable]
-   public struct CharacterData
+public struct CharacterData
 {
-    [Header("角色标签")] public string tag;
+    [Header("角色标签")] public CharacterTag tag;
     [Header("角色名称")] public string name;
     [Header("角色立绘")] public Sprite icon;
     [Header("角色最大血量")] public float MaxHP;
@@ -35,11 +35,13 @@ public struct ResourceDatas
     [Header("角色基础攻速加成")] public float ATKSpeed;
     [Header("角色死亡增加能量")] public float energy;
     [Header("角色死亡掉落金币")] public int money;
+    [Header("角色描述")] public string describe;
 }
 
 [Serializable]
 public struct CharacterDatas{
-    [Header("角色类型")] public CharacterType characterType;       
+    [Header("角色类型")] public CharacterType characterType;
+    
     public CharacterData characterData;
 }
 #endregion

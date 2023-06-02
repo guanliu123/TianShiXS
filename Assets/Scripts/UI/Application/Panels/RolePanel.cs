@@ -21,9 +21,10 @@ public class RolePanel : BasePanel
         panel = UIManager.Instance.GetSingleUI(UIType);
 
         players= GameManager.GetInstance().GetRole();
-        UpdatePlayerPanel(0);
 
-        //UITool.GetOrAddComponentInChildren<list>("list", panel)._panel = this;
+        //UpdatePlayerPanel(0);
+
+        UITool.GetOrAddComponentInChildren<PortraitList>("Portrait_List", panel)._panel = this;
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
@@ -37,13 +38,13 @@ public class RolePanel : BasePanel
     }
 
 
-    public void UpdatePlayerPanel(int index)
+    public void UpdatePlayerPanel(int index,GameObject panel)
     {
         choosePlayer = players[index].characterType;
+        UITool.GetOrAddComponentInChildren<Image>("PlayerImage", panel).sprite = players[index].characterData.icon;
         UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = players[index].characterData.name;
-        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = 
-            "角色攻击方式："+ players[index].characterData.bulletTypes.ToString();
-        UITool.GetOrAddComponentInChildren<Text>("RoleAttr", panel).text =
-            "角色血量：" + players[index].characterData.MaxHP+"\n角色攻击力加成："+players[index].characterData.Aggressivity;
+        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players[index].characterData.describe;
+        UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players[index].characterData.MaxHP;
+        UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + players[index].characterData.Aggressivity;
     }
 }

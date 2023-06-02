@@ -1,7 +1,9 @@
+using StarkSDKSpace.SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using LitJson;
 
 public class DataManager : BaseManager<DataManager>
 {
@@ -34,6 +36,7 @@ public class DataManager : BaseManager<DataManager>
                 objPathDic[item.resourceType].Add(item1.name, item1.path);
             }
         }
+        
         foreach(var item in characterSO.characterdatas)
         {
             characterDatasDic.Add(item.characterType,item.characterData);

@@ -48,6 +48,6 @@ public class GamePanel : BasePanel
     }
     public void MoneyListener()
     {
-        moneyText.text = GameManager.GetInstance().playerMoney + "";
+        moneyText.text = GameManager.GetInstance().levelMoney + "";
     }
 }

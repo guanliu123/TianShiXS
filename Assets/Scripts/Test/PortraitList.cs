@@ -11,6 +11,7 @@ using UIFrameWork;
 /// </summary>
 public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public RolePanel _panel;
     /// <summary>
     /// 立绘
     /// </summary>
@@ -68,7 +69,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
@@ -81,11 +82,11 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        currentPortrait = GameObject.Instantiate<GameObject>(portraits[0]);
+        currentPortrait = PoolManager.GetInstance().GetObj("Portrait");
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
         currentPortrait.transform.localPosition = midTemp.localPosition;
-
+        _panel.UpdatePlayerPanel(0, currentPortrait);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -156,7 +157,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
 
         expirePortrait = currentPortrait;
         destroyList.Add(expirePortrait);
-        currentPortrait = preparePortrait;
+        currentPortrait = preparePortrait;     
     }
 
    // private void DragReset()
@@ -184,8 +185,9 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-
-        preparePortrait = GameObject.Instantiate<GameObject>(portraits[i]);
+        //GameObject.Instantiate<GameObject>(portraits[i]);
+        preparePortrait = PoolManager.GetInstance().GetObj("Portrait");
+        _panel.UpdatePlayerPanel(i, preparePortrait);
         preparePortrait.transform.SetParent(transform);
         preparePortrait.transform.localScale = new Vector3(1, 1, 1);
         if (flag)
@@ -203,7 +205,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         {
             if (destroyList[i].transform.localPosition.x <= -999 || destroyList[i].transform.localPosition.x >= 999)
             {
-                Destroy(destroyList[i]);
+                PoolManager.GetInstance().PushObj("Portrait", destroyList[i]);
                 destroyList.Remove(destroyList[i]);
             }
         }

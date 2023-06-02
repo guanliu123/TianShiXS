@@ -28,6 +28,10 @@ public enum CharacterType
     XiaKe,
     ShiXu,
 }
+public enum CharacterTag {
+    Player,
+    Enemy,
+}
 
 public enum CharacterStateType
 {
