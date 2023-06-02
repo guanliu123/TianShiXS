@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Skill\SkillBase.cs" />
     <Compile Include="Assets\Scripts\Skill\Skills.cs" />
     <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Test\PortraitList.cs" />
     <Compile Include="Assets\Scripts\Test\SafeAreaRec.cs" />
     <Compile Include="Assets\Scripts\Test\list.cs" />
     <Compile Include="Assets\Scripts\Test\testlist.cs" />

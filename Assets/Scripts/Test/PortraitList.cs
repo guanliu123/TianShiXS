@@ -1,0 +1,197 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using DG.Tweening;
+using UIFrameWork;
+
+public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+{
+    /// <summary>
+    /// 立绘
+    /// </summary>
+    public List<GameObject> portraits = new List<GameObject>();
+
+    private List<GameObject> destroyList = new List<GameObject>();
+
+
+    private Transform leftTemp;
+    private Transform rightTemp;
+    private Transform midTemp;
+
+    //当前立绘
+    private GameObject currentPortrait;
+    //预载立绘
+    private GameObject preparePortrait;
+
+    private GameObject expirePortrait;
+
+    /// <summary>
+    /// 当前选择
+    /// </summary>
+    private int curSelectIndex = 0;
+
+    private Vector2 dragOffset;
+    private int lastIndex;
+
+    public int CurSelectIndex
+    {
+        get
+        {
+            return curSelectIndex;
+        }
+
+        set
+        {
+            //在这里限制选择的索引在List范围内
+            if (value > portraits.Count - 1)
+            {
+                value = 0;
+            }
+            if (value < 0)
+            {
+                value = portraits.Count - 1;
+            }
+            curSelectIndex = value;
+        }
+    }
+
+    private void Awake()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        leftTemp = GameObject.Find("Left_Temp").transform;
+        rightTemp = GameObject.Find("Right_Temp").transform;
+        midTemp = GameObject.Find("Mid_Temp").transform;
+        currentPortrait = GameObject.Instantiate<GameObject>(portraits[0]);
+        currentPortrait.transform.parent = transform;
+        currentPortrait.transform.localScale = new Vector3(1, 1, 1);
+        currentPortrait.transform.localPosition = midTemp.localPosition;
+
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        //dragOffset = eventData.position;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out dragOffset);
+        lastIndex = CurSelectIndex;
+    }
+
+    //private bool isDrag = false;
+    private Vector2 uipos;
+    ///滑动距离
+    private float offfsetx;
+    public void OnDrag(PointerEventData eventData)
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out uipos);
+        offfsetx = dragOffset.x - uipos.x;
+        //isDrag = true;
+        //Draging();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //DragReset();
+        if (offfsetx < -200)
+        {
+            DragRight();
+        }
+        else if (offfsetx > 200)
+        {
+            DragLeft();
+        }
+        dragOffset = Vector2.zero;
+    }
+
+    /// <summary>
+    /// 向左拖拽，index+1
+    /// </summary>
+    public void DragLeft()
+    {
+        CurSelectIndex++;
+        DragEndEffect(true);
+    }
+    /// <summary>
+    /// 向右拖拽，index-1
+    /// </summary>
+    public void DragRight()
+    {
+        CurSelectIndex--;
+        DragEndEffect(false);
+    }
+    /// <summary>
+    /// 滑动动画
+    /// </summary>
+    /// <param name="flag">true向左，false向右</param>
+    private void DragEndEffect(bool flag)
+    {
+        InsPortrait(flag, CurSelectIndex);
+        preparePortrait.transform.DOLocalMove(midTemp.localPosition, 0.3f);
+        if (flag)
+        {
+            currentPortrait.transform.DOLocalMove(leftTemp.localPosition, 0.3f);
+        }
+        else
+        {
+            currentPortrait.transform.DOLocalMove(rightTemp.localPosition, 0.3f);
+        }
+
+        expirePortrait = currentPortrait;
+        destroyList.Add(expirePortrait);
+        currentPortrait = preparePortrait;
+    }
+
+   // private void DragReset()
+    //{
+        //if (offfsetx > -200 && offfsetx < 200)
+        //{
+            //currentPortrait.transform.localPosition = midTemp.localPosition;
+           // CurSelectIndex = lastIndex;
+            //lastIndex = 0;
+            //Destroy(preparePortrait);
+        //}
+
+        //isDrag = false;
+
+    //}
+    //private void Draging()
+    //{
+        //currentPortrait.transform.localPosition = new Vector3(currentPortrait.transform.localPosition.x - offfsetx, currentPortrait.transform.localPosition.y, 0);
+        //preparePortrait.transform.localPosition = new Vector3(preparePortrait.transform.localPosition.x - offfsetx, preparePortrait.transform.localPosition.y, 0);
+    //}
+    /// <summary>
+    /// 生成立绘
+    /// </summary>
+    /// <param name="flag">true在右边生成，false在左边生成</param>
+    /// <param name="i"></param>
+    private void InsPortrait(bool flag, int i)
+    {
+
+        preparePortrait = GameObject.Instantiate<GameObject>(portraits[i]);
+        preparePortrait.transform.SetParent(transform);
+        preparePortrait.transform.localScale = new Vector3(1, 1, 1);
+        if (flag)
+        {
+            preparePortrait.transform.localPosition = rightTemp.localPosition;
+        }
+        else
+        {
+            preparePortrait.transform.localPosition = leftTemp.localPosition;
+        }
+    }
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < destroyList.Count; i++)
+        {
+            if (destroyList[i].transform.localPosition.x <= -999 || destroyList[i].transform.localPosition.x >= 999)
+            {
+                Destroy(destroyList[i]);
+                destroyList.Remove(destroyList[i]);
+            }
+        }
+    }
+}
