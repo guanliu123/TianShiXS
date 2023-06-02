@@ -140,9 +140,9 @@ public class GameManager : BaseManager<GameManager>
         MonoManager.GetInstance().ClearActions(); 
         t.GetComponent<Player>().ClearPlayer();
         GameObject.Destroy(t.GetComponent<Player>());
-        //GameObject.Destroy(t.GetComponent<TestController>());
         GameObject.Destroy(t.GetComponent<PlayerController>());
-        MonoManager.GetInstance().KillAllCoroutines();       
+        MonoManager.GetInstance().KillAllCoroutines();
+        PoolManager.GetInstance().Clear();
         CameraMove(CameraPointType.OrginPoint, 1f);
         DataCenter.Money += levelMoney;
         PanelManager.Instance.Push(new FailPanel());
