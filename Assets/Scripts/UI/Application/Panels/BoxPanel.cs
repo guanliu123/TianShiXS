@@ -15,7 +15,7 @@ public class BoxPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-        UITool.GetOrAddComponentInChildren<Button>("Open_Btn", panel).onClick.AddListener(() => { Debug.Log("开箱"); });
+        UITool.GetOrAddComponentInChildren<Button>("Open_Btn", panel).onClick.AddListener(() => { DataCenter.Money += 100; });
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
             PanelManager.Instance.Pop();

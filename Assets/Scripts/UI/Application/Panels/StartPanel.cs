@@ -9,6 +9,7 @@ using Unity;
 public class StartPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/StartScenePanel";
+    GameObject panel;
     private GameObject topArea;
     private GameObject midArea;
 
@@ -18,7 +19,7 @@ public class StartPanel : BasePanel
     }
     public override void OnEnter()
     {   
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        panel = UIManager.Instance.GetSingleUI(UIType);
         topArea = UITool.FindChildGameObject("TopArea", panel);
         midArea = UITool.FindChildGameObject("MidArea", panel);
 
@@ -34,13 +35,17 @@ public class StartPanel : BasePanel
         {
             PanelManager.Instance.Push(new LevelPanel());
         });
+       
         UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", panel).onClick.AddListener(() =>
         {
             GameManager.GetInstance().StartGame();
             PanelManager.Instance.Clear();
             PanelManager.Instance.Push(new GamePanel());
         });
+        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money+"";
+        UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = DataCenter.Energy + "";
 
+        //MonoManager.GetInstance().AddUpdateListener(StartUIEvent);
         /*UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
         {
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
@@ -50,6 +55,13 @@ public class StartPanel : BasePanel
         {
             PanelManager.Instance.Push(new BoxPanel());
         });
+
+        if (GameManager.GetInstance().nowLevel == 0)
+        {
+            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
+            return;
+        }
+        UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
         //UITool.GetOrAddComponentInChildren<Button>("Btn_Play", panel).onClick.AddListener(() =>
         //{
         //    SceneSystem.Instance.SetScene(new MainScene());
@@ -71,15 +83,25 @@ public class StartPanel : BasePanel
         //    }
         //});
     }
-
-    public override void OnPause()
+    public void LevelListener()
     {
+        
+    }
+    public override void OnPause()
+    {       
         SetAreaActive(false);
     }
 
     public override void OnResume()
     {
         SetAreaActive(true);
+        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money + "";
+        if (GameManager.GetInstance().nowLevel == 0)
+        {
+            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
+            return;
+        }
+        UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
     }
     private void SetAreaActive(bool isShow)
     {

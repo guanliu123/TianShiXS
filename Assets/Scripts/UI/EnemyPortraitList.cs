@@ -94,7 +94,10 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         currentPortrait.transform.localPosition = midTemp.localPosition;
         _panel.UpdateEnemyPanel(0, currentPortrait);
     }
-
+    private void OnDestroy()
+    {
+        PoolManager.GetInstance().Clear("EnemyPortrait");
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         //dragOffset = eventData.position;

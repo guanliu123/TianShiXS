@@ -11,6 +11,9 @@ public class GameManager : BaseManager<GameManager>
 {
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;
+
+    public int nowLevel;
+
     public float playerEnergy { get; private set; }
     public int levelMoney {get; private set;}
 
@@ -80,6 +83,7 @@ public class GameManager : BaseManager<GameManager>
 
     public void ChangeLevel(int levelNum)
     {
+        nowLevel = levelNum;
         LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 

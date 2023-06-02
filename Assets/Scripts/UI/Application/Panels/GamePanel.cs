@@ -57,6 +57,7 @@ public class GamePanel : BasePanel
     }
     public override void OnExit()
     {
+        base.OnExit();
         MonoManager.GetInstance().RemoveUpdeteListener(GameUIEvent);
     }
 

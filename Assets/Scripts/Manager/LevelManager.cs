@@ -86,7 +86,7 @@ public class LevelManager : BaseManager<LevelManager>
     public void Stop()
     {
         //MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
-        for(int i = 0; i < exitingSquare.Count; i++)
+        for (int i = 0; i < exitingSquare.Count; i++)
         {
             RetrieveItem(exitingSquare[i]);
             GameObject.Destroy(exitingSquare[i]);
@@ -94,9 +94,6 @@ public class LevelManager : BaseManager<LevelManager>
         exitingSquare.Clear();
 
         GameObject.Destroy(boss);
-
-        PoolManager.GetInstance().Clear();
-        exitingSquare.Clear();
     }
 
     void LevelEvent()

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Linq;
 
 //可以改为用ID存储到缓存池
 public class PoolData
@@ -98,9 +99,31 @@ public class PoolManager : BaseManager<PoolManager>
             poolDic.Add(poolName, new PoolData(obj, poolObj));
         //采用的结构是PoolData 类，里面含有链式结构PoolList 
     }
+    //清空某个池子
+    public void Clear(string poolName)
+    {
+        if (poolDic.ContainsKey(poolName))
+        {
+            for(int i = 0; i < poolDic[poolName].poolList.Count; i++)
+            {
+                GameObject.Destroy(poolDic[poolName].poolList[i]);
+            }
+            GameObject.Destroy(poolDic[poolName].fatherObj);
+            poolDic.Remove(poolName);
+        }
+    }
     //清空缓存池
     public void Clear()
     {
+        for(int i = 0; i < poolDic.Count; i++)
+        {
+            for(int j = 0; j < poolDic.ElementAt(i).Value.poolList.Count; i++)
+            {
+                GameObject.Destroy(poolDic.ElementAt(i).Value.poolList[j]);
+            }
+            GameObject.Destroy(poolDic.ElementAt(i).Value.fatherObj);
+        }
+
         poolDic.Clear();
         poolObj = null;
     }

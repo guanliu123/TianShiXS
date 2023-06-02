@@ -107,7 +107,10 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
         //isDrag = true;
         //Draging();
     }
-
+    public void OnDestroy()
+    {
+        PoolManager.GetInstance().Clear("PlayerPortrait");
+    }
     public void OnEndDrag(PointerEventData eventData)
     {
         //DragReset();

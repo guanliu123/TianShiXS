@@ -88,7 +88,10 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         currentPortrait.transform.localPosition = midTemp.localPosition;
         _panel.UpdateSkillPanel(0, currentPortrait);
     }
-
+    private void OnDestroy()
+    {
+        PoolManager.GetInstance().Clear("SkillPortrait");
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         //dragOffset = eventData.position;
