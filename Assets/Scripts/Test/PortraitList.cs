@@ -6,25 +6,30 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UIFrameWork;
 
+/// <summary>
+/// 角色立绘列表
+/// </summary>
 public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     /// <summary>
     /// 立绘
     /// </summary>
     public List<GameObject> portraits = new List<GameObject>();
-
+    /// <summary>
+    /// 销毁列表
+    /// </summary>
     private List<GameObject> destroyList = new List<GameObject>();
 
-
+    // 占位符
     private Transform leftTemp;
     private Transform rightTemp;
     private Transform midTemp;
 
-    //当前立绘
+    //当前立绘对象
     private GameObject currentPortrait;
-    //预载立绘
+    //预载立绘对象
     private GameObject preparePortrait;
-
+    //预销毁立绘对象
     private GameObject expirePortrait;
 
     /// <summary>
@@ -32,8 +37,14 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     /// </summary>
     private int curSelectIndex = 0;
 
-    private Vector2 dragOffset;
-    private int lastIndex;
+    //滑动起始点位
+    private Vector2 beginDragPos;
+    //滑动结束点位
+    private Vector2 endDragPos;
+    //滑动距离
+    private float offfsetx;
+
+    //private int lastIndex;
 
     public int CurSelectIndex
     {
@@ -62,6 +73,9 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         Init();
     }
 
+    /// <summary>
+    /// 初始化
+    /// </summary>
     private void Init()
     {
         leftTemp = GameObject.Find("Left_Temp").transform;
@@ -77,18 +91,18 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         //dragOffset = eventData.position;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out dragOffset);
-        lastIndex = CurSelectIndex;
+        //屏幕坐标转UI坐标
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out beginDragPos);
+        //lastIndex = CurSelectIndex;
     }
 
-    //private bool isDrag = false;
-    private Vector2 uipos;
-    ///滑动距离
-    private float offfsetx;
+    //private bool isDrag = false
+
     public void OnDrag(PointerEventData eventData)
     {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out uipos);
-        offfsetx = dragOffset.x - uipos.x;
+        //屏幕坐标转UI坐标
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(this.transform as RectTransform, eventData.position, eventData.pressEventCamera, out endDragPos);
+        offfsetx = beginDragPos.x - endDragPos.x;
         //isDrag = true;
         //Draging();
     }
@@ -104,7 +118,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         {
             DragLeft();
         }
-        dragOffset = Vector2.zero;
+        beginDragPos = Vector2.zero;
     }
 
     /// <summary>
