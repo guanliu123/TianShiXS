@@ -16,10 +16,10 @@ public class SkillPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
-        {
-            PanelManager.Instance.Pop();
-        });
+        //UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
+        //{
+        //    PanelManager.Instance.Pop();
+        //});
 
         List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
         for(int i = 1; i <= 3; i++)
