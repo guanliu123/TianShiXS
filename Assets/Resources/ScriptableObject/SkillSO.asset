@@ -94,7 +94,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 
   - id: 10
-    name: 
+    name: "\u6708\u5149 "
     icon:
     - {fileID: 21300000, guid: a04ed509375b1dc4d9af800d1a978d10, type: 3}
     describe: "\u83B7\u5F97\u6708\u7259\u5F39\u5E55"
@@ -102,7 +102,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 
   - id: 11
-    name: 
+    name: "\u6708\u5149\u2014\u805A\u5149 "
     icon:
     - {fileID: 21300000, guid: f0066d06a4e18c74e883f18fa068ab71, type: 3}
     describe: "\u589E\u52A0\u6708\u7259\u5F39\u5E55\u53D1\u5C04\u901F\u5EA6 "
@@ -110,7 +110,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 0a000000
   - id: 12
-    name: 
+    name: "\u6FC0\u5149 "
     icon:
     - {fileID: 21300000, guid: 20186f92e9454c8448101b292a1e969b, type: 3}
     describe: "\u83B7\u5F97\u6FC0\u5149\u5F39\u5E55 "
@@ -118,7 +118,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 
   - id: 13
-    name: 
+    name: "\u6FC0\u5149\u2014\u65F6 "
     icon:
     - {fileID: 21300000, guid: 27f00e351c9b37442b98373ddabe8bf8, type: 3}
     describe: "\u589E\u52A0\u6FC0\u5149\u5F39\u5E55\u53D1\u5C04\u65F6\u95F4 "
@@ -126,7 +126,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 0c000000
   - id: 14
-    name: 
+    name: "\u8FDE\u65A9 "
     icon:
     - {fileID: 21300000, guid: 96c6b5cbd0a9e394bad39c3590e7f28c, type: 3}
     describe: "\u83B7\u5F97\u8FDE\u51FB\u5F39\u5E55 "
@@ -134,7 +134,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 0d000000
   - id: 15
-    name: 
+    name: "\u8FDE\u65A9\u2014\u5206\u8EAB "
     icon:
     - {fileID: 21300000, guid: 429df2d9b258d2340a36f27ecd3c9975, type: 3}
     describe: "\u4F7F\u8FDE\u51FB\u5F39\u5E55\u591A\u4E00\u6761\u8F68\u9053 "
@@ -142,7 +142,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 0e000000
   - id: 16
-    name: 
+    name: "\u8FDE\u65A9\u2014\u5F3A\u5316 "
     icon:
     - {fileID: 21300000, guid: 1ced961b996cd3a4e96d610f37ff95b3, type: 3}
     describe: "\u4F7F\u8FDE\u51FB\u5F39\u5E55\u8FDE\u51FB\u6B21\u6570\u589E\u52A0 "
@@ -150,7 +150,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 0e000000
   - id: 17
-    name: 
+    name: "\u706B\u5C71 "
     icon:
     - {fileID: 21300000, guid: a492354f8e4be8145a49b602e4728ea0, type: 3}
     describe: "\u83B7\u5F97\u706B\u7403\u5F39\u5E55 "
@@ -158,7 +158,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 10000000
   - id: 18
-    name: 
+    name: "\u706B\u5C71\u2014\u5927\u5316 "
     icon:
     - {fileID: 21300000, guid: 3715df35ba5cbde4a92fdd8e8af810ad, type: 3}
     describe: "\u589E\u52A0\u706B\u7403\u5F39\u5E55\u5927\u5C0F"
@@ -166,7 +166,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 10000000
   - id: 19
-    name: 
+    name: "\u706B\u5C71\u2014\u8FDE\u53D1 "
     icon:
     - {fileID: 21300000, guid: 6b29e0e298011ba4eb44b16acba63d72, type: 3}
     describe: "\u4E00\u6B21\u6027\u53D1\u5C04\u4E24\u679A\u706B\u7403 "
@@ -174,7 +174,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 10000000
   - id: 20
-    name: 
+    name: "\u6563\u534E "
     icon:
     - {fileID: 21300000, guid: 6e2c0621ddb570d43a988f50d8c418b1, type: 3}
     describe: "\u83B7\u5F97\u65CB\u8F6C\u5F39\u5E55 "
@@ -182,7 +182,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 
   - id: 21
-    name: 
+    name: "\u6563\u534E\u2014\u4E71\u821E "
     icon:
     - {fileID: 21300000, guid: cdd8e46dfe9233547b6ac480f05d43fb, type: 3}
     describe: "\u4F7F\u65CB\u8F6C\u5F39\u5E55\u4F1A\u4EA7\u751F\u5206\u88C2 "
@@ -190,7 +190,7 @@ MonoBehaviour:
     num: 999
     beforeSkills: 14000000
   - id: 22
-    name: 
+    name: "\u8FDE\u73E0 "
     icon:
     - {fileID: 21300000, guid: fbb3e130687c6644a8ffb110b6f29fd8, type: 3}
     describe: "\u83B7\u5F97\u5F39\u5C04\u5F39\u5E55 "
@@ -198,7 +198,7 @@ MonoBehaviour:
     num: 1
     beforeSkills: 
   - id: 23
-    name: 
+    name: "\u8FDE\u73E0\u2014\u5F3A\u5316 "
     icon:
     - {fileID: 21300000, guid: f1da91b02ae3a7d46a537f7a5a468b16, type: 3}
     describe: "\u589E\u52A0\u5F39\u5C04\u5F39\u5E55\u4F24\u5BB3\u548C\u5F39\u5C04\u6B21\u6570 "

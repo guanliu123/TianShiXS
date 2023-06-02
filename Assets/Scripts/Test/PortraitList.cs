@@ -15,7 +15,7 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     /// <summary>
     /// 立绘
     /// </summary>
-    public List<GameObject> portraits = new List<GameObject>();
+    //public List<GameObject> portraits = new List<GameObject>();
     /// <summary>
     /// 销毁列表
     /// </summary>
@@ -57,13 +57,13 @@ public class PortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         set
         {
             //在这里限制选择的索引在List范围内
-            if (value > portraits.Count - 1)
+            if (value > GameManager.GetInstance().playerNum - 1)
             {
                 value = 0;
             }
             if (value < 0)
             {
-                value = portraits.Count - 1;
+                value = GameManager.GetInstance().playerNum - 1;
             }
             curSelectIndex = value;
         }
