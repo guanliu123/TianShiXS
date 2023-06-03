@@ -77,6 +77,8 @@ MonoBehaviour:
       path: Prefabs/UI/EnemyPortrait
     - name: SkillPortrait
       path: Prefabs/UI/SkillPortrait
+    - name: LevelList
+      path: Prefabs/UI/LevelList
   - resourceType: 4
     resourceNPs:
     - name: BuffDoors

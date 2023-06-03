@@ -148,6 +148,7 @@
     <Compile Include="Assets\Scripts\UI\EnemyPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\FileHelper\FileHelper.cs" />
     <Compile Include="Assets\Scripts\UI\IndependentUI\FloatDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\SkillPortraitList.cs" />
     <Compile Include="Assets\Scripts\UI\UIFrameWork\BasePanel.cs" />
