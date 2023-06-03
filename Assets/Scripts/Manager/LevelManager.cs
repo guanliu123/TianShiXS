@@ -9,14 +9,16 @@ public class LevelManager : BaseManager<LevelManager>
 {
     private List<GameObject> nowSquares = new List<GameObject>();
 
+    private GameObject smoke;
     private bool isSp;//是否更换了当前预备生成的地图模板
-    private bool isChange;//是否进入宽地面战斗模式
+    public bool isChange;//是否进入宽地面战斗模式
     private GameObject checkPoint;
 
     GameObject boss;
 
     private LevelData nowLevel;
 
+    public int maxStage{ get; private set; }
     public int nowStage { get; private set; }//当前所处阶段数
     public int nowWave { get; private set; }//当前波次
     private int requireEnemy;//当前波次剩余需要生成的敌人数量
@@ -54,6 +56,7 @@ public class LevelManager : BaseManager<LevelManager>
     {
         exitingSquare.Clear();
         nowSquares = nowLevel.normalPlanes;
+        
 
         for (int i = 0; i < defaultNum; i++)
         {
@@ -71,15 +74,18 @@ public class LevelManager : BaseManager<LevelManager>
         }
 
         nowStage = 0;
+        maxStage = nowLevel.StageDatas.Count;
         nowWave = 0;
         isChange = false;
         isSp = false;
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
+        smoke = PoolManager.GetInstance().GetObj("Smoke");
+        smoke.transform.position = new Vector3(0, -6, 40);
     }
 
     public void Start()
     {
-        InitMap();
+        InitMap();       
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 
@@ -88,10 +94,11 @@ public class LevelManager : BaseManager<LevelManager>
         //MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
         for (int i = 0; i < exitingSquare.Count; i++)
         {
-            RetrieveItem(exitingSquare[i]);
+            //RetrieveItem(exitingSquare[i]);
             GameObject.Destroy(exitingSquare[i]);
         }
         exitingSquare.Clear();
+        GameObject.Destroy(smoke);
 
         GameObject.Destroy(boss);
     }
@@ -179,11 +186,14 @@ public class LevelManager : BaseManager<LevelManager>
         if (isChange)
         {
             GameManager.GetInstance().CameraMove(CameraPointType.HighPoint, 1f);
+            PoolManager.GetInstance().PushObj("Smoke", smoke);
         }
         else
         {
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
+            smoke = PoolManager.GetInstance().GetObj("Smoke");
+            smoke.transform.position= new Vector3(0, -6, 40);
         }
         GameManager.GetInstance().SwitchMode();
     }

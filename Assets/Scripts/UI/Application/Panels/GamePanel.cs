@@ -12,11 +12,13 @@ public class GamePanel : BasePanel
 
     public Slider energySlider;
     public Text moneyText;
-    public int lastMoney;
+    public Text stageText;
     public Transform moneyLabel;
+
     private float hideTime;
     private float hideTimer;
-    private bool isHide;
+    private bool ismoneyHide;
+    private bool isenergyHide;
 
     public GamePanel() : base(new UIType(path))
     {
@@ -25,9 +27,9 @@ public class GamePanel : BasePanel
     {
         hideTime = 5f;
         hideTimer = 0f;
-        isHide = false;
+        ismoneyHide = false;
+        isenergyHide = false;
 
-        lastMoney = GameManager.GetInstance().levelMoney;
         moneyLabel = UITool.GetOrAddComponentInChildren<Transform>("MoneyBG", panel);
         moneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
         moneyText.text = GameManager.GetInstance().levelMoney + "";
@@ -38,6 +40,8 @@ public class GamePanel : BasePanel
         Init(panel);
 
         energySlider = UITool.GetOrAddComponentInChildren<Slider>("EnergySlider", panel);
+        stageText = UITool.GetOrAddComponentInChildren<Text>("StageText", panel);
+
         UITool.GetOrAddComponentInChildren<Slider>("EnergySlider", panel).onValueChanged.AddListener((float value) =>
         {
             if (value >= 1)
@@ -64,23 +68,39 @@ public class GamePanel : BasePanel
     public void GameUIEvent()
     {
         EnergySliderListener();
+        StageListener();
         MoneyLabelTimer();
         MoneyListener();
     }
     public void EnergySliderListener()
     {
         energySlider.value = GameManager.GetInstance().playerEnergy / 100f;
+        if (LevelManager.GetInstance().isChange&&!isenergyHide)
+        {
+            isenergyHide = true;
+            energySlider.transform.DOMove(energySlider.transform.position + Vector3.up * 300f, 1f).OnComplete(() => { energySlider.gameObject.SetActive(false); });
+        }
+        else if(!LevelManager.GetInstance().isChange && isenergyHide)
+        {
+            energySlider.gameObject.SetActive(true);
+            energySlider.transform.DOMove(energySlider.transform.position - Vector3.up * 300, 1f);
+            isenergyHide = false;
+        }
+    }
+    public void StageListener()
+    {
+        stageText.text ="阶段：" + (LevelManager.GetInstance().nowStage+1)+"/"+LevelManager.GetInstance().maxStage;
     }
     public void MoneyLabelTimer()
     {
-        if (!isHide)
+        if (!ismoneyHide)
         {
             hideTimer += Time.deltaTime;
             if (hideTimer > hideTime)
             {
                 moneyLabel.DOMove(moneyLabel.position+Vector3.left*500f,1f).OnComplete(() => { moneyLabel.gameObject.SetActive(false); });
                 hideTimer = 0;
-                isHide = true;
+                ismoneyHide = true;
             }
         }
     }
@@ -88,11 +108,11 @@ public class GamePanel : BasePanel
     {
         if (GameManager.GetInstance().levelMoney + "" != moneyText.text)
         {
-            if (isHide)
+            if (ismoneyHide)
             {
                 moneyLabel.gameObject.SetActive(true);
-                moneyLabel.DOMove(moneyLabel.position - Vector3.left * 500f, 1f);
-                isHide = false;
+                ismoneyHide = false;
+                moneyLabel.DOMove(moneyLabel.position - Vector3.left * 500f, 1f);          
             }
 
             hideTimer = 0;

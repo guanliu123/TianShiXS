@@ -17,7 +17,7 @@ public class DataManager : BaseManager<DataManager>
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     public Dictionary<CharacterType, CharacterData> characterDatasDic=new Dictionary<CharacterType, CharacterData>();
     public Dictionary<BulletType, BulletData> bulletDatasDic = new Dictionary<BulletType, BulletData>();
-    private Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
+    public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
     private Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
 
     public DataManager()

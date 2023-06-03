@@ -77,6 +77,8 @@ MonoBehaviour:
       path: Prefabs/UI/EnemyPortrait
     - name: SkillPortrait
       path: Prefabs/UI/SkillPortrait
+    - name: LevelList
+      path: Prefabs/UI/LevelList
   - resourceType: 4
     resourceNPs:
     - name: BuffDoors
@@ -95,6 +97,8 @@ MonoBehaviour:
       path: Prefabs/Prop/Bell
     - name: Sword
       path: Prefabs/Prop/Sword
+    - name: Smoke
+      path: Prefabs/Map/Item/Smoke
   - resourceType: 7
     resourceNPs:
     - name: DaoShi

@@ -58,8 +58,11 @@ public class BounceBullet : BulletBase
 
     private void OnTriggerEnter(Collider other)
     {
-        moveDir = Vector3.Reflect(Vector3.forward, other.transform.position.normalized);
-        moveDir = moveDir.normalized;
+        if (other.tag != "Player")
+        {
+            moveDir = Vector3.Reflect(Vector3.forward, other.transform.position.normalized);
+            moveDir = moveDir.normalized;
+        }
     }
 
     protected override void AttackCheck()

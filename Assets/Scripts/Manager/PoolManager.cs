@@ -46,6 +46,7 @@ public class PoolData
 //对缓存池进行管理的单例模式类
 public class PoolManager : BaseManager<PoolManager>
 {
+    public bool isActive=true;
     //使用字典存储数据
     private Dictionary<string, PoolData> poolDic
         = new Dictionary<string, PoolData>();
@@ -59,6 +60,7 @@ public class PoolManager : BaseManager<PoolManager>
     /// <returns></returns>
     public GameObject GetObj(string poolName)
     {
+        if (!isActive) return null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
             return poolDic[poolName].GetObj();
@@ -91,6 +93,11 @@ public class PoolManager : BaseManager<PoolManager>
     /// <param name="obj">物品本身</param>
     public void PushObj(string poolName, GameObject obj)
     {
+        if (!isActive)
+        {
+            GameObject.Destroy(obj);
+            return;
+        }
         if (poolObj == null)
             poolObj = new GameObject("Pool");//实例化，此后所以在缓存池的物体全部为
         if (poolDic.ContainsKey(poolName))//如果缓存池中已经存在其类型，则将物体加入其中
@@ -115,9 +122,10 @@ public class PoolManager : BaseManager<PoolManager>
     //清空缓存池
     public void Clear()
     {
+        //isActive = false;
         for(int i = 0; i < poolDic.Count; i++)
         {
-            for(int j = 0; j < poolDic.ElementAt(i).Value.poolList.Count; i++)
+            for(int j = 0; j < poolDic.ElementAt(i).Value.poolList.Count; j++)
             {
                 GameObject.Destroy(poolDic.ElementAt(i).Value.poolList[j]);
             }
@@ -125,6 +133,7 @@ public class PoolManager : BaseManager<PoolManager>
         }
 
         poolDic.Clear();
+        GameObject.Destroy(poolObj);
         poolObj = null;
     }
 }
