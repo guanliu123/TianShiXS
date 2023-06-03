@@ -137,6 +137,7 @@
     <Compile Include="Assets\Scripts\UI\Application\Panels\HandbookPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\LevelPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\MainPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\PausePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\RolePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\SkillPanel.cs" />

@@ -50,11 +50,9 @@ public class GamePanel : BasePanel
             }
         });      
         
-        UITool.GetOrAddComponentInChildren<Button>("Quit_Btn", panel).onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("Pause_Btn", panel).onClick.AddListener(() =>
         {
-            GameManager.GetInstance().QuitGame();
-            PanelManager.Instance.Clear();
-            PanelManager.Instance.Push(new StartPanel());
+            PanelManager.Instance.Push(new PausePanel());
         });
 
         MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
