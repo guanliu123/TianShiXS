@@ -27,6 +27,8 @@ public enum CharacterType
     KuiJia,
     XiaKe,
     ShiXu,
+    Turtle,
+    Claw,
 }
 public enum CharacterTag {
     Player,

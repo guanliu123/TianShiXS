@@ -61,7 +61,13 @@ public class HandbookPanel : BasePanel
 
     public void UpdateEnemyPanel(int index, GameObject panel)
     {
-        UITool.GetOrAddComponentInChildren<Image>("EnemyImage", panel).sprite = enemys[index].characterData.icon;
+        Transform t = UITool.GetOrAddComponentInChildren<Transform>("EnemyImage", panel);
+        try
+        {
+            GameObject.Destroy(t.GetChild(0).gameObject);
+        }
+        catch { }
+        GameObject.Instantiate(enemys[index].characterData.icon,t).transform.parent = t;
         UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = enemys[index].characterData.name;
         UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = enemys[index].characterData.describe;
         UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量：" + enemys[index].characterData.MaxHP;

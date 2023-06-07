@@ -50,7 +50,14 @@ public class RolePanel : BasePanel
     public void UpdatePlayerPanel(int index,GameObject panel)
     {
         choosePlayer = players[index].characterType;
-        UITool.GetOrAddComponentInChildren<Image>("PlayerImage", panel).sprite = players[index].characterData.icon;
+        //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
+        Transform t = UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel);
+        try
+        {
+            GameObject.Destroy(t.GetChild(0).gameObject);
+        }
+        catch{ }
+        GameObject.Instantiate(players[index].characterData.icon,t).transform.parent = t;
         UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = players[index].characterData.name;
         UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players[index].characterData.describe;
         UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players[index].characterData.MaxHP;

@@ -197,7 +197,6 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-        //GameObject.Instantiate<GameObject>(portraits[i]);
         preparePortrait = PoolManager.GetInstance().GetObj("PlayerPortrait");
         _panel.UpdatePlayerPanel(i, preparePortrait);
         preparePortrait.transform.SetParent(transform);
