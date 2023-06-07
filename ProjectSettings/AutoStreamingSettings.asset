@@ -16,15 +16,15 @@ AutoStreamingSettings:
     assetPath: Assets/Scenes/StartScene.unity
     localFileId: -1
     cloudAssetName: 
-    rtMem: 161534
+    rtMem: 2586020
     warningFlag: 0
     refs: []
   mConfigCCD:
     useCCD: 0
     uosSecret: 780adaedfae844da96365c83c80c2905
     uosAppid: 052e9d1c-8bbb-4fa8-88c3-273217994988
-    bucketUuid: 39289b33-632f-404d-a4ba-817cfe5ab5cb
-    bucketName: Test5
-    badgeName: v3
+    bucketUuid: 078cbe21-ead8-4a5f-b76d-881b675a4d37
+    bucketName: Test6
+    badgeName: v1
     ttAppid: 
     targetPlatfrom: Bytedance

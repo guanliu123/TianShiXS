@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4544165145979192249}
   - component: {fileID: 4544165145979192248}
   m_Layer: 0
-  m_Name: WidthPlane
+  m_Name: WidthPlane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4544165145979192250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16929984, y: 2.5, z: 5.502617}
-  m_LocalScale: {x: 1.6, y: 1, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.6, y: 1, z: 2}
   m_Children:
   - {fileID: 7369849660651357506}
   - {fileID: 2197249362067695529}

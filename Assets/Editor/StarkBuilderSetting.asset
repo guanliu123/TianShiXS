@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDevBuild: 0
   stripEngineCode: 0
-  appId: 
+  appId: 052e9d1c-8bbb-4fa8-88c3-273217994988
   wasmResourceUrl: 
   webglPackagePath: 
   useByteAudioAPI: 0
