@@ -15,6 +15,7 @@ public class PausePanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameManager.GetInstance().ClearFloatDamage();
 
         Time.timeScale = 0;
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>

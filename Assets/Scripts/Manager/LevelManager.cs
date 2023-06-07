@@ -31,6 +31,8 @@ public class LevelManager : BaseManager<LevelManager>
     public int defaultNum = 5;//初始生成这么多地图块
 
     private List<GameObject> exitingSquare = new List<GameObject>();//当前场上存在的地图块
+    private List<GameObject> generatableSquare = new List<GameObject>();//当前场上可以生成敌人的地图块
+
     public float awayDistance = 30f;//当最后面的地面块距离玩家这么远时生成新的地图块，回收原来的
 
     public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人

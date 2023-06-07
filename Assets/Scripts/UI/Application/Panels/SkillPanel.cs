@@ -16,6 +16,8 @@ public class SkillPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameManager.GetInstance().ClearFloatDamage();
+
         //UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         //{
         //    PanelManager.Instance.Pop();

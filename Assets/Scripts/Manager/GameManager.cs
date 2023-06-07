@@ -23,6 +23,7 @@ public class GameManager : BaseManager<GameManager>
     public int skillCount;
 
     public List<GameObject> enemyList = new List<GameObject>();
+    public List<GameObject> floatDamageList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
 
@@ -148,6 +149,14 @@ public class GameManager : BaseManager<GameManager>
         PanelManager.Instance.Push(new FailPanel());
     }
 
+    public void ClearFloatDamage()
+    {
+        for(int i = 0; i < floatDamageList.Count; i++)
+        {
+            if (floatDamageList[i] != null) PoolManager.GetInstance().PushObj("FloatDamage", floatDamageList[i]);
+        }
+        floatDamageList.Clear();
+    }
     public void PlayerReset()
     {
         Player._instance.transform.DOMove(Vector3.zero+Vector3.up, 1f);
@@ -209,7 +218,7 @@ public class GameManager : BaseManager<GameManager>
 
         obj.transform.parent = mainCanvas.transform;
         
-        obj.GetComponent<FloatDamage>().Init(point, damage, hpType);
+        obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
     }
 
     public void PlayerEvolution()

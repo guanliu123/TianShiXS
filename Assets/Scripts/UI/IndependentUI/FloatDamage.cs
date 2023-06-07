@@ -25,8 +25,9 @@ public class FloatDamage : MonoBehaviour
         colorDic.Add(HPType.Crit, new Color(255,215,0));
     }
 
-    public void Init(Transform point,float damage,HPType hpType=HPType.Default)
+    public void Init(Transform point,float damage, List<GameObject> list,HPType hpType=HPType.Default)
     {
+        list.Add(gameObject);
         if(damage<0) mtext.text = "" + damage;
         else mtext.text = "+" + damage;
 
@@ -36,6 +37,6 @@ public class FloatDamage : MonoBehaviour
         mRect.position = RectTransformUtility.WorldToScreenPoint(mainCamera, point.position + randomOffset);
 
         float posY = transform.position.y + 1f;
-        transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", gameObject); });
+        transform.DOMoveY(posY, 1f).OnComplete(() => { PoolManager.GetInstance().PushObj("FloatDamage", gameObject); list.Remove(gameObject); });
     }
 }
