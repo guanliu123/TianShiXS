@@ -48,9 +48,7 @@ public class BulletManager : BaseManager<BulletManager>
         else
         {
             StraightLauncher(shooter,bulletType, aggressivity);
-        }
-
-             
+        }     
     }
     private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity)
     {

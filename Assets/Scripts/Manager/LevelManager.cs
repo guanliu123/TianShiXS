@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditor;
 
 public class LevelManager : BaseManager<LevelManager>
 {
@@ -28,12 +29,13 @@ public class LevelManager : BaseManager<LevelManager>
     public float movementRate = 9f;//地图移动速率
 
     private float[,] mapSquareSize = new float[2, 2] { { 10, 20 }, { 15, 20 } };//宽，长
-    public int defaultNum = 5;//初始生成这么多地图块
+    public int defaultNum = 10;//初始生成这么多地图块
 
     private List<GameObject> exitingSquare = new List<GameObject>();//当前场上存在的地图块
-    private List<GameObject> generatableSquare = new List<GameObject>();//当前场上可以生成敌人的地图块
+    private List<GameObject> distanceSquare = new List<GameObject>();//距离玩家较远的方块（可以直接替换等等）
 
-    public float awayDistance = 30f;//当最后面的地面块距离玩家这么远时生成新的地图块，回收原来的
+    private float awayDistance = 30f;//当最后面的地面块距离玩家这么远时生成新的地图块，回收原来的
+    private float closeDistance = 35f;//当前方的地面离玩家这么近时生成敌人、从远处地面列表移除
 
     public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
     public List<Vector3> enemyPoints = new List<Vector3>();//已经生成了敌人的点位，不能重复在一个点上生成敌人
@@ -57,8 +59,8 @@ public class LevelManager : BaseManager<LevelManager>
     private void InitMap()
     {
         exitingSquare.Clear();
-        nowSquares = nowLevel.normalPlanes;
-        
+        distanceSquare.Clear();
+        nowSquares = nowLevel.normalPlanes;     
 
         for (int i = 0; i < defaultNum; i++)
         {
@@ -71,7 +73,9 @@ public class LevelManager : BaseManager<LevelManager>
                 Vector3 nextSquare = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
-                exitingSquare.Add(GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity));
+                GameObject square = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity);
+                if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(square);
+                exitingSquare.Add(square);
             }
         }
 
@@ -81,8 +85,10 @@ public class LevelManager : BaseManager<LevelManager>
         isChange = false;
         isSp = false;
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        smoke = PoolManager.GetInstance().GetObj("Smoke");
-        smoke.transform.position = new Vector3(0, -6, 40);
+        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+
+        /*smoke = PoolManager.GetInstance().GetObj("Smoke");
+        smoke.transform.position = new Vector3(0, -6, 40);*/
     }
 
     public void Start()
@@ -93,7 +99,6 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void Stop()
     {
-        //MonoManager.GetInstance().RemoveUpdeteListener(LevelEvent);
         for (int i = 0; i < exitingSquare.Count; i++)
         {
             //RetrieveItem(exitingSquare[i]);
@@ -110,8 +115,9 @@ public class LevelManager : BaseManager<LevelManager>
         SquareMove();
         StageCheck();
     }
+
     /// <summary>
-    /// 保持地图无限滚动。当位于最后的地图移动到最前面时，视为生成了新的地面，执行敌人和道具生成
+    /// 保持地图无限滚动。当地面移动到离玩家一定距离时生成敌人，同时从“远处地面”列表移除
     /// </summary>
     void SquareMove()
     {
@@ -138,21 +144,25 @@ public class LevelManager : BaseManager<LevelManager>
 
     void CheckSquare()
     {
-        if (nowSquares.Count == 0) return;
+        //if (nowSquares.Count == 0) return;
         if (Vector3.zero.z - exitingSquare[0].transform.position.z >= awayDistance)
         {
             GameObject t = exitingSquare[0];
             GameObject t2 = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
 
             exitingSquare.RemoveAt(0);
-            //RetrieveItem(t);
-            //GameObject.Destroy(t);
             PoolManager.GetInstance().PushObj("Ground",t);
+            //GameObject.Destroy(t);
 
             t2.transform.position = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x, exitingSquare[exitingSquare.Count - 1].transform.position.y,
                 exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
             exitingSquare.Add(t2);
-            EnemyCreate(t2);
+            if (t2.transform.position.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t2);
+        }
+        if (distanceSquare[0].transform.position.z - Vector3.zero.z <= closeDistance)
+        {
+            EnemyCreate(distanceSquare[0]);
+            distanceSquare.RemoveAt(0);
         }
     }
 
@@ -167,18 +177,32 @@ public class LevelManager : BaseManager<LevelManager>
         {
             nowSquares = nowLevel.normalPlanes;
         }
+        ChangeEnvironment();
 
         //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
         checkPoint = new GameObject("CheckPoint");
-        Vector3 t = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
-                              exitingSquare[exitingSquare.Count - 1].transform.position.y,
-                              exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1] / 2);
+        Vector3 t = new Vector3(distanceSquare[0].transform.position.x,
+                              distanceSquare[0].transform.position.y,
+                              distanceSquare[0].transform.position.z - mapSquareSize[0, 1] / 2);
         checkPoint.transform.position = t;
-        checkPoint.transform.parent = exitingSquare[exitingSquare.Count - 1].transform;
+        checkPoint.transform.parent = distanceSquare[0].transform;
 
         if (requireBOSS > 0)
         {
-            BuffDoorCreate(exitingSquare[exitingSquare.Count - 1]);
+            BuffDoorCreate(distanceSquare[0]);
+        }
+    }
+    private void ChangeEnvironment()
+    {
+        for(int i = distanceSquare.Count-1; i >= 0; i--)
+        {
+            GameObject newSquare = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
+            GameObject t = distanceSquare[i];
+            newSquare.transform.position = t.transform.position;
+            distanceSquare[i] = newSquare;
+            exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
+
+            GameObject.Destroy(t);
         }
     }
 
@@ -188,14 +212,16 @@ public class LevelManager : BaseManager<LevelManager>
         if (isChange)
         {
             GameManager.GetInstance().CameraMove(CameraPointType.HighPoint, 1f);
-            PoolManager.GetInstance().PushObj("Smoke", smoke);
+
+            //PoolManager.GetInstance().PushObj("Smoke", smoke);
         }
         else
         {
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
-            smoke = PoolManager.GetInstance().GetObj("Smoke");
-            smoke.transform.position= new Vector3(0, -6, 40);
+
+            /*smoke = PoolManager.GetInstance().GetObj("Smoke");
+            smoke.transform.position= new Vector3(0, -6, 40);*/
         }
         GameManager.GetInstance().SwitchMode();
     }
@@ -234,7 +260,7 @@ public class LevelManager : BaseManager<LevelManager>
         }
         
         enemyPoints.Clear();
-        GameObject enemyList = new GameObject("EnemyList");
+        //GameObject enemyList = new GameObject("EnemyList");
         int n = Random.Range(1, Mathf.Min(requireEnemy, enemyDensity) + 1);
 
         for (int i = 0; i < n; i++)
@@ -253,9 +279,10 @@ public class LevelManager : BaseManager<LevelManager>
                 }while (enemyPoints.Contains(_newPoint));
 
                 t.transform.position = _newPoint;
-                t.transform.parent = enemyList.transform;
+                t.transform.parent = ground.transform;
+                //t.transform.parent = enemyList.transform;
 
-                enemyList.transform.parent = ground.transform;
+                //enemyList.transform.parent = ground.transform;
             }
             else
             {
@@ -301,7 +328,6 @@ public class LevelManager : BaseManager<LevelManager>
     public void WaveIncrease()
     {
         if (requireEnemy > 0|| requireBOSS>0) return;
-
 
         nowWave++;
         if (nowWave >= nowLevel.StageDatas[nowStage].WaveEnemyNum.Length)
