@@ -33,6 +33,7 @@ public struct CharacterData
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色基础攻击力加成")] public float Aggressivity;
     [Header("角色基础攻速加成")] public float ATKSpeed;
+    [Header("角色减伤率")] public float avoidance;
     [Header("角色死亡增加能量")] public float energy;
     [Header("角色死亡掉落金币")] public int money;
     [Header("角色描述")] public string describe;

@@ -2,23 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBuff
-{
-    (int, float) Init();//当Buff刚被添加上时
-
-    void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker);
-    void OnUpdate(GameObject _taker);//持续的时候
-
-    (int, float) OnSuperpose(GameObject _attacker, GameObject _taker, int plies = 1);//进化的时候
-
-    (int, float) OnZero(GameObject _taker, int plies=1);//当某一层buff归零的时候，可能会进行掉层等操作而不是直接移除buff
-
-    IEnumerator OnSustain(List<GameObject> _taker);//给有持续作用buff用的，一般是存在一大堆人会被作用到，为了节省性能才有这个方法，所以传入list
-
-    void OnEnd(GameObject _taker);
-}
-
-public class BuffBase : IBuff
+public class BuffBase
 {
     public BuffType buffType;
     public CoroutineType coroutineType;//给假如存在持续作用效果的buff开的协程类型

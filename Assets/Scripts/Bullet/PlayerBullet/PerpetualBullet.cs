@@ -24,7 +24,7 @@ public class PerpetualBullet : BulletBase
     {
         for (int i = 0; i < num; i++)
         {
-            BulletManager.GetInstance().BulletLauncher(transform, BulletType.TaiChiDart, 0);
+            BulletManager.GetInstance().BulletLauncher(transform, BulletType.TaiChiDart, 0,shooter);
             yield return new WaitForSeconds(0.2f);
         }
     }

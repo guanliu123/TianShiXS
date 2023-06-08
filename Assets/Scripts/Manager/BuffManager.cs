@@ -10,12 +10,7 @@ public class BuffManager : BaseManager<BuffManager>
 
     public BuffManager()
     {
-        Buffs.Add(BuffType.Burn, new BurnBuff());
-        Buffs.Add(BuffType.Poison, new PoisonBuff());
-        Buffs.Add(BuffType.Frost, new ForstBuff());
-        Buffs.Add(BuffType.Vampirism, new VampirismBuff());
-        Buffs.Add(BuffType.Crit, new BulletCrit());
-        Buffs.Add(BuffType.Multiply, new BulletMultiply());
+        InitBuffDic();
     }
 
     public void AddToBuffList(BuffType buffType, GameObject character)
@@ -40,5 +35,16 @@ public class BuffManager : BaseManager<BuffManager>
             MonoManager.GetInstance().KillCoroutine(Buffs[buffType].coroutineType);
             buffList.Remove(buffType);
         }
+    }
+    private void InitBuffDic()
+    {
+        Buffs.Add(BuffType.Burn, new BurnBuff());
+        Buffs.Add(BuffType.Poison, new PoisonBuff());
+        Buffs.Add(BuffType.Frost, new ForstBuff());
+        Buffs.Add(BuffType.Vampirism, new VampirismBuff());
+        Buffs.Add(BuffType.Crit, new BulletCrit());
+        Buffs.Add(BuffType.Multiply, new BulletMultiply());
+        Buffs.Add(BuffType.Shield, new ShieldBuff());
+        Buffs.Add(BuffType.Reflect, new ReflectBuff());
     }
 }

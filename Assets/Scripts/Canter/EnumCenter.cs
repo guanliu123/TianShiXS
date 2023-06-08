@@ -94,16 +94,14 @@ public enum BuffType
     Crit,//暴击
     NULL,
     Reflect,//反弹伤害
-}
-
-public enum SkillType
-{
-    
+    Shield,
 }
 
 public enum CoroutineType {//各种主要的固定协程事件如火烧buff，在这里注册才好在协程管理中统一调度并且存入字典
     BurnBuff,
     PoisonBuff,
+    ShieldBuff,
+
 }
 
 public enum HPType

@@ -70,6 +70,8 @@
     <Compile Include="Assets\Scripts\BUFF\Buff\BurnBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\ForstBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\PoisonBuff.cs" />
+    <Compile Include="Assets\Scripts\BUFF\Buff\ReflectBuff.cs" />
+    <Compile Include="Assets\Scripts\BUFF\Buff\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\Buff\VampirismBuff.cs" />
     <Compile Include="Assets\Scripts\BUFF\BuffDoor\BuffDoor.cs" />
     <Compile Include="Assets\Scripts\Base\BaseManager.cs" />

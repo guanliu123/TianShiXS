@@ -65,15 +65,15 @@ public class Fanshaped : BulletBase
 
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
-                    targetIAttck.TakeBuff(Player._instance.gameObject, gameObject, item.Key, item.Value);
+                    targetIAttck.TakeBuff(shooter, gameObject, item.Key, item.Value);
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(-bulletATK * 
+                    targetIAttck.ChangeHealth(shooter, -bulletATK * 
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else { targetIAttck.ChangeHealth(-bulletATK); }
+                else { targetIAttck.ChangeHealth(shooter, -bulletATK); }
 
                 unAttachable.Add(targetIAttck,bulletData.damageInterval);
             }

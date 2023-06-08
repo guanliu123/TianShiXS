@@ -23,7 +23,6 @@ namespace UIFrameWork
         //恢复时
         public virtual void OnResume()
         {
-            Debug.Log("1");
             GameObject panel = UIManager.Instance.GetSingleUI(UIType);
             UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = true;
             UITool.RemoveComponent<CanvasGroup>(panel);

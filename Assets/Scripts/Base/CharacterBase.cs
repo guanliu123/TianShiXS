@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 public interface IAttack
 {
-    void ChangeHealth(float damage,HPType damageType=HPType.Default);
+    void ChangeHealth(GameObject applicator, float damage,HPType damageType=HPType.Default);
     //void ShowDamage(float damage);
     void TakeMove(float speed, float time, Vector3 direction=default);
     void TakeBuff(GameObject attacker,GameObject bullet,BuffType buffType, int piles = 1);
@@ -30,7 +30,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     public float nowHP;
     public float aggressivity;//攻击力加成
     public float ATKSpeed;//攻速加成
-
+    public float _avoidance;//减伤率
 
     public Dictionary<BuffType, (int,float)> buffDic=new Dictionary<BuffType, (int, float)>();//里面存放的是每个buff和其对应的层数与持续时间
     public Dictionary<BulletType, float> nowBullet = new Dictionary<BulletType, float>();//存放角色的攻击方式（弹幕类型,值是每种子弹的攻击间隔）
@@ -43,6 +43,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     public bool canActive;
     protected event UnityAction characterActiveEvent;//角色会主动进行的行为，比如攻击，移动
     protected event UnityAction characterPassiveEvent;//角色被动执行的行为，如身上的buff倒计时，是否被回收
+    public event UnityAction<GameObject,GameObject,float,HPType> attackedEvent;//受击事件
 
     protected void Awake()
     {
@@ -70,6 +71,7 @@ public class CharacterBase : MonoBehaviour, IAttack
         for(int i = 0; i < buffDic.Count; i++)
         {
             var item = buffDic.ElementAt(i);
+            if (item.Value.Item2 > 999) continue;//持续时间大于999的buff视为永久性buff
             float t = item.Value.Item2 - Time.deltaTime;
             if (t<= 0.0001)
             {
@@ -121,8 +123,9 @@ public class CharacterBase : MonoBehaviour, IAttack
         if(characterActiveEvent!=null) characterActiveEvent();
     }
 
-    public void ChangeHealth(float variation,HPType hpType=HPType.Default)
+    public void ChangeHealth(GameObject applicator,float variation,HPType hpType=HPType.Default)
     {
+        if(attackedEvent!=null) attackedEvent(applicator, gameObject,variation, hpType);
         if (variation > 0) nowHP = Mathf.Min(maxHP, nowHP + variation);
         else nowHP= nowHP + variation > 0 ? nowHP + variation : 0;
 
@@ -163,7 +166,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (!buffDic.ContainsKey(buffType))
         {
-            (int, float) t = (piles, 0f);
+            //(int, float) t = (piles, 0f);
             buffDic.Add(buffType, BuffManager.GetInstance().Buffs[buffType].Init());
             if(buffDic[buffType].Item1!=0) BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker, bullet, this.gameObject);           
         }
@@ -194,7 +197,7 @@ public class CharacterBase : MonoBehaviour, IAttack
                 if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
                 {
                     TransitionState(CharacterStateType.Attack);
-                    Player._instance.ChangeHealth(
+                    Player._instance.ChangeHealth(gameObject,
                         -BulletManager.GetInstance().BulletDic[item.Key].baseATK + aggressivity);
                     bulletTimer[item.Key] = item.Value;
                 }
@@ -207,7 +210,7 @@ public class CharacterBase : MonoBehaviour, IAttack
             bulletTimer[item.Key] -= (1+ATKSpeed + BulletManager.GetInstance().increaseShoot[item.Key]) *Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(gameObject.transform, item.Key, aggressivity);
+                BulletManager.GetInstance().BulletLauncher(gameObject.transform, item.Key, aggressivity,gameObject);
                 bulletTimer[item.Key] = item.Value;
             }
         }

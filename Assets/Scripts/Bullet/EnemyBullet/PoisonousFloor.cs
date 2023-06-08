@@ -27,9 +27,9 @@ public class PoisonousFloor : BulletBase
            
             foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
             {
-                targetIAttck.TakeBuff(this.gameObject,gameObject, item.Key, item.Value);
+                targetIAttck.TakeBuff(shooter,gameObject, item.Key, item.Value);
             }
-            targetIAttck.ChangeHealth(-bulletATK);
+            targetIAttck.ChangeHealth(shooter,-bulletATK);
 
             attackTimer = bulletData.damageInterval;
         }

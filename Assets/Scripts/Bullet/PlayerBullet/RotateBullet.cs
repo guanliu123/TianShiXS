@@ -36,7 +36,7 @@ public class RotateBullet : BulletBase
             divisionTimer -= Time.deltaTime;
             if (divisionTimer <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0);
+                BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0,shooter);
                 divisionTimer = 0.3f;
             }
         }
@@ -57,11 +57,11 @@ public class RotateBullet : BulletBase
             }
             if (isCrit)
             {
-                targetIAttck.ChangeHealth(-bulletATK *
+                targetIAttck.ChangeHealth(shooter, -bulletATK *
                     (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                 isCrit = false;
             }
-            else { targetIAttck.ChangeHealth(-bulletATK); }
+            else { targetIAttck.ChangeHealth(shooter, -bulletATK); }
 
             RecoveryInstant();
         }

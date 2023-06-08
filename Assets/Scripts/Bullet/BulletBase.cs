@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public interface IBulletEvent
 {
-    void InitATK(float ATK);
+    void InitBullet(float ATK,GameObject _shooter);
     //void BulletEvolute(BulletEvolutionType evolutionType,List<BuffType> bulletTypes);
 }
 
@@ -15,6 +15,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 {
     public BulletData bulletData;
     public BulletType bulletType;
+    public GameObject shooter;
 
     //public List<BuffType> nowBuffs=new List<BuffType>();
 
@@ -39,9 +40,10 @@ public class BulletBase : MonoBehaviour, IBulletEvent
         bulletAction += AttackCheck;
     }
 
-    public virtual void InitATK(float ATK)
+    public virtual void InitBullet(float ATK,GameObject _shooter)
     {
         bulletATK = bulletData.baseATK + ATK + BulletManager.GetInstance().increaseATK[bulletType];
+        shooter = _shooter;
     }
 
     protected void OnEnable()

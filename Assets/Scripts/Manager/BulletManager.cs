@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BulletManager : BaseManager<BulletManager>
@@ -38,19 +39,19 @@ public class BulletManager : BaseManager<BulletManager>
         }
     }
 
-    public void BulletLauncher(Transform shooter,BulletType bulletType, float aggressivity)
+    public void BulletLauncher(Transform shooter,BulletType bulletType, float aggressivity, GameObject attacker)
     {
        
         if (BulletDic[bulletType].isRandomShoot)
         {
-            RandomLauncher(shooter, bulletType, aggressivity);
+            RandomLauncher(shooter, bulletType, aggressivity,attacker);
         }
         else
         {
-            StraightLauncher(shooter,bulletType, aggressivity);
+            StraightLauncher(shooter,bulletType, aggressivity,attacker);
         }     
     }
-    private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity)
+    private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity,GameObject attacker)
     {
         if (UnityEngine.Random.Range(0, 100) > 
             (BulletDic[bulletType].shootProbability+increaseProbability[bulletType]) * 100) return;//概率发射
@@ -75,10 +76,10 @@ public class BulletManager : BaseManager<BulletManager>
                  new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
             if (BulletDic[bulletType].isFollowShooter) t.transform.parent = shooter;
 
-            t.GetComponent<IBulletEvent>().InitATK(aggressivity);
+            t.GetComponent<IBulletEvent>().InitBullet(aggressivity,attacker);
         }
     }
-    private void StraightLauncher(Transform shooter, BulletType bulletType, float aggressivity)
+    private void StraightLauncher(Transform shooter, BulletType bulletType, float aggressivity,GameObject attacker)
     {
         if (UnityEngine.Random.Range(0, 100) > 
             (BulletDic[bulletType].shootProbability + increaseProbability[bulletType]) * 100) return;//概率发射
@@ -117,7 +118,7 @@ public class BulletManager : BaseManager<BulletManager>
             t.transform.rotation = shooter.transform.rotation;
             if (BulletDic[bulletType].isFollowShooter) t.transform.parent = shooter;
 
-            t.GetComponent<IBulletEvent>().InitATK(aggressivity);
+            t.GetComponent<IBulletEvent>().InitBullet(aggressivity,shooter.gameObject);
         }
     }
 

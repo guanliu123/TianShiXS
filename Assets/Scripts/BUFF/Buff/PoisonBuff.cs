@@ -32,7 +32,7 @@ public class PoisonBuff : BuffBase
         if (!_taker) return;
 
         int n = _taker.GetComponent<CharacterBase>().buffDic[buffType].Item1;
-        t.ChangeHealth(-7 * n,HPType.Poison);
+        t.ChangeHealth(null,-7 * n,HPType.Poison);
     }
 
     public override (int, float) OnZero(GameObject _taker, int plies = 1)

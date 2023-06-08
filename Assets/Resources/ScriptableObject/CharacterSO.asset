@@ -23,6 +23,7 @@ MonoBehaviour:
       bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u666E\u901A\u7684\u9053\u58EB"
@@ -35,7 +36,8 @@ MonoBehaviour:
       bulletTypes: 00000000
       Aggressivity: 0
       ATKSpeed: 0
-      energy: 15
+      avoidance: 0
+      energy: 100
       money: 2
       describe: 
   - characterType: 2
@@ -48,6 +50,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: 
@@ -61,6 +64,7 @@ MonoBehaviour:
       bulletTypes: 04000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: 
@@ -74,6 +78,7 @@ MonoBehaviour:
       bulletTypes: 06000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: 
@@ -87,6 +92,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: 
@@ -99,6 +105,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u9526\u8863\u536B"
@@ -112,6 +119,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u91D1\u543E\u536B"
@@ -124,6 +132,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u4FA0\u5BA2"
@@ -137,6 +146,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u65F6\u5E8F"
@@ -150,6 +160,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u65F6\u5E8F"
@@ -163,6 +174,7 @@ MonoBehaviour:
       bulletTypes: 03000000
       Aggressivity: 0
       ATKSpeed: 0
+      avoidance: 0
       energy: 0
       money: 0
       describe: "\u65F6\u5E8F"

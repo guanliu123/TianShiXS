@@ -449,9 +449,7 @@ namespace Skills
         }
         public void OnUse()
         {
-            //Player._instance.TakeBuff(null,null,BuffType.Reflect);
-            Debug.Log("获得反弹伤害");
-
+            Player._instance.TakeBuff(null,null,BuffType.Reflect);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -477,8 +475,7 @@ namespace Skills
         }
         public void OnUse()
         {
-            Debug.Log("获得护盾能力");
-
+            Player._instance.TakeBuff(null, null, BuffType.Shield);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }

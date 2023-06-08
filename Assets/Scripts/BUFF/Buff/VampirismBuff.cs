@@ -21,6 +21,12 @@ public class VampirismBuff : BuffBase
 
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
-        _attacker.GetComponent<CharacterBase>().ChangeHealth(5f, HPType.Treatment);
+        Debug.Log("吸血buff");
+        //_attacker.GetComponent<CharacterBase>().ChangeHealth(_attacker,5f, HPType.Treatment);
+    }
+
+    private void Vampirism(GameObject _attacker,GameObject _taker)
+    {
+        Debug.Log("吸血5%");
     }
 }
