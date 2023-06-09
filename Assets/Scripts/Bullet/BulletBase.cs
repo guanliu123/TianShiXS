@@ -23,6 +23,7 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     protected LayerMask playerBulletMask;
     protected LayerMask enemyBulletMask;
+    protected LayerMask layerMask;
 
     protected float bulletATK;
     private float existTimer = 0;
@@ -44,6 +45,11 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     {
         bulletATK = bulletData.baseATK + ATK + BulletManager.GetInstance().increaseATK[bulletType];
         shooter = _shooter;
+        var t = _shooter.GetComponent<CharacterBase>();
+        if (t)
+        {
+            //if(t.characterTag==CharacterTag.Player) 
+        }
     }
 
     protected void OnEnable()

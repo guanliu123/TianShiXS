@@ -1,5 +1,6 @@
 //使用where对泛型T进行约束
 using System.Diagnostics;
+using UnityEditor.PackageManager.Requests;
 
 public class BaseManager<T> where T : new()
 {
@@ -13,4 +14,9 @@ public class BaseManager<T> where T : new()
         return instance;
     }
     //返回这个类的实体instance
+
+    public virtual void Reset()
+    {
+
+    }
 }

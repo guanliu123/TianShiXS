@@ -37,7 +37,7 @@ MonoBehaviour:
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
-      energy: 100
+      energy: 15
       money: 2
       describe: 
   - characterType: 2
