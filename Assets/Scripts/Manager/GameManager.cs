@@ -39,7 +39,6 @@ public class GameManager : BaseManager<GameManager>
     public GameManager(){
         ChangeRole();
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
-        //gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
     }
 
     public List<CharacterDatas> GetPlayerRole()
@@ -137,16 +136,16 @@ public class GameManager : BaseManager<GameManager>
         }
         enemyList.Clear();
 
-        LevelManager.GetInstance().Stop();
-        MonoManager.GetInstance().ClearActions(); 
+        BulletManager.GetInstance().Reset();
+        PoolManager.GetInstance().Reset();
+        LevelManager.GetInstance().Reset();
+        MonoManager.GetInstance().ClearActions();
+        MonoManager.GetInstance().KillAllCoroutines();
         t.GetComponent<Player>().ClearPlayer();
         GameObject.Destroy(t.GetComponent<Player>());
         GameObject.Destroy(t.GetComponent<PlayerController>());
-        MonoManager.GetInstance().KillAllCoroutines();
-        PoolManager.GetInstance().Clear();
         CameraMove(CameraPointType.OrginPoint, 1f);
         DataCenter.Money += levelMoney;
-        PanelManager.Instance.Push(new FailPanel());
     }
 
     public void ClearFloatDamage()

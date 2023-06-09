@@ -65,7 +65,7 @@ public struct BulletData
     [Header("可进化方向")] public List<BuffType> evolvableList;
     [Header("暴击率(百分制，暴击倍率同")] public int crit;
     [Header("暴击倍率")] public float critRate;
-    [Header("基础攻击力")] public float baseATK;
+    [Header("基础攻击力")] public float ATK;
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
     [Header("发射几率")] public float shootProbability;

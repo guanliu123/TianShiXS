@@ -24,13 +24,14 @@ public class PerpetualBullet : BulletBase
     {
         for (int i = 0; i < num; i++)
         {
-            BulletManager.GetInstance().BulletLauncher(transform, BulletType.TaiChiDart, 0,shooter);
+            BulletManager.GetInstance().BulletLauncher(transform, BulletType.TaiChiDart, 0,attacker);
             yield return new WaitForSeconds(0.2f);
         }
     }
 
     protected override void SpecialEvolution()
     {
+        base.SpecialEvolution();
         if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
         num += 2;
     }

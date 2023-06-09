@@ -10,7 +10,6 @@ public class LevelManager : BaseManager<LevelManager>
 {
     private List<GameObject> nowSquares = new List<GameObject>();
 
-    private GameObject smoke;
     private bool isSp;//是否更换了当前预备生成的地图模板
     public bool isChange;//是否进入宽地面战斗模式
     private GameObject checkPoint;
@@ -97,15 +96,13 @@ public class LevelManager : BaseManager<LevelManager>
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 
-    public void Stop()
+    public override void Reset()
     {
         for (int i = 0; i < exitingSquare.Count; i++)
         {
-            //RetrieveItem(exitingSquare[i]);
             GameObject.Destroy(exitingSquare[i]);
         }
         exitingSquare.Clear();
-        GameObject.Destroy(smoke);
 
         GameObject.Destroy(boss);
     }

@@ -25,6 +25,7 @@ public class RotateBullet : BulletBase
     }
     protected override void SpecialEvolution()
     {
+        base.SpecialEvolution();
         if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
         divisionTimer = 0.3f;
     }
@@ -36,7 +37,7 @@ public class RotateBullet : BulletBase
             divisionTimer -= Time.deltaTime;
             if (divisionTimer <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0,shooter);
+                BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0,attacker);
                 divisionTimer = 0.3f;
             }
         }
@@ -45,7 +46,7 @@ public class RotateBullet : BulletBase
     protected override void AttackCheck()
     {       
         float radius = 0.5f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, playerBulletMask);
+        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, layerMask);
         if (hits.Length > 0)
         {
             IAttack targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
@@ -57,11 +58,11 @@ public class RotateBullet : BulletBase
             }
             if (isCrit)
             {
-                targetIAttck.ChangeHealth(shooter, -bulletATK *
+                targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
                     (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                 isCrit = false;
             }
-            else { targetIAttck.ChangeHealth(shooter, -bulletATK); }
+            else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
             RecoveryInstant();
         }

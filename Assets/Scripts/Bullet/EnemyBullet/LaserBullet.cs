@@ -57,23 +57,23 @@ public class LaserBullet : BulletBase
             RaycastHit hit;
             Debug.DrawRay(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position * distance);
 
-            if (Physics.Raycast(ray, out hit, distance, enemyBulletMask))
+            if (Physics.Raycast(ray, out hit, distance, layerMask))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null) return;
                 
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
-                    targetIAttck.TakeBuff(shooter, gameObject,item.Key,item.Value);
+                    targetIAttck.TakeBuff(attacker, gameObject,item.Key,item.Value);
                 }
 
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(shooter, -bulletATK *
+                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else {targetIAttck.ChangeHealth(shooter, -bulletATK); }
+                else {targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
                 attackTimer = bulletData.damageInterval;
             }

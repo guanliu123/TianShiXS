@@ -11,7 +11,7 @@ public class Laser : CharacterBase
         base.Awake();
 
         this.characterType = CharacterType.Laser;
-        characterTag = "Enemy";
+        characterTag = CharacterTag.Enemy;
 
         statesDic.Add(CharacterStateType.Idle, new LaserIdleState(this));
         statesDic.Add(CharacterStateType.Attack, new LaserAttackState(this));

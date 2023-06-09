@@ -58,22 +58,22 @@ public class Fanshaped : BulletBase
             float t = (float)i / (float)(rayCount - 1);
             Vector3 rayDirection = Vector3.Lerp(leftRayDirection, rightRayDirection, t);
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, rayDirection, out hit, radius, playerBulletMask))
+            if (Physics.Raycast(transform.position, rayDirection, out hit, radius, layerMask))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null|| unAttachable.ContainsKey(targetIAttck)) continue;
 
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
-                    targetIAttck.TakeBuff(shooter, gameObject, item.Key, item.Value);
+                    targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(shooter, -bulletATK * 
+                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK * 
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else { targetIAttck.ChangeHealth(shooter, -bulletATK); }
+                else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
                 unAttachable.Add(targetIAttck,bulletData.damageInterval);
             }

@@ -10,7 +10,7 @@ public class BigMouse : CharacterBase
         base.Awake();
 
         this.characterType = CharacterType.BigMouse;
-        characterTag = "Enemy";
+        characterTag = CharacterTag.Enemy;
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
 

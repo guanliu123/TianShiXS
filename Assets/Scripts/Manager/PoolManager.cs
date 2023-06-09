@@ -53,6 +53,11 @@ public class PoolManager : BaseManager<PoolManager>
     //缓存池的父物体
     private GameObject poolObj;
 
+    public override void Reset()
+    {
+        Clear();
+    }
+
     /// <summary>
     /// 从对象池中取物体
     /// </summary>

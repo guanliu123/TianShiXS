@@ -16,7 +16,6 @@ public class Player : CharacterBase
         _instance = this;
 
         this.characterType = GameManager.GetInstance().nowPlayerType;
-        characterTag = "Player";
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
 
@@ -27,7 +26,6 @@ public class Player : CharacterBase
     public void InitPlayer()
     {
         this.characterType = GameManager.GetInstance().nowPlayerType;
-        characterTag = "Player";
         InitData();
     }
     public void ClearPlayer()
@@ -48,13 +46,13 @@ public class Player : CharacterBase
         base.Attack();
     }
 
-    public void BulletEvolute(BuffType bulletEvolutionType)
+    /*public void BulletEvolute(BuffType bulletEvolutionType)
     {
         foreach (var item in nowBullet)
         {
             BulletManager.GetInstance().BulletEvolute(bulletEvolutionType, item.Key);
         }
-    }
+    }*/
 }
 namespace PlayerStates
 {

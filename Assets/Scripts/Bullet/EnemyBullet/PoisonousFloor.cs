@@ -19,7 +19,7 @@ public class PoisonousFloor : BulletBase
             return;
         }
         float radius = 2f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, enemyBulletMask);
+        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, layerMask);
         if (hits.Length > 0)
         {
             IAttack targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
@@ -27,9 +27,9 @@ public class PoisonousFloor : BulletBase
            
             foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
             {
-                targetIAttck.TakeBuff(shooter,gameObject, item.Key, item.Value);
+                targetIAttck.TakeBuff(attacker,gameObject, item.Key, item.Value);
             }
-            targetIAttck.ChangeHealth(shooter,-bulletATK);
+            targetIAttck.ChangeHealth(attacker,-bulletData.ATK);
 
             attackTimer = bulletData.damageInterval;
         }

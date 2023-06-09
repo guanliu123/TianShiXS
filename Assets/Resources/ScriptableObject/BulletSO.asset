@@ -24,7 +24,7 @@ MonoBehaviour:
       evolvableList: 030000000100000004000000
       crit: 0
       critRate: 1
-      baseATK: 20
+      ATK: 20
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -39,7 +39,7 @@ MonoBehaviour:
       evolvableList: 030000000400000001000000
       crit: 0
       critRate: 1
-      baseATK: 10
+      ATK: 1
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
       evolvableList: 
       crit: 0
       critRate: 1
-      baseATK: 10
+      ATK: 10
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
       evolvableList: 040000000100000003000000
       crit: 0
       critRate: 1
-      baseATK: 3
+      ATK: 5
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -84,7 +84,7 @@ MonoBehaviour:
       evolvableList: 01000000
       crit: 0
       critRate: 1
-      baseATK: 10
+      ATK: 10
       damageInterval: 1
       isFollowShooter: 1
       shootProbability: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
       evolvableList: 
       crit: 0
       critRate: 1
-      baseATK: 0
+      ATK: 10
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
       evolvableList: 
       crit: 0
       critRate: 1
-      baseATK: 10
+      ATK: 15
       damageInterval: 2
       isFollowShooter: 0
       shootProbability: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
       evolvableList: 010000000300000004000000
       crit: 0
       critRate: 0
-      baseATK: 50
+      ATK: 50
       damageInterval: 2
       isFollowShooter: 0
       shootProbability: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
       evolvableList: 010000000300000004000000
       crit: 0
       critRate: 0
-      baseATK: 5
+      ATK: 13
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 0.3
@@ -159,7 +159,7 @@ MonoBehaviour:
       evolvableList: 010000000300000004000000
       crit: 0
       critRate: 0
-      baseATK: 5
+      ATK: 30
       damageInterval: 0
       isFollowShooter: 1
       shootProbability: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
       evolvableList: 0400000003000000
       crit: 0
       critRate: 0
-      baseATK: 20
+      ATK: 25
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
       evolvableList: 010000000300000004000000
       crit: 0
       critRate: 0
-      baseATK: 10
+      ATK: 25
       damageInterval: 3
       isFollowShooter: 0
       shootProbability: 1
@@ -204,7 +204,7 @@ MonoBehaviour:
       evolvableList: 010000000300000004000000
       crit: 0
       critRate: 0
-      baseATK: 7
+      ATK: 10
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1

@@ -50,10 +50,11 @@ public class BounceBullet : BulletBase
 
     protected override void SpecialEvolution()
     {
+        base.SpecialEvolution();
         if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
 
         bounceNum += 3;
-        bulletATK += 5f;
+        bulletData.ATK += 5f;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,7 +69,7 @@ public class BounceBullet : BulletBase
     protected override void AttackCheck()
     {
         float radius = 1f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, playerBulletMask);
+        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, layerMask);
         if (hits.Length > 0)
         {
             for(int i = 0; i < hits.Length; i++)
@@ -78,15 +79,15 @@ public class BounceBullet : BulletBase
 
                 foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
                 {
-                    targetIAttck.TakeBuff(shooter, gameObject, item.Key, item.Value);
+                    targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(shooter, -bulletATK *
+                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else { targetIAttck.ChangeHealth(shooter, -bulletATK); }
+                else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
                 unAttachable.Add(targetIAttck, bulletData.damageInterval);
             }

@@ -183,7 +183,7 @@ namespace Skills
 
         public void OnUse()
         {
-            BulletManager.GetInstance().increaseShoot[BulletType.Fanshaped] += 0.1f;
+            BulletManager.GetInstance().increaseShootTimer[BulletType.Fanshaped] += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }

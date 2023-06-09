@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UIFrameWork;
 //using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,7 +22,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     public CharacterData characterData;
 
     public CharacterType characterType;
-    public string characterTag;
+    public CharacterTag characterTag;
 
     public ICharacterState currentState;
     public Dictionary<CharacterStateType, ICharacterState> statesDic = new Dictionary<CharacterStateType, ICharacterState>();
@@ -62,7 +63,7 @@ public class CharacterBase : MonoBehaviour, IAttack
         nowHP = maxHP;
         canActive = true;
 
-        if (characterTag=="Enemy") GameManager.GetInstance().EnemyIncrease(this.gameObject);
+        if (characterTag==CharacterTag.Enemy) GameManager.GetInstance().EnemyIncrease(this.gameObject);
         TransitionState(CharacterStateType.Idle);
     }
 
@@ -100,6 +101,8 @@ public class CharacterBase : MonoBehaviour, IAttack
         nowHP = maxHP;
         aggressivity = characterData.Aggressivity;
         ATKSpeed = characterData.ATKSpeed;
+        characterTag = characterData.tag;
+
         if (hpSlider)
         {
             hpSlider.UpdateHPSlider(maxHP, nowHP);
@@ -190,24 +193,27 @@ public class CharacterBase : MonoBehaviour, IAttack
 
     public virtual void Attack()
     {
-        foreach(var item in nowBullet)
+        foreach (var item in nowBullet)
         {
+            float atkSpeed = ATKSpeed;
+            if (characterTag == CharacterTag.Player) atkSpeed += BulletManager.GetInstance().increaseShootTimer[item.Key];
+
             if (item.Key == BulletType.Combat)//½üÕ½¹¥»÷
             {
                 if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
                 {
                     TransitionState(CharacterStateType.Attack);
                     Player._instance.ChangeHealth(gameObject,
-                        -BulletManager.GetInstance().BulletDic[item.Key].baseATK + aggressivity);
+                        -(BulletManager.GetInstance().BulletDic[item.Key].ATK + aggressivity));
                     bulletTimer[item.Key] = item.Value;
                 }
                 else
                 {
-                    bulletTimer[item.Key] -= (1 + ATKSpeed + BulletManager.GetInstance().increaseShoot[item.Key]) * Time.deltaTime;
+                    bulletTimer[item.Key] -= (1 + atkSpeed) * Time.deltaTime;
                 }
                 continue;
             }
-            bulletTimer[item.Key] -= (1+ATKSpeed + BulletManager.GetInstance().increaseShoot[item.Key]) *Time.deltaTime;
+            bulletTimer[item.Key] -= (1+ atkSpeed) *Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {
                 BulletManager.GetInstance().BulletLauncher(gameObject.transform, item.Key, aggressivity,gameObject);
@@ -218,13 +224,14 @@ public class CharacterBase : MonoBehaviour, IAttack
 
     public virtual void DiedEvent()
     {
-        if (characterTag != "Player")
+        if (characterTag != CharacterTag.Player)
         {
             GameManager.GetInstance().ChangeEnergy(characterData.energy);
             GameManager.GetInstance().FallMoney(transform, characterData.money);
         }
         else
         {
+            PanelManager.Instance.Push(new FailPanel());
             GameManager.GetInstance().QuitGame();
         }
         Recovery(); 
@@ -237,12 +244,12 @@ public class CharacterBase : MonoBehaviour, IAttack
 
     public void Recovery()
     {
-        if (characterTag == "Enemy") GameManager.GetInstance().EnemyDecrease(this.gameObject);
+        if (characterTag == CharacterTag.Enemy) GameManager.GetInstance().EnemyDecrease(this.gameObject);
         foreach (var item in buffDic)
         {
             BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
         }
         buffDic.Clear();
-        if(characterTag!="Player") PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
+        if(characterTag!= CharacterTag.Player) PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
     } 
 }

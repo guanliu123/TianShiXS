@@ -5,24 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public interface IBulletEvent
-{
-    void InitBullet(float ATK,GameObject _shooter);
-    //void BulletEvolute(BulletEvolutionType evolutionType,List<BuffType> bulletTypes);
-}
-
-public class BulletBase : MonoBehaviour, IBulletEvent
+public class BulletBase : MonoBehaviour
 {
     public BulletData bulletData;
     public BulletType bulletType;
-    public GameObject shooter;
-
-    //public List<BuffType> nowBuffs=new List<BuffType>();
+    public Dictionary<BuffType, int> nowBuffs=new Dictionary<BuffType, int>();
+    public GameObject attacker;
 
     public UnityAction bulletAction;
 
-    protected LayerMask playerBulletMask;
-    protected LayerMask enemyBulletMask;
     protected LayerMask layerMask;
 
     protected float bulletATK;
@@ -32,24 +23,16 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     protected void Start()
     {
-        //bulletData = DataManager.GetInstance().AskBulletData(bulletType);
-
-        playerBulletMask = LayerMask.GetMask("Enemy");//玩家发射出去的子弹的layermask
-        enemyBulletMask = LayerMask.GetMask("Player");//敌人发射出去的子弹的layermask
-
         bulletAction += Recovery;
         bulletAction += AttackCheck;
     }
 
-    public virtual void InitBullet(float ATK,GameObject _shooter)
+    public virtual void InitBullet(GameObject _attacker,CharacterTag _tag,BulletData _bulletData,Dictionary<BuffType,int> buffs)
     {
-        bulletATK = bulletData.baseATK + ATK + BulletManager.GetInstance().increaseATK[bulletType];
-        shooter = _shooter;
-        var t = _shooter.GetComponent<CharacterBase>();
-        if (t)
-        {
-            //if(t.characterTag==CharacterTag.Player) 
-        }
+        attacker = _attacker;
+        bulletData = _bulletData;
+        if(_tag== CharacterTag.Player) layerMask = LayerMask.GetMask("Enemy");
+        else if(_tag == CharacterTag.Enemy) layerMask = LayerMask.GetMask("Player");
     }
 
     protected void OnEnable()
@@ -63,7 +46,12 @@ public class BulletBase : MonoBehaviour, IBulletEvent
 
     public virtual void OnEnter()
     {
-        if (GameManager.GetInstance().enemyList.Count <= 0) RecoveryInstant();
+        if (GameManager.GetInstance().enemyList.Count <= 0)
+        {
+            RecoveryInstant();
+            return;
+        }
+        
         SpecialEvolution();
     }
     public virtual void OnExit()
@@ -98,13 +86,15 @@ public class BulletBase : MonoBehaviour, IBulletEvent
     }
     protected virtual void SpecialEvolution()
     {
-        
+        if (!attacker) return;
+        var t = attacker.GetComponent<CharacterBase>();
+        if (!t || t.characterTag != CharacterTag.Player) return;
     }
 
     protected void Recovery()
     {
         existTimer += Time.deltaTime;
-        if (existTimer < bulletData.existTime + BulletManager.GetInstance().increaseTime[bulletType]) return;
+        if (existTimer < bulletData.existTime) return;
 
         existTimer = 0;
         OnExit();

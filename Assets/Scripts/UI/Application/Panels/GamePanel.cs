@@ -14,6 +14,8 @@ public class GamePanel : BasePanel
     public Text moneyText;
     public Text stageText;
     public Transform moneyLabel;
+    public Vector3 moneyOrigin;
+    public Vector3 energyOrigin;
 
     private float hideTime;
     private float hideTimer;
@@ -31,16 +33,20 @@ public class GamePanel : BasePanel
         isenergyHide = false;
 
         moneyLabel = UITool.GetOrAddComponentInChildren<Transform>("MoneyBG", panel);
+        moneyOrigin = moneyLabel.position;
         moneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
         moneyText.text = GameManager.GetInstance().levelMoney + "";
+
+        energyOrigin = energySlider.transform.position;
     }
     public override void OnEnter()
     {     
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-        Init(panel);
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType);        
 
         energySlider = UITool.GetOrAddComponentInChildren<Slider>("EnergySlider", panel);
         stageText = UITool.GetOrAddComponentInChildren<Text>("StageText", panel);
+
+        Init(panel);
 
         UITool.GetOrAddComponentInChildren<Slider>("EnergySlider", panel).onValueChanged.AddListener((float value) =>
         {
@@ -81,7 +87,7 @@ public class GamePanel : BasePanel
         else if(!LevelManager.GetInstance().isChange && isenergyHide)
         {
             energySlider.gameObject.SetActive(true);
-            energySlider.transform.DOMove(energySlider.transform.position - Vector3.up * 300, 1f);
+            energySlider.transform.DOMove(energyOrigin, 1f);
             isenergyHide = false;
         }
     }
@@ -110,7 +116,7 @@ public class GamePanel : BasePanel
             {
                 moneyLabel.gameObject.SetActive(true);
                 ismoneyHide = false;
-                moneyLabel.DOMove(moneyLabel.position - Vector3.left * 500f, 1f);          
+                moneyLabel.DOMove(moneyOrigin, 1f);          
             }
 
             hideTimer = 0;

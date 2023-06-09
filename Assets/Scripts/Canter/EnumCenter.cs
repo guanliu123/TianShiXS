@@ -31,6 +31,7 @@ public enum CharacterType
     Claw,
 }
 public enum CharacterTag {
+    Null,
     Player,
     Enemy,
 }
@@ -101,7 +102,6 @@ public enum CoroutineType {//¸÷ÖÖÖ÷ÒªµÄ¹Ì¶¨Ğ­³ÌÊÂ¼şÈç»ğÉÕbuff£¬ÔÚÕâÀï×¢²á²ÅºÃÔÚĞ
     BurnBuff,
     PoisonBuff,
     ShieldBuff,
-
 }
 
 public enum HPType

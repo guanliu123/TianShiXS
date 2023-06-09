@@ -10,8 +10,7 @@ namespace Bat {
         void Awake()
         {
             base.Awake();
-            characterType = CharacterType.Bat;
-            characterTag = "Enemy";
+            characterType = CharacterType.Bat;           
             //AddCharacterEvent(VisibleCheck);
             
             statesDic.Add(CharacterStateType.Idle, new NormalIdleState(this));
