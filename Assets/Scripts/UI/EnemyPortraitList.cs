@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UIFrameWork;
-
+using TSXS;
 public interface IDragButton
 {
     void LeftButton_Click();
@@ -17,6 +17,7 @@ public interface IDragButton
 /// </summary>
 public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler,IDragButton
 {
+    private ArcList arcList;
     public HandbookPanel _panel;
     /// <summary>
     /// 立绘
@@ -88,6 +89,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
+        arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
         currentPortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
@@ -138,6 +140,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex++;
         DragEndEffect(true);
+        arcList.ListDragLeft();
     }
     /// <summary>
     /// 向右拖拽，index-1
@@ -146,6 +149,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex--;
         DragEndEffect(false);
+        arcList.ListDragRight();
     }
 
     public void LeftButton_Click()
