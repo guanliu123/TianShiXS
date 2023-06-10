@@ -5,12 +5,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using UIFrameWork;
+using TSXS;
 
 /// <summary>
 /// 角色立绘列表
 /// </summary>
 public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDragButton
 {
+    private ArcList arcList;
     public HandbookPanel _panel;
     /// <summary>
     /// 立绘
@@ -82,6 +84,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
+        arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
         currentPortrait = PoolManager.GetInstance().GetObj("SkillPortrait");
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
@@ -132,6 +135,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex++;
         DragEndEffect(true);
+        arcList.ListDragLeft();
     }
     /// <summary>
     /// 向右拖拽，index-1
@@ -140,6 +144,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex--;
         DragEndEffect(false);
+        arcList.ListDragRight();
     }
 
     public void LeftButton_Click()
