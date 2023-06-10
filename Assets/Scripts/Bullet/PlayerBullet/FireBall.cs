@@ -26,7 +26,7 @@ public class FireBall : BulletBase
             IAttack targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
             if (targetIAttck == null) return;
 
-            foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
+            foreach (var item in nowBuffs)
             {
                 targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
             }

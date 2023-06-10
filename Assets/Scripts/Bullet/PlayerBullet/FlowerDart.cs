@@ -42,7 +42,7 @@ public class FlowerDart : BulletBase
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null) return;
 
-                foreach (var item in BulletManager.GetInstance().BulletBuffs[bulletType])
+                foreach (var item in nowBuffs)
                 {
                     targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
                 }
