@@ -15,6 +15,8 @@ public class GameManager : BaseManager<GameManager>
     public int nowLevel;
 
     public float playerEnergy { get; private set; }
+    public int playerLevel;
+
     public int levelMoney {get; private set;}
 
     public CharacterType nowPlayerType { get; private set; }
@@ -118,6 +120,7 @@ public class GameManager : BaseManager<GameManager>
         evolutionNum = 0;
         playerEnergy = 0;
         levelMoney = 0;
+        playerLevel = 1;
     }
     public void QuitGame()
     {

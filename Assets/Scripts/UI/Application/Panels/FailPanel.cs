@@ -14,10 +14,12 @@ public class FailPanel : BasePanel
 
     public override void OnEnter()
     {
+        GameManager.GetInstance().ClearFloatDamage();
+        GameManager.GetInstance().QuitGame();
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
         
         UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
-        {
+        {            
             PanelManager.Instance.Pop();
             PanelManager.Instance.Push(new StartPanel());
         });

@@ -232,7 +232,7 @@ public class CharacterBase : MonoBehaviour, IAttack
         else
         {
             PanelManager.Instance.Push(new FailPanel());
-            GameManager.GetInstance().QuitGame();
+            //GameManager.GetInstance().QuitGame();
         }
         Recovery(); 
     }
