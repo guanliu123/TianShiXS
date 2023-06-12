@@ -1,6 +1,6 @@
 //使用where对泛型T进行约束
 using System.Diagnostics;
-using UnityEditor.PackageManager.Requests;
+//using UnityEditor.PackageManager.Requests;
 
 public class BaseManager<T> where T : new()
 {
