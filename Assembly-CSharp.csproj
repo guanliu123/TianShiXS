@@ -128,7 +128,9 @@
     <Compile Include="Assets\Scripts\Skill\SkillBase.cs" />
     <Compile Include="Assets\Scripts\Skill\Skills.cs" />
     <Compile Include="Assets\Scripts\Test\ArcList.cs" />
+    <Compile Include="Assets\Scripts\Test\ColorBSC.cs" />
     <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Test\ScreenPostEffectBase.cs" />
     <Compile Include="Assets\Scripts\Test\testlist.cs" />
     <Compile Include="Assets\Scripts\Test\testmap.cs" />
     <Compile Include="Assets\Scripts\Test\text.cs" />
@@ -163,7 +165,8 @@
     <Compile Include="Assets\Scripts\UI\Utilization\SingletonBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\NewImageEffectShader.shader" />
+    <None Include="Assets\TextEffectShader.shader" />
+    <None Include="Assets\CamearEffectShader.shader" />
     <None Include="Assets\DOTween\DOTween.XML" />
     <None Include="Assets\DOTween\DOTween.dll" />
     <None Include="Assets\Resources\Data\Json\Test.txt" />
