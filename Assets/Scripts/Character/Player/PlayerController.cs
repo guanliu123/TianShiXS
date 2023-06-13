@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 touchPosition;//手指最新按下的位置
     private float moveSpeed = 10f;
 
+#if UNITY_ANDROID || UNITY_IOS
     private void Update()
     {
         if (!canMove) return;
@@ -122,7 +123,30 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+#endif
 
+#if UNITY_STANDALONE_WIN
+    private bool isMouseDown = false;
+    private void Update()
+    {
+        Debug.Log(Input.GetAxis("Mouse X"));
+        if (Input.GetMouseButtonDown(0))
+        {
+            isMouseDown = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMouseDown = false;
+        }
+        if (isMouseDown)
+        {
+            Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X"), 1, -1);
+            offset.x = Mathf.Clamp(offset.x, -4.8f, 4.8f);
+            transform.position = offset;
+        }
+
+    }
+#endif
     // 切换操作模式
     public void SwitchMode()
     {
