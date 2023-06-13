@@ -38,11 +38,11 @@ public class RolePanel : BasePanel
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
         {
-            t.DragLeft();
+            t.LeftButton_Click();
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
         {
-            t.DragRight();
+            t.RightButton_Click();
         });
     }
 

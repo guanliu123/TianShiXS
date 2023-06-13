@@ -144,11 +144,11 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
     public void LeftButton_Click()
     {
-        DragLeft();
+        DragRight();
     }
     public void RightButton_Click()
     {
-        DragRight();
+        DragLeft();
     }
     /// <summary>
     /// 滑动动画
