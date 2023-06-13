@@ -65,7 +65,23 @@ public class LevelManager : BaseManager<LevelManager>
         {
             if (exitingSquare.Count == 0)
             {
-                exitingSquare.Add(GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], Vector3.zero, Quaternion.identity));
+                GameObject t = nowSquares[Random.Range(0, nowSquares.Count)];
+                GameObject decor1 = t.transform.Find("Decoration_1").gameObject;
+                GameObject decor2 = t.transform.Find("Decoration_2").gameObject;
+
+                float rand = Random.Range(0f, 1f);
+                if (rand >= 0.5f)
+                {
+                    decor1.SetActive(false);
+                    decor2.SetActive(true);
+                }
+                else
+                {
+                    decor1.SetActive(true);
+                    decor2.SetActive(false);
+                }
+
+                exitingSquare.Add(GameObject.Instantiate(t, Vector3.zero, Quaternion.identity));
             }
             else
             {
@@ -73,6 +89,22 @@ public class LevelManager : BaseManager<LevelManager>
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
                 GameObject square = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity);
+
+                GameObject decor1 = square.transform.Find("Decoration_1").gameObject;
+                GameObject decor2 = square.transform.Find("Decoration_2").gameObject;
+
+                float rand = Random.Range(0f, 1f);
+                if (rand >= 0.5f)
+                {
+                    decor1.SetActive(false);
+                    decor2.SetActive(true);
+                }
+                else
+                {
+                    decor1.SetActive(true);
+                    decor2.SetActive(false);
+                }
+
                 if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(square);
                 exitingSquare.Add(square);
             }
@@ -142,6 +174,21 @@ public class LevelManager : BaseManager<LevelManager>
         {
             GameObject t = exitingSquare[0];
             GameObject t2 = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
+
+            GameObject decor1 = t2.transform.Find("Decoration_1").gameObject;
+            GameObject decor2 = t2.transform.Find("Decoration_2").gameObject;
+
+            float rand = Random.Range(0f, 1f);
+            if (rand >= 0.5f)
+            {
+                decor1.SetActive(false);
+                decor2.SetActive(true);
+            }
+            else
+            {
+                decor1.SetActive(true);
+                decor2.SetActive(false);
+            }
 
             exitingSquare.RemoveAt(0);
             PoolManager.GetInstance().PushObj("Ground",t);
