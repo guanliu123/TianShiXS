@@ -163,6 +163,17 @@ public class GameManager : BaseManager<GameManager>
     {
         Player._instance.transform.DOMove(Vector3.zero+Vector3.up, 1f);
     }
+    public void LockMove()
+    {
+        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        t.canMove = false;
+    }
+    public void UnlockMove()
+    {
+        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        t.canMove = true;
+    }
+
     public void SwitchMode()
     {
         PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

@@ -85,9 +85,6 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = false;
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
         requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
-
-        /*smoke = PoolManager.GetInstance().GetObj("Smoke");
-        smoke.transform.position = new Vector3(0, -6, 40);*/
     }
 
     public void Start()
@@ -141,7 +138,6 @@ public class LevelManager : BaseManager<LevelManager>
 
     void CheckSquare()
     {
-        //if (nowSquares.Count == 0) return;
         if (Vector3.zero.z - exitingSquare[0].transform.position.z >= awayDistance)
         {
             GameObject t = exitingSquare[0];
@@ -176,6 +172,9 @@ public class LevelManager : BaseManager<LevelManager>
         }
         ChangeEnvironment();
 
+        GameManager.GetInstance().PlayerReset();
+        GameManager.GetInstance().LockMove();
+
         //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
         checkPoint = new GameObject("CheckPoint");
         Vector3 t = new Vector3(distanceSquare[0].transform.position.x,
@@ -203,6 +202,7 @@ public class LevelManager : BaseManager<LevelManager>
         }
     }
 
+    //加上切换天空盒
     public void ChangeStage()
     {
         isChange = !isChange;
@@ -221,10 +221,11 @@ public class LevelManager : BaseManager<LevelManager>
             smoke.transform.position= new Vector3(0, -6, 40);*/
         }
         GameManager.GetInstance().SwitchMode();
+        GameManager.GetInstance().UnlockMove();
     }
 
     /// <summary>
-    /// 回收一片地面上的敌人和道具等等，加入分别的对象池
+    /// 回收一片地面上的敌人和道具等等，加入分别的对象池，存在问题，暂时不用
     /// </summary>
     /// <param name="ground"></param>
     void RetrieveItem(GameObject ground)
