@@ -161,7 +161,7 @@ public class GameManager : BaseManager<GameManager>
     }
     public void PlayerReset()
     {
-        Player._instance.transform.DOMove(Vector3.zero+Vector3.up, 1f);
+        Player._instance.transform.DOMove(Vector3.zero+Vector3.up+Vector3.back, 1f);
     }
     public void LockMove()
     {
