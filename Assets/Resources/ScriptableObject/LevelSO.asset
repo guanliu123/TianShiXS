@@ -19,7 +19,7 @@ MonoBehaviour:
       - {fileID: 7070447885587930642, guid: c0efbc58cebac1041b118e1d2557e591, type: 3}
       widthPlanes:
       - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      skybox: {fileID: 2100000, guid: a95513848477fb04cbc387091657798f, type: 2}
+      skybox: {fileID: 2100000, guid: 1313066eb40294b469c0ad38ccb00e77, type: 2}
       StageDatas:
       - StageNum: 0
         isSpecial: 0

@@ -17,6 +17,7 @@ public class SkillPanel : BasePanel
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
         GameManager.GetInstance().ClearFloatDamage();
+        GameManager.GetInstance().LockMove();
 
         //UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         //{
@@ -42,5 +43,10 @@ public class SkillPanel : BasePanel
             GameManager.GetInstance().PlayerEvolution();
             PanelManager.Instance.Pop();
         });
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+        GameManager.GetInstance().UnlockMove();
     }
 }

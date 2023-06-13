@@ -56,11 +56,12 @@ public class LevelManager : BaseManager<LevelManager>
         nowSquares = nowLevel.normalPlanes;
     }
 
-    private void InitMap()
+    private void InitLevel()
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
-        nowSquares = nowLevel.normalPlanes;     
+        nowSquares = nowLevel.normalPlanes;
+        Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
 
         for (int i = 0; i < defaultNum; i++)
         {
@@ -122,7 +123,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void Start()
     {
-        InitMap();       
+        InitLevel();       
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 
@@ -217,11 +218,10 @@ public class LevelManager : BaseManager<LevelManager>
         else
         {
             nowSquares = nowLevel.normalPlanes;
+            GameManager.GetInstance().PlayerReset();
+            GameManager.GetInstance().LockMove();
         }
-        ChangeEnvironment();
-
-        GameManager.GetInstance().PlayerReset();
-        GameManager.GetInstance().LockMove();
+        ChangeEnvironment();     
 
         //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
         checkPoint = new GameObject("CheckPoint");
