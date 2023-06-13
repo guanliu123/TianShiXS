@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(1);
+                    dragDir.z = dragDir.y;
                     dragDir.y = 0;
                 }
 
