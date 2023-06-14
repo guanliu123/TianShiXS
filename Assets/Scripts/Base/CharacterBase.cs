@@ -217,7 +217,7 @@ public class CharacterBase : MonoBehaviour, IAttack
             bulletTimer[item.Key] -= (1+ atkSpeed) *Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(gameObject.transform, item.Key, aggressivity,gameObject);
+                BulletManager.GetInstance().BulletLauncher(transform, item.Key, aggressivity,gameObject);
                 bulletTimer[item.Key] = item.Value;
             }
         }

@@ -236,6 +236,7 @@ public class LevelManager : BaseManager<LevelManager>
             GameObject newSquare = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
             GameObject t = distanceSquare[i];
             newSquare.transform.position = t.transform.position;
+            RandomSet(newSquare);
             distanceSquare[i] = newSquare;
             exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
 
@@ -371,9 +372,8 @@ public class LevelManager : BaseManager<LevelManager>
             nowStage++;
             if (nowStage >= nowLevel.StageDatas.Count)
             {
-                //结束游戏
-                GameManager.GetInstance().QuitGame();
-                PanelManager.Instance.Push(new StartPanel());
+                //结束游戏               
+                PanelManager.Instance.Push(new SuccessPanel());
                 return;
             }         
             nowWave = 0;

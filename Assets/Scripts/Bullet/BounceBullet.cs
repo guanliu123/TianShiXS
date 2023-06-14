@@ -60,7 +60,7 @@ public class BounceBullet : BulletBase
     private void OnTriggerEnter(Collider other)
     {
         if (bounceNum <= 0) Recovery();
-        if (other.tag != ignoreTag)
+        if (other.tag == targetTag)
         {
             moveDir = Vector3.Reflect(Vector3.forward, other.transform.position.normalized);
             moveDir = moveDir.normalized;
@@ -71,7 +71,6 @@ public class BounceBullet : BulletBase
             bounceNum--;
         }
     }
-
 
     /*protected override void AttackCheck()
     {

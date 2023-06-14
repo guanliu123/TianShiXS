@@ -18,6 +18,12 @@ public class MonoManager : BaseManager<MonoManager>
         //挂载脚本，并获得此脚本的引用controller
         controller = obj.AddComponent<MonoController>();
     }
+    public override void Reset()
+    {
+        ClearActions();
+        KillAllCoroutines();
+    }
+
     //调用controller里的添加监听的方法，注意传入的参数为无参无返回值的方法
     public void AddUpdateListener(UnityAction func)
     {

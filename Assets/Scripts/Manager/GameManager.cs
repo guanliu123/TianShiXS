@@ -96,9 +96,7 @@ public class GameManager : BaseManager<GameManager>
         
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
-        //player.AddComponent<TestController>();
         player.transform.GetChild(0).gameObject.SetActive(true);
-        //player.transform.position = Vector3.zero+ Vector3.up; 
         player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
         
         playerObj.transform.parent = player.transform;
@@ -124,12 +122,12 @@ public class GameManager : BaseManager<GameManager>
     }
     public void QuitGame()
     {
-        GameObject t = GameObject.FindGameObjectsWithTag("Player")[0];
-        t.transform.GetChild(0).gameObject.SetActive(false);
+        GameObject player = Player._instance.gameObject;
+        player.transform.GetChild(0).gameObject.SetActive(false);
 
-        for (int i = 1; t != null && i < t.transform.childCount; i++)
+        for (int i = 1; player != null && i < player.transform.childCount; i++)
         {
-            var child = t.transform.GetChild(i).gameObject;
+            var child = player.transform.GetChild(i).gameObject;
             GameObject.Destroy(child);
         }
 
@@ -142,11 +140,10 @@ public class GameManager : BaseManager<GameManager>
         BulletManager.GetInstance().Reset();
         PoolManager.GetInstance().Reset();
         LevelManager.GetInstance().Reset();
-        MonoManager.GetInstance().ClearActions();
-        MonoManager.GetInstance().KillAllCoroutines();
-        t.GetComponent<Player>().ClearPlayer();
-        GameObject.Destroy(t.GetComponent<Player>());
-        GameObject.Destroy(t.GetComponent<PlayerController>());
+        MonoManager.GetInstance().Reset();
+        Player._instance.ResetRole();
+        GameObject.Destroy(player.GetComponent<Player>());
+        GameObject.Destroy(player.GetComponent<PlayerController>());
         CameraMove(CameraPointType.OrginPoint, 1f);
         DataCenter.Money += levelMoney;
     }

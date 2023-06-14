@@ -145,6 +145,7 @@
     <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\SkillPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\StartPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\SuccessPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneBase.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\MainScene.cs" />

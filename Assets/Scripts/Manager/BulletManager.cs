@@ -23,30 +23,30 @@ public class BulletManager : BaseManager<BulletManager>
     public BulletManager()
     {
         BulletDic = DataManager.GetInstance().bulletDatasDic;
-
         Init();
     }
     private void Init()
     {
         foreach (var item in BulletDic)
         {
-            BulletBuffs.Add(item.Key, new Dictionary<BuffType, int>());
+            if (!BulletBuffs.ContainsKey(item.Key))
+            {
+                BulletBuffs.Add(item.Key, new Dictionary<BuffType, int>());
+                foreach (var t in item.Value.buffList)
+                {
+                    BulletBuffs[item.Key].Add(t, 1);
+                }
+            }
             increaseBuffs.Add(item.Key, new Dictionary<BuffType, int>());
             increaseProbability.Add(item.Key, 0);
             increaseATK.Add(item.Key, 0);
             increaseShootTimer.Add(item.Key, 0);
             increaseTime.Add(item.Key, 0);
-            haveSpecialEvolved.Add(item.Key, false);
-
-            foreach (var t in item.Value.buffList)
-            {
-                BulletBuffs[item.Key].Add(t, 1);
-            }
+            haveSpecialEvolved.Add(item.Key, false);           
         }
     }
     public override void Reset()
     {
-        BulletBuffs.Clear();
         increaseBuffs.Clear();
         increaseProbability.Clear();
         increaseTime.Clear();
@@ -58,7 +58,7 @@ public class BulletManager : BaseManager<BulletManager>
     }
 
     public void BulletLauncher(Transform shooter,BulletType bulletType, float aggressivity, GameObject attacker)
-    {     
+    {
         if (BulletDic[bulletType].isRandomShoot)
         {
             RandomLauncher(shooter, bulletType, aggressivity,attacker);

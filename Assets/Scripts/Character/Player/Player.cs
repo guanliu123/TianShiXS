@@ -27,8 +27,9 @@ public class Player : CharacterBase
     {
         this.characterType = GameManager.GetInstance().nowPlayerType;
         InitData();
+        Debug.Log(nowBullet.Count);
     }
-    public void ClearPlayer()
+    public void ResetRole()
     {
         nowBullet.Clear();
         bulletTimer.Clear();
