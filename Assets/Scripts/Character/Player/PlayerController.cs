@@ -1,16 +1,64 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool isDragging = false; // 是否正在拖动角色
     private bool isHorizontalMode = true; // 是否处于水平模式
     public bool canMove = true;
+    private bool isDragging = false;
 
-    private Vector3 touchOrigin; // 手指按下的屏幕位置
-    private Vector3 touchPosition;//手指最新按下的位置
-    private float moveSpeed = 5f;
+    private float moveSpeed = 3.6f;
+    float minNum = -500f;
+    float maxNum = 500f;
 
-   /* private void Update()
+    private Vector3 offset;
+
+    //#if UNITY_STANDALONE_WIN
+    /*private void Update()
+    {
+        if (!canMove) return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
+        if (isDragging)
+        {
+            if (Mathf.Abs(Input.GetAxis("Mouse X")) <= 0.001) return;
+            if (isHorizontalMode)
+            {
+                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X") *0.3f, 1, -1);
+                offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
+
+                transform.position = offset;
+            }
+            else
+            {
+
+                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X") * 0.3f, 1, transform.position.z + Input.GetAxis("Mouse Y") * 0.3f);
+                offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
+                offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 3f, LevelManager.GetInstance().mapSize[0] / 3 - 5f);
+
+                transform.position = offset;
+            }
+
+        }
+
+    }*/
+    private void OnEnable()
+    {
+        Input.ResetInputAxes();
+        isHorizontalMode = true;
+        canMove = true;
+        isDragging = false;
+        offset = Vector3.up+Vector3.back;
+    }
+
+    private void Update()
     {
         if (!canMove) return;
         if (Input.touchCount > 0)
@@ -27,81 +75,45 @@ public class PlayerController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject || touch.position.y < Screen.height / 3)
                 {
                     isDragging = true;
-                    touchOrigin = touch.position;
-                    touchPosition = touch.position;
-                    //offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, 10.0f));
                 }
             }
-            else if (touch.phase == TouchPhase.Moved && isDragging)
-            {
-                // 根据操作模式拖动角色
-                //Vector3 newPosition = Camera.main.ScreenToWorldPoint(touchOrigin) + offset;
-                touchPosition = touch.position;
-                Vector3 dragVec = touchPosition - touchOrigin;
-
-                if (isHorizontalMode)
-                {
-                    dragVec.y = 0;
-                    dragVec.z = 0;
-                }
-                else
-                {
-                    dragVec.z = dragVec.y;
-                    dragVec.y = 0;
-                }
-
-
-                //transform.Translate(dragVec * moveSpeed * Time.deltaTime);
-                transform.position = dragVec;
-                touchOrigin = touchPosition;
-            }
-            else if (touch.phase == TouchPhase.Ended && isDragging)
+            else if (touch.phase == TouchPhase.Ended)
             {
                 isDragging = false;
             }
-        }
-    }*/
-
-    //#if UNITY_STANDALONE_WIN
-    private bool isMouseDown = false;
-    private void Update()
-    {
-        if (!canMove) return;
-        Debug.Log(Input.GetAxis("Mouse X"));
-        if (Input.GetMouseButtonDown(0))
-        {
-            isMouseDown = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isMouseDown = false;
-        }
-        if (isMouseDown)
-        {
-            if (isHorizontalMode)
+            else if (touch.phase==TouchPhase.Moved && isDragging)
             {
-                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X")*0.3f, 1, -1);
-                //offset.x = Mathf.Clamp(offset.x, -4.8f, 4.8f);
+                if (isHorizontalMode)
+                {
+                    float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
+                    offset = new Vector3(transform.position.x + scaledX * moveSpeed, 1, -1);
+                    offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
 
-                transform.position = offset;
-            }
-            else
-            {
-                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X") * 0.3f, 1, transform.position.z+Input.GetAxis("Mouse Y")*0.3f);
-                //offset.x = Mathf.Clamp(offset.x, -4.8f, 4.8f);
+                   // transform.position = offset;
+                }
+                else
+                {
+                    float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
+                    float scaledY = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.y));
+                    offset = new Vector3(transform.position.x + scaledX * moveSpeed, 1, transform.position.z + scaledY * moveSpeed);
+                    offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
+                    offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 3f, LevelManager.GetInstance().mapSize[0] / 3 - 5f);
 
-                transform.position = offset;
+                    //transform.position = offset;
+                }
+
             }
-            
         }
-
     }
-    //#endif
+    private void FixedUpdate()
+    {
+        transform.position = offset;
+    }
+
     // 切换操作模式
     public void SwitchMode()
     {
         isHorizontalMode = !isHorizontalMode;
-        //isDragging = false;
-        isMouseDown = false;
+        isDragging = false;
     }
 }

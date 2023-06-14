@@ -12,11 +12,13 @@ public class PoolData
     public GameObject fatherObj;
     //使用List链式结构来存储物体
     public List<GameObject> poolList;
+    private GameObject poolObj;
 
     //构造函数，进行PoolData的一些初始化
-    public PoolData(GameObject obj, GameObject poolObj,bool resetFather=false)
+    public PoolData(GameObject obj, GameObject _poolObj,bool resetFather=false)
     {
         fatherObj = obj;
+        poolObj = _poolObj;
         fatherObj.transform.parent = poolObj.transform;
         poolList = new List<GameObject>();
         PushObj(obj);
@@ -27,12 +29,19 @@ public class PoolData
     {
         //存储、设置父物体、隐藏
         poolList.Add(obj);
-        obj.transform.SetParent(fatherObj.transform);
         obj.SetActive(false);
+        if (fatherObj == null)
+        {
+            fatherObj = obj;
+            fatherObj.transform.parent = poolObj.transform;
+        }
+        obj.transform.SetParent(fatherObj.transform);       
     }
     //将物体从缓存池取出
     public GameObject GetObj()
     {
+        if (poolList.Count <= 0) return null;
+
         GameObject obj = null;
         obj = poolList[0];
         poolList.RemoveAt(0);
@@ -68,11 +77,12 @@ public class PoolManager : BaseManager<PoolManager>
         if (!isActive) return null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
-            return poolDic[poolName].GetObj();
+            GameObject t = poolDic[poolName].GetObj();
+            if (t == null) poolDic.Remove(poolName);
+            else return t;
         }
 
-        else
-            return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
+        return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
 
     //从缓存池中取出

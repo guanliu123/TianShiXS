@@ -251,5 +251,5 @@ public class CharacterBase : MonoBehaviour, IAttack
         }
         buffDic.Clear();
         if(characterTag!= CharacterTag.Player) PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
-    } 
+    }
 }

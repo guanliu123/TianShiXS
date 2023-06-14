@@ -28,8 +28,8 @@ public class LevelManager : BaseManager<LevelManager>
 
     public float movementRate = 9f;//地图移动速率
 
-    private float[,] mapSquareSize = new float[2, 2] { { 10, 20 }, { 15, 20 } };//宽，长
-    public int defaultNum = 10;//初始生成这么多地图块
+    public float[] mapSize;
+    public int defaultNum = 13;//初始生成这么多地图块
 
     private List<GameObject> exitingSquare = new List<GameObject>();//当前场上存在的地图块
     private List<GameObject> distanceSquare = new List<GameObject>();//距离玩家较远的方块（可以直接替换等等）
@@ -60,7 +60,27 @@ public class LevelManager : BaseManager<LevelManager>
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
-        nowSquares = nowLevel.normalPlanes;
+
+        nowStage = 0;
+        maxStage = nowLevel.StageDatas.Count;
+        nowWave = 0;
+        isChange = false;
+        isSp = nowLevel.StageDatas[nowStage].isSpecial;
+        if (isSp)
+        {
+            nowSquares = nowLevel.widthPlanes;
+            mapSize = nowLevel.widthSize;
+        }
+        else
+        {
+            nowSquares = nowLevel.normalPlanes;
+            mapSize = nowLevel.normalSize;
+        }
+
+        requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
+        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+        
+        
         Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
 
         for (int i = 0; i < defaultNum; i++)
@@ -89,7 +109,7 @@ public class LevelManager : BaseManager<LevelManager>
             {
                 Vector3 nextSquare = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
-                                                 exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
+                                                 exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
                 GameObject square = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity);
 
                 GameObject decor1 = square.transform.Find("Decoration_1").gameObject;
@@ -112,13 +132,7 @@ public class LevelManager : BaseManager<LevelManager>
             }
         }
 
-        nowStage = 0;
-        maxStage = nowLevel.StageDatas.Count;
-        nowWave = 0;
-        isChange = false;
-        isSp = false;
-        requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+        
     }
 
     public void Start()
@@ -193,11 +207,11 @@ public class LevelManager : BaseManager<LevelManager>
             }
 
             exitingSquare.RemoveAt(0);
-            PoolManager.GetInstance().PushObj("Ground",t);
-            //GameObject.Destroy(t);
+            RecoveryGround(t);
+            //PoolManager.GetInstance().PushObj("Ground",t);
 
             t2.transform.position = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x, exitingSquare[exitingSquare.Count - 1].transform.position.y,
-                exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSquareSize[0, 1]);
+                exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
             exitingSquare.Add(t2);
             if (t2.transform.position.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t2);
         }
@@ -227,7 +241,7 @@ public class LevelManager : BaseManager<LevelManager>
         checkPoint = new GameObject("CheckPoint");
         Vector3 t = new Vector3(distanceSquare[0].transform.position.x,
                               distanceSquare[0].transform.position.y,
-                              distanceSquare[0].transform.position.z - mapSquareSize[0, 1] / 2);
+                              distanceSquare[0].transform.position.z - mapSize[0] / 2);
         checkPoint.transform.position = t;
         checkPoint.transform.parent = distanceSquare[0].transform;
 
@@ -246,7 +260,7 @@ public class LevelManager : BaseManager<LevelManager>
             distanceSquare[i] = newSquare;
             exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
 
-            GameObject.Destroy(t);
+            RecoveryGround(t);
         }
     }
 
@@ -256,13 +270,13 @@ public class LevelManager : BaseManager<LevelManager>
         isChange = !isChange;
         if (isChange)
         {
+            mapSize = nowLevel.widthSize;
             GameManager.GetInstance().CameraMove(CameraPointType.HighPoint, 1f);
-
-            //PoolManager.GetInstance().PushObj("Smoke", smoke);
         }
         else
         {
             GameManager.GetInstance().PlayerReset();
+            mapSize = nowLevel.normalSize;
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
 
             /*smoke = PoolManager.GetInstance().GetObj("Smoke");
@@ -273,23 +287,24 @@ public class LevelManager : BaseManager<LevelManager>
     }
 
     /// <summary>
-    /// 回收一片地面上的敌人和道具等等，加入分别的对象池，存在问题，暂时不用
+    /// 回收一片地面上的敌人和道具等等，加入分别的对象池
     /// </summary>
     /// <param name="ground"></param>
-    void RetrieveItem(GameObject ground)
+    void RecoveryGround(GameObject ground)
     {
         Transform enemyList = ground.transform.Find("EnemyList");
-        if (!enemyList) return;
-
-        enemyList.transform.SetParent(null);
-
-        for (int i = 0; enemyList != null && i < enemyList.childCount; i++)
+        if (enemyList)//回收敌人
         {
-            var child = enemyList.GetChild(i).gameObject;
-            child.GetComponent<CharacterBase>().Recovery();
+            enemyList.transform.SetParent(null);
+            for (int i = 0; enemyList != null && i < enemyList.childCount; i++)
+            {
+                var child = enemyList.GetChild(i).gameObject;
+                child.GetComponent<CharacterBase>().Recovery();
+            }
+            GameObject.Destroy(enemyList.gameObject);
         }
 
-        //GameObject.Destroy(enemyList.gameObject);
+        GameObject.Destroy(ground);
     }
 
     void EnemyCreate(GameObject ground)
@@ -306,7 +321,7 @@ public class LevelManager : BaseManager<LevelManager>
         }
         
         enemyPoints.Clear();
-        //GameObject enemyList = new GameObject("EnemyList");
+        GameObject enemyList = new GameObject("EnemyList");
         int n = Random.Range(1, Mathf.Min(requireEnemy, enemyDensity) + 1);
 
         for (int i = 0; i < n; i++)
@@ -325,10 +340,10 @@ public class LevelManager : BaseManager<LevelManager>
                 }while (enemyPoints.Contains(_newPoint));
 
                 t.transform.position = _newPoint;
-                t.transform.parent = ground.transform;
-                //t.transform.parent = enemyList.transform;
+                //t.transform.parent = ground.transform;
+                t.transform.parent = enemyList.transform;
 
-                //enemyList.transform.parent = ground.transform;
+                enemyList.transform.parent = ground.transform;
             }
             else
             {
@@ -346,18 +361,14 @@ public class LevelManager : BaseManager<LevelManager>
 
     void BuffDoorCreate(GameObject ground)
     {
-        //if (requireDoor <= 0) return;
-
         GameObject t = PoolManager.GetInstance().GetObj(BuffDoorType.BuffDoors.ToString());
         if (t == null) return;
 
         t.transform.position = new Vector3(
             ground.transform.position.x,
             ground.transform.position.y,
-            ground.transform.position.z - mapSquareSize[0, 1] / 2);
+            ground.transform.position.z - mapSize[0] / 2);
         t.transform.parent = ground.transform;
-
-        //requireDoor--;
     }
     void BOSSCreate()
     {
@@ -398,8 +409,8 @@ public class LevelManager : BaseManager<LevelManager>
 
     Vector3 InstantRandomPoint(GameObject parent)
     {
-        float _x = parent.transform.position.x + Random.Range(-mapSquareSize[0, 0] / 2, mapSquareSize[0, 0] / 2);
-        float _z = parent.transform.position.z + Random.Range(-mapSquareSize[0, 1] / 2, mapSquareSize[0, 1] / 2);
+        float _x = parent.transform.position.x + Random.Range(-mapSize[1] / 2, mapSize[1] / 2);
+        float _z = parent.transform.position.z + Random.Range(-mapSize[0] / 2, mapSize[0] / 2);
 
         return new Vector3(_x, 0, _z);
     }
