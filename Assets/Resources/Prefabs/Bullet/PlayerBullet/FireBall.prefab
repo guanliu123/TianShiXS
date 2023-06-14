@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7425670008159796301}
   - component: {fileID: 3065279255440458676}
   - component: {fileID: 6955808503237680036}
+  - component: {fileID: 7634573132097916715}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -105,9 +106,23 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0
+--- !u!135 &7634573132097916715
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802089615758894839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9833733
+  m_Center: {x: 0.00000029802322, y: 0, z: -0.016811714}

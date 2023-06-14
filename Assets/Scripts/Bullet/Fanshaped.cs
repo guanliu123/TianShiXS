@@ -5,15 +5,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Fanshaped : BulletBase
 {
-    private Dictionary<IAttack, float> unAttachable = new Dictionary<IAttack, float>();
-
-    private float radius = 6f; // 射线检测半径
-    private float angle = 100f; // 射线检测角度
-    private int rayCount = 50; // 射线数量
+    private Dictionary<GameObject, float> unAttachable = new Dictionary<GameObject, float>();
 
     public void Awake()
     {
@@ -21,6 +16,7 @@ public class Fanshaped : BulletBase
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
 
         bulletAction += AttckInterval;
+        bulletAction += Move;
     }
 
     private void AttckInterval()
@@ -38,13 +34,19 @@ public class Fanshaped : BulletBase
             unAttachable[unAttachable.ElementAt(i).Key] = t;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag != targetTag || unAttachable.ContainsKey(other.gameObject)) return;
+        AttackCheck(other.gameObject);
+        unAttachable.Add(other.gameObject, bulletData.damageInterval);
+    }
 
     public override void OnExit()
     {
         unAttachable.Clear();
     }
 
-    protected override void AttackCheck()
+    /*protected override void AttackCheck()
     {
         Vector3 direction = transform.forward;
         float halfAngle = angle / 2f;
@@ -58,10 +60,10 @@ public class Fanshaped : BulletBase
             float t = (float)i / (float)(rayCount - 1);
             Vector3 rayDirection = Vector3.Lerp(leftRayDirection, rightRayDirection, t);
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, rayDirection, out hit, radius, layerMask))
+            if (Physics.Raycast(transform.position, rayDirection, out hit, radius, ignoreObj))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
-                if (targetIAttck == null|| unAttachable.ContainsKey(targetIAttck)) continue;
+                if (targetIAttck == null || unAttachable.ContainsKey(targetIAttck)) continue;
 
                 foreach (var item in nowBuffs)
                 {
@@ -69,37 +71,16 @@ public class Fanshaped : BulletBase
                 }
                 if (isCrit)
                 {
-                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK * 
+                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
                 else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
-                unAttachable.Add(targetIAttck,bulletData.damageInterval);
+                unAttachable.Add(targetIAttck, bulletData.damageInterval);
             }
         }
-    }
-
-    void OnDrawGizmos()
-    {
-        // 绘制扇形区域形状
-        Vector3 direction = transform.forward;
-        float halfAngle = angle / 2f;
-        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfAngle, Vector3.up);
-        Quaternion rightRayRotation = Quaternion.AngleAxis(halfAngle, Vector3.up);
-        Vector3 leftRayDirection = leftRayRotation * direction;
-        Vector3 rightRayDirection = rightRayRotation * direction;
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawLine(transform.position, transform.position + leftRayDirection * radius);
-        Gizmos.DrawLine(transform.position, transform.position + rightRayDirection * radius);
-        for (int i = 0; i < rayCount; i++)
-        {
-            float t = (float)i / (float)(rayCount - 1);
-            Vector3 rayDirection = Vector3.Lerp(leftRayDirection, rightRayDirection, t);
-            Gizmos.DrawLine(transform.position, transform.position + rayDirection * radius);
-        }
-    }
+    }*/
 }
 
 

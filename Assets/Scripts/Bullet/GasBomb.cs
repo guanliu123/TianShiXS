@@ -29,7 +29,7 @@ public class GasBomb : BulletBase
         if (transform.position.y <= 0)
         {
             BulletManager.GetInstance().BulletLauncher(gameObject.transform, BulletType.PoisonousFloor, 0,attacker);
-            RecoveryInstant();
+            Recovery();
         }
     }
 }

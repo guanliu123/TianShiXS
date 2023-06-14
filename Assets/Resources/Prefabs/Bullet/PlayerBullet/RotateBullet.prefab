@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3059141075116341046}
   - component: {fileID: -8043956813851267380}
   - component: {fileID: 4388287172634812626}
+  - component: {fileID: 3616207488412626288}
   m_Layer: 0
   m_Name: RotateBullet
   m_TagString: Untagged
@@ -56,11 +57,12 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0
 --- !u!95 &4388287172634812626
 Animator:
@@ -81,6 +83,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &3616207488412626288
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395792084472556940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.45
+  m_Height: 6.94
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -2.96}
 --- !u!1 &3263606389803152371
 GameObject:
   m_ObjectHideFlags: 0

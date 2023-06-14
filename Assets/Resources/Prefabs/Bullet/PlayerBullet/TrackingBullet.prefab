@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 5875639887841664650}
   - component: {fileID: 6197179747858282855}
   - component: {fileID: -8433815601716318332}
+  - component: {fileID: 7896501402637980465}
   m_Layer: 0
   m_Name: TrackingBullet
   m_TagString: Untagged
@@ -250,5 +251,23 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
+    damageInterval: 0
+    isFollowShooter: 0
+    shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
+  isCrit: 0
+--- !u!135 &7896501402637980465
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539692802150450224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}

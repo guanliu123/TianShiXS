@@ -199,7 +199,7 @@ namespace Skills
         {
             /*Player._instance.nowBullet.Add(BulletType.LaserBullet,
                 BulletManager.GetInstance().BulletDic[BulletType.LaserBullet].damageInterval);*/
-            Debug.Log("获得激光弹幕");
+            Player._instance.AddBullet(BulletType.FireBall);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }

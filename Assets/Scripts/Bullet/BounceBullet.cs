@@ -22,7 +22,7 @@ public class BounceBullet : BulletBase
 
     public override void OnEnter()
     {
-        bounceNum = 2;
+        bounceNum = 3;
         moveDir = transform.forward;
 
         base.OnEnter();
@@ -53,26 +53,33 @@ public class BounceBullet : BulletBase
         base.SpecialEvolution();
         if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
 
-        bounceNum += 3;
+        bounceNum += 2;
         bulletData.ATK += 5f;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player")
+        if (bounceNum <= 0) Recovery();
+        if (other.tag != ignoreTag)
         {
             moveDir = Vector3.Reflect(Vector3.forward, other.transform.position.normalized);
             moveDir = moveDir.normalized;
+            if (other.tag == targetTag)
+            {
+                AttackCheck(other.gameObject);
+            }
+            bounceNum--;
         }
     }
 
-    protected override void AttackCheck()
+
+    /*protected override void AttackCheck()
     {
         float radius = 1f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, layerMask);
+        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, ignoreObj);
         if (hits.Length > 0)
         {
-            for(int i = 0; i < hits.Length; i++)
+            for (int i = 0; i < hits.Length; i++)
             {
                 IAttack targetIAttck = hits[i].gameObject.GetComponentInParent<IAttack>();
                 if (targetIAttck == null || unAttachable.ContainsKey(targetIAttck)) return;
@@ -91,7 +98,7 @@ public class BounceBullet : BulletBase
 
                 unAttachable.Add(targetIAttck, bulletData.damageInterval);
             }
-            
+
         }
-    }
+    }*/
 }

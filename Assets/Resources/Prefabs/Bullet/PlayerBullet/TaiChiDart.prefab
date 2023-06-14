@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 5842390971242389146}
   - component: {fileID: 8570527024845351504}
   - component: {fileID: 5265178559689070194}
+  - component: {fileID: 2900952800868253745}
   m_Layer: 0
   m_Name: TaiChiDart
   m_TagString: Untagged
@@ -164,8 +165,23 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
+    shootProbability: 0
   bulletType: 0
-  nowBuffs: 
+  attacker: {fileID: 0}
+  isCrit: 0
+--- !u!65 &2900952800868253745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921933567807277957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1633364, y: 0.105855025, z: 7.0699525}
+  m_Center: {x: 0, y: -0.003779899, z: 3.151521}

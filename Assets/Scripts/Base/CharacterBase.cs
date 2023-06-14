@@ -62,6 +62,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         nowHP = maxHP;
         canActive = true;
+        gameObject.tag = characterTag.ToString();
 
         if (characterTag==CharacterTag.Enemy) GameManager.GetInstance().EnemyIncrease(this.gameObject);
         TransitionState(CharacterStateType.Idle);

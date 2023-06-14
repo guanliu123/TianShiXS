@@ -22,6 +22,10 @@ public class PerpetualBullet : BulletBase
 
     public IEnumerator shoot()
     {
+        if (attacker == null)
+        {
+            yield return null;
+        }
         for (int i = 0; i < num; i++)
         {
             BulletManager.GetInstance().BulletLauncher(transform, BulletType.TaiChiDart, 0,attacker);

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerPoint
   - MainCanvas
+  - Enemy
   layers:
   - Default
   - TransparentFX

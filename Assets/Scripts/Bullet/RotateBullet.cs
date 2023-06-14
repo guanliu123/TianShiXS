@@ -43,10 +43,17 @@ public class RotateBullet : BulletBase
         }
     }
 
-    protected override void AttackCheck()
-    {       
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != targetTag) return;
+        AttackCheck(other.gameObject);
+        Recovery();
+    }
+
+    /*protected override void AttackCheck()
+    {
         float radius = 0.5f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, layerMask);
+        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, ignoreObj);
         if (hits.Length > 0)
         {
             IAttack targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
@@ -64,7 +71,7 @@ public class RotateBullet : BulletBase
             }
             else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
-            RecoveryInstant();
+            Recovery();
         }
-    }
+    }*/
 }

@@ -14,7 +14,8 @@ public class BulletBase : MonoBehaviour
 
     public UnityAction bulletAction;
 
-    protected LayerMask layerMask;
+    protected string targetTag;
+    protected string ignoreTag;
 
     protected float bulletATK;
     private float existTimer = 0;
@@ -23,16 +24,19 @@ public class BulletBase : MonoBehaviour
 
     protected void Start()
     {
-        bulletAction += Recovery;
-        bulletAction += AttackCheck;
+        bulletAction += RecoveryTimer;
+        //bulletAction += AttackCheck;
     }
 
     public virtual void InitBullet(GameObject _attacker,CharacterTag _tag,BulletData _bulletData,Dictionary<BuffType,int> buffs)
     {
         attacker = _attacker;
         bulletData = _bulletData;
-        if(_tag== CharacterTag.Player) layerMask = LayerMask.GetMask("Enemy");
-        else if(_tag == CharacterTag.Enemy) layerMask = LayerMask.GetMask("Player");
+
+        ignoreTag = _tag.ToString();
+        if (_tag == CharacterTag.Player) targetTag = "Enemy";
+        else if (_tag == CharacterTag.Enemy) targetTag = "Player";
+        else targetTag = "";
     }
 
     protected void OnEnable()
@@ -48,7 +52,7 @@ public class BulletBase : MonoBehaviour
     {
         if (GameManager.GetInstance().enemyList.Count <= 0)
         {
-            RecoveryInstant();
+            Recovery();
             return;
         }
         
@@ -80,9 +84,22 @@ public class BulletBase : MonoBehaviour
         return t;
     }
 
-    protected virtual void AttackCheck()
+    protected virtual void AttackCheck(GameObject obj)
     {
+        IAttack targetIAttck = obj.GetComponent<IAttack>();
+        if (targetIAttck == null) return;
 
+        foreach (var item in nowBuffs)
+        {
+            targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
+        }
+        if (isCrit)
+        {
+            targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
+                (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
+            isCrit = false;
+        }
+        else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
     }
     protected virtual void SpecialEvolution()
     {
@@ -91,16 +108,14 @@ public class BulletBase : MonoBehaviour
         if (!t || t.characterTag != CharacterTag.Player) return;
     }
 
-    protected void Recovery()
+    protected void RecoveryTimer()
     {
         existTimer += Time.deltaTime;
         if (existTimer < bulletData.existTime) return;
 
-        existTimer = 0;
-        OnExit();
-        PoolManager.GetInstance().PushObj(bulletType.ToString(), gameObject);
+        Recovery();
     }
-    protected void RecoveryInstant()
+    protected void Recovery()
     {
         existTimer = 0;
         OnExit();

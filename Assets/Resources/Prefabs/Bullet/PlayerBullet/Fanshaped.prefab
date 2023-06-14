@@ -10,6 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1459160492705418514}
   - component: {fileID: 1459160492705418525}
+  - component: {fileID: 4224690788618845267}
+  - component: {fileID: 7024206266764065076}
+  - component: {fileID: 2672432626130741921}
+  - component: {fileID: 3662628178046881602}
+  - component: {fileID: 4097007775537335869}
   m_Layer: 0
   m_Name: Fanshaped
   m_TagString: Untagged
@@ -54,12 +59,78 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0
+--- !u!65 &4224690788618845267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459160492705418518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 0.13778496, z: 3.11}
+  m_Center: {x: 0.000012918008, y: -0.0051066875, z: 3.38}
+--- !u!65 &7024206266764065076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459160492705418518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 0.13778496, z: 3.11}
+  m_Center: {x: -2.67, y: -0.0051066875, z: 2.46}
+--- !u!65 &2672432626130741921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459160492705418518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 0.13778496, z: 3.11}
+  m_Center: {x: -5.33, y: -0.0051066875, z: -0.03}
+--- !u!65 &3662628178046881602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459160492705418518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 0.13778496, z: 3.11}
+  m_Center: {x: 2.64, y: -0.0051066875, z: 2.46}
+--- !u!65 &4097007775537335869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459160492705418518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.65, y: 0.13778496, z: 3.11}
+  m_Center: {x: 5.32, y: -0.0051066875, z: -0.03}
 --- !u!1001 &2382766132286115062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,17 +161,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f385d48e50a27904ca42a3634d1a313d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f385d48e50a27904ca42a3634d1a313d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f385d48e50a27904ca42a3634d1a313d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.93
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f385d48e50a27904ca42a3634d1a313d,
         type: 3}

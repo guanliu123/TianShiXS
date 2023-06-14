@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928625219298750166}
   - component: {fileID: 2928625219298750167}
+  - component: {fileID: 4637792807029392915}
   m_Layer: 0
   m_Name: FlowerDart
   m_TagString: Untagged
@@ -165,12 +166,26 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0
+--- !u!65 &4637792807029392915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928625219298750165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.65093297, y: 0.10821128, z: 1.534816}
+  m_Center: {x: 0.009470493, y: -0.00947082, z: -0.267408}
 --- !u!1 &2928625219301315101
 GameObject:
   m_ObjectHideFlags: 0

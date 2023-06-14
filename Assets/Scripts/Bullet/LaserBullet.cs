@@ -6,24 +6,35 @@ using UnityEngine.UIElements;
 using DG.Tweening;
 using static UnityEngine.UI.Image;
 using System.Drawing;
+using System.Linq;
 
 public class LaserBullet : BulletBase
 {
-    List<GameObject> checkPoints;
+    private Dictionary<GameObject, float> unAttachable = new Dictionary<GameObject, float>();
+    GameObject targetObj;
     float attackTimer;
 
     private void Awake()
     {
         bulletType = BulletType.LaserBullet;
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
-        checkPoints = FindChilds(transform.GetChild(0).gameObject);
 
         bulletAction += Rotat;
+        bulletAction += AttckInterval;
     }
     // Update is called once per frame
     void Update()
     {
         base.Update();
+        if (targetTag == CharacterTag.Player.ToString())
+        {
+            targetObj = Player._instance.gameObject;
+        }
+        else if (targetTag == CharacterTag.Enemy.ToString())
+        {
+            if (GameManager.GetInstance().enemyList.Count <= 0) return;
+            targetObj = GameManager.GetInstance().enemyList[0];
+        }
     }
 
     public override void OnEnter()
@@ -31,9 +42,26 @@ public class LaserBullet : BulletBase
         attackTimer = 0f;
     }
 
+    private void AttckInterval()
+    {
+        for (int i = 0; i < unAttachable.Count; i++)
+        {
+            float t = unAttachable.ElementAt(i).Value - Time.deltaTime;
+
+            if (t <= 0)
+            {
+                unAttachable.Remove(unAttachable.ElementAt(i).Key);
+                continue;
+            }
+
+            unAttachable[unAttachable.ElementAt(i).Key] = t;
+        }
+    }
+
     public override void Rotat()
     {
-        Vector3 direction = Player._instance.gameObject.transform.position - transform.position;
+        if (targetObj == null) return;
+        Vector3 direction = targetObj.transform.position - transform.position;
         direction.y = 0; // 只在水平面上旋转
 
         // 计算旋转角度
@@ -43,7 +71,14 @@ public class LaserBullet : BulletBase
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * bulletData.rotateSpeed);
     }
 
-    protected override void AttackCheck()
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag != targetTag||unAttachable.ContainsKey(other.gameObject)) return;
+        AttackCheck(other.gameObject);
+        unAttachable.Add(other.gameObject, bulletData.damageInterval);
+    }
+
+    /*protected override void AttackCheck()
     {
         if (attackTimer > 0)
         {
@@ -57,14 +92,14 @@ public class LaserBullet : BulletBase
             RaycastHit hit;
             Debug.DrawRay(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position * distance);
 
-            if (Physics.Raycast(ray, out hit, distance, layerMask))
+            if (Physics.Raycast(ray, out hit, distance, ignoreObj))
             {
                 IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
                 if (targetIAttck == null) return;
-                
+
                 foreach (var item in nowBuffs)
                 {
-                    targetIAttck.TakeBuff(attacker, gameObject,item.Key,item.Value);
+                    targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
                 }
 
                 if (isCrit)
@@ -73,10 +108,10 @@ public class LaserBullet : BulletBase
                         (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
                     isCrit = false;
                 }
-                else {targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
+                else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
 
                 attackTimer = bulletData.damageInterval;
             }
         }
-    }
+    }*/
 }

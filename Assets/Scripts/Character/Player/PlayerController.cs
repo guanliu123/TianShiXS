@@ -107,12 +107,14 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!canMove) return;
         transform.position = offset;
     }
 
     // 切换操作模式
     public void SwitchMode()
     {
+        offset = transform.position;
         isHorizontalMode = !isHorizontalMode;
         isDragging = false;
     }

@@ -184,10 +184,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8245432560289502159}
-  - component: {fileID: 1890419396016308158}
   - component: {fileID: 3441282645033666139}
   - component: {fileID: 1288812585087859531}
   - component: {fileID: 3783769677897833029}
+  - component: {fileID: 4270621781209101478}
   m_Layer: 0
   m_Name: BounceBullet
   m_TagString: Untagged
@@ -211,19 +211,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1890419396016308158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729798615772334453}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.2, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3441282645033666139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,9 +268,23 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0
+--- !u!135 &4270621781209101478
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729798615772334453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.36
+  m_Center: {x: 0, y: 0, z: 0}

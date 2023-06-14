@@ -165,18 +165,18 @@ public class GameManager : BaseManager<GameManager>
     }
     public void LockMove()
     {
-        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = false;
     }
     public void UnlockMove()
     {
-        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = true;
     }
 
     public void SwitchMode()
     {
-        PlayerController t = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.SwitchMode();
     }
 
