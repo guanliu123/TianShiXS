@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6971044789690958964}
   - component: {fileID: 6971044789690958967}
   - component: {fileID: -9217735092596939606}
+  - component: {fileID: 3347736820611414352}
   m_Layer: 0
   m_Name: GasBomb
   m_TagString: Untagged
@@ -102,8 +103,23 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
+    shootProbability: 0
   bulletType: 0
-  nowBuffs: 
+  attacker: {fileID: 0}
+  isCrit: 0
+--- !u!135 &3347736820611414352
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971044789690958961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

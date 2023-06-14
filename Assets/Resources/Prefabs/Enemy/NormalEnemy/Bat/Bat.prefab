@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 5907081522460646725}
   - component: {fileID: 104909023087220357}
   - component: {fileID: 5212657474520713938}
+  - component: {fileID: 237056814151719190}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -596,21 +597,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData:
-    tag: 
+    tag: 0
     name: 
     icon: {fileID: 0}
     MaxHP: 0
     bulletTypes: 
     Aggressivity: 0
     ATKSpeed: 0
+    avoidance: 0
     energy: 0
     money: 0
+    describe: 
   characterType: 1
-  characterTag: 
+  characterTag: 0
   maxHP: 0
   nowHP: 0
   aggressivity: 0
   ATKSpeed: 0
+  _avoidance: 0
   animator: {fileID: 0}
   hpSlider: {fileID: 0}
   canActive: 0
@@ -627,6 +631,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 21.645279, y: 11.867729, z: 1}
   m_Center: {x: -0, y: 1.8442416, z: 0}
+--- !u!54 &237056814151719190
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718036425804798245}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6878511844573290684
 GameObject:
   m_ObjectHideFlags: 0
