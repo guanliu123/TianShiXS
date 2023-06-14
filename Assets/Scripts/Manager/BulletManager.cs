@@ -107,9 +107,10 @@ public class BulletManager : BaseManager<BulletManager>
             n = n < 2 ? 2 : n;
         }
         for (int i = 0; i < n; i++)
-        {            
+        {
             GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString());
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
             t.transform.position = instantPos;
             t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
@@ -159,6 +160,7 @@ public class BulletManager : BaseManager<BulletManager>
         {
             GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString());
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
             if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
             {

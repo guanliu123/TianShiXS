@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 //可以改为用ID存储到缓存池
 public class PoolData
@@ -55,7 +56,7 @@ public class PoolData
 //对缓存池进行管理的单例模式类
 public class PoolManager : BaseManager<PoolManager>
 {
-    public bool isActive=true;
+    public bool isActive = true;
     //使用字典存储数据
     private Dictionary<string, PoolData> poolDic
         = new Dictionary<string, PoolData>();
@@ -84,6 +85,25 @@ public class PoolManager : BaseManager<PoolManager>
 
         return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
+
+    /*public GameObject GetBullet(string bulletName, GameObject _attacker, CharacterTag _tag, BulletData _bulletData, Dictionary<BuffType, int> buffs)
+    {
+        if (!isActive) return null;
+        if (poolDic.ContainsKey(bulletName) && poolDic[bulletName].poolList.Count > 0)
+        {
+            GameObject t = poolDic[bulletName].GetObj();
+            if (t == null) poolDic.Remove(bulletName);
+            else
+            {
+                BulletBase bb = t.GetComponent<BulletBase>();
+                bb.InitBullet(_attacker, _tag, _bulletData, buffs);
+                return t;
+            }
+        }
+
+        return ExtensionMethod.InstantiateBullet(ResourceManager.GetInstance().LoadByName<GameObject>(bulletName),
+            _attacker, _tag, _bulletData, buffs);
+    }*/
 
     //从缓存池中取出
     public void GetObj(string objName, UnityAction<GameObject> callback)
@@ -147,3 +167,15 @@ public class PoolManager : BaseManager<PoolManager>
         poolObj = null;
     }
 }
+
+/*public static class ExtensionMethod
+{
+    public static GameObject InstantiateBullet(UnityEngine.Object original, 
+        GameObject _attacker, CharacterTag _tag, BulletData _bulletData, Dictionary<BuffType, int> buffs)
+    {
+        GameObject bullet = Object.Instantiate(original) as GameObject;
+        BulletBase bb = bullet.GetComponent<BulletBase>();
+        bb.InitBullet(_attacker, _tag, _bulletData, buffs);
+        return bullet;
+    }
+}*/

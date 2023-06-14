@@ -15,7 +15,7 @@ public class TrackingBullet : BulletBase
     }
 
     public override void Move()
-    {
+    {        
         if (GameManager.GetInstance().enemyList.Count <= 0)
         {
             base.Move();

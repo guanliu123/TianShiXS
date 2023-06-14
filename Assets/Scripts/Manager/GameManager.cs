@@ -215,12 +215,10 @@ public class GameManager : BaseManager<GameManager>
     public void EnemyIncrease(GameObject obj)
     {
         enemyList.Add(obj);
-        Debug.Log("敌人增加，现在敌人："+enemyList.Count);
     }
     public void EnemyDecrease(GameObject obj)
     {
         enemyList.Remove(obj);
-        Debug.Log("敌人减少，现在敌人：" + enemyList.Count);
         if (enemyList.Count <= 0)
         {
             LevelManager.GetInstance().WaveIncrease();

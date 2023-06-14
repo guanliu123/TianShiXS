@@ -32,6 +32,7 @@ public class BulletBase : MonoBehaviour
     {
         attacker = _attacker;
         bulletData = _bulletData;
+        nowBuffs = buffs;
 
         ignoreTag = _tag.ToString();
         if (_tag == CharacterTag.Player) targetTag = "Enemy";
@@ -55,7 +56,7 @@ public class BulletBase : MonoBehaviour
             Recovery();
             return;
         }
-        
+
         SpecialEvolution();
     }
     public virtual void OnExit()

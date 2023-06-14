@@ -20,7 +20,7 @@ MonoBehaviour:
       existTime: 1.5
       moveSpeed: 20
       rotateSpeed: 0
-      buffList: 05000000
+      buffList: 0500000000000000
       evolvableList: 030000000100000004000000
       crit: 0
       critRate: 1

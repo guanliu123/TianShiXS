@@ -14,11 +14,6 @@ public class TaiChiDart : BulletBase
         bulletAction += Move;
     }
     // Update is called once per frame
-    void Update()
-    {
-        base.Update();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != targetTag) return;
