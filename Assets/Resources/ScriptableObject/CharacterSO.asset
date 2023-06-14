@@ -20,7 +20,7 @@ MonoBehaviour:
       icon: {fileID: 2282184623380908207, guid: daef4ee12d5c02a408a2de0fb87e470b,
         type: 3}
       MaxHP: 100
-      bulletTypes: 01000000
+      bulletTypes: 0a000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0

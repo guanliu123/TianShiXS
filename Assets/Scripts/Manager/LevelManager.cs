@@ -88,20 +88,7 @@ public class LevelManager : BaseManager<LevelManager>
             if (exitingSquare.Count == 0)
             {
                 GameObject t = nowSquares[Random.Range(0, nowSquares.Count)];
-                GameObject decor1 = t.transform.Find("Decoration_1").gameObject;
-                GameObject decor2 = t.transform.Find("Decoration_2").gameObject;
-
-                float rand = Random.Range(0f, 1f);
-                if (rand >= 0.5f)
-                {
-                    decor1.SetActive(false);
-                    decor2.SetActive(true);
-                }
-                else
-                {
-                    decor1.SetActive(true);
-                    decor2.SetActive(false);
-                }
+                RandomSet(t);
 
                 exitingSquare.Add(GameObject.Instantiate(t, Vector3.zero, Quaternion.identity));
             }
@@ -112,20 +99,7 @@ public class LevelManager : BaseManager<LevelManager>
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
                 GameObject square = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity);
 
-                GameObject decor1 = square.transform.Find("Decoration_1").gameObject;
-                GameObject decor2 = square.transform.Find("Decoration_2").gameObject;
-
-                float rand = Random.Range(0f, 1f);
-                if (rand >= 0.5f)
-                {
-                    decor1.SetActive(false);
-                    decor2.SetActive(true);
-                }
-                else
-                {
-                    decor1.SetActive(true);
-                    decor2.SetActive(false);
-                }
+                RandomSet(square);
 
                 if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(square);
                 exitingSquare.Add(square);
@@ -191,20 +165,7 @@ public class LevelManager : BaseManager<LevelManager>
             GameObject t = exitingSquare[0];
             GameObject t2 = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
 
-            GameObject decor1 = t2.transform.Find("Decoration_1").gameObject;
-            GameObject decor2 = t2.transform.Find("Decoration_2").gameObject;
-
-            float rand = Random.Range(0f, 1f);
-            if (rand >= 0.5f)
-            {
-                decor1.SetActive(false);
-                decor2.SetActive(true);
-            }
-            else
-            {
-                decor1.SetActive(true);
-                decor2.SetActive(false);
-            }
+            RandomSet(t2);           
 
             exitingSquare.RemoveAt(0);
             RecoveryGround(t);
@@ -219,6 +180,24 @@ public class LevelManager : BaseManager<LevelManager>
         {
             EnemyCreate(distanceSquare[0]);
             distanceSquare.RemoveAt(0);
+        }
+    }
+    private void RandomSet(GameObject ground)
+    {
+        Transform t = ground.transform.Find("Setting");//地板上的布景列表
+        if (!t) return;
+        HashSet<int> indices = new HashSet<int>();
+
+        int n = Random.Range(0, t.childCount);
+        for (int i = 0; i < t.childCount; i++) t.GetChild(i).gameObject.SetActive(false);
+        for(int i = 0; i < n; i++)
+        {
+            int r;
+            do
+            {
+                r = Random.Range(0, t.childCount);
+            } while (indices.Contains(r));
+            t.GetChild(r).gameObject.SetActive(true);
         }
     }
 
