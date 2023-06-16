@@ -23,7 +23,6 @@ public class PoolData
         fatherObj.transform.parent = poolObj.transform;
         poolList = new List<GameObject>();
         PushObj(obj);
-
     }
     //将物体push进缓存池
     public void PushObj(GameObject obj)
@@ -75,36 +74,16 @@ public class PoolManager : BaseManager<PoolManager>
     /// <returns></returns>
     public GameObject GetObj(string poolName)
     {
-        if (poolName == "RotateBullet") Debug.Log("取出旋转子弹");
         if (!isActive) return null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
             GameObject t = poolDic[poolName].GetObj();
-            if (t == null) poolDic.Remove(poolName);
-            else return t;
+            //if (t == null) poolDic.Remove(poolName);
+            //else return t;
         }
 
         return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
-
-    /*public GameObject GetBullet(string bulletName, GameObject _attacker, CharacterTag _tag, BulletData _bulletData, Dictionary<BuffType, int> buffs)
-    {
-        if (!isActive) return null;
-        if (poolDic.ContainsKey(bulletName) && poolDic[bulletName].poolList.Count > 0)
-        {
-            GameObject t = poolDic[bulletName].GetObj();
-            if (t == null) poolDic.Remove(bulletName);
-            else
-            {
-                BulletBase bb = t.GetComponent<BulletBase>();
-                bb.InitBullet(_attacker, _tag, _bulletData, buffs);
-                return t;
-            }
-        }
-
-        return ExtensionMethod.InstantiateBullet(ResourceManager.GetInstance().LoadByName<GameObject>(bulletName),
-            _attacker, _tag, _bulletData, buffs);
-    }*/
 
     //从缓存池中取出
     public void GetObj(string objName, UnityAction<GameObject> callback)
@@ -117,7 +96,6 @@ public class PoolManager : BaseManager<PoolManager>
         {
             //注意生成的物体的this.name此时并不是objName，而是objName（clone），若是使用this.name进行PushObj的话，则无法使用objName从字典中进行Get
             ResourceManager.GetInstance().LoadAsync<GameObject>(objName, callback);
-
         }
     }
 
@@ -168,15 +146,3 @@ public class PoolManager : BaseManager<PoolManager>
         poolObj = null;
     }
 }
-
-/*public static class ExtensionMethod
-{
-    public static GameObject InstantiateBullet(UnityEngine.Object original, 
-        GameObject _attacker, CharacterTag _tag, BulletData _bulletData, Dictionary<BuffType, int> buffs)
-    {
-        GameObject bullet = Object.Instantiate(original) as GameObject;
-        BulletBase bb = bullet.GetComponent<BulletBase>();
-        bb.InitBullet(_attacker, _tag, _bulletData, buffs);
-        return bullet;
-    }
-}*/
