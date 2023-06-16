@@ -18,7 +18,8 @@ public class PoolData
     //构造函数，进行PoolData的一些初始化
     public PoolData(GameObject obj, GameObject _poolObj,bool resetFather=false)
     {
-        fatherObj = obj;
+        string fatherName = obj.name;
+        fatherObj = new GameObject(fatherName);
         poolObj = _poolObj;
         fatherObj.transform.parent = poolObj.transform;
         poolList = new List<GameObject>();
@@ -30,11 +31,11 @@ public class PoolData
         //存储、设置父物体、隐藏
         poolList.Add(obj);
         obj.SetActive(false);
-        if (fatherObj == null)
+        /*if (fatherObj == null)
         {
             fatherObj = obj;
             fatherObj.transform.parent = poolObj.transform;
-        }
+        }*/
         obj.transform.SetParent(fatherObj.transform);       
     }
     //将物体从缓存池取出
@@ -78,6 +79,7 @@ public class PoolManager : BaseManager<PoolManager>
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
             GameObject t = poolDic[poolName].GetObj();
+            return t;
             //if (t == null) poolDic.Remove(poolName);
             //else return t;
         }
