@@ -75,6 +75,7 @@ public class PoolManager : BaseManager<PoolManager>
     /// <returns></returns>
     public GameObject GetObj(string poolName)
     {
+        if (poolName == "RotateBullet") Debug.Log("取出旋转子弹");
         if (!isActive) return null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {

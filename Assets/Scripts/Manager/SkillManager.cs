@@ -18,15 +18,28 @@ public class SkillManager : BaseManager<SkillManager>
     public SkillManager(){
         skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
-        foreach(var item in skillSO.skilldatas)
+        InitSkill();
+        InitSkillDic();
+    }
+
+    private void InitSkill()
+    {
+        foreach (var item in skillSO.skilldatas)
         {
             if (item.num > 0 && item.beforeSkills.Count <= 0)
             {
                 skillPool.Add(item.id, item.num);
-                occurredSkill.Add(item.id, 1);               
+                occurredSkill.Add(item.id, 1);
             }
-            skillDatas.Add(item.id, item);
+            if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
         }
+    }
+
+    public override void Reset()
+    {
+        base.Reset();
+        skillPool.Clear();
+        occurredSkill.Clear();
         InitSkill();
     }
 
@@ -147,7 +160,7 @@ public class SkillManager : BaseManager<SkillManager>
         }*/
     }
 
-    private void InitSkill()
+    private void InitSkillDic()
     {
         skillEvent.Add(0, new AddCritProbability());
         skillEvent.Add(1, new AddCritRate());

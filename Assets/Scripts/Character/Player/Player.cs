@@ -26,8 +26,7 @@ public class Player : CharacterBase
     public void InitPlayer()
     {
         this.characterType = GameManager.GetInstance().nowPlayerType;
-        InitData();
-        Debug.Log(nowBullet.Count);
+        //InitData();
     }
     public void ResetRole()
     {

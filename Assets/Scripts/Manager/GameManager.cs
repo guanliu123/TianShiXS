@@ -141,6 +141,7 @@ public class GameManager : BaseManager<GameManager>
         PoolManager.GetInstance().Reset();
         LevelManager.GetInstance().Reset();
         MonoManager.GetInstance().Reset();
+        SkillManager.GetInstance().Reset();
         Player._instance.ResetRole();
         GameObject.Destroy(player.GetComponent<Player>());
         GameObject.Destroy(player.GetComponent<PlayerController>());

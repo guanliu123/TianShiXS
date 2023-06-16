@@ -111,8 +111,9 @@ public class CharacterBase : MonoBehaviour, IAttack
 
         foreach (var item in characterData.bulletTypes)
         {
-            if(!nowBullet.ContainsKey(item)) nowBullet.Add(item, DataManager.GetInstance().AskBulletData(item).transmissionFrequency);
-
+            Debug.Log(item);
+            if (!nowBullet.ContainsKey(item)) nowBullet.Add(item, BulletManager.GetInstance().BulletDic[item].transmissionFrequency);
+            
             //bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);
             if(!bulletTimer.ContainsKey(item)) bulletTimer.Add(item, nowBullet[item]);
         }
@@ -217,6 +218,7 @@ public class CharacterBase : MonoBehaviour, IAttack
             bulletTimer[item.Key] -= (1+ atkSpeed) *Time.deltaTime;
             if (bulletTimer[item.Key] <= 0)
             {
+                //GameObject t = PoolManager.GetInstance().GetObj(item.Key.ToString());
                 BulletManager.GetInstance().BulletLauncher(transform, item.Key, aggressivity,gameObject);
                 bulletTimer[item.Key] = item.Value;
             }
