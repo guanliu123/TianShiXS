@@ -287,6 +287,10 @@ public class LevelManager : BaseManager<LevelManager>
         GameObject.Destroy(ground);
     }
 
+    /// <summary>
+    /// 怪物刷新
+    /// </summary>
+    /// <param name="ground">所在地板</param>
     void EnemyCreate(GameObject ground)
     {
         if (isSp ^ isChange) return;
@@ -323,6 +327,7 @@ public class LevelManager : BaseManager<LevelManager>
                 //t.transform.parent = ground.transform;
                 t.transform.parent = enemyList.transform;
 
+                Debug.Log("enemypos" + _newPoint);
                 enemyList.transform.parent = ground.transform;
             }
             else
@@ -388,8 +393,17 @@ public class LevelManager : BaseManager<LevelManager>
 
     Vector3 InstantRandomPoint(GameObject parent)
     {
-        float _x = parent.transform.position.x + Random.Range(-mapSize[1] / 2, mapSize[1] / 2);
-        float _z = parent.transform.position.z + Random.Range(-mapSize[0] / 2, mapSize[0] / 2);
+        int[] _numbers = {-9, -6, -3, 0, 3, 6, 9};
+        int _randNum;
+
+        _randNum = _numbers[Random.Range(_numbers.Length / 2 - 1, _numbers.Length / 2 + 2)];
+
+        //float _x = parent.transform.position.x + Random.Range(-mapSize[1] / 2, mapSize[1] / 2);
+        //float _z = parent.transform.position.z + Random.Range(-mapSize[0] / 2, mapSize[0] / 2);
+
+        float _x = parent.transform.position.x + _randNum;
+        _randNum = _numbers[Random.Range(0, _numbers.Length)];
+        float _z = parent.transform.position.z + _randNum;
 
         return new Vector3(_x, 0, _z);
     }
