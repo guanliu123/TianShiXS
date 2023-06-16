@@ -76,13 +76,12 @@ public class PoolManager : BaseManager<PoolManager>
     public GameObject GetObj(string poolName)
     {
         if (!isActive) return null;
+        GameObject t=null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
-            GameObject t = poolDic[poolName].GetObj();
-            return t;
-            //if (t == null) poolDic.Remove(poolName);
-            //else return t;
-        }
+            t = poolDic[poolName].GetObj();
+            if (t != null) return t;
+        }      
 
         return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
