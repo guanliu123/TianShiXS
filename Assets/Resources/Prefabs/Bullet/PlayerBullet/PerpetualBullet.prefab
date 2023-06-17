@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429772571852819501}
   - component: {fileID: 1429772571852819500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PerpetualBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,9 +53,10 @@ MonoBehaviour:
     evolvableList: 
     crit: 0
     critRate: 0
-    baseATK: 0
+    ATK: 0
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
   bulletType: 0
+  attacker: {fileID: 0}
   isCrit: 0

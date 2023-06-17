@@ -17,6 +17,7 @@ public class GamePanel : BasePanel
     public Text stageText;
     public Transform moneyLabel;
     public Vector3 moneyOrigin;
+    public Slider hpSlider;
     //public Vector3 energyOrigin;
 
     private float hideTime;
@@ -38,7 +39,9 @@ public class GamePanel : BasePanel
         moneyOrigin = moneyLabel.position;
         moneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
         moneyText.text = GameManager.GetInstance().levelMoney + "";
+        hpSlider = UITool.GetOrAddComponentInChildren<Slider>("HpSlider", panel);
 
+        hpSlider.value = 1f;
         //energyOrigin = energySlider1.transform.position;
     }
     public override void OnEnter()
@@ -80,6 +83,7 @@ public class GamePanel : BasePanel
         MoneyLabelTimer();
         MoneyListener();
         LevelTextListener();
+        HpBarListener();
     }
     public void EnergyBarListener()
     {
@@ -102,6 +106,11 @@ public class GamePanel : BasePanel
             energySlider.transform.DOMove(energyOrigin, 1f);
             isenergyHide = false;
         }*/
+    }
+
+    public void HpBarListener()
+    {
+        hpSlider.value = Player._instance.nowHP / Player._instance.maxHP;
     }
     public void StageListener()
     {

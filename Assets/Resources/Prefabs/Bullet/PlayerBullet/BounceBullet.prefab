@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8303473238513669845}
   - component: {fileID: 8459417884724504898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4929852676774945459}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "\u56DB\u89D2\u98DE\u9556"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6453619320449441570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1039243635249789289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1288812585087859531}
   - component: {fileID: 3783769677897833029}
   - component: {fileID: 4270621781209101478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BounceBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
