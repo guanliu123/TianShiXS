@@ -110,7 +110,8 @@ public class GamePanel : BasePanel
 
     public void HpBarListener()
     {
-        hpSlider.value = Player._instance.nowHP / Player._instance.maxHP;
+        //hpSlider.value = Player._instance.nowHP / Player._instance.maxHP;
+        hpSlider.value = Mathf.Lerp(hpSlider.value, Player._instance.nowHP / Player._instance.maxHP, Time.deltaTime);
     }
     public void StageListener()
     {
