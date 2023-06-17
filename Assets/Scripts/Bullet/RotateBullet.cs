@@ -7,7 +7,7 @@ public class RotateBullet : BulletBase
     float divisionTimer;
     private void Awake()
     {
-        bulletType = BulletType.TaiChiDart;
+        bulletType = BulletType.RotateBullet;
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
 
         bulletAction += Move;

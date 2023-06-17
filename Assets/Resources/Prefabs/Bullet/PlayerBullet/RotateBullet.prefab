@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8043956813851267380}
   - component: {fileID: 4388287172634812626}
   - component: {fileID: 3616207488412626288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotateBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6509453400513851361}
   - component: {fileID: 6514411925376283353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6252286883866765224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3739966445276889617}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8548086118721209540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
