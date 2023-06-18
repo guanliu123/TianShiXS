@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class RolePanel : BasePanel
     private static readonly string path = "Prefabs/Panels/RolePanel";
 
     GameObject panel;
-    List<CharacterDatas> players;
+    Dictionary<CharacterType, CharacterMsg> players;
     CharacterType choosePlayer;
 
     public RolePanel() : base(new UIType(path))
@@ -49,7 +50,7 @@ public class RolePanel : BasePanel
 
     public void UpdatePlayerPanel(int index,GameObject panel)
     {
-        choosePlayer = players[index].characterType;
+        choosePlayer = players.ElementAt(index).Key;
         //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
         Transform t = UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel);
         try
@@ -57,10 +58,10 @@ public class RolePanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch{ }
-        GameObject.Instantiate(players[index].characterData.icon,t).transform.parent = t;
-        UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = players[index].characterData.name;
-        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players[index].characterData.describe;
-        UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players[index].characterData.MaxHP;
-        UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + players[index].characterData.Aggressivity;
+        GameObject.Instantiate(players.ElementAt(index).Value.icon,t).transform.parent = t;
+        UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = players.ElementAt(index).Value.name;
+        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
+        //UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players.ElementAt(index).Value.MaxHP;
+        //UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + players.ElementAt(index).Value.Aggressivity;
     }
 }

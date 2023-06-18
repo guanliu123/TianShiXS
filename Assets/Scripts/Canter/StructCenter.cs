@@ -26,9 +26,7 @@ public struct ResourceDatas
 [Serializable]
 public struct CharacterData
 {
-    [Header("角色标签")] public CharacterTag tag;
-    [Header("角色名称")] public string name;
-    [Header("角色立绘")] public GameObject icon;
+    [Header("当前数据所属关卡")] public int levelNum;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
     [Header("角色基础攻击力加成")] public float Aggressivity;
@@ -36,14 +34,23 @@ public struct CharacterData
     [Header("角色减伤率")] public float avoidance;
     [Header("角色死亡增加能量")] public float energy;
     [Header("角色死亡掉落金币")] public int money;
+}
+
+[Serializable]
+public struct CharacterMsg
+{
+    //[Header("角色标签")] public CharacterTag tag;
+    [Header("角色名称")] public string name;
+    [Header("角色立绘")] public GameObject icon;
     [Header("角色描述")] public string describe;
 }
 
 [Serializable]
 public struct CharacterDatas{
     [Header("角色类型")] public CharacterType characterType;
-    
-    public CharacterData characterData;
+    [Header("角色标签")] public CharacterTag characterTag;
+    public CharacterMsg characterMsg;
+    public List<CharacterData> characterData;
 }
 #endregion
 

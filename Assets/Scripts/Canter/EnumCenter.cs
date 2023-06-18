@@ -65,6 +65,7 @@ public enum BulletType
     FireBall,
     RotateBullet,
     BounceBullet,
+    NormalBullet
 }
 
 public enum CameraPointType

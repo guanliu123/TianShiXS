@@ -1,10 +1,29 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NormalBullet : BulletBase
 {
+    private void Awake()
+    {
+        bulletType = BulletType.NormalBullet;
 
+        bulletAction += Move;
+    }
+
+    public override void Move()
+    {
+        gameObject.transform.Translate(-transform.forward * bulletData.moveSpeed * Time.deltaTime);
+    }
+    // Update is called once per frame
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != targetTag) return;
+        AttackCheck(other.gameObject);
+
+        Recovery();
+    }
     /*private void Awake()
     {
         bulletType = BulletType.NormalBullet;

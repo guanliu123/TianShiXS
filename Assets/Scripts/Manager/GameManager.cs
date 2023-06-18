@@ -43,24 +43,24 @@ public class GameManager : BaseManager<GameManager>
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 
-    public List<CharacterDatas> GetPlayerRole()
+    public Dictionary<CharacterType,CharacterMsg> GetPlayerRole()
     {
-        List<CharacterDatas> players = new List<CharacterDatas>();
+        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>();
 
-        foreach(var item in DataManager.GetInstance().characterSO.characterdatas)
+        foreach(var item in DataManager.GetInstance().characterTagDic)
         {
-            if (item.characterData.tag == CharacterTag.Player) players.Add(item);
+            if (item.Value == CharacterTag.Player) players.Add(item.Key,DataManager.GetInstance().characterMsgDic[item.Key]);
         }
 
         playerCount = players.Count;
         return players;
     }
-    public List<CharacterDatas> GetEnemyRole()
+    public List<CharacterMsg> GetEnemyRole()
     {
-        List<CharacterDatas> enemys = new List<CharacterDatas>();
-        foreach(var item in DataManager.GetInstance().characterSO.characterdatas)
+        List<CharacterMsg> enemys = new List<CharacterMsg>();
+        foreach(var item in DataManager.GetInstance().characterTagDic)
         {
-            if (item.characterData.tag == CharacterTag.Enemy) enemys.Add(item);
+            if (item.Value == CharacterTag.Enemy) enemys.Add(DataManager.GetInstance().characterMsgDic[item.Key]);
         }
 
         enemyCount = enemys.Count;

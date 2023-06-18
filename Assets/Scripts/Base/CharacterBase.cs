@@ -95,14 +95,17 @@ public class CharacterBase : MonoBehaviour, IAttack
         bulletTimer.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
     }
 
-    protected void InitData()
+    protected void InitData(bool isPlayer=false)
     {
-        characterData = DataManager.GetInstance().AskCharacterData(characterType);
+        int askNum = isPlayer ? 0 : LevelManager.GetInstance().nowLevelNum;
+        (CharacterTag, CharacterData) t = DataManager.GetInstance().AskCharacterData(characterType,askNum);
+        characterTag = t.Item1;
+        if (characterTag == CharacterTag.Null) Recovery();
+        characterData = t.Item2;
         maxHP = characterData.MaxHP;
         nowHP = maxHP;
         aggressivity = characterData.Aggressivity;
-        ATKSpeed = characterData.ATKSpeed;
-        characterTag = characterData.tag;
+        ATKSpeed = characterData.ATKSpeed;       
 
         if (hpSlider)
         {
@@ -111,7 +114,7 @@ public class CharacterBase : MonoBehaviour, IAttack
 
         foreach (var item in characterData.bulletTypes)
         {
-            Debug.Log(item);
+            //Debug.Log(item);
             if (!nowBullet.ContainsKey(item)) nowBullet.Add(item, BulletManager.GetInstance().BulletDic[item].transmissionFrequency);
             
             //bulletBuff.Add(item, DataManager.GetInstance().AskBulletData(item).buffList);

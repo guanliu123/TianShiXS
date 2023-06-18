@@ -9,7 +9,7 @@ public class HandbookPanel : BasePanel
     private static readonly string path = "Prefabs/Panels/HandbookPanel";
 
     GameObject enemyList;
-    List<CharacterDatas> enemys;
+    List<CharacterMsg> enemys;
     List<SkillDatas> skills;
 
     GameObject skillList;
@@ -67,11 +67,11 @@ public class HandbookPanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch { }
-        GameObject.Instantiate(enemys[index].characterData.icon,t).transform.parent = t;
-        UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = enemys[index].characterData.name;
-        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = enemys[index].characterData.describe;
-        UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量：" + enemys[index].characterData.MaxHP;
-        UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + enemys[index].characterData.Aggressivity;
+        GameObject.Instantiate(enemys[index].icon,t).transform.parent = t;
+        UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = enemys[index].name;
+        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = enemys[index].describe;
+        //UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量：" + enemys[index].MaxHP;
+        //UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + enemys[index].Aggressivity;
     }
 
     public void UpdateSkillPanel(int index, GameObject panel)

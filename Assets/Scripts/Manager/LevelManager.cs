@@ -17,6 +17,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     GameObject boss;
 
+    public int nowLevelNum;
     private LevelData nowLevel;
 
     public int maxStage{ get; private set; }
@@ -52,7 +53,8 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void ChangeLevel(int levelNum)
     {
-        nowLevel = DataManager.GetInstance().AskLevelData(levelNum - 1);
+        nowLevelNum = levelNum - 1;
+        nowLevel = DataManager.GetInstance().AskLevelData(nowLevelNum);
         nowSquares = nowLevel.normalPlanes;
     }
 
@@ -384,7 +386,7 @@ public class LevelManager : BaseManager<LevelManager>
             nowWave = 0;
         }
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Length-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
         if (nowLevel.StageDatas[nowStage].isSpecial != isChange)
         {
             PrepareChangeStage();

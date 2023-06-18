@@ -31,30 +31,30 @@ MonoBehaviour:
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0700000009000000
+        WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
       - StageNum: 1
         isSpecial: 1
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 01000000
+        WaveEnemyNum: 050000000a000000
         WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 05000000
+        WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
       - StageNum: 3
         isSpecial: 1
         isBoss: 1
         BOSSType: 04000000
-        WaveEnemyNum: 02000000
+        WaveEnemyNum: 050000000a00000005000000
         WaveEnemyType: 03000000
   - id: 1
     levelData:
       normalPlanes:
-      - {fileID: 4312907072311862537, guid: c9038384b29359a44b7269bdfa1a5041, type: 3}
+      - {fileID: 8816797910336806648, guid: 482e2ab70ed528c4b8d5f389167c0757, type: 3}
       normalSize:
       - 20
       - 10
@@ -69,25 +69,25 @@ MonoBehaviour:
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0700000009000000
+        WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
       - StageNum: 1
         isSpecial: 1
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0300000004000000
+        WaveEnemyNum: 050000000a000000
         WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 05000000
+        WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
       - StageNum: 3
         isSpecial: 1
         isBoss: 1
         BOSSType: 04000000
-        WaveEnemyNum: 02000000
+        WaveEnemyNum: 050000000a00000005000000
         WaveEnemyType: 03000000
   - id: 2
     levelData:
@@ -107,261 +107,23 @@ MonoBehaviour:
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0700000009000000
+        WaveEnemyNum: 1e000000
         WaveEnemyType: 01000000
       - StageNum: 1
         isSpecial: 1
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 0300000004000000
+        WaveEnemyNum: 0a0000000f000000
         WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 05000000
+        WaveEnemyNum: 1e000000
         WaveEnemyType: 01000000
       - StageNum: 3
         isSpecial: 1
         isBoss: 1
         BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 3
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 4
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 5
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 6
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 7
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 8
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
-        WaveEnemyType: 03000000
-  - id: 9
-    levelData:
-      normalPlanes:
-      - {fileID: 922635258297199597, guid: 5dfe40c214511d742af25f8130df3af8, type: 3}
-      normalSize: []
-      widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
-      widthSize: []
-      skybox: {fileID: 0}
-      StageDatas:
-      - StageNum: 0
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0700000009000000
-        WaveEnemyType: 01000000
-      - StageNum: 1
-        isSpecial: 1
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 0300000004000000
-        WaveEnemyType: 03000000
-      - StageNum: 2
-        isSpecial: 0
-        isBoss: 0
-        BOSSType: 
-        WaveEnemyNum: 05000000
-        WaveEnemyType: 01000000
-      - StageNum: 3
-        isSpecial: 1
-        isBoss: 1
-        BOSSType: 04000000
-        WaveEnemyNum: 02000000
+        WaveEnemyNum: 0a0000000f00000007000000
         WaveEnemyType: 03000000

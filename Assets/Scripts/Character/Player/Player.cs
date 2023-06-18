@@ -20,7 +20,7 @@ public class Player : CharacterBase
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
 
         characterActiveEvent += Attack;
-        InitData();
+        InitData(true);
     }
 
     public void InitPlayer()

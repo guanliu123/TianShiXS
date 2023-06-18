@@ -15,7 +15,9 @@ public class DataManager : BaseManager<DataManager>
     public SkillSO skillSO;
 
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
-    public Dictionary<CharacterType, CharacterData> characterDatasDic=new Dictionary<CharacterType, CharacterData>();
+    public Dictionary<CharacterType, CharacterTag> characterTagDic = new Dictionary<CharacterType, CharacterTag>();
+    public Dictionary<CharacterType, CharacterMsg> characterMsgDic = new Dictionary<CharacterType, CharacterMsg>();
+    private Dictionary<CharacterType, Dictionary<int, CharacterData>> characterDatasDic=new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
     public Dictionary<BulletType, BulletData> bulletDatasDic = new Dictionary<BulletType, BulletData>();
     public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
     private Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
@@ -41,7 +43,13 @@ public class DataManager : BaseManager<DataManager>
         
         foreach(var item in characterSO.characterdatas)
         {
-            characterDatasDic.Add(item.characterType,item.characterData);
+            characterTagDic.Add(item.characterType, item.characterTag);
+            characterMsgDic.Add(item.characterType,item.characterMsg);
+            characterDatasDic.Add(item.characterType, new Dictionary<int, CharacterData>());
+            foreach(var item1 in item.characterData)
+            {
+                if(!characterDatasDic[item.characterType].ContainsKey(item1.levelNum)) characterDatasDic[item.characterType].Add(item1.levelNum, item1);
+            }
         }
         foreach(var item in bulletSO.bulletdatas)
         {
@@ -88,14 +96,20 @@ public class DataManager : BaseManager<DataManager>
         return null;
     }
 
-    public CharacterData AskCharacterData(CharacterType characterType)
+    public (CharacterTag,CharacterData) AskCharacterData(CharacterType characterType,int levelNum)
     {
-        CharacterData t = new CharacterData();
-        t.MaxHP = -1;//初始化的角色获取数据时如果获取到的血量为-1意为没获取到数据
+        CharacterData _data = new CharacterData();
+        CharacterTag _tag=CharacterTag.Null;
 
-        if (characterDatasDic.ContainsKey(characterType)) t = characterDatasDic[characterType];
+        _data.MaxHP = -1;//初始化的角色获取数据时如果获取到的血量为-1意为没获取到数据
 
-        return t;
+        if (characterDatasDic.ContainsKey(characterType) && characterDatasDic[characterType].ContainsKey(levelNum))
+        {
+            _data = characterDatasDic[characterType][levelNum];
+            _tag = characterTagDic[characterType];
+        }
+
+        return (_tag, _data);
     }
 
     public BulletData AskBulletData(BulletType bulletType)

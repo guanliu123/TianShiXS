@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterdatas:
   - characterType: 0
-    characterData:
-      tag: 1
+    characterTag: 1
+    characterMsg:
       name: "\u666E\u901A\u9053\u58EB"
       icon: {fileID: 2282184623380908207, guid: daef4ee12d5c02a408a2de0fb87e470b,
         type: 3}
+      describe: "\u666E\u901A\u7684\u9053\u58EB"
+    characterData:
+    - levelNum: 0
       MaxHP: 100
       bulletTypes: 01000000
       Aggressivity: 0
@@ -26,155 +29,287 @@ MonoBehaviour:
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u666E\u901A\u7684\u9053\u58EB"
   - characterType: 1
-    characterData:
-      tag: 2
+    characterTag: 2
+    characterMsg:
       name: "\u8759\u8760"
       icon: {fileID: 135278714887430197, guid: 5aecc5353370fc442827bccd4435a0a9, type: 3}
-      MaxHP: 40
+      describe: "\u5C0F\u8759\u8760"
+    characterData:
+    - levelNum: 0
+      MaxHP: 30
       bulletTypes: 00000000
-      Aggressivity: 10
-      ATKSpeed: 0
-      avoidance: 0
-      energy: 50
-      money: 2
-      describe: 
-  - characterType: 2
-    characterData:
-      tag: 2
-      name: "\u9E70"
-      icon: {fileID: 2188099221264239445, guid: cea2c562e92284d46ae5bd82667add48,
-        type: 3}
-      MaxHP: 90
-      bulletTypes: 03000000
-      Aggressivity: 0
-      ATKSpeed: 0
-      avoidance: 0
-      energy: 0
-      money: 0
-      describe: 
-  - characterType: 3
-    characterData:
-      tag: 2
-      name: "\u75DE\u8001\u677F"
-      icon: {fileID: 6024530371191068725, guid: 57b7c26381abb194ab191a13a03c0f78,
-        type: 3}
-      MaxHP: 70
-      bulletTypes: 04000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 20
       money: 0
+    - levelNum: 1
+      MaxHP: 30
+      bulletTypes: 00000000
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 20
+      money: 0
+    - levelNum: 2
+      MaxHP: 50
+      bulletTypes: 00000000
+      Aggressivity: 5
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 20
+      money: 0
+  - characterType: 2
+    characterTag: 0
+    characterMsg:
+      name: 
+      icon: {fileID: 0}
       describe: 
-  - characterType: 4
     characterData:
-      tag: 2
-      name: "\u5927\u4ED3\u9F20"
-      icon: {fileID: 3424706476363762940, guid: 542c8c2bc55f82241a5db2cd01d96217,
-        type: 3}
-      MaxHP: 300
-      bulletTypes: 06000000
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: 
-  - characterType: 5
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+  - characterType: 3
+    characterTag: 2
+    characterMsg:
+      name: "\u5927\u773C\u602A"
+      icon: {fileID: 6024530371191068725, guid: 57b7c26381abb194ab191a13a03c0f78,
+        type: 3}
+      describe: "\u5927\u773C\u602A"
     characterData:
-      tag: 2
+    - levelNum: 0
+      MaxHP: 100
+      bulletTypes: 0e000000
+      Aggressivity: 10
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 20
+      money: 0
+    - levelNum: 1
+      MaxHP: 100
+      bulletTypes: 0e000000
+      Aggressivity: 10
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 20
+      money: 0
+    - levelNum: 2
+      MaxHP: 100
+      bulletTypes: 0e000000
+      Aggressivity: 10
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 20
+      money: 0
+  - characterType: 4
+    characterTag: 2
+    characterMsg:
+      name: "\u91D1\u94B1\u9F20"
+      icon: {fileID: 3424706476363762940, guid: 542c8c2bc55f82241a5db2cd01d96217,
+        type: 3}
+      describe: "\u5927\u8001\u9F20"
+    characterData:
+    - levelNum: 0
+      MaxHP: 500
+      bulletTypes: 0e000000
+      Aggressivity: 30
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 1
+      MaxHP: 600
+      bulletTypes: 0e000000
+      Aggressivity: 35
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 2
+      MaxHP: 0
+      bulletTypes: 0e000000
+      Aggressivity: 40
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+  - characterType: 5
+    characterTag: 2
+    characterMsg:
       name: "\u68BC\u674C"
       icon: {fileID: 6375674331755105682, guid: 11f86e98d4464934f9e14f003ee49a48,
         type: 3}
-      MaxHP: 500
-      bulletTypes: 03000000
+      describe: "\u65E0"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: 
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
   - characterType: 6
-    characterData:
-      tag: 1
+    characterTag: 1
+    characterMsg:
       name: "\u9526\u8863\u536B"
       icon: {fileID: 773797340402517829, guid: 155e7a4372502fa45b772199e700be51, type: 3}
-      MaxHP: 100
-      bulletTypes: 03000000
+      describe: "\u4E00\u540D\u9526\u8863\u536B"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u9526\u8863\u536B"
   - characterType: 7
-    characterData:
-      tag: 1
+    characterTag: 1
+    characterMsg:
       name: "\u91D1\u543E\u536B"
       icon: {fileID: 3560538903392072726, guid: fe2e1766622fcdb41af408c4f3b79bc2,
         type: 3}
-      MaxHP: 150
-      bulletTypes: 03000000
+      describe: "\u4E00\u540D\u91D1\u543E\u536B"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u91D1\u543E\u536B"
   - characterType: 8
-    characterData:
-      tag: 1
+    characterTag: 1
+    characterMsg:
       name: "\u4FA0\u5BA2"
       icon: {fileID: 177451940080211410, guid: 4008642a532dd0b44b4be8a7f0af64b3, type: 3}
-      MaxHP: 100
-      bulletTypes: 03000000
+      describe: "\u4E00\u540D\u4FA0\u5BA2"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u4FA0\u5BA2"
   - characterType: 9
-    characterData:
-      tag: 1
+    characterTag: 1
+    characterMsg:
       name: "\u65F6\u5E8F"
       icon: {fileID: 6090987376909151501, guid: 4a3ac524d3c07b4478026d5c478d7b76,
         type: 3}
-      MaxHP: 120
-      bulletTypes: 03000000
+      describe: "\u65E0"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u65F6\u5E8F"
   - characterType: 10
-    characterData:
-      tag: 2
+    characterTag: 2
+    characterMsg:
       name: "\u7384\u9F9F"
       icon: {fileID: 6240000798496081955, guid: bb1d737088808fa47b7ebb72226e7723,
         type: 3}
-      MaxHP: 120
-      bulletTypes: 03000000
+      describe: "\u7384\u9F9F"
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u65F6\u5E8F"
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
   - characterType: 11
-    characterData:
-      tag: 2
+    characterTag: 2
+    characterMsg:
       name: "\u53CC\u722A"
       icon: {fileID: 4021233939321607516, guid: a6b6541d1fe37a84cb604513af314c5e,
         type: 3}
-      MaxHP: 120
-      bulletTypes: 03000000
+      describe: 
+    characterData:
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
       energy: 0
       money: 0
-      describe: "\u65F6\u5E8F"
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
+    - levelNum: 0
+      MaxHP: 0
+      bulletTypes: 
+      Aggressivity: 0
+      ATKSpeed: 0
+      avoidance: 0
+      energy: 0
+      money: 0
