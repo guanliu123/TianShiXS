@@ -136,6 +136,7 @@
     <Compile Include="Assets\Scripts\UI\Application\GameRoot.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\BoxPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\ChestPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\FailPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\GamePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\HandbookPanel.cs" />

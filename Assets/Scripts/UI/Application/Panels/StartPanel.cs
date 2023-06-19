@@ -53,7 +53,7 @@ public class StartPanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Button>("Box_Btn", panel).onClick.AddListener(() =>
         {
-            PanelManager.Instance.Push(new BoxPanel());
+            PanelManager.Instance.Push(new ChestPanel());
         });
 
         if (GameManager.GetInstance().nowLevel == 0)
