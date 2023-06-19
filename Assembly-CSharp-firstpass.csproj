@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B5952608-40CE-C920-8ACA-5914848C7069}</ProjectGuid>
+    <ProjectGuid>{D1DD21B1-B770-540D-D895-C6D99C80D1B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.17</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.29f1c110</UnityVersion>
   </PropertyGroup>
@@ -56,121 +56,23 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\BuffBase.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\BulletCrit.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\BulletMultiply.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\BurnBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\ForstBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\PoisonBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\ReflectBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\ShieldBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\Buff\VampirismBuff.cs" />
-    <Compile Include="Assets\Scripts\BUFF\BuffDoor\BuffDoor.cs" />
-    <Compile Include="Assets\Scripts\Base\BaseManager.cs" />
-    <Compile Include="Assets\Scripts\Base\CharacterBase.cs" />
-    <Compile Include="Assets\Scripts\Base\MonoController.cs" />
-    <Compile Include="Assets\Scripts\Bullet\BounceBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet\BulletBase.cs" />
-    <Compile Include="Assets\Scripts\Bullet\Fanshaped.cs" />
-    <Compile Include="Assets\Scripts\Bullet\FireBall.cs" />
-    <Compile Include="Assets\Scripts\Bullet\FlowerDart.cs" />
-    <Compile Include="Assets\Scripts\Bullet\GasBomb.cs" />
-    <Compile Include="Assets\Scripts\Bullet\LaserBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet\NormalBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet\PerpetualBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet\PoisonousFloor.cs" />
-    <Compile Include="Assets\Scripts\Bullet\RotateBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet\TaiChiDart.cs" />
-    <Compile Include="Assets\Scripts\Bullet\TrackingBullet.cs" />
-    <Compile Include="Assets\Scripts\Canter\EnumCenter.cs" />
-    <Compile Include="Assets\Scripts\Canter\EventCenter.cs" />
-    <Compile Include="Assets\Scripts\Canter\StructCenter.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterStates.cs" />
-    <Compile Include="Assets\Scripts\Character\Enemy\BOSS\BigMouse.cs" />
-    <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Bat.cs" />
-    <Compile Include="Assets\Scripts\Character\Enemy\NormalEnemy\Laser.cs" />
-    <Compile Include="Assets\Scripts\Character\EnemyStates.cs" />
-    <Compile Include="Assets\Scripts\Character\HPSlider.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\TestController.cs" />
-    <Compile Include="Assets\Scripts\Data\BuffSO.cs" />
-    <Compile Include="Assets\Scripts\Data\BulletSO.cs" />
-    <Compile Include="Assets\Scripts\Data\CharacterSO.cs" />
-    <Compile Include="Assets\Scripts\Data\DataCenter.cs" />
-    <Compile Include="Assets\Scripts\Data\LevelSO.cs" />
-    <Compile Include="Assets\Scripts\Data\ResourcepathSO.cs" />
-    <Compile Include="Assets\Scripts\Data\SkillSO.cs" />
-    <Compile Include="Assets\Scripts\Manager\BuffManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\BulletManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\DataManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\LevelManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\MonoManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\MusicManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\PoolManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\ResourceManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\SkillManager.cs" />
-    <Compile Include="Assets\Scripts\Prop\Money.cs" />
-    <Compile Include="Assets\Scripts\Prop\PropBase.cs" />
-    <Compile Include="Assets\Scripts\Skill\SkillBase.cs" />
-    <Compile Include="Assets\Scripts\Skill\Skills.cs" />
-    <Compile Include="Assets\Scripts\Test\ArcList.cs" />
-    <Compile Include="Assets\Scripts\Test\ColorBSC.cs" />
-    <Compile Include="Assets\Scripts\Test\LotterySystem.cs" />
-    <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\Test\ScreenPostEffectBase.cs" />
-    <Compile Include="Assets\Scripts\Test\testlist.cs" />
-    <Compile Include="Assets\Scripts\Test\testmap.cs" />
-    <Compile Include="Assets\Scripts\Test\text.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\GameRoot.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\BoxPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\CharacterPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\FailPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\GamePanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\HandbookPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\LevelPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\MainPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\PausePanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\RolePanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\SkillPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\StartPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\SuccessPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Scene\SceneBase.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\MainScene.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\StartScene.cs" />
-    <Compile Include="Assets\Scripts\UI\EnemyPortraitList.cs" />
-    <Compile Include="Assets\Scripts\UI\FileHelper\FileHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\IndependentUI\FloatDamage.cs" />
-    <Compile Include="Assets\Scripts\UI\LevelPortraitList.cs" />
-    <Compile Include="Assets\Scripts\UI\PlayerPortraitList.cs" />
-    <Compile Include="Assets\Scripts\UI\SkillPortraitList.cs" />
-    <Compile Include="Assets\Scripts\UI\UIFrameWork\BasePanel.cs" />
-    <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\PanelManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIFrameWork\Manager\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIFrameWork\UIType.cs" />
-    <Compile Include="Assets\Scripts\UI\UIFrameWork\UiTools\UITool.cs" />
-    <Compile Include="Assets\Scripts\UI\Utilization\SingletonBase.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Plugins\DOTween\Modules\DOTweenModuleUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TextEffectShader.shader" />
-    <None Include="Assets\CamearEffectShader.shader" />
-    <None Include="Assets\DOTween\DOTween.XML" />
-    <None Include="Assets\DOTween\DOTween.dll" />
-    <None Include="Assets\Resources\Data\Json\Test.txt" />
-    <None Include="Assets\DOTween\readme.txt" />
+    <None Include="Assets\Plugins\ByteGame\com.bytedance.starksdk\starksdk.dll" />
+    <None Include="Assets\Plugins\ByteGame\com.bytedance.starksdk\starksdk.xml" />
+    <None Include="Assets\Plugins\DOTween\DOTween.XML" />
+    <None Include="Assets\Plugins\DOTween\DOTween.dll" />
+    <None Include="Assets\Plugins\ByteGame\bgdt.txt" />
+    <None Include="Assets\Plugins\LitJson.dll" />
+    <None Include="Assets\Plugins\DOTween\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -369,7 +271,7 @@
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
+      <HintPath>Assets\Plugins\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\UnityEdit\2019.4.29f1c110\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
