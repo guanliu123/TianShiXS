@@ -127,7 +127,7 @@
     <Compile Include="Assets\Scripts\Skill\Skills.cs" />
     <Compile Include="Assets\Scripts\Test\ArcList.cs" />
     <Compile Include="Assets\Scripts\Test\ColorBSC.cs" />
-    <Compile Include="Assets\Scripts\Test\LotterySystem.cs" />
+    <Compile Include="Assets\Scripts\Test\LootSystem.cs" />
     <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Test\ScreenPostEffectBase.cs" />
     <Compile Include="Assets\Scripts\Test\testlist.cs" />
@@ -359,6 +359,9 @@
     <Reference Include="UnityEditor">
       <HintPath>E:\UnityEdit\2019.4.29f1c110\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="LitJson">
       <HintPath>Assets\Plugins\LitJson.dll</HintPath>
     </Reference>
@@ -367,9 +370,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\UnityEdit\2019.4.29f1c110\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

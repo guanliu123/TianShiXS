@@ -12,7 +12,7 @@ public class Item
             this.weight = weight;
         }
     }
-public class LotterySystem : MonoBehaviour
+public class LootSystem : MonoBehaviour
 {
     private int[] weight;
 
