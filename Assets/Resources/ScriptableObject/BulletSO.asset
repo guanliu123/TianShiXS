@@ -120,7 +120,7 @@ MonoBehaviour:
       shootProbability: 1
   - bulletType: 7
     bulletData:
-      transmissionFrequency: 3
+      transmissionFrequency: 6
       isRandomShoot: 0
       existTime: 5
       moveSpeed: 7
@@ -210,7 +210,7 @@ MonoBehaviour:
       shootProbability: 1
   - bulletType: 14
     bulletData:
-      transmissionFrequency: 2
+      transmissionFrequency: 1
       isRandomShoot: 1
       existTime: 2
       moveSpeed: 20

@@ -213,6 +213,7 @@ public class LevelManager : BaseManager<LevelManager>
         else
         {
             nowSquares = nowLevel.normalPlanes;
+            BulletManager.GetInstance().ClearExistBullet();
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().LockMove();
         }
@@ -257,8 +258,7 @@ public class LevelManager : BaseManager<LevelManager>
         }
         else
         {
-            GameManager.GetInstance().PlayerReset();
-            mapSize = nowLevel.normalSize;
+            mapSize = nowLevel.normalSize;            
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
 
             /*smoke = PoolManager.GetInstance().GetObj("Smoke");
@@ -325,11 +325,12 @@ public class LevelManager : BaseManager<LevelManager>
                     _newPoint = InstantRandomPoint(ground);
                 }while (enemyPoints.Contains(_newPoint));
 
+                enemyPoints.Add(_newPoint);
                 t.transform.position = _newPoint;
                 //t.transform.parent = ground.transform;
                 t.transform.parent = enemyList.transform;
 
-                Debug.Log("enemypos" + _newPoint);
+                //Debug.Log("enemypos" + _newPoint);
                 enemyList.transform.parent = ground.transform;
             }
             else
@@ -340,6 +341,7 @@ public class LevelManager : BaseManager<LevelManager>
                     _newPoint = InstantRandomPoint();
                 } while (enemyPoints.Contains(_newPoint));
 
+                enemyPoints.Add(_newPoint);
                 t.transform.position = _newPoint;
             }
             requireEnemy--;

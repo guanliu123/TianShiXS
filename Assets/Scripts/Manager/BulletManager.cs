@@ -8,6 +8,7 @@ public class BulletManager : BaseManager<BulletManager>
 {
     //存储每种子弹数据
     public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
+    public Dictionary<BulletType, List<BuffType>> evolvableBuffDic = new Dictionary<BulletType, List<BuffType>>();
     //存每种子弹先挂载效果的层数
     public Dictionary<BulletType, Dictionary<BuffType, int>> BulletBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();
 
@@ -38,6 +39,7 @@ public class BulletManager : BaseManager<BulletManager>
                     BulletBuffs[item.Key].Add(t, 1);
                 }
             }
+            if (!evolvableBuffDic.ContainsKey(item.Key)) evolvableBuffDic.Add(item.Key, item.Value.evolvableList);
             increaseBuffs.Add(item.Key, new Dictionary<BuffType, int>());
             increaseProbability.Add(item.Key, 0);
             increaseATK.Add(item.Key, 0);
@@ -55,13 +57,18 @@ public class BulletManager : BaseManager<BulletManager>
         increaseShootTimer.Clear();
         haveSpecialEvolved.Clear();
 
-        for(int i = 0; i < bulletList.Count; i++)
+        ClearExistBullet();
+
+        Init();
+    }
+
+    public void ClearExistBullet()
+    {
+        for (int i = 0; i < bulletList.Count; i++)
         {
             if (bulletList[i] != null) GameObject.Destroy(bulletList[i]);
         }
         bulletList.Clear();
-
-        Init();
     }
 
     public void BulletLauncher(Transform shooter, BulletType bulletType, float aggressivity, GameObject attacker)
@@ -197,6 +204,7 @@ public class BulletManager : BaseManager<BulletManager>
 
     public void BulletEvolute(BuffType evolutionType, BulletType bulletType)
     {
+        if (!evolvableBuffDic.ContainsKey(bulletType) || !evolvableBuffDic[bulletType].Contains(evolutionType)) return;
         if (!increaseBuffs[bulletType].ContainsKey(evolutionType)) increaseBuffs[bulletType].Add(evolutionType, 1);
         else increaseBuffs[bulletType][evolutionType]++;
         //if (!BulletDic[bulletType].evolvableList.Contains(evolutionType)) return;

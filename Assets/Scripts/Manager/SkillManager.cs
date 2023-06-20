@@ -26,12 +26,12 @@ public class SkillManager : BaseManager<SkillManager>
     {
         foreach (var item in skillSO.skilldatas)
         {
+            if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
             if (item.num > 0 && item.beforeSkills.Count <= 0)
             {
                 skillPool.Add(item.id, item.num);
                 occurredSkill.Add(item.id, 1);
-            }
-            if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
+            }            
         }
     }
 

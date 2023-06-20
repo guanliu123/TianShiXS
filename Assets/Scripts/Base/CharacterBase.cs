@@ -90,7 +90,11 @@ public class CharacterBase : MonoBehaviour, IAttack
 
     public void AddBullet(BulletType bulletType)
     {
-        if (nowBullet.ContainsKey(bulletType)) return;
+        if (nowBullet.ContainsKey(bulletType))
+        {
+            BulletManager.GetInstance().BulletEvolute(BuffType.Multiply,bulletType);
+            return;
+        }
         nowBullet.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
         bulletTimer.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
     }

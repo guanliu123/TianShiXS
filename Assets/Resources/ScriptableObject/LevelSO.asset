@@ -21,7 +21,7 @@ MonoBehaviour:
       - 20
       - 10
       widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
+      - {fileID: 7910480526416482539, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
       widthSize:
       - 20
       - 40
@@ -37,7 +37,7 @@ MonoBehaviour:
         isSpecial: 1
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 05000000
+        WaveEnemyNum: 050000000a000000
         WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
       - 20
       - 10
       widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
+      - {fileID: 7910480526416482539, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
       widthSize:
       - 20
       - 40
@@ -97,7 +97,7 @@ MonoBehaviour:
       - 20
       - 10
       widthPlanes:
-      - {fileID: 4544165145979192250, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
+      - {fileID: 7910480526416482539, guid: 8baa30b14d6166c409949afe0ac94111, type: 3}
       widthSize:
       - 20
       - 40
