@@ -57,7 +57,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
         set
         {
             //在这里限制选择的索引在List范围内
-            if (value > GameManager.GetInstance().playerCount - 1)
+            if (value >= GameManager.GetInstance().playerCount)
             {
                 value = 0;
             }

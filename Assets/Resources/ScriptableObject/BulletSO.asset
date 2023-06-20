@@ -75,9 +75,9 @@ MonoBehaviour:
       shootProbability: 1
   - bulletType: 4
     bulletData:
-      transmissionFrequency: 3
+      transmissionFrequency: 6
       isRandomShoot: 0
-      existTime: 1.5
+      existTime: 2
       moveSpeed: 0
       rotateSpeed: 1
       buffList: 05000000
@@ -120,10 +120,10 @@ MonoBehaviour:
       shootProbability: 1
   - bulletType: 7
     bulletData:
-      transmissionFrequency: 3
+      transmissionFrequency: 2
       isRandomShoot: 0
-      existTime: 5
-      moveSpeed: 7
+      existTime: 0.5
+      moveSpeed: 5
       rotateSpeed: 0
       buffList: 05000000
       evolvableList: 
@@ -147,7 +147,7 @@ MonoBehaviour:
       ATK: 13
       damageInterval: 0
       isFollowShooter: 0
-      shootProbability: 0.5
+      shootProbability: 0.3
   - bulletType: 10
     bulletData:
       transmissionFrequency: 2
@@ -210,10 +210,10 @@ MonoBehaviour:
       shootProbability: 1
   - bulletType: 14
     bulletData:
-      transmissionFrequency: 2
+      transmissionFrequency: 5
       isRandomShoot: 1
       existTime: 2
-      moveSpeed: 20
+      moveSpeed: 15
       rotateSpeed: 0
       buffList: 
       evolvableList: 
