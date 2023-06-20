@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6971044789690958967}
   - component: {fileID: -9217735092596939606}
   - component: {fileID: 3347736820611414352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GasBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

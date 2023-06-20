@@ -13,7 +13,7 @@ public class BounceBullet : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.TaiChiDart;
+        bulletType = BulletType.BounceBullet;
         bulletData = DataManager.GetInstance().AskBulletData(bulletType);
 
         bulletAction += Move;
@@ -60,7 +60,7 @@ public class BounceBullet : BulletBase
     private void OnTriggerEnter(Collider other)
     {
         if (bounceNum <= 0) Recovery();
-        if (other.tag == targetTag)
+        if (other.tag != ignoreTag)
         {
             moveDir = Vector3.Reflect(Vector3.forward, other.transform.position.normalized);
             moveDir = moveDir.normalized;

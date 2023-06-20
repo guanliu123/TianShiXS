@@ -21,5 +21,4 @@ public class Laser : CharacterBase
         characterPassiveEvent += CheckDistance;
         characterActiveEvent += Attack;     
     }
-
 }

@@ -37,7 +37,7 @@ MonoBehaviour:
         isSpecial: 1
         isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 050000000a000000
+        WaveEnemyNum: 05000000
         WaveEnemyType: 03000000
       - StageNum: 2
         isSpecial: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5810368052078000538}
   - component: {fileID: 5810368052078000537}
   - component: {fileID: 5810368052078000536}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5810368052285915847}
   - component: {fileID: -2373365372479251597}
   - component: {fileID: 4305767916675645222}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaserBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

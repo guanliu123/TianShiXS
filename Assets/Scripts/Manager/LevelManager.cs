@@ -395,17 +395,20 @@ public class LevelManager : BaseManager<LevelManager>
 
     Vector3 InstantRandomPoint(GameObject parent)
     {
-        int[] _numbers = {-9, -6, -3, 0, 3, 6, 9};
-        int _randNum;
+        float[] _znumbers = {-5, -3, 3, 5};
+        float[] _xnumbers = { -2.5f, 0,2.5f };
+        float _randNum;
 
-        _randNum = _numbers[Random.Range(_numbers.Length / 2 - 1, _numbers.Length / 2 + 2)];
+        _randNum = _znumbers[Random.Range(0, _znumbers.Length)];
+        _randNum = Mathf.Clamp(_randNum, -mapSize[1] / 2, mapSize[1] / 2);
+        float _z = parent.transform.position.z + _randNum;
+
+        _randNum = _xnumbers[Random.Range(_xnumbers.Length / 2 - 1, _xnumbers.Length / 2 + 2)];       
+        _randNum = Mathf.Clamp(_randNum, -mapSize[1] / 2, mapSize[1] / 2);
+        float _x = parent.transform.position.x + _randNum;
 
         //float _x = parent.transform.position.x + Random.Range(-mapSize[1] / 2, mapSize[1] / 2);
         //float _z = parent.transform.position.z + Random.Range(-mapSize[0] / 2, mapSize[0] / 2);
-
-        float _x = parent.transform.position.x + _randNum;
-        _randNum = _numbers[Random.Range(0, _numbers.Length)];
-        float _z = parent.transform.position.z + _randNum;
 
         return new Vector3(_x, 0, _z);
     }

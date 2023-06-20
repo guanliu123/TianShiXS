@@ -12,7 +12,7 @@ public class LaserBullet : BulletBase
 {
     private Dictionary<GameObject, float> unAttachable = new Dictionary<GameObject, float>();
     GameObject targetObj;
-    float attackTimer;
+    //float attackTimer;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class LaserBullet : BulletBase
     void Update()
     {
         base.Update();
-        if (targetTag == CharacterTag.Player.ToString())
+        /*if (targetTag == CharacterTag.Player.ToString())
         {
             targetObj = Player._instance.gameObject;
         }
@@ -34,12 +34,13 @@ public class LaserBullet : BulletBase
         {
             if (GameManager.GetInstance().enemyList.Count <= 0) return;
             targetObj = GameManager.GetInstance().enemyList[0];
-        }
+        }*/
     }
 
     public override void OnEnter()
     {
-        attackTimer = 0f;
+        base.OnEnter();
+        //attackTimer = 0f;
     }
 
     private void AttckInterval()
@@ -58,7 +59,7 @@ public class LaserBullet : BulletBase
         }
     }
 
-    public override void Rotat()
+    /*public override void Rotat()
     {
         if (targetObj == null) return;
         Vector3 direction = targetObj.transform.position - transform.position;
@@ -69,7 +70,7 @@ public class LaserBullet : BulletBase
 
         // 旋转物体
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * bulletData.rotateSpeed);
-    }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
@@ -77,41 +78,4 @@ public class LaserBullet : BulletBase
         AttackCheck(other.gameObject);
         unAttachable.Add(other.gameObject, bulletData.damageInterval);
     }
-
-    /*protected override void AttackCheck()
-    {
-        if (attackTimer > 0)
-        {
-            attackTimer -= Time.deltaTime;
-            return;
-        }
-        for (int i = 0; i < checkPoints.Count - 1; i++)
-        {
-            Ray ray = new Ray(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position);
-            float distance = (checkPoints[i + 1].transform.position - checkPoints[i].transform.position).magnitude;
-            RaycastHit hit;
-            Debug.DrawRay(checkPoints[i].transform.position, checkPoints[i + 1].transform.position - checkPoints[i].transform.position * distance);
-
-            if (Physics.Raycast(ray, out hit, distance, ignoreObj))
-            {
-                IAttack targetIAttck = hit.collider.gameObject.GetComponent<IAttack>();
-                if (targetIAttck == null) return;
-
-                foreach (var item in nowBuffs)
-                {
-                    targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
-                }
-
-                if (isCrit)
-                {
-                    targetIAttck.ChangeHealth(attacker, -bulletData.ATK *
-                        (1 + (float)(bulletData.critRate + GameManager.GetInstance().critRate) / 100), HPType.Crit);
-                    isCrit = false;
-                }
-                else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
-
-                attackTimer = bulletData.damageInterval;
-            }
-        }
-    }*/
 }

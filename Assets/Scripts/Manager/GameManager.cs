@@ -26,6 +26,7 @@ public class GameManager : BaseManager<GameManager>
 
     public List<GameObject> enemyList = new List<GameObject>();
     public List<GameObject> floatDamageList = new List<GameObject>();
+    public List<GameObject> bulletList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
 
@@ -96,7 +97,7 @@ public class GameManager : BaseManager<GameManager>
         
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
-        player.transform.GetChild(0).gameObject.SetActive(true);
+        //player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
         
         playerObj.transform.parent = player.transform;
@@ -123,9 +124,9 @@ public class GameManager : BaseManager<GameManager>
     public void QuitGame()
     {
         GameObject player = Player._instance.gameObject;
-        player.transform.GetChild(0).gameObject.SetActive(false);
+        //player.transform.GetChild(0).gameObject.SetActive(false);
 
-        for (int i = 1; player != null && i < player.transform.childCount; i++)
+        for (int i = 0; player != null && i < player.transform.childCount; i++)
         {
             var child = player.transform.GetChild(i).gameObject;
             GameObject.Destroy(child);
@@ -136,7 +137,7 @@ public class GameManager : BaseManager<GameManager>
             GameObject.Destroy(enemyList[i]);
         }
         enemyList.Clear();
-
+        
         BulletManager.GetInstance().Reset();
         PoolManager.GetInstance().Reset();
         LevelManager.GetInstance().Reset();
@@ -163,13 +164,20 @@ public class GameManager : BaseManager<GameManager>
     }
     public void LockMove()
     {
-        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
-        t.canMove = false;
+        //PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
+        MonoManager.GetInstance().AddUpdateListener(ControllerLock);
     }
     public void UnlockMove()
     {
+        MonoManager.GetInstance().RemoveUpdeteListener(ControllerLock);
         PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = true;
+    }
+
+    private void ControllerLock()
+    {
+        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
+        t.canMove = false;
     }
 
     public void SwitchMode()

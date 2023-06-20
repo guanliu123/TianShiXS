@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NormalBullet : BulletBase
 {
+    GameObject targetObj;
+
     private void Awake()
     {
         bulletType = BulletType.NormalBullet;
@@ -12,8 +14,29 @@ public class NormalBullet : BulletBase
         bulletAction += Move;
     }
 
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        targetObj = null;
+    }
+
+    private void Aim()
+    {
+        if (targetTag == CharacterTag.Player.ToString())
+        {
+            targetObj = Player._instance.gameObject;
+        }
+        else if (targetTag == CharacterTag.Enemy.ToString())
+        {
+            if (GameManager.GetInstance().enemyList.Count <= 0) return;
+            targetObj = GameManager.GetInstance().enemyList[0];
+        }
+        transform.LookAt(targetObj.transform);
+    }
+
     public override void Move()
     {
+        if (!targetObj) Aim();
         gameObject.transform.Translate(-transform.forward * bulletData.moveSpeed * Time.deltaTime);
     }
     // Update is called once per frame
@@ -24,26 +47,4 @@ public class NormalBullet : BulletBase
 
         Recovery();
     }
-    /*private void Awake()
-    {
-        bulletType = BulletType.NormalBullet;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        base.Update();
-    }
-
-    protected override void AttackCheck()
-    {
-        float radius = 0.5f;
-        Collider[] hits = Physics.OverlapSphere(this.transform.position, radius, enemyBulletMask);
-        if (hits.Length > 0)
-        {
-            targetIAttck = hits[0].gameObject.GetComponentInParent<IAttack>();
-            targetIAttck.TakeDamage(increaseATK);
-
-            //RetrieveInstant();
-        }
-    }*/
 }

@@ -14,41 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 offset;
 
-    //#if UNITY_STANDALONE_WIN
-    /*private void Update()
-    {
-        if (!canMove) return;
-        if (Input.GetMouseButtonDown(0))
-        {
-            isDragging = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-        }
-        if (isDragging)
-        {
-            if (Mathf.Abs(Input.GetAxis("Mouse X")) <= 0.001) return;
-            if (isHorizontalMode)
-            {
-                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X") *0.3f, 1, -1);
-                offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
-
-                transform.position = offset;
-            }
-            else
-            {
-
-                Vector3 offset = new Vector3(transform.position.x + Input.GetAxis("Mouse X") * 0.3f, 1, transform.position.z + Input.GetAxis("Mouse Y") * 0.3f);
-                offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
-                offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 3f, LevelManager.GetInstance().mapSize[0] / 3 - 5f);
-
-                transform.position = offset;
-            }
-
-        }
-
-    }*/
     private void OnEnable()
     {
         Input.ResetInputAxes();
@@ -60,7 +25,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!canMove) return;
+        if (!canMove)
+        {
+            offset = transform.position;
+            return;
+        }
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);

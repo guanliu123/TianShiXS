@@ -60,18 +60,21 @@ namespace EnemyStates {
     public class LaserIdleState : ICharacterState
     {
         CharacterBase character;
+        bool canMove;
         bool isMove;
+        
         float moveSpeed = 2f;
         float rotateSpeed = 1f;
         Vector3 target;
 
-        public LaserIdleState(CharacterBase character)
+        public LaserIdleState(CharacterBase _character)
         {
-            this.character = character;
+            character = _character;
         }
 
         public void OnEnter()
         {
+            canMove = true;
             isMove = false;
         }
 
@@ -82,6 +85,7 @@ namespace EnemyStates {
 
         public void OnUpdate()
         {
+            if (!character.canActive) return;
             Vector3 direction = Player._instance.gameObject.transform.position - character.transform.position;
             direction.y = 0; // 只在水平面上旋转
 
@@ -94,11 +98,7 @@ namespace EnemyStates {
             if (!isMove)
             {
                 float randomDistance;
-                do
-                {
-                    randomDistance = Random.Range(-5, 5) + character.transform.position.x;
-
-                } while (Mathf.Abs(randomDistance) >= 4.5f);
+                randomDistance = Mathf.Clamp(Random.Range(-5, 5)+character.transform.position.x, -LevelManager.GetInstance().mapSize[1]/2, LevelManager.GetInstance().mapSize[1]/2);
                 target = new Vector3(randomDistance, character.transform.position.y, character.transform.position.z);
 
                 isMove = true;

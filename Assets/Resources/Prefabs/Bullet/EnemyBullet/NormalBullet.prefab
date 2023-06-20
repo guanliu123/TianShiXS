@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5924513189258874796}
   - component: {fileID: 5376259353733735709}
   - component: {fileID: 436517640519160234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NormalBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,10 +137,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -2090045992641399031, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
         type: 3}
       propertyPath: m_Name
       value: "\u5149\u6807"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249601072385645600, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399140945905269417, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976678537949068160, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a2e6d7d62d8a4fa7ddd55c9eea4a2, type: 3}

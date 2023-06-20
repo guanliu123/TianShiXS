@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2940051735393748969}
   - component: {fileID: -9178885204614599764}
   - component: {fileID: 1495612761638453590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PoisonousFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
