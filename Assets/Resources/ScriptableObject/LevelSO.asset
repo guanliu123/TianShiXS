@@ -54,7 +54,7 @@ MonoBehaviour:
   - id: 1
     levelData:
       normalPlanes:
-      - {fileID: 8816797910336806648, guid: 482e2ab70ed528c4b8d5f389167c0757, type: 3}
+      - {fileID: 7070447885587930642, guid: fb7696a67114ef14094ecdb47e123cfa, type: 3}
       normalSize:
       - 20
       - 10
