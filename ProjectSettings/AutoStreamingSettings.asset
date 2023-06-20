@@ -23,8 +23,8 @@ AutoStreamingSettings:
     useCCD: 0
     uosSecret: 780adaedfae844da96365c83c80c2905
     uosAppid: 052e9d1c-8bbb-4fa8-88c3-273217994988
-    bucketUuid: c91c5c71-f5a4-4d3b-b930-3dd53778c70c
-    bucketName: Test7
+    bucketUuid: 1a72b623-c6ca-484f-adf1-269ccf3634d6
+    bucketName: Test8
     badgeName: v1
     ttAppid: 
     targetPlatfrom: Bytedance
