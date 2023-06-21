@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,10 +22,16 @@ public class PausePanel : BasePanel
         for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
         {
             GameObject t = PoolManager.GetInstance().GetObj("SkillTag");
-            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons[i];
+            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
             t.transform.position = content.position;
             t.transform.SetParent(content);
             skillIcons.Add(t);
+        }
+
+        if (skillIcons.Count > 0)
+        {
+            float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
+            content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
         }
 
         Time.timeScale = 0;

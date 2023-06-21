@@ -15,7 +15,7 @@ public class SkillManager : BaseManager<SkillManager>
     public Dictionary<int, SkillDatas> skillDatas=new Dictionary<int, SkillDatas>();
     public Dictionary<int, ISkill> skillEvent = new Dictionary<int, ISkill>();
 
-    public List<Sprite> nowSkillIcons = new List<Sprite>();
+    public Dictionary<int,Sprite> nowSkillIcons = new Dictionary<int, Sprite>();
     public SkillManager(){
         skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
@@ -46,7 +46,8 @@ public class SkillManager : BaseManager<SkillManager>
     }
 
     public void UpdateSkillPool(int usedId)
-    {        
+    {
+        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, skillDatas[usedId].icon[0]);
         int n = skillPool[usedId] - 1;       
         if (n <= 0) skillPool.Remove(usedId);
         else skillPool[usedId]--;
@@ -54,7 +55,6 @@ public class SkillManager : BaseManager<SkillManager>
         if (!occurredSkill.ContainsKey(usedId))
         {
             occurredSkill.Add(usedId, 1);
-            nowSkillIcons.Add(skillDatas[usedId].icon[0]);
         }
         else occurredSkill[usedId]++;
 

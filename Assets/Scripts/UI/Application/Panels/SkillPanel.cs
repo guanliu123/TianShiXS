@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UIFrameWork;
-
+using System.Linq;
 
 public class SkillPanel : BasePanel
 {
@@ -28,25 +28,31 @@ public class SkillPanel : BasePanel
         Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
         for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
         {
-           GameObject t =  PoolManager.GetInstance().GetObj("SkillTag");
-            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons[i];
+            GameObject t = PoolManager.GetInstance().GetObj("SkillTag");
+            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
             t.transform.position = content.position;
             t.transform.SetParent(content);
             skillIcons.Add(t);
-        }       
+        }
+
+        if (skillIcons.Count > 0)
+        {
+            float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
+            content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
+        }
 
         List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
-        for(int i = 1; i <= 3; i++)
+        for (int i = 1; i <= 3; i++)
         {
-            UITool.GetOrAddComponentInChildren<Image>("Skill_Icon" + i, panel).sprite=su[i-1].icon;
+            UITool.GetOrAddComponentInChildren<Image>("Skill_Icon" + i, panel).sprite = su[i - 1].icon;
             var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn" + i, panel);
-            t.GetComponentInChildren<Text>().text = su[i - 1].describe;           
+            t.GetComponentInChildren<Text>().text = su[i - 1].describe;
 
             SkillPromote(t, i, su);
         }
     }
 
-    void SkillPromote(Button button, int parameter,List<SkillUpgrade> su)
+    void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
     {
         button.onClick.AddListener(delegate {
             su[parameter - 1].skill.OnUse();
@@ -64,7 +70,7 @@ public class SkillPanel : BasePanel
     public override void OnExit()
     {
         base.OnExit();
-        for(int i = 0; i < skillIcons.Count; i++)
+        for (int i = 0; i < skillIcons.Count; i++)
         {
             PoolManager.GetInstance().PushObj("SkillTag", skillIcons[i]);
         }

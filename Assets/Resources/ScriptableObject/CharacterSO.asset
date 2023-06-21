@@ -42,7 +42,7 @@ MonoBehaviour:
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
-      energy: 20
+      energy: 100
       money: 2
     - levelNum: 1
       MaxHP: 30

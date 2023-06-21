@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8336797464794656216}
   - component: {fileID: 8819862886966332644}
-  - component: {fileID: 2382718790253799702}
+  - component: {fileID: 3254630885976938880}
   m_Layer: 5
   m_Name: SkillList
   m_TagString: Untagged
@@ -49,22 +49,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2281543152925253749}
   m_CullTransparentMesh: 0
---- !u!111 &2382718790253799702
-Animation:
+--- !u!95 &3254630885976938880
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2281543152925253749}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 74a1f4144b9e71c428fca9565ed79884, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 74a1f4144b9e71c428fca9565ed79884, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75c3a0e6a933f264fa771af4b2260314, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2322190597928297217
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +334,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5677399058358855083}
   m_HandleRect: {fileID: 4056547482298942305}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.98539704
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -610,7 +613,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_Spacing: 45
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
