@@ -30,8 +30,8 @@ public class PausePanel : BasePanel
 
         if (skillIcons.Count > 0)
         {
-            float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
-            content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
+            //float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
+            //content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
         }
 
         Time.timeScale = 0;
