@@ -48,19 +48,20 @@ public class RolePanel : BasePanel
     }
 
 
-    public void UpdatePlayerPanel(int index,GameObject panel)
+    public void UpdatePlayerPanel(int index,GameObject playerPanel)
     {
         choosePlayer = players.ElementAt(index).Key;
         //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
-        Transform t = UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel);
+        Transform t = UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", playerPanel);
         try
         {
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch{ }
         GameObject.Instantiate(players.ElementAt(index).Value.icon,t).transform.parent = t;
-        UITool.GetOrAddComponentInChildren<Text>("RoleName", panel).text = players.ElementAt(index).Value.name;
-        UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
+        UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;     
+
+        //UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
         //UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players.ElementAt(index).Value.MaxHP;
         //UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + players.ElementAt(index).Value.Aggressivity;
     }
