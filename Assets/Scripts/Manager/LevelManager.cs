@@ -260,12 +260,11 @@ public class LevelManager : BaseManager<LevelManager>
         {
             mapSize = nowLevel.normalSize;            
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
-
+            GameManager.GetInstance().UnlockMove();
             /*smoke = PoolManager.GetInstance().GetObj("Smoke");
             smoke.transform.position= new Vector3(0, -6, 40);*/
         }
-        GameManager.GetInstance().SwitchMode();
-        GameManager.GetInstance().UnlockMove();
+        GameManager.GetInstance().SwitchMode();        
     }
 
     /// <summary>
@@ -382,7 +381,7 @@ public class LevelManager : BaseManager<LevelManager>
             if (nowStage >= nowLevel.StageDatas.Count)
             {
                 //Ω· ¯”Œœ∑               
-                PanelManager.Instance.Push(new SuccessPanel());
+                PanelManager.Instance.Push(new VictoryPanel());
                 return;
             }         
             nowWave = 0;

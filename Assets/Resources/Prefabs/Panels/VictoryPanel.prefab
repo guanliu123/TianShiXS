@@ -546,9 +546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1500
-
-'
+  m_Text: 1500
 --- !u!114 &15190275959895827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000081062, y: 211.96}
+  m_AnchoredPosition: {x: -0.000041008, y: 668.59}
   m_SizeDelta: {x: 1079.9998, y: 423.91516}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6181815535546634707
@@ -1167,7 +1165,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1132, y: 1953}
+  m_SizeDelta: {x: 1200, y: 2850.8857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6181815535546634704
 CanvasRenderer:
@@ -1286,6 +1284,7 @@ GameObject:
   - component: {fileID: 6181815535881144739}
   - component: {fileID: 6181815535881144737}
   - component: {fileID: 6181815535881144738}
+  - component: {fileID: 1095329132286216645}
   m_Layer: 5
   m_Name: VictoryPanel
   m_TagString: Untagged
@@ -1353,6 +1352,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!111 &1095329132286216645
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181815535881144748}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7de43360d574d814691354c43c9e3688, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7de43360d574d814691354c43c9e3688, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6181815535924267938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000068216, y: -300.28003}
+  m_AnchoredPosition: {x: 0.000068216, y: -489}
   m_SizeDelta: {x: 1080, y: 601.2932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6181815536632367690

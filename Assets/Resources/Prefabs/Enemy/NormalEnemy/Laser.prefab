@@ -1059,9 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData:
-    tag: 0
-    name: 
-    icon: {fileID: 0}
+    levelNum: 0
     MaxHP: 0
     bulletTypes: 
     Aggressivity: 0
@@ -1069,7 +1067,6 @@ MonoBehaviour:
     avoidance: 0
     energy: 0
     money: 0
-    describe: 
   characterType: 0
   characterTag: 0
   maxHP: 0

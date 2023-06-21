@@ -43,7 +43,7 @@ MonoBehaviour:
       ATKSpeed: 0
       avoidance: 0
       energy: 20
-      money: 0
+      money: 2
     - levelNum: 1
       MaxHP: 30
       bulletTypes: 00000000
@@ -59,7 +59,7 @@ MonoBehaviour:
       ATKSpeed: 0
       avoidance: 0
       energy: 20
-      money: 0
+      money: 2
   - characterType: 2
     characterTag: 0
     characterMsg:
@@ -106,7 +106,7 @@ MonoBehaviour:
       ATKSpeed: 0
       avoidance: 0
       energy: 20
-      money: 0
+      money: 2
     - levelNum: 1
       MaxHP: 100
       bulletTypes: 0e000000
@@ -195,8 +195,8 @@ MonoBehaviour:
       describe: "\u4E00\u540D\u9526\u8863\u536B"
     characterData:
     - levelNum: 0
-      MaxHP: 0
-      bulletTypes: 
+      MaxHP: 100
+      bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
       describe: "\u4E00\u540D\u91D1\u543E\u536B"
     characterData:
     - levelNum: 0
-      MaxHP: 0
-      bulletTypes: 
+      MaxHP: 100
+      bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
@@ -226,8 +226,8 @@ MonoBehaviour:
       describe: "\u4E00\u540D\u4FA0\u5BA2"
     characterData:
     - levelNum: 0
-      MaxHP: 0
-      bulletTypes: 
+      MaxHP: 100
+      bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
       describe: "\u65E0"
     characterData:
     - levelNum: 0
-      MaxHP: 0
-      bulletTypes: 
+      MaxHP: 100
+      bulletTypes: 01000000
       Aggressivity: 0
       ATKSpeed: 0
       avoidance: 0

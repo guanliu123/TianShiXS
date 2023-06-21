@@ -37,14 +37,14 @@ public class RolePanel : BasePanel
         {
             GameManager.GetInstance().ChangeRole(choosePlayer);
         });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
-        {
-            t.LeftButton_Click();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        {
-            t.RightButton_Click();
-        });
+        //UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
+        //{
+        //    t.LeftButton_Click();
+        //});
+        //UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
+        //{
+        //    t.RightButton_Click();
+        //});
     }
 
 

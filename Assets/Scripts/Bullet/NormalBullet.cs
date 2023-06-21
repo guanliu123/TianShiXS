@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class NormalBullet : BulletBase
 {
     GameObject targetObj;
+    float rotateTimer;
 
     private void Awake()
     {
@@ -31,13 +33,13 @@ public class NormalBullet : BulletBase
             if (GameManager.GetInstance().enemyList.Count <= 0) return;
             targetObj = GameManager.GetInstance().enemyList[0];
         }
-        transform.LookAt(targetObj.transform);
+        transform.LookAt(targetObj.transform.position);
     }
 
     public override void Move()
     {
         if (!targetObj) Aim();
-        gameObject.transform.Translate(-transform.forward * bulletData.moveSpeed * Time.deltaTime);
+        gameObject.transform.Translate(Vector3.forward * bulletData.moveSpeed * Time.deltaTime);
     }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)

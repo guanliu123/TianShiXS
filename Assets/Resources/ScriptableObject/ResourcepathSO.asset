@@ -79,6 +79,8 @@ MonoBehaviour:
       path: Prefabs/UI/SkillPortrait
     - name: LevelList
       path: Prefabs/UI/LevelList
+    - name: SkillTag
+      path: Prefabs/UI/SkillTag
   - resourceType: 4
     resourceNPs:
     - name: BuffDoors

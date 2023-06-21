@@ -8,6 +8,7 @@ using UIFrameWork;
 public class SkillPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/SkillPanel";
+    private List<GameObject> skillIcons = new List<GameObject>();
 
     public SkillPanel() : base(new UIType(path))
     {
@@ -23,6 +24,16 @@ public class SkillPanel : BasePanel
         //{
         //    PanelManager.Instance.Pop();
         //});
+
+        Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
+        for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
+        {
+           GameObject t =  PoolManager.GetInstance().GetObj("SkillTag");
+            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons[i];
+            t.transform.position = content.position;
+            t.transform.SetParent(content);
+            skillIcons.Add(t);
+        }       
 
         List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
         for(int i = 1; i <= 3; i++)
@@ -44,9 +55,20 @@ public class SkillPanel : BasePanel
             PanelManager.Instance.Pop();
         });
     }
+
+    public void ShowSkills()
+    {
+
+    }
+
     public override void OnExit()
     {
         base.OnExit();
+        for(int i = 0; i < skillIcons.Count; i++)
+        {
+            PoolManager.GetInstance().PushObj("SkillTag", skillIcons[i]);
+        }
+        skillIcons.Clear();
         GameManager.GetInstance().UnlockMove();
     }
 }

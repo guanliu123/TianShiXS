@@ -15,6 +15,7 @@ public class SkillManager : BaseManager<SkillManager>
     public Dictionary<int, SkillDatas> skillDatas=new Dictionary<int, SkillDatas>();
     public Dictionary<int, ISkill> skillEvent = new Dictionary<int, ISkill>();
 
+    public List<Sprite> nowSkillIcons = new List<Sprite>();
     public SkillManager(){
         skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
@@ -40,16 +41,21 @@ public class SkillManager : BaseManager<SkillManager>
         base.Reset();
         skillPool.Clear();
         occurredSkill.Clear();
+        nowSkillIcons.Clear();
         InitSkill();
     }
 
     public void UpdateSkillPool(int usedId)
-    {
-        int n = skillPool[usedId] - 1;
+    {        
+        int n = skillPool[usedId] - 1;       
         if (n <= 0) skillPool.Remove(usedId);
         else skillPool[usedId]--;
             
-        if (!occurredSkill.ContainsKey(usedId)) occurredSkill.Add(usedId, 1);
+        if (!occurredSkill.ContainsKey(usedId))
+        {
+            occurredSkill.Add(usedId, 1);
+            nowSkillIcons.Add(skillDatas[usedId].icon[0]);
+        }
         else occurredSkill[usedId]++;
 
         foreach (var item in skillSO.skilldatas)
@@ -116,48 +122,6 @@ public class SkillManager : BaseManager<SkillManager>
         }
 
         return skillUpgrades;
-
-        /*List<(BulletType, BuffType)> choices = new List<(BulletType, BuffType)>();
-        
-        BulletType t1 = BulletType.NULL;
-        BuffType t2 = BuffType.NULL;
-
-
-        for (int i = 0; i < 3; i++)
-        {
-            int randomNum = 0;//防止一直抽不到不同的buff死循环
-            do
-            {
-                if (Player._instance.nowBullet.Count <= 0) break;
-                int t = Random.Range(0, Player._instance.nowBullet.Count);
-                t1 = Player._instance.nowBullet.ElementAt(t).Key;
-
-                randomNum++;
-
-                if (BulletManager.GetInstance().BulletDic[t1].evolvableList.Count <= 0) continue;
-                t = Random.Range(0,
-                    BulletManager.GetInstance().BulletDic[t1].evolvableList.Count);
-                t2 = BulletManager.GetInstance().BulletDic[t1].evolvableList[t];
-            } while (choices.Contains((t1, t2)) && randomNum < 3);
-
-            choices.Add((t1, t2));
-            SkillUpgrade item;
-
-            item.icon = null;
-            item.bulletType = choices[i].Item1;
-            item.buffType = choices[i].Item2;
-
-            if (t1 == BulletType.NULL || t2 == BuffType.NULL)
-            {
-                item.describe = "当前无可进化技能！";
-            }
-            else
-            {
-                item.describe = "为" + item.bulletType.ToString() + "弹幕添加" + item.buffType.ToString() + "效果";
-            }
-
-            skillUpgrades.Add(item);
-        }*/
     }
 
     private void InitSkillDic()

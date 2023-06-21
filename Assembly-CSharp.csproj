@@ -130,6 +130,7 @@
     <Compile Include="Assets\Scripts\Test\LootSystem.cs" />
     <Compile Include="Assets\Scripts\Test\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Test\ScreenPostEffectBase.cs" />
+    <Compile Include="Assets\Scripts\Test\TextEffect.cs" />
     <Compile Include="Assets\Scripts\Test\testlist.cs" />
     <Compile Include="Assets\Scripts\Test\testmap.cs" />
     <Compile Include="Assets\Scripts\Test\text.cs" />
@@ -147,7 +148,7 @@
     <Compile Include="Assets\Scripts\UI\Application\Panels\SettingPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\SkillPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Panels\StartPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Application\Panels\SuccessPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Application\Panels\VictoryPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneBase.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\SceneSystem.cs" />
     <Compile Include="Assets\Scripts\UI\Application\Scene\Specific\MainScene.cs" />

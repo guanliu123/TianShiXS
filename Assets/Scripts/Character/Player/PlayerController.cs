@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     private bool isDragging = false;
 
-    private float moveSpeed = 3.6f;
+    private float nowSpeed = 3.6f;
+    private float normalSpeed = 3.6f;
+    private float fightSpeed = 5f;
     float minNum = -500f;
     float maxNum = 500f;
 
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 if (isHorizontalMode)
                 {
                     float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
-                    offset = new Vector3(transform.position.x + scaledX * moveSpeed, 1, -1);
+                    offset = new Vector3(transform.position.x + scaledX * nowSpeed, 1, -1);
                     offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
 
                    // transform.position = offset;
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
                 {
                     float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
                     float scaledY = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.y));
-                    offset = new Vector3(transform.position.x + scaledX * moveSpeed, 1, transform.position.z + scaledY * moveSpeed);
+                    offset = new Vector3(transform.position.x + scaledX * nowSpeed, 1, transform.position.z + scaledY * nowSpeed);
                     offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
                     offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 3f, LevelManager.GetInstance().mapSize[0] / 3 - 5f);
 
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviour
     {
         offset = transform.position;
         isHorizontalMode = !isHorizontalMode;
+        if (isHorizontalMode) nowSpeed = normalSpeed;
+        else nowSpeed = fightSpeed;
         isDragging = false;
     }
 }

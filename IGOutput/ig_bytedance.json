@@ -8,8 +8,8 @@
             "keep_after_unzip": true,
             "is_main_resource": true,
             "parent_dir_type": "PACKAGE",
-            "size": 18123531,
-            "md5": "21ebaaa5ac147578abdf79add922b45f",
+            "size": 18124495,
+            "md5": "8658e84eed45510fe8b92f2d3db2dc2b",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": []
@@ -21,14 +21,14 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 102871178,
-            "md5": "8e36595d9c4bea0afc83a47969a9a4f5",
+            "size": 108544902,
+            "md5": "ea151454fb55f2f69ad833ecefec1a07",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "data.unity3d",
-                    "md5": "52616e588af07a17e560599716b0e497",
+                    "md5": "5470708111a408e75fa5f37b87a332cc",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": ""
                 }
@@ -41,14 +41,14 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 11193944,
-            "md5": "df53384d282db081225db1c94433dda3",
+            "size": 11196292,
+            "md5": "34bbf3b124faf9056e2ea308e7b9ac86",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "67a3726a0ca93e062935c79ffd9b48b1",
+                    "md5": "aa76ec8bcd81d14fc712cdc7002c3c9e",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
@@ -67,14 +67,14 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 10313092,
-            "md5": "0f0559917da305bcec9868cfe249f347",
+            "size": 10317083,
+            "md5": "b985293173f51b4527be0b95801e4eab",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "7a6c70d2ddf7f818dabfe1be3ca79b4d",
+                    "md5": "c5bdfe99047451e4a1b15b0983a6d1b8",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
