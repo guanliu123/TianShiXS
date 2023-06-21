@@ -210,6 +210,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         //GameObject.Instantiate<GameObject>(portraits[i]);
         preparePortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
         _panel.UpdateEnemyPanel(i, preparePortrait);
+
         preparePortrait.transform.SetParent(transform);
         preparePortrait.transform.localScale = new Vector3(1, 1, 1);
         if (flag)

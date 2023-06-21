@@ -84,7 +84,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
+        //arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
         currentPortrait = PoolManager.GetInstance().GetObj("SkillPortrait");
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
@@ -135,7 +135,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex++;
         DragEndEffect(true);
-        arcList.ListDragLeft();
+        //arcList.ListDragLeft();
     }
     /// <summary>
     /// 向右拖拽，index-1
@@ -144,7 +144,7 @@ public class SkillPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     {
         CurSelectIndex--;
         DragEndEffect(false);
-        arcList.ListDragRight();
+        //arcList.ListDragRight();
     }
 
     public void LeftButton_Click()
