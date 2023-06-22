@@ -14,7 +14,8 @@ public class BounceBullet : BulletBase
     private void Awake()
     {
         bulletType = BulletType.BounceBullet;
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
+        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+
 
         bulletAction += Move;
         bulletAction += this.AttckInterval;

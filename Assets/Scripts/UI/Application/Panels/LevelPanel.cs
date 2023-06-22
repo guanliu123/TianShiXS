@@ -19,7 +19,7 @@ public class LevelPanel : BasePanel {
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-        levelNum = DataManager.GetInstance().levelDatasDic.Count;
+        levelNum = LevelManager.GetInstance().levelDatasDic.Count;
 
         var t = UITool.GetOrAddComponentInChildren<LevelPortraitList>("LevelList", panel);
         t._panel = this;

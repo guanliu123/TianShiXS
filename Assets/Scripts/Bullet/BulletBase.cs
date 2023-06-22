@@ -71,19 +71,7 @@ public class BulletBase : MonoBehaviour
     public virtual void Rotat()
     {
 
-    }
-
-    //如果有类似Sword这样需要获取子物体所有点位以便发射射线进行检测的子弹类型，调用这个方法
-    protected List<GameObject> FindChilds(GameObject obj)
-    {
-        List<GameObject> t = new List<GameObject>();
-        for (int i = 0; i < obj.transform.childCount; i++)
-        {
-            t.Add(obj.transform.GetChild(i).gameObject);
-        }
-
-        return t;
-    }
+    }  
 
     protected virtual void AttackCheck(GameObject obj)
     {
@@ -93,6 +81,7 @@ public class BulletBase : MonoBehaviour
         foreach (var item in nowBuffs)
         {
             targetIAttck.TakeBuff(attacker, gameObject, item.Key, item.Value);
+            BuffManager.GetInstance().OnBuff(obj, item.Key);
         }
         if (isCrit)
         {
@@ -101,6 +90,8 @@ public class BulletBase : MonoBehaviour
             isCrit = false;
         }
         else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
+        GameManager.GetInstance().GenerateEffect(obj.transform, bulletData.hitEffect);
+        AudioManager.GetInstance().PlaySound(bulletData.audio,false);
     }
     protected virtual void SpecialEvolution()
     {

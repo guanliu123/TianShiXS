@@ -7,7 +7,7 @@ using Skills;
 
 public class SkillManager : BaseManager<SkillManager>
 {
-    SkillSO skillSO;
+    public SkillSO skillSO;
 
     public Dictionary<int,int> skillPool = new Dictionary<int, int>();//目前可以抽取的所有技能所在的池子
     public Dictionary<int, int> occurredSkill = new Dictionary<int, int>();//目前已经出现过的技能池子

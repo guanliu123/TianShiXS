@@ -9,6 +9,9 @@ using UIFrameWork;
 
 public class LevelManager : BaseManager<LevelManager>
 {
+    private LevelSO levelSO;
+    public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
+
     private List<GameObject> nowSquares = new List<GameObject>();
 
     private bool isSp;//是否更换了当前预备生成的地图模板
@@ -47,14 +50,20 @@ public class LevelManager : BaseManager<LevelManager>
 
     public LevelManager()
     {
-        nowLevel = DataManager.GetInstance().AskLevelData(0);
+        levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
+        foreach (var item in levelSO.leveldatas)
+        {
+            levelDatasDic.Add(item.id, item.levelData);
+        }
+
+        nowLevel = levelDatasDic[0];
         nowSquares = nowLevel.normalPlanes;
     }
 
     public void ChangeLevel(int levelNum)
     {
         nowLevelNum = levelNum - 1;
-        nowLevel = DataManager.GetInstance().AskLevelData(nowLevelNum);
+        nowLevel = levelDatasDic[nowLevelNum];
         nowSquares = nowLevel.normalPlanes;
     }
 

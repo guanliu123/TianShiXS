@@ -8,7 +8,8 @@ public class RotateBullet : BulletBase
     private void Awake()
     {
         bulletType = BulletType.RotateBullet;
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
+        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+
 
         bulletAction += Move;
         bulletAction += Division;

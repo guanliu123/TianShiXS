@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BulletManager : BaseManager<BulletManager>
 {
+    public BulletSO bulletSO;
+
     //存储每种子弹数据
     public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
     public Dictionary<BulletType, List<BuffType>> evolvableBuffDic = new Dictionary<BulletType, List<BuffType>>();
@@ -24,7 +26,13 @@ public class BulletManager : BaseManager<BulletManager>
 
     public BulletManager()
     {
-        BulletDic = DataManager.GetInstance().bulletDatasDic;
+        bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
+
+        foreach (var item in bulletSO.bulletdatas)
+        {
+            BulletDic.Add(item.bulletType, item.bulletData);
+        }
+
         Init();
     }
     private void Init()
