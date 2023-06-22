@@ -12,7 +12,6 @@ public class BuffManager : BaseManager<BuffManager>
     public BuffManager()
     {
         BuffDic = DataManager.GetInstance().buffDataDic;
-        Debug.Log(BuffDic.Count);
 
         InitBuffDic();
     }

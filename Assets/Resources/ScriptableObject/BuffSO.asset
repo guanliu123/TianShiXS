@@ -62,3 +62,10 @@ MonoBehaviour:
       effect: {fileID: 0}
       duration: 9999
       probability: 1
+  - buffType: 4
+    buffData:
+      icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
+      duration: 9999
+      probability: 1
