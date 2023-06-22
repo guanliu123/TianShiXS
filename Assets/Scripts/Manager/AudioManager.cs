@@ -8,7 +8,8 @@ public class AudioManager : BaseManager<AudioManager>
     private float bkValue = 1;
     private float soundValue = 1;
     private GameObject soundObj = null;
-    private List<AudioSource> soundList = new List<AudioSource>();
+    private List<AudioSource> playingList = new List<AudioSource>();
+    private List<AudioSource> emptyList = new List<AudioSource>();
 
     public AudioManager()
     {
@@ -17,12 +18,13 @@ public class AudioManager : BaseManager<AudioManager>
 
     private void update()
     {
-        for (int i = soundList.Count - 1; i >= 0; i--)
+        for (int i = playingList.Count - 1; i >= 0; i--)
         {
-            if (!soundList[i].isPlaying)
+            if (!playingList[i].isPlaying)
             {
-                GameObject.Destroy(soundList[i]);
-                soundList.RemoveAt(i);
+                //GameObject.Destroy(playingList[i]);
+                emptyList.Add(playingList[i]);
+                playingList.RemoveAt(i);
             }
         }
     }
@@ -71,9 +73,16 @@ public class AudioManager : BaseManager<AudioManager>
         if (soundObj == null)
         {
             soundObj = new GameObject();
-            soundObj.name = "Sounds";
+            soundObj.name = "Audios";
         }
-        AudioSource source = soundObj.AddComponent<AudioSource>();
+        AudioSource source=soundObj.AddComponent<AudioSource>();
+        if (emptyList.Count <= 0) source = soundObj.AddComponent<AudioSource>();
+        else
+        {
+            source = emptyList[0];
+            playingList.Add(emptyList[0]);
+            emptyList.RemoveAt(0);
+        }
 
         source.clip = audio;
         source.loop = isLoop;
@@ -104,15 +113,15 @@ public class AudioManager : BaseManager<AudioManager>
     public void ChangeSoundValue(float value)
     {
         soundValue = value;
-        for (int i = 0; i < soundList.Count; i++)
-            soundList[i].volume = value;
+        for (int i = 0; i < playingList.Count; i++)
+            playingList[i].volume = value;
     }
 
     public void StopSound(AudioSource source)
     {
-        if (soundList.Contains(source))
+        if (playingList.Contains(source))
         {
-            soundList.Remove(source);
+            playingList.Remove(source);
             source.Stop();
             GameObject.Destroy(source);
         }
