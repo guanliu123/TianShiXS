@@ -76,6 +76,8 @@ public struct BulletData
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
     [Header("发射几率")] public float shootProbability;
+    [Header("命中音效")] public AudioClip audio;
+    [Header("命中特效")] public GameObject hitEffect;
 }
 [Serializable]
 public struct BulletDatas
@@ -91,6 +93,8 @@ public struct BulletDatas
 public struct BuffData
 {
     [Header("buff图标")] public Sprite icon;
+    [Header("buff音效")] public AudioClip audio;
+    [Header("产生特效")] public GameObject effect;
     [Header("持续时间")] public float duration;
     [Header("触发几率")] public float probability;
 }

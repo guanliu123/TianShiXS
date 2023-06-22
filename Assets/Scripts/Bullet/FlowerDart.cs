@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class FlowerDart : BulletBase
 {
-    List<GameObject> checkPoints;
     private void Awake()
     {
         bulletType = BulletType.FlowerDart;
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
-        checkPoints = FindChilds(transform.GetChild(0).gameObject);
+        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+
 
         bulletAction += Move;
     }

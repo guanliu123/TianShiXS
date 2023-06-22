@@ -9,57 +9,43 @@ public class DataManager : BaseManager<DataManager>
 {
     private ResourcepathSO resourcepathSO;
     public CharacterSO characterSO;
-    private BulletSO bulletSO;
-    private LevelSO levelSO;
     private BuffSO buffSO;
-    public SkillSO skillSO;
 
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     public Dictionary<CharacterType, CharacterTag> characterTagDic = new Dictionary<CharacterType, CharacterTag>();
     public Dictionary<CharacterType, CharacterMsg> characterMsgDic = new Dictionary<CharacterType, CharacterMsg>();
-    private Dictionary<CharacterType, Dictionary<int, CharacterData>> characterDatasDic=new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+    private Dictionary<CharacterType, Dictionary<int, CharacterData>> characterDatasDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
     public Dictionary<BulletType, BulletData> bulletDatasDic = new Dictionary<BulletType, BulletData>();
     public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
-    private Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
+    public Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
 
     public DataManager()
     {
         resourcepathSO = ResourceManager.GetInstance().LoadByPath<ResourcepathSO>("ScriptableObject/ResourcepathSO");
         characterSO = ResourceManager.GetInstance().LoadByPath<CharacterSO>("ScriptableObject/CharacterSO");
-        bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
-        levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
         buffSO = ResourceManager.GetInstance().LoadByPath<BuffSO>("ScriptableObject/BuffSo");
-        skillSO= ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
-        List <ResourceDatas> t = resourcepathSO.resourcePaths;
-        foreach(var item in t)
+        List<ResourceDatas> t = resourcepathSO.resourcePaths;
+        foreach (var item in t)
         {
             objPathDic.Add(item.resourceType, new Dictionary<string, string>());
-            foreach(var item1 in item.resourceNPs)
+            foreach (var item1 in item.resourceNPs)
             {
                 objPathDic[item.resourceType].Add(item1.name, item1.path);
             }
         }
-        
-        foreach(var item in characterSO.characterdatas)
+
+        foreach (var item in characterSO.characterdatas)
         {
             characterTagDic.Add(item.characterType, item.characterTag);
-            characterMsgDic.Add(item.characterType,item.characterMsg);
+            characterMsgDic.Add(item.characterType, item.characterMsg);
             characterDatasDic.Add(item.characterType, new Dictionary<int, CharacterData>());
-            foreach(var item1 in item.characterData)
+            foreach (var item1 in item.characterData)
             {
-                if(!characterDatasDic[item.characterType].ContainsKey(item1.levelNum)) characterDatasDic[item.characterType].Add(item1.levelNum, item1);
+                if (!characterDatasDic[item.characterType].ContainsKey(item1.levelNum)) characterDatasDic[item.characterType].Add(item1.levelNum, item1);
             }
         }
-        foreach(var item in bulletSO.bulletdatas)
-        {
-            bulletDatasDic.Add(item.bulletType, item.bulletData);
-        }
-        foreach(var item in levelSO.leveldatas)
-        {
-            levelDatasDic.Add(item.id, item.levelData);
-        }
-        foreach(var item in buffSO.buffdatas)
+        foreach (var item in buffSO.buffdatas)
         {
             buffDataDic.Add(item.buffType, item.buffData);
         }
@@ -72,7 +58,7 @@ public class DataManager : BaseManager<DataManager>
     /// <returns></returns>
     public string AskAPath(string objName)
     {
-        
+
         foreach (var item in objPathDic)
         {
             if (item.Value.ContainsKey(objName))
@@ -80,7 +66,7 @@ public class DataManager : BaseManager<DataManager>
                 return item.Value[objName];
             }
         }
-        
+
         return null;
     }
 
@@ -96,10 +82,10 @@ public class DataManager : BaseManager<DataManager>
         return null;
     }
 
-    public (CharacterTag,CharacterData) AskCharacterData(CharacterType characterType,int levelNum)
+    public (CharacterTag, CharacterData) AskCharacterData(CharacterType characterType, int levelNum)
     {
         CharacterData _data = new CharacterData();
-        CharacterTag _tag=CharacterTag.Null;
+        CharacterTag _tag = CharacterTag.Null;
 
         _data.MaxHP = -1;//初始化的角色获取数据时如果获取到的血量为-1意为没获取到数据
 
@@ -112,21 +98,6 @@ public class DataManager : BaseManager<DataManager>
         return (_tag, _data);
     }
 
-    public BulletData AskBulletData(BulletType bulletType)
-    {
-        BulletData t=new BulletData();
-
-        if (bulletDatasDic.ContainsKey(bulletType)) t = bulletDatasDic[bulletType];
-
-        return t;
-    }
-    public LevelData AskLevelData(int levelNum)
-    {
-        LevelData t = new LevelData();
-        if (levelDatasDic.ContainsKey(levelNum)) t = levelDatasDic[levelNum];
-
-        return t;
-    }
     public BuffData AskBuffDate(BuffType buffType)
     {
         BuffData t = new BuffData();

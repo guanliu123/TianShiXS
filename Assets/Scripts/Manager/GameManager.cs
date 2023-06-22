@@ -70,7 +70,7 @@ public class GameManager : BaseManager<GameManager>
     public List<SkillDatas> GetSkills()
     {
         List<SkillDatas> skills = new List<SkillDatas>();
-        foreach(var item in DataManager.GetInstance().skillSO.skilldatas)
+        foreach(var item in SkillManager.GetInstance().skillSO.skilldatas)
         {
             skills.Add(item);
         }
@@ -238,6 +238,15 @@ public class GameManager : BaseManager<GameManager>
         obj.transform.parent = mainCanvas.transform;
         
         obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
+    }
+    public void GenerateEffect(Transform insTransform,GameObject effect)
+    {
+        if (!effect) return;
+        string effectName = effect.name;
+        GameObject t = PoolManager.GetInstance().GetObj(effectName, effect);
+        
+        t.transform.position = insTransform.position;
+        t.transform.rotation = insTransform.rotation;
     }
 
     public void PlayerEvolution()

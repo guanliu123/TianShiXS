@@ -5,11 +5,15 @@ using UnityEngine.Rendering;
 
 public class BuffManager : BaseManager<BuffManager>
 {
-    public Dictionary<BuffType, BuffBase> Buffs=new Dictionary<BuffType, BuffBase>();
-    private Dictionary<BuffType, List<GameObject>> buffList=new Dictionary<BuffType, List<GameObject>>();//用于有持续作用的buff
+    public Dictionary<BuffType, BuffData> BuffDic = new Dictionary<BuffType, BuffData>();
+    public Dictionary<BuffType, BuffBase> Buffs = new Dictionary<BuffType, BuffBase>();
+    private Dictionary<BuffType, List<GameObject>> buffList = new Dictionary<BuffType, List<GameObject>>();//用于有持续作用的buff
 
     public BuffManager()
     {
+        BuffDic = DataManager.GetInstance().buffDataDic;
+        Debug.Log(BuffDic.Count);
+
         InitBuffDic();
     }
 
@@ -36,6 +40,14 @@ public class BuffManager : BaseManager<BuffManager>
             buffList.Remove(buffType);
         }
     }
+
+    public void OnBuff(GameObject taker, BuffType buffType)
+    {
+        GameObject effect = BuffDic[buffType].effect;
+        if (!effect) return;
+        GameManager.GetInstance().GenerateEffect(taker.transform, effect);
+    }
+
     private void InitBuffDic()
     {
         Buffs.Add(BuffType.Burn, new BurnBuff());

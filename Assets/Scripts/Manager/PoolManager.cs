@@ -85,6 +85,26 @@ public class PoolManager : BaseManager<PoolManager>
         return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
     }
 
+    /// <summary>
+    /// 如果已经给出了初始物体，就根据给出的物体取
+    /// </summary>
+    /// <param name="poolName"></param>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public GameObject GetObj(string poolName,GameObject obj)
+    {
+        if (!isActive) return null;
+        if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
+        {
+            GameObject t;
+            t = poolDic[poolName].GetObj();
+            if (t != null) return t;
+        }
+
+        if (!obj) return null;
+        return GameObject.Instantiate(obj);
+    }
+
     //从缓存池中取出
     public void GetObj(string objName, UnityAction<GameObject> callback)
     {

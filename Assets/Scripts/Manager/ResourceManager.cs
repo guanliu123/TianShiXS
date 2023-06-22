@@ -7,6 +7,22 @@ using System.Collections.Generic;
 
 public class ResourceManager : BaseManager<ResourceManager>
 {
+    private ResourcepathSO resourcepathSO;
+    private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
+    public ResourceManager()
+    {
+        /*resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
+
+        List<ResourceDatas> t = resourcepathSO.resourcePaths;
+        foreach (var item in t)
+        {
+            objPathDic.Add(item.resourceType, new Dictionary<string, string>());
+            foreach (var item1 in item.resourceNPs)
+            {
+                objPathDic[item.resourceType].Add(item1.name, item1.path);
+            }
+        }*/
+    }
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
     public T LoadByName<T>(string objName) where T : Object

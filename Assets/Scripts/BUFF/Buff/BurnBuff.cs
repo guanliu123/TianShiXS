@@ -11,6 +11,7 @@ public class BurnBuff : BuffBase
         coroutineType = CoroutineType.BurnBuff;
         buffData = DataManager.GetInstance().AskBuffDate(buffType);
 
+
         triggerInterval = 0.5f;
         _probability = buffData.probability;
         _duration = buffData.duration;

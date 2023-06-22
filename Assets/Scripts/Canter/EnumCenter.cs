@@ -5,7 +5,7 @@ using UnityEngine;
 
     public enum ResourceType
     {
-        Music,
+        Audio,
         MapSquare,
         Enemy,
         Bullet,
@@ -13,6 +13,7 @@ using UnityEngine;
         UI,
         Prop,
         Player,
+        Null,
     }
 
 public enum CharacterType

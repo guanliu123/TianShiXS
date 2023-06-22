@@ -18,6 +18,9 @@ public class testmap : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CameraManager.GetInstance().CameraShake(0.2f, 0.5f);
+        }
     }
 }

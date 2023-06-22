@@ -28,6 +28,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 8300000, guid: 8a04f5d80c65acb4ab0d053911b0e441, type: 3}
+      hitEffect: {fileID: 0}
   - bulletType: 2
     bulletData:
       transmissionFrequency: 0
@@ -43,6 +45,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 0
     bulletData:
       transmissionFrequency: 0.5
@@ -58,6 +62,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 3
     bulletData:
       transmissionFrequency: 0.6
@@ -73,6 +79,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 4
     bulletData:
       transmissionFrequency: 3
@@ -88,6 +96,8 @@ MonoBehaviour:
       damageInterval: 1
       isFollowShooter: 1
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 6
     bulletData:
       transmissionFrequency: 8
@@ -103,6 +113,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 5
     bulletData:
       transmissionFrequency: 0
@@ -118,6 +130,8 @@ MonoBehaviour:
       damageInterval: 2
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 7
     bulletData:
       transmissionFrequency: 6
@@ -133,6 +147,8 @@ MonoBehaviour:
       damageInterval: 2
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 9
     bulletData:
       transmissionFrequency: 1.5
@@ -148,6 +164,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 0.5
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 10
     bulletData:
       transmissionFrequency: 2
@@ -163,6 +181,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 1
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 11
     bulletData:
       transmissionFrequency: 3
@@ -178,6 +198,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 12
     bulletData:
       transmissionFrequency: 4
@@ -193,6 +215,8 @@ MonoBehaviour:
       damageInterval: 3
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 13
     bulletData:
       transmissionFrequency: 3
@@ -208,6 +232,8 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}
   - bulletType: 14
     bulletData:
       transmissionFrequency: 1
@@ -223,3 +249,5 @@ MonoBehaviour:
       damageInterval: 0
       isFollowShooter: 0
       shootProbability: 1
+      audio: {fileID: 0}
+      hitEffect: {fileID: 0}

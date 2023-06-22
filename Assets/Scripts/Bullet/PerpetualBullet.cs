@@ -9,7 +9,8 @@ public class PerpetualBullet : BulletBase
     private void Awake()
     {
         bulletType = BulletType.PerpetualBullet;
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);     
+        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+
     }
 
     public override void OnEnter()

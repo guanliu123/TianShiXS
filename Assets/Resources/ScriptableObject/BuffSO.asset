@@ -16,30 +16,49 @@ MonoBehaviour:
   - buffType: 0
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 3
       probability: 1
   - buffType: 2
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 3
       probability: 1
   - buffType: 3
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 0
       probability: 1
   - buffType: 1
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 1.5
       probability: 1
   - buffType: 8
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 9999
       probability: 1
   - buffType: 7
     buffData:
       icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
+      duration: 9999
+      probability: 1
+  - buffType: 5
+    buffData:
+      icon: {fileID: 0}
+      audio: {fileID: 0}
+      effect: {fileID: 0}
       duration: 9999
       probability: 1

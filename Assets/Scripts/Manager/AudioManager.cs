@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
-public class MusicManager : BaseManager<MusicManager>
+public class AudioManager : BaseManager<AudioManager>
 {
     private AudioSource bkMusic = null;
     private float bkValue = 1;
@@ -10,7 +10,7 @@ public class MusicManager : BaseManager<MusicManager>
     private GameObject soundObj = null;
     private List<AudioSource> soundList = new List<AudioSource>();
 
-    public MusicManager()
+    public AudioManager()
     {
         MonoManager.GetInstance().AddUpdateListener(update);
     }
@@ -66,7 +66,20 @@ public class MusicManager : BaseManager<MusicManager>
         bkMusic.Stop();
     }
 
+    public void PlaySound(AudioClip audio, bool isLoop)
+    {
+        if (soundObj == null)
+        {
+            soundObj = new GameObject();
+            soundObj.name = "Sounds";
+        }
+        AudioSource source = soundObj.AddComponent<AudioSource>();
 
+        source.clip = audio;
+        source.loop = isLoop;
+        source.volume = soundValue;
+        source.Play();
+    }
 
     public void PlaySound(string musicName, bool isLoop, UnityAction<AudioSource> callback = null)
     {

@@ -9,7 +9,8 @@ public class TrackingBullet : BulletBase
     private void Awake()
     {
         bulletType = BulletType.TrackingBullet;
-        bulletData = DataManager.GetInstance().AskBulletData(bulletType);
+        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+
 
         bulletAction += Move;
     }
