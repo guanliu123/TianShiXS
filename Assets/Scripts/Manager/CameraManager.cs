@@ -48,7 +48,7 @@ public class CameraManager : BaseManager<CameraManager>
     {
         Transform playerTra = Player._instance.gameObject.transform;
 
-        Vector3 newPoint = new Vector3(playerTra.position.x / 1.5f, mainCamera.transform.position.y, mainCamera.transform.position.z);
+        Vector3 newPoint = new Vector3(playerTra.position.x / 1.4f, mainCamera.transform.position.y, mainCamera.transform.position.z);
         mainCamera.transform.position = newPoint;
     }
     
@@ -59,7 +59,6 @@ public class CameraManager : BaseManager<CameraManager>
     private IEnumerator Shake(float duration,float strength)
     {
         Vector3 originPos = mainCamera.transform.position;
-
         float elapsed = 0.0f;//摇晃进行时间
         strength *= 0.05F;
         while (elapsed < duration)
@@ -72,7 +71,7 @@ public class CameraManager : BaseManager<CameraManager>
 
             elapsed += Time.deltaTime;
 
-            yield return null;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         mainCamera.transform.localPosition = originPos;//再次复原
     }

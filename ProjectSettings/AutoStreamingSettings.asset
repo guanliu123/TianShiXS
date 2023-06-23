@@ -16,7 +16,7 @@ AutoStreamingSettings:
     assetPath: Assets/Scenes/StartScene.unity
     localFileId: -1
     cloudAssetName: 
-    rtMem: 910610
+    rtMem: 910521
     warningFlag: 0
     refs: []
   mConfigCCD:
