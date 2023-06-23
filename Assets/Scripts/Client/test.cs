@@ -67,7 +67,7 @@ public class test : MonoBehaviour
         }
         
         _client.connect_gate("wss://tsxs.ucat.games:3001", 3000);
-        
+
         _client.onGateConnect += () => {
             Debug.Log("connect gate sucessed!");
             StarkSDK.API.GetAccountManager().Login(successCallback, failedCallback, true); 

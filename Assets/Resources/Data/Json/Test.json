@@ -1,0 +1,22 @@
+[
+  {
+    "Aggressivity": 0,
+    "ATKSpeed": 0,
+    "avoidance": 0,
+    "bulletTypes": [ "TaiChiDart" ],
+    "characterType": "DaoShi",
+    "energy": 0,
+    "MaxHP": 130.0,
+    "money": 0
+  },
+  {
+    "characterType": "JinYiWei",
+    "MaxHP": 80.0,
+    "bulletTypes": [ "TaiChiDart" ],
+    "Aggressivity": 0,
+    "ATKSpeed": 0,
+    "avoidance": 0,
+    "energy": 0,
+    "money": 0
+  }
+]
