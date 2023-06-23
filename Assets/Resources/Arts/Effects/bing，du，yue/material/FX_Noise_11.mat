@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FX_Noise_11
+  m_Shader: {fileID: 4800000, guid: 353a9c4a14b1731469477534606678a6, type: 3}
+  m_ShaderKeywords: _USEMASKTEX_ON _UVXUANZE_OFF
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DissolveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 6eb287ecf7ac60340b975675f6374442, type: 3}
+        m_Scale: {x: 0.67, y: 2.34}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 849d24b05c303414b9f3f162b22ce03b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaBlend: 1
+    - _CeterScale: 1
+    - _Clip: 0
+    - _ClipCustom: 0
+    - _CullMode: 0
+    - _DoubleNoise: 0
+    - _MainColorFront: 1
+    - _MainNoiseIntCustom: 0
+    - _MainTexAlpha: 0
+    - _MainUVCustom: 0
+    - _MainUVScale: 1
+    - _MainUVScaleCustom: 0
+    - _MaskUVCustom: 0
+    - _RotatorInt: 1
+    - _Shan: 0
+    - _ShanPinLv: 4
+    - _ShanZhenFu: 1
+    - _TwirlInt: 0
+    - _UVxuanze: 0
+    - _UseDissolveTex: 0
+    - _UseMaskTex: 1
+    - _UseNoiseTex: 0
+    - _ZTest: 4
+    - _ZWrite: 0
+    - __dirty: 1
+    - _dissolveCustom: 0
+    - _dissolveInt: 0
+    - _hardness: 0
+    - _width: 0
+    m_Colors:
+    - _DissolveSpeedInt: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColorBack: {r: 0.9998169, g: 0, b: 4, a: 1}
+    - _MainColorBack02: {r: 0, g: 0, b: 0, a: 1}
+    - _MainSpeedInt: {r: -1, g: 0, b: 1, a: 1}
+    - _MaskSpeedInt: {r: 0, g: 0, b: 0, a: 1}
+    - _Noise01SpeedInt: {r: 0, g: 0, b: 0.01, a: 1}
+    - _Noise02Speed: {r: 0, g: 0, b: 0, a: 1}
+    - _UVScaleOffset: {r: 1, g: 1, b: 0, a: 0}
+    - _widthColor: {r: 1, g: 1, b: 1, a: 1}

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ResourceManager : BaseManager<ResourceManager>
 {
@@ -11,7 +12,7 @@ public class ResourceManager : BaseManager<ResourceManager>
     private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
     public ResourceManager()
     {
-        /*resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
+        resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
 
         List<ResourceDatas> t = resourcepathSO.resourcePaths;
         foreach (var item in t)
@@ -21,14 +22,34 @@ public class ResourceManager : BaseManager<ResourceManager>
             {
                 objPathDic[item.resourceType].Add(item1.name, item1.path);
             }
-        }*/
+        }
     }
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
-    public T LoadByName<T>(string objName) where T : Object
+    public T LoadByName<T>(string objName,ResourceType resourceType=ResourceType.Null) where T : Object
     {
-        
-        T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
+
+        //T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
+        T res=null;
+        if (resourceType != ResourceType.Null && objPathDic.ContainsKey(resourceType))
+        {
+            foreach(var item in objPathDic[resourceType])
+            {
+                if(item.Key==objName) res = Resources.Load<T>(item.Value);
+            }
+        }
+         
+        else
+        {
+            foreach (var item in objPathDic)
+            {
+                if (item.Value.ContainsKey(objName))
+                {
+                    res = Resources.Load<T>(item.Value[objName]);                    
+                }
+            }
+        }
+
         return res;
     }
     public T LoadByPath<T>(string objPath) where T : Object
@@ -48,7 +69,7 @@ public class ResourceManager : BaseManager<ResourceManager>
 
     public List<T> Loads<T>(ResourceType resourceType) where T : Object
     {
-        List<string> targetPaths = DataManager.GetInstance().AskPaths(resourceType);
+        List<string> targetPaths = objPathDic[resourceType].Values.ToList<string>();
         List<T> res = new List<T>();
 
         if (targetPaths == null) return null;
