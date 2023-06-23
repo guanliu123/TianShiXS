@@ -106,4 +106,38 @@ public class DataManager : BaseManager<DataManager>
 
         return t;
     }
+
+    using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+
+public class CharacterData
+{
+    public CharacterType characterType;
+    public int levelNum;
+    public float MaxHP;
+    public List<BulletType> bulletTypes;
+    public float Aggressivity;
+    public float ATKSpeed;
+    public float avoidance;
+    public float energy;
+    public int money;
+}
+
+/*public class CharacterManager : MonoBehaviour
+{
+    private Dictionary<CharacterType, CharacterData> characterDataDict = new Dictionary<CharacterType, CharacterData>();
+
+    private void Start()
+    {
+        string filePath = Application.dataPath + "/characterData.json";
+        string jsonString = File.ReadAllText(filePath);
+        List<CharacterData> characterDataList = JsonUtility.FromJson<List<CharacterData>>(jsonString);
+
+        foreach (CharacterData characterData in characterDataList)
+        {
+            characterDataDict.Add(characterData.characterType, characterData);
+        }
+    }
+}*/
 }
