@@ -2306,12 +2306,14 @@ namespace WebSocketSharp
                             conf.ClientCertificateSelectionCallback
                           );
 
-          sslStream.AuthenticateAsClient (
-            host,
-            conf.ClientCertificates,
-            conf.EnabledSslProtocols,
-            conf.CheckCertificateRevocation
-          );
+          if (conf.ClientCertificates != null)
+            sslStream.AuthenticateAsClient(
+              host,
+              conf.ClientCertificates,
+              conf.EnabledSslProtocols,
+              conf.CheckCertificateRevocation);
+          else
+            sslStream.AuthenticateAsClient(host);
 
           _stream = sslStream;
         }
