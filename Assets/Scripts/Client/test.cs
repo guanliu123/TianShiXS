@@ -23,17 +23,20 @@ public class test : MonoBehaviour
 
         _client.get_hub_info("login", (hub_info) =>
         {
-            _login_Caller.get_hub(hub_info.hub_name).player_login_dy(code,anonymousCode).callBack((string player_hub_name, string token) =>
+            _login_Caller.get_hub(hub_info.hub_name).player_login_no_token(code).callBack((string player_hub_name, string token) =>
             {
                 _player_login_Caller.get_hub(player_hub_name).player_login(token, "dy_name").callBack((UserData data) =>
                 {
+                    Debug.Log($"player_login success!");
                     //...
                 }, (err) =>
                 {
+                    Debug.Log($"player_login err:{err}");
                     if (err == (int)em_error.unregistered_palyer)
                     {
                         _player_login_Caller.get_hub(player_hub_name).create_role(token, "dy_name").callBack((UserData data) =>
                         {
+                            Debug.Log($"create_role err success!");
                             //...
                         }, (error) =>
                         {
@@ -43,7 +46,7 @@ public class test : MonoBehaviour
                 });
             }, (err) =>
             {
-                Console.WriteLine("player_login_dy err:{0}", err);
+                Debug.Log($"player_login_dy err:{err}");
             });
         });
     }
@@ -67,7 +70,7 @@ public class test : MonoBehaviour
         }
         
         _client.connect_gate("wss://tsxs.ucat.games:3001", 3000);
-
+        
         _client.onGateConnect += () => {
             Debug.Log("connect gate sucessed!");
             StarkSDK.API.GetAccountManager().Login(successCallback, failedCallback, true); 
