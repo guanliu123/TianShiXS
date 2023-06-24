@@ -9,13 +9,9 @@ using UIFrameWork;
 
 public class LevelManager : BaseManager<LevelManager>
 {
-    private LevelSO levelSO;
     public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
 
     private List<GameObject> nowPlane = new List<GameObject>();
-
-    List<GameObject> normalPlanes = new List<GameObject>();
-    List<GameObject> widthPlanes = new List<GameObject>();
 
     private bool isSp;//是否更换了当前预备生成的地图模板
     public bool isChange;//是否进入宽地面战斗模式
@@ -69,22 +65,13 @@ public class LevelManager : BaseManager<LevelManager>
     {
         nowLevelNum = levelNum - 1;
         nowLevel = levelDatasDic[nowLevelNum];
-        //nowPlane = nowLevel.normalPlanes;
+        nowPlane = nowLevel.normalPlanes;
     }
 
     private void InitLevel()
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
-
-        foreach(var item in nowLevel.normalPlanes)
-        {
-            normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(item, ResourceType.MapGround));
-        }
-        foreach(var item in nowLevel.widthPlanes)
-        {
-            widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(item, ResourceType.MapGround));
-        }
 
         nowStage = 0;
         maxStage = nowLevel.StageDatas.Count;
@@ -93,20 +80,20 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = nowLevel.StageDatas[nowStage].isSpecial;
         if (isSp)
         {
-            nowPlane = widthPlanes;
+            nowPlane = nowLevel.widthPlanes;
             mapSize = nowLevel.widthSize;
         }
         else
         {
-            nowPlane = normalPlanes;
+            nowPlane = nowLevel.normalPlanes;
             mapSize = nowLevel.normalSize;
         }
 
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
         requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Count;
-        
-        
-        Camera.main.GetComponent<Skybox>().material = ResourceManager.GetInstance().LoadByName<Material>(nowLevel.skybox,ResourceType.Skybox);
+
+
+        Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
 
         for (int i = 0; i < defaultNum; i++)
         {
@@ -231,11 +218,11 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = !isSp;
         if (isSp)
         {
-            nowPlane = widthPlanes;
+            nowPlane = nowLevel.widthPlanes;
         }
         else
         {
-            nowPlane = normalPlanes;
+            nowPlane = nowLevel.normalPlanes;
             BulletManager.GetInstance().ClearExistBullet();
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().LockMove();

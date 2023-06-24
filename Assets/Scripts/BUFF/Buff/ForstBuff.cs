@@ -7,8 +7,8 @@ public class ForstBuff : BuffBase
     public ForstBuff()
     {
         buffType = BuffType.Frost;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
 
         _probability = buffData.probability;
         _duration = buffData.duration;

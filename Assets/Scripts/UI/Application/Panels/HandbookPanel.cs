@@ -15,7 +15,7 @@ public class HandbookPanel : BasePanel
 
     GameObject skillArea;
     GameObject skillList;
-    List<SkillDatas> skills;
+    List<SkillData> skills;
     
     IDragButton dragButton;
 
@@ -74,7 +74,7 @@ public class HandbookPanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch { }
-        GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(enemys[index].image,ResourceType.UI),t).transform.parent = t;
+        GameObject.Instantiate(enemys[index].image,t).transform.parent = t;
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = enemys[index].name;
         UITool.GetOrAddComponentInChildren<Text>("IntroductionText", panel).text = enemys[index].describe;
@@ -84,7 +84,7 @@ public class HandbookPanel : BasePanel
 
     public void UpdateSkillPanel(int index, GameObject panel)
     {
-        UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = skills[index].icon[0];
+        UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = skills[index].icon;
         UITool.GetOrAddComponentInChildren<Text>("SkillNameText", panel).text = skills[index].name;
         UITool.GetOrAddComponentInChildren<Text>("DescribeText", panel).text = skills[index].describe;
     }

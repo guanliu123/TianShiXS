@@ -8,8 +8,8 @@ public class ShieldBuff : BuffBase
     {
         buffType = BuffType.Shield;
         coroutineType = CoroutineType.ShieldBuff;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
         triggerInterval = 5f;
         _probability = buffData.probability;
         _duration = buffData.duration;

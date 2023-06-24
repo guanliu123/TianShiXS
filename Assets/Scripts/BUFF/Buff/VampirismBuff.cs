@@ -7,8 +7,8 @@ public class VampirismBuff : BuffBase
     public VampirismBuff()
     {
         buffType = BuffType.Vampirism;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
         _probability = buffData.probability;
         _duration = buffData.duration;
     }

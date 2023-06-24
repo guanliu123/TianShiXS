@@ -9,7 +9,6 @@ using System.Security.AccessControl;
 
 public class ResourceManager : BaseManager<ResourceManager>
 {
-    private ResourcepathSO resourcepathSO;
     //private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
 
     private Dictionary<ResourceType, string> pathDic = new Dictionary<ResourceType, string>();

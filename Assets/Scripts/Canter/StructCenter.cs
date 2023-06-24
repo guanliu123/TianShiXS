@@ -41,7 +41,7 @@ public struct CharacterMsg
 {
     //[Header("角色标签")] public CharacterTag tag;
     [Header("角色名称")] public string name;
-    [Header("角色立绘")] public string image;
+    [Header("角色立绘")] public GameObject image;
     [Header("角色描述")] public string describe;
 }
 
@@ -71,8 +71,8 @@ public struct BulletData
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
     [Header("发射几率")] public float shootProbability;
-    [Header("命中音效")] public string audioName;
-    [Header("命中特效")] public string effectName;
+    [Header("命中音效")] public AudioClip audio;
+    [Header("命中特效")] public GameObject effect;
 }
 [Serializable]
 public struct BulletDatas
@@ -87,7 +87,7 @@ public struct BulletDatas
 [Serializable]
 public struct BuffData
 {
-    [Header("buff图标")] public Sprite icon;
+    //[Header("buff图标")] public Sprite icon;
     [Header("buff音效")] public AudioClip audio;
     [Header("产生特效")] public GameObject effect;
     [Header("持续时间")] public float duration;
@@ -111,11 +111,11 @@ public struct SkillUpgrade
     public ISkill skill;
 }
 [Serializable]
-public struct SkillDatas
+public struct SkillData
 {
     [Header("技能ID")] public int id;
     [Header("技能名字")] public string name;
-    [Header("技能图标")] public Sprite[] icon;
+    [Header("技能图标")] public Sprite icon;
     [Header("技能描述")] public string describe;
     [Header("技能出现概率")] public float probability;
     [Header("技能可出现次数")] public int num;
@@ -139,11 +139,11 @@ public struct StageData
 [Serializable] 
 public struct LevelData
 {
-    [Header("关卡普通地面类型")] public List<string> normalPlanes;
+    [Header("关卡普通地面类型")] public List<GameObject> normalPlanes;
     [Header("关卡普通地面长和宽")] public float[] normalSize;
-    [Header("关卡特殊地面类型")] public List<string> widthPlanes;
+    [Header("关卡特殊地面类型")] public List<GameObject> widthPlanes;
     [Header("关卡特殊地面长和宽")] public float[] widthSize;
-    [Header("关卡天空盒")] public string skybox;
+    [Header("关卡天空盒")] public Material skybox;
     /*[Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
     [Header("关卡总波次")] public int waveNum;
     [Header("波次敌人基础数量")] public int baseEnemyNum;

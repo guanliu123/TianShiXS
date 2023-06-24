@@ -1,5 +1,6 @@
 [
   {
+    "EnemyID": 0,
     "CharacterType": "Bat",
     "Name": "蝙蝠",
     "Describe": "小蝙蝠",

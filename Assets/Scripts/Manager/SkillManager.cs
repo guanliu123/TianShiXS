@@ -7,17 +7,20 @@ using Skills;
 
 public class SkillManager : BaseManager<SkillManager>
 {
-    public SkillSO skillSO;
+    public static Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
 
     public Dictionary<int,int> skillPool = new Dictionary<int, int>();//目前可以抽取的所有技能所在的池子
     public Dictionary<int, int> occurredSkill = new Dictionary<int, int>();//目前已经出现过的技能池子
-
-    public Dictionary<int, SkillDatas> skillDatas=new Dictionary<int, SkillDatas>();
+    
     public Dictionary<int, ISkill> skillEvent = new Dictionary<int, ISkill>();
 
     public Dictionary<int,Sprite> nowSkillIcons = new Dictionary<int, Sprite>();
+    static SkillManager()
+    {
+        skillDatas =SkillDataTool.ReadSkillData();
+    }
     public SkillManager(){
-        skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
+        //skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
 
         InitSkill();
         InitSkillDic();
@@ -25,13 +28,13 @@ public class SkillManager : BaseManager<SkillManager>
 
     private void InitSkill()
     {
-        foreach (var item in skillSO.skilldatas)
+        foreach (var item in skillDatas)
         {
-            if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
-            if (item.num > 0 && item.beforeSkills.Count <= 0)
+            //if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
+            if (item.Value.num > 0 && item.Value.beforeSkills.Count <= 0)
             {
-                skillPool.Add(item.id, item.num);
-                occurredSkill.Add(item.id, 1);
+                skillPool.Add(item.Value.id, item.Value.num);
+                occurredSkill.Add(item.Value.id, 1);
             }            
         }
     }
@@ -47,7 +50,7 @@ public class SkillManager : BaseManager<SkillManager>
 
     public void UpdateSkillPool(int usedId)
     {
-        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, skillDatas[usedId].icon[0]);
+        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, skillDatas[usedId].icon);
         int n = skillPool[usedId] - 1;       
         if (n <= 0) skillPool.Remove(usedId);
         else skillPool[usedId]--;
@@ -58,11 +61,11 @@ public class SkillManager : BaseManager<SkillManager>
         }
         else occurredSkill[usedId]++;
 
-        foreach (var item in skillSO.skilldatas)
+        foreach (var item in skillDatas)
         {
-            if (item.beforeSkills.Contains(usedId) && !occurredSkill.ContainsKey(item.id))
+            if (item.Value.beforeSkills.Contains(usedId) && !occurredSkill.ContainsKey(item.Value.id))
             {
-                skillPool.Add(item.id, item.num);
+                skillPool.Add(item.Value.id, item.Value.num);
             }
         }
     }
@@ -106,14 +109,14 @@ public class SkillManager : BaseManager<SkillManager>
                 continue;
             }
 
-            SkillDatas data = skillDatas[skillPool.ElementAt(t).Key];
+            SkillData data = skillDatas[skillPool.ElementAt(t).Key];
             int iconNum = 0;
-            if (occurredSkill.ContainsKey(skillPool.ElementAt(t).Key))
+            /*if (occurredSkill.ContainsKey(skillPool.ElementAt(t).Key))
             {
-                iconNum = Mathf.Min(occurredSkill[skillPool.ElementAt(t).Key], data.icon.Length - 1);
-            }
+                iconNum = Mathf.Min(occurredSkill[skillPool.ElementAt(t).Key], data.icon);
+            }*/
 
-            temp.icon = data.icon[iconNum];
+            temp.icon = data.icon;
             temp.name = data.name;
             temp.describe = data.describe;
             temp.skill = skillEvent[data.id];

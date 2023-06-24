@@ -34,5 +34,9 @@
   {
     "ResourceType": "Skybox",
     "ResourcePath": "Skyboxs/"
+  },
+  {
+    "ResourceType": "Effect",
+    "ResourcePath": "Prefabs/Effects/"
   }
 ]

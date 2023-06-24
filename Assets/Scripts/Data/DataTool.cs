@@ -6,65 +6,6 @@ using UnityEngine;
 using System.IO;
 using LitJson;
 
-public class DataManager : BaseManager<DataManager>
-{
-    public CharacterSO characterSO;
-    private BuffSO buffSO;
-
-    //public Dictionary<CharacterType, CharacterTag> characterTagDic = new Dictionary<CharacterType, CharacterTag>();
-    public Dictionary<CharacterType, CharacterMsg> characterMsgDic = new Dictionary<CharacterType, CharacterMsg>();
-    private Dictionary<CharacterType, Dictionary<int, CharacterData>> characterDatasDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
-    public Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
-
-    public DataManager()
-    {
-        characterSO = ResourceManager.GetInstance().LoadByPath<CharacterSO>("ScriptableObject/CharacterSO");
-        buffSO = ResourceManager.GetInstance().LoadByPath<BuffSO>("ScriptableObject/BuffSo");
-
-        foreach (var item in characterSO.characterdatas)
-        {
-            //characterTagDic.Add(item.characterType, item.characterTag);
-            characterMsgDic.Add(item.characterType, item.characterMsg);
-            characterDatasDic.Add(item.characterType, new Dictionary<int, CharacterData>());
-            foreach (var item1 in item.characterData)
-            {
-                //if (!characterDatasDic[item.characterType].ContainsKey(item1.levelNum)) characterDatasDic[item.characterType].Add(item1.levelNum, item1);
-            }
-        }
-        foreach (var item in buffSO.buffdatas)
-        {
-            buffDataDic.Add(item.buffType, item.buffData);
-        }
-
-        
-    }
-
-    public (CharacterTag, CharacterData) AskCharacterData(CharacterType characterType, int levelNum)
-    {
-        CharacterData _data = new CharacterData();
-        CharacterTag _tag = CharacterTag.Null;
-
-        _data.MaxHP = -1;//初始化的角色获取数据时如果获取到的血量为-1意为没获取到数据
-
-        if (characterDatasDic.ContainsKey(characterType) && characterDatasDic[characterType].ContainsKey(levelNum))
-        {
-            _data = characterDatasDic[characterType][levelNum];
-            //_tag = characterTagDic[characterType];
-        }
-
-        return (_tag, _data);
-    }
-
-    public BuffData AskBuffDate(BuffType buffType)
-    {
-        BuffData t = new BuffData();
-
-        if (buffDataDic.ContainsKey(buffType)) t = buffDataDic[buffType];
-
-        return t;
-    }
-}
-
 #region 资源数据的读写工具
 public class ResourceDataTool
 {
@@ -118,7 +59,7 @@ public static class RoleDataTool
             roleDataDic.Add(characterType, new Dictionary<int, CharacterData>());
 
             characterMsg.name = characterDataJson["Name"].ToString();
-            characterMsg.image= characterType+"Image";
+            characterMsg.image= ResourceManager.GetInstance().LoadByName<GameObject>(characterType + "Image",ResourceType.UI);
             characterMsg.describe= characterDataJson["Describe"].ToString();
             roleMsgDic.Add(characterType, characterMsg);
 
@@ -212,7 +153,7 @@ public static class EnemyDataTool
             enemyDataDic.Add(characterType, new Dictionary<int, CharacterData>());
 
             enemyMsg.name = enemyDataJson["Name"].ToString();
-            enemyMsg.image = characterType + "Image";
+            enemyMsg.image = ResourceManager.GetInstance().LoadByName<GameObject>(characterType + "Image",ResourceType.UI);
             enemyMsg.describe = enemyDataJson["Describe"].ToString();
             enemyMsgDic.Add(characterType, enemyMsg);
 
@@ -279,8 +220,8 @@ public static class BulletDataTool
             bulletData.isFollowShooter = (bool)item["IsFollowShooter"];
             bulletData.shootProbability= float.Parse(item["ShootProbability"].ToString());
 
-            bulletData.audioName = bulletType.ToString() + "Audio";
-            bulletData.effectName = bulletType.ToString() + "Effect";
+            bulletData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(bulletType.ToString() + "Audio",ResourceType.Audio);
+            bulletData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(bulletType.ToString() + "Effect", ResourceType.Effect);
 
             bulletDataDic.Add(bulletType, bulletData);
         }
@@ -307,11 +248,11 @@ public static class LevelDataTool
             int levelID = int.Parse(item["ID"].ToString());
             LevelData levelData = new LevelData();
 
-            levelData.skybox = "Skybox"+ levelID;
-            levelData.normalPlanes = new List<string>();
+            levelData.skybox = ResourceManager.GetInstance().LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
+            levelData.normalPlanes = new List<GameObject>();
             for(int i = 0; i < (int)item["NormalPlaneNum"]; i++)
             {
-                levelData.normalPlanes.Add(levelID+"NormalGround"+(i+1));
+                levelData.normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
             }
             levelData.normalSize =new float[2];
             int j = 0;
@@ -319,10 +260,10 @@ public static class LevelDataTool
             {
                 levelData.normalSize[j++] =float.Parse(t.ToString());
             }            
-            levelData.widthPlanes = new List<string>();
+            levelData.widthPlanes = new List<GameObject>();
             for (int i = 0; i < (int)item["WidthPlaneNum"]; i++)
             {
-                levelData.widthPlanes.Add(levelID + "WidthGround" + (i + 1));
+                levelData.widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
             }
             levelData.widthSize = new float[2];
             j = 0;
@@ -359,6 +300,72 @@ public static class LevelDataTool
             levelDataDic.Add(levelID, levelData);
         }
         return levelDataDic;
+    }
+}
+
+#endregion
+
+#region buff数据的读取工具
+
+public static class BuffDataTool
+{
+    static string filePath = Application.dataPath + "/Resources/Data/Json/Buff.json";
+
+    public static Dictionary<BuffType, BuffData> ReadBuffData()
+    {
+        string jsonString = File.ReadAllText(filePath);
+        Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
+
+        JsonData jsonData = JsonMapper.ToObject(jsonString);
+        foreach (JsonData item in jsonData)
+        {
+            BuffType buffType = (BuffType)System.Enum.Parse(typeof(BuffType), item["BuffType"].ToString());
+            BuffData buffData = new BuffData();
+
+            buffData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(buffType+"Audio", ResourceType.Audio);
+            buffData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(buffType + "Effect", ResourceType.Effect);
+            buffData.duration = float.Parse(item["Duration"].ToString());
+            buffData.probability= float.Parse(item["Probability"].ToString());
+
+            buffDataDic.Add(buffType, buffData);
+        }
+        return buffDataDic;
+    }
+}
+
+#endregion
+
+#region 技能数据的读取工具
+
+public static class SkillDataTool
+{
+    static string filePath = Application.dataPath + "/Resources/Data/Json/Skill.json";
+
+    public static Dictionary<int, SkillData> ReadSkillData()
+    {
+        string jsonString = File.ReadAllText(filePath);
+        Dictionary<int, SkillData> skillDataDic = new Dictionary<int, SkillData>();
+
+        JsonData jsonData = JsonMapper.ToObject(jsonString);
+        foreach (JsonData item in jsonData)
+        {
+            SkillData skillData = new SkillData();
+
+            skillData.id = (int)item["SkillID"];
+            skillData.name = item["Name"].ToString();
+            skillData.icon = ResourceManager.GetInstance().LoadByName<Sprite>(skillData.name+"Icon",ResourceType.UI);
+            skillData.describe = item["Describe"].ToString();
+            skillData.probability= float.Parse(item["Probability"].ToString());
+            skillData.num = (int)item["Num"];
+            skillData.beforeSkills = new List<int>();
+            foreach(JsonData id in item["BeforeSkills"])
+            {
+                skillData.beforeSkills.Add((int)id);
+            }
+
+            skillDataDic.Add(skillData.id, skillData);
+        }
+        return skillDataDic;
     }
 }
 

@@ -67,12 +67,12 @@ public class GameManager : BaseManager<GameManager>
         enemyCount = enemys.Count;
         return enemys;
     }
-    public List<SkillDatas> GetSkills()
+    public List<SkillData> GetSkills()
     {
-        List<SkillDatas> skills = new List<SkillDatas>();
-        foreach(var item in SkillManager.GetInstance().skillSO.skilldatas)
+        List<SkillData> skills = new List<SkillData>();
+        foreach(var item in SkillManager.skillDatas)
         {
-            skills.Add(item);
+            skills.Add(item.Value);
         }
 
         skillCount = skills.Count;
@@ -147,7 +147,7 @@ public class GameManager : BaseManager<GameManager>
         GameObject.Destroy(player.GetComponent<Player>());
         GameObject.Destroy(player.GetComponent<PlayerController>());
         CameraMove(CameraPointType.OrginPoint, 1f);
-        DataCenter.Money += levelMoney;
+        //DataCenter.Money += levelMoney;
     }
 
     public void ClearFloatDamage()
@@ -239,10 +239,10 @@ public class GameManager : BaseManager<GameManager>
         
         obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
     }
-    public void GenerateEffect(Transform insTransform,string effectName)
+    public void GenerateEffect(Transform insTransform,GameObject effect)
     {        
-        //string effectName = effectName;
-        GameObject t = PoolManager.GetInstance().GetObj(effectName,ResourceType.Effect);
+        string effectName = effect.name;
+        GameObject t = PoolManager.GetInstance().GetObj(effectName, effect);
 
         if (!t) return;
 

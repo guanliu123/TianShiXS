@@ -42,8 +42,8 @@ public class StartPanel : BasePanel
             PanelManager.Instance.Clear();
             PanelManager.Instance.Push(new GamePanel());
         });
-        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money+"";
-        UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = DataCenter.Energy + "";
+        //UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money+"";
+        //UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = DataCenter.Energy + "";
 
         //MonoManager.GetInstance().AddUpdateListener(StartUIEvent);
         /*UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
@@ -95,7 +95,7 @@ public class StartPanel : BasePanel
     public override void OnResume()
     {
         SetAreaActive(true);
-        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money + "";
+        //UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money + "";
         if (GameManager.GetInstance().nowLevel == 0)
         {
             UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";

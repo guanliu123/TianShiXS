@@ -1,5 +1,6 @@
 [
   {
+    "RoleID": 0,
     "CharacterType": "DaoShi",
     "Name": "普通道士",
     "Describe": "使用普通的太极剑攻击",
