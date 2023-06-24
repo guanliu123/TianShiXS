@@ -1,0 +1,31 @@
+[
+  {
+    "CharacterType": "Bat",
+    "Name": "蝙蝠",
+    "Describe": "小蝙蝠",
+    "LevelDatas": [
+      {
+        "LevelNum": 0,
+        "MaxHP": 40,
+        "Bullets": [
+          "Combat"
+        ],
+        "ATK": 0,
+        "ATKSpeed": 0,
+        "Energy": 20,
+        "Money": 2
+      },
+      {
+        "LevelNum": 1,
+        "MaxHP": 40,
+        "Bullets": [
+          "Combat"
+        ],
+        "ATK": 0,
+        "ATKSpeed": 0,
+        "Energy": 20,
+        "Money": 3
+      }
+    ]
+  }
+]

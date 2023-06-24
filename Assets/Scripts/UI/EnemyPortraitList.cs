@@ -90,7 +90,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
         //arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
-        currentPortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
+        currentPortrait = PoolManager.GetInstance().GetObj("EnemyPortrait",ResourceType.UI);
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
         currentPortrait.transform.localPosition = midTemp.localPosition;
@@ -208,7 +208,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     private void InsPortrait(bool flag, int i)
     {
         //GameObject.Instantiate<GameObject>(portraits[i]);
-        preparePortrait = PoolManager.GetInstance().GetObj("EnemyPortrait");
+        preparePortrait = PoolManager.GetInstance().GetObj("EnemyPortrait", ResourceType.UI);
         _panel.UpdateEnemyPanel(i, preparePortrait);
 
         preparePortrait.transform.SetParent(transform);

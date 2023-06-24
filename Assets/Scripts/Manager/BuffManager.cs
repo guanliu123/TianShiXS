@@ -44,7 +44,7 @@ public class BuffManager : BaseManager<BuffManager>
     {
         GameObject effect = BuffDic[buffType].effect;
         if (!effect) return;
-        GameManager.GetInstance().GenerateEffect(taker.transform, effect);
+        //GameManager.GetInstance().GenerateEffect(taker.transform, effect);
     }
 
     private void InitBuffDic()

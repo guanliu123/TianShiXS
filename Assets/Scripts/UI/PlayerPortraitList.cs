@@ -82,7 +82,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        currentPortrait = PoolManager.GetInstance().GetObj("PlayerPortrait");
+        currentPortrait = PoolManager.GetInstance().GetObj("PlayerPortrait", ResourceType.UI);
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
         currentPortrait.transform.localPosition = midTemp.localPosition;
@@ -197,7 +197,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-        preparePortrait = PoolManager.GetInstance().GetObj("PlayerPortrait");
+        preparePortrait = PoolManager.GetInstance().GetObj("PlayerPortrait", ResourceType.UI);
         _panel.UpdatePlayerPanel(i, preparePortrait);
         preparePortrait.transform.SetParent(transform);
         preparePortrait.transform.localScale = new Vector3(1, 1, 1);

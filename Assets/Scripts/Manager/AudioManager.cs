@@ -68,7 +68,7 @@ public class AudioManager : BaseManager<AudioManager>
         bkMusic.Stop();
     }
 
-    public void PlaySound(AudioClip audio, bool isLoop)
+    public void PlaySound(string audio, bool isLoop)
     {
         if (soundObj == null)
         {
@@ -84,7 +84,7 @@ public class AudioManager : BaseManager<AudioManager>
             emptyList.RemoveAt(0);
         }
 
-        source.clip = audio;
+        source.clip = ResourceManager.GetInstance().LoadByName<AudioClip>(audio,ResourceType.Audio);
         source.loop = isLoop;
         source.volume = soundValue;
         source.Play();

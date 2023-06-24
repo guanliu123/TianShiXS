@@ -12,7 +12,10 @@ public class LevelManager : BaseManager<LevelManager>
     private LevelSO levelSO;
     public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
 
-    private List<GameObject> nowSquares = new List<GameObject>();
+    private List<GameObject> nowPlane = new List<GameObject>();
+
+    List<GameObject> normalPlanes = new List<GameObject>();
+    List<GameObject> widthPlanes = new List<GameObject>();
 
     private bool isSp;//是否更换了当前预备生成的地图模板
     public bool isChange;//是否进入宽地面战斗模式
@@ -50,27 +53,38 @@ public class LevelManager : BaseManager<LevelManager>
 
     public LevelManager()
     {
-        levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
-        foreach (var item in levelSO.leveldatas)
+        //levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
+        /*foreach (var item in levelSO.leveldatas)
         {
             levelDatasDic.Add(item.id, item.levelData);
-        }
+        }*/
+        levelDatasDic = LevelDataTool.ReadLevelData();
 
         nowLevel = levelDatasDic[0];
-        nowSquares = nowLevel.normalPlanes;
+        
+        //nowPlane = nowLevel.normalPlanes;
     }
 
     public void ChangeLevel(int levelNum)
     {
         nowLevelNum = levelNum - 1;
         nowLevel = levelDatasDic[nowLevelNum];
-        nowSquares = nowLevel.normalPlanes;
+        //nowPlane = nowLevel.normalPlanes;
     }
 
     private void InitLevel()
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
+
+        foreach(var item in nowLevel.normalPlanes)
+        {
+            normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(item, ResourceType.MapGround));
+        }
+        foreach(var item in nowLevel.widthPlanes)
+        {
+            widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(item, ResourceType.MapGround));
+        }
 
         nowStage = 0;
         maxStage = nowLevel.StageDatas.Count;
@@ -79,26 +93,26 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = nowLevel.StageDatas[nowStage].isSpecial;
         if (isSp)
         {
-            nowSquares = nowLevel.widthPlanes;
+            nowPlane = widthPlanes;
             mapSize = nowLevel.widthSize;
         }
         else
         {
-            nowSquares = nowLevel.normalPlanes;
+            nowPlane = normalPlanes;
             mapSize = nowLevel.normalSize;
         }
 
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Count;
         
         
-        Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
+        Camera.main.GetComponent<Skybox>().material = ResourceManager.GetInstance().LoadByName<Material>(nowLevel.skybox,ResourceType.Skybox);
 
         for (int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
             {
-                GameObject t = nowSquares[Random.Range(0, nowSquares.Count)];
+                GameObject t = nowPlane[Random.Range(0, nowPlane.Count)];
                 RandomSet(t);
 
                 exitingSquare.Add(GameObject.Instantiate(t, Vector3.zero, Quaternion.identity));
@@ -108,7 +122,7 @@ public class LevelManager : BaseManager<LevelManager>
                 Vector3 nextSquare = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
-                GameObject square = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)], nextSquare, Quaternion.identity);
+                GameObject square = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)], nextSquare, Quaternion.identity);
 
                 RandomSet(square);
 
@@ -174,7 +188,7 @@ public class LevelManager : BaseManager<LevelManager>
         if (Vector3.zero.z - exitingSquare[0].transform.position.z >= awayDistance)
         {
             GameObject t = exitingSquare[0];
-            GameObject t2 = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
+            GameObject t2 = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)]);
 
             RandomSet(t2);           
 
@@ -217,11 +231,11 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = !isSp;
         if (isSp)
         {
-            nowSquares = nowLevel.widthPlanes;
+            nowPlane = widthPlanes;
         }
         else
         {
-            nowSquares = nowLevel.normalPlanes;
+            nowPlane = normalPlanes;
             BulletManager.GetInstance().ClearExistBullet();
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().LockMove();
@@ -245,7 +259,7 @@ public class LevelManager : BaseManager<LevelManager>
     {
         for(int i = distanceSquare.Count-1; i >= 0; i--)
         {
-            GameObject newSquare = GameObject.Instantiate(nowSquares[Random.Range(0, nowSquares.Count)]);
+            GameObject newSquare = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)]);
             GameObject t = distanceSquare[i];
             newSquare.transform.position = t.transform.position;
             RandomSet(newSquare);
@@ -321,7 +335,7 @@ public class LevelManager : BaseManager<LevelManager>
         for (int i = 0; i < n; i++)
         {
             GameObject t = PoolManager.GetInstance().GetObj(
-                nowLevel.StageDatas[nowStage].WaveEnemyType[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyType.Length)].ToString());
+                nowLevel.StageDatas[nowStage].WaveEnemyType[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyType.Count)].ToString(),ResourceType.Enemy);
 
             if (t == null) return;
 
@@ -358,7 +372,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     void BuffDoorCreate(GameObject ground)
     {
-        GameObject t = PoolManager.GetInstance().GetObj(BuffDoorType.BuffDoors.ToString());
+        GameObject t = PoolManager.GetInstance().GetObj(MapItemType.BuffDoors.ToString(),ResourceType.MapItem);
         if (t == null) return;
 
         t.transform.position = new Vector3(
@@ -371,7 +385,7 @@ public class LevelManager : BaseManager<LevelManager>
     {
         requireBOSS--;
         GameObject t = PoolManager.GetInstance().GetObj(
-            nowLevel.StageDatas[nowStage].BOSSType[Random.Range(0, nowLevel.StageDatas[nowStage].BOSSType.Length)].ToString());
+            nowLevel.StageDatas[nowStage].BOSSType[Random.Range(0, nowLevel.StageDatas[nowStage].BOSSType.Count)].ToString(),ResourceType.Enemy);
 
         t.transform.position = new Vector3(bossPoint.x, bossPoint.y + 20f, bossPoint.z);
 
@@ -384,7 +398,7 @@ public class LevelManager : BaseManager<LevelManager>
         if (requireEnemy > 0|| requireBOSS>0) return;
 
         nowWave++;
-        if (nowWave >= nowLevel.StageDatas[nowStage].WaveEnemyNum.Length)
+        if (nowWave >= nowLevel.StageDatas[nowStage].WaveEnemyNum.Count)
         {
             nowStage++;
             if (nowStage >= nowLevel.StageDatas.Count)
@@ -396,7 +410,7 @@ public class LevelManager : BaseManager<LevelManager>
             nowWave = 0;
         }
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Length-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Length;
+        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Count-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Count;
         if (nowLevel.StageDatas[nowStage].isSpecial != isChange)
         {
             PrepareChangeStage();

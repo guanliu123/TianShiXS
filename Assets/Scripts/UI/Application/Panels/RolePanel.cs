@@ -58,7 +58,7 @@ public class RolePanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch{ }
-        GameObject.Instantiate(players.ElementAt(index).Value.icon,t).transform.parent = t;
+        GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(players.ElementAt(index).Value.image,ResourceType.UI),t).transform.parent = t;
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;     
 
         //UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;

@@ -22,7 +22,7 @@ MonoBehaviour:
       rotateSpeed: 0
       buffList: 05000000
       evolvableList: 030000000100000004000000
-      crit: 0
+      crit: 0.2
       critRate: 1
       ATK: 20
       damageInterval: 0

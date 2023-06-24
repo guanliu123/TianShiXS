@@ -27,27 +27,23 @@ MonoBehaviour:
       - 40
       skybox: {fileID: 2100000, guid: 1313066eb40294b469c0ad38ccb00e77, type: 2}
       StageDatas:
-      - StageNum: 0
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
-      - StageNum: 1
+      - StageID: 0
         isSpecial: 1
-        isBoss: 0
         BOSSType: 
-        WaveEnemyNum: 14000000
+        WaveEnemyNum: 050000000a000000
         WaveEnemyType: 03000000
-      - StageNum: 2
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 050000000a000000
         WaveEnemyType: 01000000
-      - StageNum: 3
+      - StageID: 0
         isSpecial: 1
-        isBoss: 1
         BOSSType: 04000000
         WaveEnemyNum: 050000000a00000005000000
         WaveEnemyType: 03000000
@@ -65,27 +61,23 @@ MonoBehaviour:
       - 40
       skybox: {fileID: 2100000, guid: 9c50d9ca340506c4c94c15773d7a71f5, type: 2}
       StageDatas:
-      - StageNum: 0
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
-      - StageNum: 1
+      - StageID: 0
         isSpecial: 1
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 050000000a000000
         WaveEnemyType: 03000000
-      - StageNum: 2
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 14000000
         WaveEnemyType: 01000000
-      - StageNum: 3
+      - StageID: 0
         isSpecial: 1
-        isBoss: 1
         BOSSType: 04000000
         WaveEnemyNum: 050000000a00000005000000
         WaveEnemyType: 03000000
@@ -103,27 +95,23 @@ MonoBehaviour:
       - 40
       skybox: {fileID: 2100000, guid: a95513848477fb04cbc387091657798f, type: 2}
       StageDatas:
-      - StageNum: 0
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 1e000000
         WaveEnemyType: 01000000
-      - StageNum: 1
+      - StageID: 0
         isSpecial: 1
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 0a0000000f000000
         WaveEnemyType: 03000000
-      - StageNum: 2
+      - StageID: 0
         isSpecial: 0
-        isBoss: 0
         BOSSType: 
         WaveEnemyNum: 1e000000
         WaveEnemyType: 01000000
-      - StageNum: 3
+      - StageID: 0
         isSpecial: 1
-        isBoss: 1
         BOSSType: 04000000
         WaveEnemyNum: 0a0000000f00000007000000
         WaveEnemyType: 03000000

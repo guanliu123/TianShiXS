@@ -5,16 +5,19 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 
 public class ResourceManager : BaseManager<ResourceManager>
 {
     private ResourcepathSO resourcepathSO;
-    private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
+    //private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
+
+    private Dictionary<ResourceType, string> pathDic = new Dictionary<ResourceType, string>();
     public ResourceManager()
     {
-        resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
+        //resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
 
-        List<ResourceDatas> t = resourcepathSO.resourcePaths;
+        /*List<ResourceDatas> t = resourcepathSO.resourcePaths;
         foreach (var item in t)
         {
             objPathDic.Add(item.resourceType, new Dictionary<string, string>());
@@ -22,32 +25,19 @@ public class ResourceManager : BaseManager<ResourceManager>
             {
                 objPathDic[item.resourceType].Add(item1.name, item1.path);
             }
-        }
+        }*/
+        pathDic = ResourceDataTool.ReadResourceData();
     }
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
-    public T LoadByName<T>(string objName,ResourceType resourceType=ResourceType.Null) where T : Object
+    public T LoadByName<T>(string objName, ResourceType resourceType) where T : Object
     {
 
         //T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
         T res=null;
-        if (resourceType != ResourceType.Null && objPathDic.ContainsKey(resourceType))
-        {
-            foreach(var item in objPathDic[resourceType])
-            {
-                if(item.Key==objName) res = Resources.Load<T>(item.Value);
-            }
-        }
-         
-        else
-        {
-            foreach (var item in objPathDic)
-            {
-                if (item.Value.ContainsKey(objName))
-                {
-                    res = Resources.Load<T>(item.Value[objName]);                    
-                }
-            }
+        if (pathDic.ContainsKey(resourceType))
+        {       
+           res = Resources.Load<T>(pathDic[resourceType]+objName);
         }
 
         return res;
@@ -65,22 +55,6 @@ public class ResourceManager : BaseManager<ResourceManager>
         }*/
         //else
             return res;
-    }
-
-    public List<T> Loads<T>(ResourceType resourceType) where T : Object
-    {
-        List<string> targetPaths = objPathDic[resourceType].Values.ToList<string>();
-        List<T> res = new List<T>();
-
-        if (targetPaths == null) return null;
-        else
-        {
-            foreach(var item in targetPaths)
-            {
-                res.Add(Resources.Load<T>(item));
-            }
-            return res;
-        }
     }
 
     public T Load<T>(string instantName,string objName) where T : Object

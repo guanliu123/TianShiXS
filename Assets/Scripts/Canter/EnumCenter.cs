@@ -6,14 +6,16 @@ using UnityEngine;
     public enum ResourceType
     {
         Audio,
-        MapSquare,
+        MapGround,
         Enemy,
         Bullet,
-        BuffDoor,
+        MapItem,
         UI,
         Prop,
         Player,
         Null,
+        Effect,
+        Skybox,
     }
 
 public enum CharacterType
@@ -44,7 +46,7 @@ public enum CharacterStateType
     Attack
 }
 
-public enum BuffDoorType
+public enum MapItemType
 {
     BuffDoors,
 }

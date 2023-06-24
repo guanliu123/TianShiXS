@@ -74,7 +74,7 @@ public class HandbookPanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch { }
-        GameObject.Instantiate(enemys[index].icon,t).transform.parent = t;
+        GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(enemys[index].image,ResourceType.UI),t).transform.parent = t;
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = enemys[index].name;
         UITool.GetOrAddComponentInChildren<Text>("IntroductionText", panel).text = enemys[index].describe;

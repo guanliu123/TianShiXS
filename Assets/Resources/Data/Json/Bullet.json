@@ -1,0 +1,42 @@
+[
+  {
+    "BulletType": "TaiChiDart",
+    "TransmissionFrequency": 0.4,
+    "IsRandomShoot": false,
+    "ExistTime": 1.5,
+    "MoveSpeed": 20,
+    "RotateSpeed": 0,
+    "BuffList": [
+      "Crit"
+    ],
+    "EvolvableList": [
+      "Vampirism",
+      "Frost",
+      "Multiply"
+    ],
+    "Crit": 0.2,
+    "CritRate": 1,
+    "ATK": 20,
+    "DamageInterval": 0,
+    "IsFollowShooter": false,
+    "ShootProbability": 1
+  },
+  {
+    "BulletType": "Combat",
+    "TransmissionFrequency": 0.5,
+    "IsRandomShoot": false,
+    "ExistTime": 0,
+    "MoveSpeed": 0,
+    "RotateSpeed": 0,
+    "BuffList": [
+      "Crit"
+    ],
+    "EvolvableList": [],
+    "Crit": 0.2,
+    "CritRate": 1,
+    "ATK": 10,
+    "DamageInterval": 0,
+    "IsFollowShooter": false,
+    "ShootProbability": 1
+  }
+]

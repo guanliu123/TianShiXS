@@ -16,6 +16,7 @@ public class Player : CharacterBase
         _instance = this;
 
         this.characterType = GameManager.GetInstance().nowPlayerType;
+        characterTag = CharacterTag.Player;
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
 

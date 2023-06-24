@@ -16,10 +16,10 @@ public class TestJson : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log(RolesData.ReadRoleData().ElementAt(0).Value.MaxHP);
+            //Debug.Log(RoleDataTool.ReadRoleData().ElementAt(0).Value.MaxHP);
         }
         if (Input.GetKeyDown(KeyCode.S)){
-            RolesData.WriteRoleData(CharacterType.DaoShi, 30);
+            RoleDataTool.WriteRoleData(CharacterType.DaoShi, 30);
         }
     }
 }
