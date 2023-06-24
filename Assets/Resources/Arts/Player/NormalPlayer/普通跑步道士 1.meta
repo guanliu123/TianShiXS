@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Arts/Player/NormalPlayer/普通跑步道士 1/Materials.meta
+guid: fd669ead8da258e448505d826d225b28
+========
 guid: 141db54638453d64380f3fbe20a459ea
+>>>>>>>> a33fdd771b4d0899fb8506bd52ef43c4754e7ea2:Assets/Resources/Arts/Player/NormalPlayer/普通跑步道士 1.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

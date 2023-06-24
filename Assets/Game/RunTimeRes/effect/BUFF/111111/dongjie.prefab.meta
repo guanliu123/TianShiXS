@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Server/websocket-sharp/websocket-sharp.csproj.meta
+guid: cad301ddac7c6e84da803b96abbc0282
+DefaultImporter:
+========
 guid: 611dfaea6507d564ea54c9d1c7186523
 PrefabImporter:
+>>>>>>>> a33fdd771b4d0899fb8506bd52ef43c4754e7ea2:Assets/Game/RunTimeRes/effect/BUFF/111111/dongjie.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

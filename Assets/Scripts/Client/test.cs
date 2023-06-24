@@ -20,10 +20,41 @@ public class test : MonoBehaviour
     private void DySuccessLogin(string code, string anonymousCode, bool isLogin)
     {
         Debug.Log("dysuccess");
-
+#if UNITY_STANDALONE_WIN
         _client.get_hub_info("login", (hub_info) =>
         {
             _login_Caller.get_hub(hub_info.hub_name).player_login_no_token(code).callBack((string player_hub_name, string token) =>
+            {
+                _player_login_Caller.get_hub(player_hub_name).player_login(token, "dy_name").callBack((UserData data) =>
+                {
+                    Debug.Log($"player_login success!");
+                    Debug.Log($"" + data.User.UserName);
+                    //...
+                }, (err) =>
+                {
+                    Debug.Log($"player_login err:{err}");
+                    if (err == (int)em_error.unregistered_palyer)
+                    {
+                        _player_login_Caller.get_hub(player_hub_name).create_role(token, "dy_name").callBack((UserData data) =>
+                        {
+                            Debug.Log($"create_role err success!");
+                            //...
+                        }, (error) =>
+                        {
+                            Console.WriteLine("player_login_dy err:{0}", err);
+                        });
+                    }
+                });
+            }, (err) =>
+            {
+                Debug.Log($"player_login_dy err:{err}");
+            });
+        });
+#endif
+#if UNITY_ANDROID
+        _client.get_hub_info("login", (hub_info) =>
+        {
+            _login_Caller.get_hub(hub_info.hub_name).player_login_dy(code , anonymousCode).callBack((string player_hub_name, string token) =>
             {
                 _player_login_Caller.get_hub(player_hub_name).player_login(token, "dy_name").callBack((UserData data) =>
                 {
@@ -49,6 +80,7 @@ public class test : MonoBehaviour
                 Debug.Log($"player_login_dy err:{err}");
             });
         });
+#endif
     }
 
     // Start is called before the first frame update
@@ -73,7 +105,15 @@ public class test : MonoBehaviour
         
         _client.onGateConnect += () => {
             Debug.Log("connect gate sucessed!");
-            StarkSDK.API.GetAccountManager().Login(successCallback, failedCallback, true); 
+            StarkSDK.API.GetAccountManager().OpenSettingsPanel((success) =>
+            {
+                Debug.Log("Auth Success");
+                StarkSDK.API.GetAccountManager().Login(successCallback, failedCallback, true);
+            }, (fail) =>
+            {
+                Debug.Log("Auth Fail");
+            });
+            
         };
         
         _client.onGateConnectFaild += () => {
