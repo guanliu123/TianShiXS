@@ -130,6 +130,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
     /// </summary>
     public void DragLeft()
     {
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex++;
         DragEndEffect(true);
     }
@@ -138,6 +139,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
     /// </summary>
     public void DragRight()
     {
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex--;
         DragEndEffect(false);
     }

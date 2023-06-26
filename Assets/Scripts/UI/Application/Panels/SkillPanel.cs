@@ -55,6 +55,7 @@ public class SkillPanel : BasePanel
     void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
     {
         button.onClick.AddListener(delegate {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             su[parameter - 1].skill.OnUse();
             Time.timeScale = 1;
             GameManager.GetInstance().PlayerEvolution();

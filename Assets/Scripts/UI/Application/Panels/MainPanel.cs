@@ -16,11 +16,13 @@ public class MainPanel : BasePanel
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
         UITool.GetOrAddComponentInChildren<Button>("Btn_Exit", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             SceneSystem.Instance.SetScene(new StartScene());
         });
 
         UITool.GetOrAddComponentInChildren<Button>("Btn_Chat", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Push(new CharacterPanel());
         });
     }

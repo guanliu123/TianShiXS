@@ -3,5 +3,10 @@
     "BuffType": "Crit",
     "Duration": 9999,
     "Probability": 1
+  },
+  {
+    "BuffType": "Poison",
+    "Duration": 3,
+    "Probability": 1
   }
 ]

@@ -27,6 +27,12 @@ public class ShieldBuff : BuffBase
 
     public override void OnUpdate(GameObject _taker)
     {
-        Debug.Log("附加护盾");
+        //Debug.Log("附加护盾");
+        GameObject t = PoolManager.GetInstance().GetObj(PropType.Shield.ToString(), ResourceType.Prop);
+
+        if (!t) return;
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+        timer.Init(PropType.Shield.ToString(), 2.5f);
     }
 }

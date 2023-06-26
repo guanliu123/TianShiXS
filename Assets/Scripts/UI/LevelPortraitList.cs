@@ -128,6 +128,7 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     public void DragLeft()
     {
         if (CurSelectIndex + 1 >_panel.levelNum/3) return;
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex++;
         DragEndEffect(true);
     }
@@ -135,8 +136,9 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// 向右拖拽，index-1
     /// </summary>
     public void DragRight()
-    {
+    {        
         if (CurSelectIndex - 1 <0) return;
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex--;
         DragEndEffect(false);
     }

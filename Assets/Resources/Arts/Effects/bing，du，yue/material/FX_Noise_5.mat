@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: FX_Noise_5
   m_Shader: {fileID: 4800000, guid: 353a9c4a14b1731469477534606678a6, type: 3}
-  m_ShaderKeywords: _BLEND_NONE _USEMASKTEX_ON _USETEXTUREMASKALPHA_ON _UVXUANZE_OFF
+  m_ShaderKeywords: _BLEND_NONE _USEMASKTEX_ON _USENOISETEX_ON _USETEXTUREMASKALPHA_ON
+    _UVXUANZE_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,24 +20,28 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DissolveSrc:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DissolveTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 6eb287ecf7ac60340b975675f6374442, type: 3}
-        m_Scale: {x: 2.34, y: 0.67}
+        m_Scale: {x: 2.38, y: 0.43}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 849d24b05c303414b9f3f162b22ce03b, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 42e42d9b5f3cb1b40acb0282bb130f62, type: 3}
+        m_Scale: {x: 0.98, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6eb287ecf7ac60340b975675f6374442, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureMaskAlpha:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 93193b544ca6c574597aa3efd0febe51, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _tex4coord2:
@@ -52,8 +57,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - DissColor1Widget: 0.25
+    - DissColor2Widget: 0.5
     - _AlphaBlend: 1
+    - _Amount: 0.5
     - _Blend: 0
+    - _BrightnessRatio: 1
     - _CeterScale: 1
     - _Clip: 0
     - _ClipCustom: 0
@@ -61,6 +70,10 @@ Material:
     - _DoubleNoise: 0
     - _DstBlend: 10
     - _EmissiveMultiply: 1
+    - _ForceX: 0.1
+    - _ForceY: 0.1
+    - _HeatTime: 0
+    - _Illuminate: 0.5
     - _InvFade: 1
     - _MainColorFront: 1
     - _MainNoiseIntCustom: 0
@@ -76,13 +89,14 @@ Material:
     - _ShanPinLv: 4
     - _ShanZhenFu: 1
     - _SrcBlend: 5
-    - _TimeScale1: 1
+    - _StartAmount: 0.1
+    - _TimeScale1: 2
     - _TimeScale2: 1
     - _TwirlInt: 0
     - _UVxuanze: 0
     - _UseDissolveTex: 0
     - _UseMaskTex: 1
-    - _UseNoiseTex: 0
+    - _UseNoiseTex: 1
     - _UseTextureMaskAlpha: 1
     - _ZTest: 0
     - _ZWrite: 0
@@ -92,13 +106,17 @@ Material:
     - _hardness: 0
     - _width: 0
     m_Colors:
+    - _DissColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _DissColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _DissColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveMainColor: {r: 0, g: 0.31992722, b: 1, a: 0.5}
     - _DissolveSpeedInt: {r: 0, g: 0, b: 0, a: 1}
     - _MainColorBack: {r: 0, g: 2.0039725, b: 2.670157, a: 1}
     - _MainColorBack02: {r: 0, g: 0, b: 0, a: 1}
-    - _MainSpeedInt: {r: 0, g: 1, b: 1, a: 1}
-    - _MainTiling: {r: 1, g: 1, b: 1, a: 1}
+    - _MainSpeedInt: {r: 0.5, g: 0, b: 1, a: 1}
+    - _MainTiling: {r: 0, g: 1, b: 0, a: 0}
     - _MaskSpeedInt: {r: 0, g: 0, b: 0, a: 1}
-    - _Noise01SpeedInt: {r: 0, g: 0, b: 0.01, a: 1}
+    - _Noise01SpeedInt: {r: 0.25, g: 0.24, b: 0.07, a: 1.63}
     - _Noise02Speed: {r: 0, g: 0, b: 0, a: 1}
     - _TintColor: {r: 0.08962262, g: 0.63377696, b: 1, a: 0.5}
     - _UVScaleOffset: {r: 1, g: 1, b: 0, a: 0}

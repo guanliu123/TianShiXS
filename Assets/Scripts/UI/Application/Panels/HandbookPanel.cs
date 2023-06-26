@@ -32,6 +32,7 @@ public class HandbookPanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Pop();
         });
         enemyArea = UITool.GetOrAddComponentInChildren<Transform>("Enemy", panel).gameObject;
@@ -48,12 +49,14 @@ public class HandbookPanel : BasePanel
         {
             enemyArea.SetActive(true);
             skillArea.SetActive(false);
+            AudioManager.GetInstance().PlaySound("NormalButton");
             dragButton = enemyList.GetComponent<IDragButton>();
         });
         UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", panel).onClick.AddListener(() =>
         {
             skillArea.SetActive(true);
             enemyArea.SetActive(false);
+            AudioManager.GetInstance().PlaySound("NormalButton");
             dragButton = skillList.GetComponent<IDragButton>();
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
@@ -61,7 +64,7 @@ public class HandbookPanel : BasePanel
             dragButton.LeftButton_Click();
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        {
+        {            
             dragButton.RightButton_Click();
         });
     }

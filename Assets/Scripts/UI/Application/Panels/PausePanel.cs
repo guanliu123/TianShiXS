@@ -37,16 +37,19 @@ public class PausePanel : BasePanel
         Time.timeScale = 0;
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             PanelManager.Instance.Pop();
         });
         UITool.GetOrAddComponentInChildren<Button>("Continue_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             PanelManager.Instance.Pop();
         });
         UITool.GetOrAddComponentInChildren<Button>("Exit_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             GameManager.GetInstance().QuitGame();
             PanelManager.Instance.Clear();

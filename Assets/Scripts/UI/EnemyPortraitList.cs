@@ -138,6 +138,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// </summary>
     public void DragLeft()
     {
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex++;
         DragEndEffect(true);
         //arcList.ListDragLeft();
@@ -147,6 +148,7 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// </summary>
     public void DragRight()
     {
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex--;
         DragEndEffect(false);
         //arcList.ListDragRight();

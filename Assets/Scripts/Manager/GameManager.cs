@@ -46,7 +46,7 @@ public class GameManager : BaseManager<GameManager>
 
     public Dictionary<CharacterType,CharacterMsg> GetPlayerRole()
     {
-        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>();
+        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>(CharacterManager.GetInstance().roleMsgDic);
 
         /*foreach(var item in DataManager.GetInstance().characterTagDic)
         {
@@ -63,6 +63,7 @@ public class GameManager : BaseManager<GameManager>
         {
             if (item.Value == CharacterTag.Enemy) enemys.Add(DataManager.GetInstance().characterMsgDic[item.Key]);
         }*/
+        enemys = CharacterManager.GetInstance().enemyMagDic.Values.ToList<CharacterMsg>();
 
         enemyCount = enemys.Count;
         return enemys;
@@ -239,13 +240,32 @@ public class GameManager : BaseManager<GameManager>
         
         obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
     }
-    public void GenerateEffect(Transform insTransform,GameObject effect)
-    {        
+    public void GenerateEffect(Transform insTransform,GameObject effect,bool withTra=false,float existTime = 0f)
+    {
+        if (!effect) return;
         string effectName = effect.name;
         GameObject t = PoolManager.GetInstance().GetObj(effectName, effect);
 
         if (!t) return;
 
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+
+        timer.Init(effectName, existTime);
+        t.transform.position = insTransform.position;
+        t.transform.rotation = insTransform.rotation;
+        if (withTra) t.transform.SetParent(insTransform);
+    }
+    public void GenerateEffect(Transform insTransform, string effectName, float existTime = 0f)
+    {
+        GameObject t = PoolManager.GetInstance().GetObj(effectName,ResourceType.Effect);
+
+        if (!t) return;
+
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+
+        timer.Init(effectName, existTime);
         t.transform.position = insTransform.position;
         t.transform.rotation = insTransform.rotation;
     }

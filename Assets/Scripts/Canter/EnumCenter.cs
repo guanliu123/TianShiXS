@@ -63,12 +63,14 @@ public enum BulletType
     GasBomb,
     Fanshaped,
     NULL,
-    FlowerDart,//¶¾ïÚ
+    PoisonBullet,//¶¾ïÚ
     PerpetualBullet,//Á¬»÷µ¯Ä»
     FireBall,
     RotateBullet,
     BounceBullet,
-    NormalBullet
+    NormalBullet,
+    IceBullet,
+    PerpetualBullet_Base,
 }
 
 public enum CameraPointType
@@ -86,6 +88,7 @@ public enum PropType
     Sword,
     Bell,
     Banners,
+    Shield
 }
 
 public enum BuffType

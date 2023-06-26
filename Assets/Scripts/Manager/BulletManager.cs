@@ -219,4 +219,18 @@ public class BulletManager : BaseManager<BulletManager>
             BulletBuffs[bulletType].Add(evolutionType, 1);
         }*/
     }
+    public void ChangeBullet(BulletType originBullet,BulletType changedBullet)
+    {
+        foreach(var item in Player._instance.nowBullet)
+        {
+            if (item.Key == originBullet)
+            {
+                Player._instance.nowBullet.Remove(item.Key);
+                Player._instance.bulletTimer.Remove(item.Key);
+                Player._instance.nowBullet.Add(changedBullet, BulletDic[changedBullet].transmissionFrequency);
+                Player._instance.bulletTimer.Add(changedBullet, BulletDic[changedBullet].transmissionFrequency);
+                return;
+            }
+        }
+    }
 }

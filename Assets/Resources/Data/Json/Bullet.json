@@ -1,5 +1,6 @@
 [
   {
+    "BulletID": 3001,
     "BulletType": "TaiChiDart",
     "TransmissionFrequency": 0.4,
     "IsRandomShoot": false,
@@ -7,7 +8,8 @@
     "MoveSpeed": 20,
     "RotateSpeed": 0,
     "BuffList": [
-      "Crit"
+      "Crit",
+      "Poison"
     ],
     "EvolvableList": [
       "Vampirism",
@@ -22,17 +24,33 @@
     "ShootProbability": 1
   },
   {
+    "BulletID": 3002,
+    "BulletType": "NormalBullet",
+    "TransmissionFrequency": 1,
+    "IsRandomShoot": false,
+    "ExistTime": 1.5,
+    "MoveSpeed": 20,
+    "RotateSpeed": 0,
+    "BuffList": [],
+    "EvolvableList": [],
+    "Crit": 0.1,
+    "CritRate": 1,
+    "ATK": 10,
+    "DamageInterval": 0,
+    "IsFollowShooter": false,
+    "ShootProbability": 1
+  },
+  {
+    "BulletID": 3003,
     "BulletType": "Combat",
     "TransmissionFrequency": 0.5,
     "IsRandomShoot": false,
-    "ExistTime": 0,
+    "ExistTime": 1,
     "MoveSpeed": 0,
     "RotateSpeed": 0,
-    "BuffList": [
-      "Crit"
-    ],
+    "BuffList": [],
     "EvolvableList": [],
-    "Crit": 0.2,
+    "Crit": 0.1,
     "CritRate": 1,
     "ATK": 10,
     "DamageInterval": 0,
