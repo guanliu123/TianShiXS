@@ -11,8 +11,8 @@ public class BulletCrit : BuffBase
     public BulletCrit()
     {
         buffType = BuffType.Crit;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
         critGrowthRate = 0.05f;
         _probability = buffData.probability;
         _duration = buffData.duration;

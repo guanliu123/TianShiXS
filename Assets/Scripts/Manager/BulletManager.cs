@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class BulletManager : BaseManager<BulletManager>
 {
-    public BulletSO bulletSO;
-
     //存储每种子弹数据
     public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
     public Dictionary<BulletType, List<BuffType>> evolvableBuffDic = new Dictionary<BulletType, List<BuffType>>();
@@ -26,12 +24,7 @@ public class BulletManager : BaseManager<BulletManager>
 
     public BulletManager()
     {
-        bulletSO = ResourceManager.GetInstance().LoadByPath<BulletSO>("ScriptableObject/BulletSO");
-
-        foreach (var item in bulletSO.bulletdatas)
-        {
-            BulletDic.Add(item.bulletType, item.bulletData);
-        }
+        BulletDic = BulletDataTool.ReadBulletData();
 
         Init();
     }
@@ -130,7 +123,7 @@ public class BulletManager : BaseManager<BulletManager>
         }
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString());
+            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString(),ResourceType.Bullet);
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
             bulletList.Add(t);
             //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
@@ -181,7 +174,7 @@ public class BulletManager : BaseManager<BulletManager>
         }
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString());
+            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString(), ResourceType.Bullet);
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
             bulletList.Add(t);
             //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
@@ -225,5 +218,19 @@ public class BulletManager : BaseManager<BulletManager>
         {
             BulletBuffs[bulletType].Add(evolutionType, 1);
         }*/
+    }
+    public void ChangeBullet(BulletType originBullet,BulletType changedBullet)
+    {
+        foreach(var item in Player._instance.nowBullet)
+        {
+            if (item.Key == originBullet)
+            {
+                Player._instance.nowBullet.Remove(item.Key);
+                Player._instance.bulletTimer.Remove(item.Key);
+                Player._instance.nowBullet.Add(changedBullet, BulletDic[changedBullet].transmissionFrequency);
+                Player._instance.bulletTimer.Add(changedBullet, BulletDic[changedBullet].transmissionFrequency);
+                return;
+            }
+        }
     }
 }

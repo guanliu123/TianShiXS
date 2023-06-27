@@ -49,6 +49,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     protected void Awake()
     {
         animator = this.gameObject.GetComponent<Animator>();
+        characterTag = CharacterTag.Enemy;
         characterPassiveEvent += BuffCheck;
     }
 
@@ -102,13 +103,18 @@ public class CharacterBase : MonoBehaviour, IAttack
     protected void InitData(bool isPlayer=false)
     {
         int askNum = isPlayer ? 0 : LevelManager.GetInstance().nowLevelNum;
-        (CharacterTag, CharacterData) t = DataManager.GetInstance().AskCharacterData(characterType,askNum);
-        characterTag = t.Item1;
-        if (characterTag == CharacterTag.Null) Recovery();
-        characterData = t.Item2;
+        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterType) ||
+            !CharacterManager.GetInstance().characterDatasDic[characterType].ContainsKey(askNum))
+        {
+            Debug.Log("角色获取数据失败，销毁");
+            Recovery(true);
+            return;
+        }
+        characterData = CharacterManager.GetInstance().characterDatasDic[characterType][askNum];
+        
         maxHP = characterData.MaxHP;
         nowHP = maxHP;
-        aggressivity = characterData.Aggressivity;
+        aggressivity = characterData.ATK;
         ATKSpeed = characterData.ATKSpeed;       
 
         if (hpSlider)
@@ -253,8 +259,9 @@ public class CharacterBase : MonoBehaviour, IAttack
         if ((Player._instance.transform.position - transform.position).z > 1.5f) Recovery();
     }
 
-    public void Recovery()
+    public void Recovery(bool isDestory=false)
     {
+        if (isDestory) GameObject.Destroy(gameObject);
         if (characterTag == CharacterTag.Enemy) GameManager.GetInstance().EnemyDecrease(this.gameObject);
         foreach (var item in buffDic)
         {

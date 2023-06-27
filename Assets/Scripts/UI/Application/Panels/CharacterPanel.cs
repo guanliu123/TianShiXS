@@ -19,6 +19,7 @@ public class CharacterPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("Btn_Close", panel).onClick.AddListener(() =>
         {            
             PanelManager.Instance.Pop();
+            AudioManager.GetInstance().PlaySound("NormalButton");
         });
     }
 

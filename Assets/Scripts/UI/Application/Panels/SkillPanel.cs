@@ -28,7 +28,7 @@ public class SkillPanel : BasePanel
         Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
         for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj("SkillTag");
+            GameObject t = PoolManager.GetInstance().GetObj("SkillTag",ResourceType.UI);
             UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
             t.transform.position = content.position;
             t.transform.SetParent(content);
@@ -55,6 +55,7 @@ public class SkillPanel : BasePanel
     void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
     {
         button.onClick.AddListener(delegate {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             su[parameter - 1].skill.OnUse();
             Time.timeScale = 1;
             GameManager.GetInstance().PlayerEvolution();

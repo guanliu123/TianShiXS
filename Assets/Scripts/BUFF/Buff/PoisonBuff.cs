@@ -8,7 +8,8 @@ public class PoisonBuff : BuffBase
     {
         buffType = BuffType.Poison;
         coroutineType = CoroutineType.PoisonBuff;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
 
         triggerInterval = 1f;
         _probability = buffData.probability;

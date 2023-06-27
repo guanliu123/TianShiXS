@@ -21,7 +21,7 @@ public class PausePanel : BasePanel
         Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
         for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj("SkillTag");
+            GameObject t = PoolManager.GetInstance().GetObj("SkillTag",ResourceType.UI);
             UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
             t.transform.position = content.position;
             t.transform.SetParent(content);
@@ -37,16 +37,19 @@ public class PausePanel : BasePanel
         Time.timeScale = 0;
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             PanelManager.Instance.Pop();
         });
         UITool.GetOrAddComponentInChildren<Button>("Continue_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             PanelManager.Instance.Pop();
         });
         UITool.GetOrAddComponentInChildren<Button>("Exit_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             Time.timeScale = 1;
             GameManager.GetInstance().QuitGame();
             PanelManager.Instance.Clear();

@@ -19,7 +19,8 @@ public class FailPanel : BasePanel
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
         
         UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
-        {            
+        {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Pop();
             PanelManager.Instance.Push(new StartPanel());
         });

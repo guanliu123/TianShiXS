@@ -17,7 +17,7 @@ public struct ResourceData//
 [Serializable]
 public struct ResourceDatas
 {
-    [Header("资源类型")] public ResourceType resourceType;
+    [Header("资源类型")] public CharacterType resourceType;
     [Header("资源名称与所在路径")] public List<ResourceData> resourceNPs;
 }
 #endregion
@@ -26,12 +26,12 @@ public struct ResourceDatas
 [Serializable]
 public struct CharacterData
 {
-    [Header("当前数据所属关卡")] public int levelNum;
+    //[Header("当前数据所属关卡")] public int levelNum;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<BulletType> bulletTypes;
-    [Header("角色基础攻击力加成")] public float Aggressivity;
+    [Header("角色基础攻击力加成")] public float ATK;
     [Header("角色基础攻速加成")] public float ATKSpeed;
-    [Header("角色减伤率")] public float avoidance;
+    //[Header("角色减伤率")] public float avoidance;
     [Header("角色死亡增加能量")] public float energy;
     [Header("角色死亡掉落金币")] public int money;
 }
@@ -41,14 +41,14 @@ public struct CharacterMsg
 {
     //[Header("角色标签")] public CharacterTag tag;
     [Header("角色名称")] public string name;
-    [Header("角色立绘")] public GameObject icon;
+    [Header("角色立绘")] public GameObject image;
     [Header("角色描述")] public string describe;
 }
 
 [Serializable]
 public struct CharacterDatas{
     [Header("角色类型")] public CharacterType characterType;
-    [Header("角色标签")] public CharacterTag characterTag;
+    //[Header("角色标签")] public CharacterTag characterTag;
     public CharacterMsg characterMsg;
     public List<CharacterData> characterData;
 }
@@ -61,23 +61,18 @@ public struct BulletData
     [Header("发射频率")] public float transmissionFrequency;
     [Header("是否向随即方向发射")] public bool isRandomShoot;
     [Header("子弹存在时间")] public float existTime;
-    //[Header("子弹能否移动")] public bool isMovable;
     [Header("移动速度")] public float moveSpeed;
-    //[Header("移动时间")] public float moveTime;
-    //[Header("停止时间")] public float stopTime;
-    //[Header("子弹能否旋转")] public bool isRotatable;
     [Header("旋转速度")] public float rotateSpeed;
-    //[Header("旋转间隔")] public float rotateInterval;
     [Header("初始附带特殊列表")] public List<BuffType> buffList;
     [Header("可进化方向")] public List<BuffType> evolvableList;
-    [Header("暴击率(百分制，暴击倍率同")] public int crit;
+    [Header("暴击率(百分制，暴击倍率同")] public float crit;
     [Header("暴击倍率")] public float critRate;
     [Header("基础攻击力")] public float ATK;
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
     [Header("发射几率")] public float shootProbability;
     [Header("命中音效")] public AudioClip audio;
-    [Header("命中特效")] public GameObject hitEffect;
+    [Header("命中特效")] public GameObject effect;
 }
 [Serializable]
 public struct BulletDatas
@@ -92,7 +87,7 @@ public struct BulletDatas
 [Serializable]
 public struct BuffData
 {
-    [Header("buff图标")] public Sprite icon;
+    //[Header("buff图标")] public Sprite icon;
     [Header("buff音效")] public AudioClip audio;
     [Header("产生特效")] public GameObject effect;
     [Header("持续时间")] public float duration;
@@ -116,11 +111,11 @@ public struct SkillUpgrade
     public ISkill skill;
 }
 [Serializable]
-public struct SkillDatas
+public struct SkillData
 {
     [Header("技能ID")] public int id;
     [Header("技能名字")] public string name;
-    [Header("技能图标")] public Sprite[] icon;
+    [Header("技能图标")] public Sprite icon;
     [Header("技能描述")] public string describe;
     [Header("技能出现概率")] public float probability;
     [Header("技能可出现次数")] public int num;
@@ -133,12 +128,12 @@ public struct SkillDatas
 [Serializable]
 public struct StageData
 {
-    [Header("阶段编号")] public int StageNum;
+    [Header("阶段编号")] public int StageID;
     [Header("是否属于特殊阶段")] public bool isSpecial;
-    [Header("是否boss战")] public bool isBoss;
-    [Header("BOSS类型")] public CharacterType[] BOSSType;
-    [Header("关卡波次及敌人数量")] public int[] WaveEnemyNum;
-    [Header("每波敌人类型")] public CharacterType[] WaveEnemyType;
+    //[Header("是否boss战")] public bool isBoss;
+    [Header("BOSS类型")] public List<CharacterType> BOSSType;
+    [Header("关卡波次及敌人数量")] public List<int> WaveEnemyNum;
+    [Header("每波敌人类型")] public List<CharacterType> WaveEnemyType;
 }
 
 [Serializable] 

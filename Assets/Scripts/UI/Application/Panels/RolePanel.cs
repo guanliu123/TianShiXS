@@ -30,21 +30,15 @@ public class RolePanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Pop();
         });
 
         UITool.GetOrAddComponentInChildren<Button>("Use_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             GameManager.GetInstance().ChangeRole(choosePlayer);
         });
-        //UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
-        //{
-        //    t.LeftButton_Click();
-        //});
-        //UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        //{
-        //    t.RightButton_Click();
-        //});
     }
 
 
@@ -58,7 +52,7 @@ public class RolePanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch{ }
-        GameObject.Instantiate(players.ElementAt(index).Value.icon,t).transform.parent = t;
+        GameObject.Instantiate(players.ElementAt(index).Value.image,t).transform.parent = t;
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;     
 
         //UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
