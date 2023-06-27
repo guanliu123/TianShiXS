@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Abelkhan;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ public class GameManager : BaseManager<GameManager>
 {
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;
+
+    private UserData userData;
 
     public int nowLevel;
 
@@ -29,6 +32,11 @@ public class GameManager : BaseManager<GameManager>
     public List<GameObject> bulletList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
+    public UserData _UserData 
+    { 
+        get => userData; 
+        set => userData = value; 
+    }
 
     private int evolutionNum = 0;
     //private GameObject gameCanvas;
