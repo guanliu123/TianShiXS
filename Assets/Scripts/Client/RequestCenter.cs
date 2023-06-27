@@ -8,140 +8,92 @@ namespace GameClient
 {
     public class RequestCenter
     {
-        public UserData AddCoinReq(GameClient client,int n)
+        public void AddCoinReq(GameClient client,int n, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).add_coin(n).callBack((UserData data) =>
             {
-               temp= data; 
+                cb.Invoke(data);
             }, (err) =>
             {
                Debug.Log("请求发送失败，错误代码："+err);
             });
-            if(temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData AddStrengthReq(GameClient client,int n)
+        public void AddStrengthReq(GameClient client,int n, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).add_strength(10).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
         
-        public UserData AddSkillReq(GameClient client,Skill skill)
+        public void AddSkillReq(GameClient client,Skill skill, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).add_skill(skill).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData AddMonsetrReq(GameClient client, Monster monster)
+        public void AddMonsetrReq(GameClient client, Monster monster, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).add_monster(monster).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData CostCoinReq(GameClient client, int amount, EMCostCoinPath coinPath, int id)
+        public void CostCoinReq(GameClient client, int amount, EMCostCoinPath coinPath, int id, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).cost_coin(amount,coinPath,id).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData CostStrengthReq(GameClient client, int amount)
+        public void CostStrengthReq(GameClient client, int amount, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).cost_strength(amount).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData CostPropReq(GameClient client, int amount)
+        public void CostPropReq(GameClient client, int amount, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).cost_prop(amount).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
 
-        public UserData OpenChestReq(GameClient client, EMChestType type)
+        public void OpenChestReq(GameClient client, EMChestType type, Action<UserData> cb)
         {
-            UserData temp = null;
             client._player_archive_Caller.get_hub(client._player_hub_name).open_chest(type).callBack((UserData data) =>
             {
-                temp = data;
+                cb.Invoke(data);
             }, (err) =>
             {
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
-            if (temp != null)
-            {
-                return temp;
-            }
-            return null;
         }
     }
 }
