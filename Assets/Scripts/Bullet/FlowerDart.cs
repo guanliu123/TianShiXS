@@ -6,7 +6,7 @@ public class FlowerDart : BulletBase
 {
     private void Awake()
     {
-        bulletType = BulletType.FlowerDart;
+        bulletType = BulletType.PoisonBullet;
         bulletData = BulletManager.GetInstance().BulletDic[bulletType];
 
 

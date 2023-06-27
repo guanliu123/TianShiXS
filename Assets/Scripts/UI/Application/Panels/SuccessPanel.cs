@@ -20,6 +20,7 @@ public class SuccessPanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Pop();
             PanelManager.Instance.Push(new StartPanel());
         });

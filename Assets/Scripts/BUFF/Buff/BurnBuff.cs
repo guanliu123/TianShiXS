@@ -9,8 +9,8 @@ public class BurnBuff : BuffBase
     {
         buffType = BuffType.Burn;
         coroutineType = CoroutineType.BurnBuff;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
 
         triggerInterval = 0.5f;
         _probability = buffData.probability;

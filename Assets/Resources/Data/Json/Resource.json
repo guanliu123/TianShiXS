@@ -1,0 +1,42 @@
+[
+  {
+    "ResourceType": "Audio",
+    "ResourcePath": "Audios/"
+  },
+  {
+    "ResourceType": "Enemy",
+    "ResourcePath": "Prefabs/Enemy/"
+  },
+  {
+    "ResourceType": "MapGround",
+    "ResourcePath": "Prefabs/Map/Ground/"
+  },
+  {
+    "ResourceType": "Bullet",
+    "ResourcePath": "Prefabs/Bullet/"
+  },
+  {
+    "ResourceType": "UI",
+    "ResourcePath": "Prefabs/UI/"
+  },
+  {
+    "ResourceType": "Prop",
+    "ResourcePath": "Prefabs/Prop/"
+  },
+  {
+    "ResourceType": "Player",
+    "ResourcePath": "Prefabs/Player/"
+  },
+  {
+    "ResourceType": "MapItem",
+    "ResourcePath": "Prefabs/Map/Item/"
+  },
+  {
+    "ResourceType": "Skybox",
+    "ResourcePath": "Skyboxs/"
+  },
+  {
+    "ResourceType": "Effect",
+    "ResourcePath": "Prefabs/Effects/"
+  }
+]

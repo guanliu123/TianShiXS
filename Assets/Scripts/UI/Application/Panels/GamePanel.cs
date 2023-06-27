@@ -66,6 +66,7 @@ public class GamePanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("Pause_Btn", panel).onClick.AddListener(() =>
         {
             PanelManager.Instance.Push(new PausePanel());
+            AudioManager.GetInstance().PlaySound("NormalButton");
         });
 
         MonoManager.GetInstance().AddUpdateListener(GameUIEvent);

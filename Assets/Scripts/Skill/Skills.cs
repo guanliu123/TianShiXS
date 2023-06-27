@@ -49,7 +49,7 @@ namespace Skills
 
         public void OnUse()
         {
-            Player._instance.AddBullet(BulletType.FlowerDart);
+            Player._instance.AddBullet(BulletType.PoisonBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -64,7 +64,7 @@ namespace Skills
 
         public void OnUse()
         {
-            BulletManager.GetInstance().BulletEvolute(BuffType.Poison,BulletType.FlowerDart);
+            BulletManager.GetInstance().BulletEvolute(BuffType.Poison,BulletType.PoisonBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -78,7 +78,7 @@ namespace Skills
         }
         public void OnUse()
         {
-            BulletManager.GetInstance().increaseProbability[BulletType.FlowerDart] += 0.1f;
+            BulletManager.GetInstance().increaseProbability[BulletType.PoisonBullet] += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -95,6 +95,7 @@ namespace Skills
             foreach(var item in Player._instance.nowBullet)
             {
                 BulletManager.GetInstance().BulletEvolute(BuffType.Frost, item.Key);
+                BulletManager.GetInstance().ChangeBullet(BulletType.TaiChiDart, BulletType.IceBullet);
             }
             SkillManager.GetInstance().UpdateSkillPool(id);
         }

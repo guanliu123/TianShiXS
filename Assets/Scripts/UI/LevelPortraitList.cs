@@ -79,7 +79,7 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        currentPortrait = PoolManager.GetInstance().GetObj("LevelList");
+        currentPortrait = PoolManager.GetInstance().GetObj("LevelList", ResourceType.UI);
         currentPortrait.transform.parent = transform;
         currentPortrait.transform.localScale = new Vector3(1, 1, 1);
         currentPortrait.transform.localPosition = midTemp.localPosition;
@@ -128,6 +128,7 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     public void DragLeft()
     {
         if (CurSelectIndex + 1 >_panel.levelNum/3) return;
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex++;
         DragEndEffect(true);
     }
@@ -135,8 +136,9 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// 向右拖拽，index-1
     /// </summary>
     public void DragRight()
-    {
+    {        
         if (CurSelectIndex - 1 <0) return;
+        AudioManager.GetInstance().PlaySound("PageturnButton");
         CurSelectIndex--;
         DragEndEffect(false);
     }
@@ -178,7 +180,7 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-        preparePortrait = PoolManager.GetInstance().GetObj("LevelList");
+        preparePortrait = PoolManager.GetInstance().GetObj("LevelList", ResourceType.UI);
         _panel.UpdateLevelList(i, preparePortrait);
         preparePortrait.transform.SetParent(transform);
         preparePortrait.transform.localScale = new Vector3(1, 1, 1);

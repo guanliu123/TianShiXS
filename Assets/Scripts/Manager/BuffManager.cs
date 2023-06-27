@@ -5,14 +5,17 @@ using UnityEngine.Rendering;
 
 public class BuffManager : BaseManager<BuffManager>
 {
-    public Dictionary<BuffType, BuffData> BuffDic = new Dictionary<BuffType, BuffData>();
+    public static Dictionary<BuffType, BuffData> BuffDic = new Dictionary<BuffType, BuffData>();
     public Dictionary<BuffType, BuffBase> Buffs = new Dictionary<BuffType, BuffBase>();
     private Dictionary<BuffType, List<GameObject>> buffList = new Dictionary<BuffType, List<GameObject>>();//用于有持续作用的buff
 
+    static BuffManager()
+    {
+        BuffDic = BuffDataTool.ReadBuffData();
+    }
+
     public BuffManager()
     {
-        BuffDic = DataManager.GetInstance().buffDataDic;
-
         InitBuffDic();
     }
 
@@ -43,19 +46,18 @@ public class BuffManager : BaseManager<BuffManager>
     public void OnBuff(GameObject taker, BuffType buffType)
     {
         GameObject effect = BuffDic[buffType].effect;
-        if (!effect) return;
-        GameManager.GetInstance().GenerateEffect(taker.transform, effect);
+        GameManager.GetInstance().GenerateEffect(taker.transform, effect,true,0.3F);
     }
 
     private void InitBuffDic()
     {
-        Buffs.Add(BuffType.Burn, new BurnBuff());
-        Buffs.Add(BuffType.Poison, new PoisonBuff());
-        Buffs.Add(BuffType.Frost, new ForstBuff());
-        Buffs.Add(BuffType.Vampirism, new VampirismBuff());
         Buffs.Add(BuffType.Crit, new BulletCrit());
+        Buffs.Add(BuffType.Poison, new PoisonBuff());
+        /*Buffs.Add(BuffType.Burn, new BurnBuff());       
+        Buffs.Add(BuffType.Frost, new ForstBuff());
+        Buffs.Add(BuffType.Vampirism, new VampirismBuff());        
         Buffs.Add(BuffType.Multiply, new BulletMultiply());
         Buffs.Add(BuffType.Shield, new ShieldBuff());
-        Buffs.Add(BuffType.Reflect, new ReflectBuff());
+        Buffs.Add(BuffType.Reflect, new ReflectBuff());*/
     }
 }

@@ -72,7 +72,7 @@ public class PoolManager : BaseManager<PoolManager>
     /// </summary>
     /// <param name="poolName">物体所在对象池名称（就是想取出的物体名称）</param>
     /// <returns></returns>
-    public GameObject GetObj(string poolName)
+    public GameObject GetObj(string poolName,ResourceType resourceType)
     {
         if (!isActive) return null;
         GameObject t=null;
@@ -80,9 +80,11 @@ public class PoolManager : BaseManager<PoolManager>
         {
             t = poolDic[poolName].GetObj();
             if (t != null) return t;
-        }      
+        }
 
-        return GameObject.Instantiate(ResourceManager.GetInstance().LoadByName<GameObject>(poolName));
+        GameObject t1 = ResourceManager.GetInstance().LoadByName<GameObject>(poolName, resourceType);
+        if(t1!=null) t = GameObject.Instantiate(t1);
+        return t;
     }
 
     /// <summary>

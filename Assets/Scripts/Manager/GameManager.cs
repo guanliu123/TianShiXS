@@ -46,12 +46,12 @@ public class GameManager : BaseManager<GameManager>
 
     public Dictionary<CharacterType,CharacterMsg> GetPlayerRole()
     {
-        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>();
+        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>(CharacterManager.GetInstance().roleMsgDic);
 
-        foreach(var item in DataManager.GetInstance().characterTagDic)
+        /*foreach(var item in DataManager.GetInstance().characterTagDic)
         {
             if (item.Value == CharacterTag.Player) players.Add(item.Key,DataManager.GetInstance().characterMsgDic[item.Key]);
-        }
+        }*/
 
         playerCount = players.Count;
         return players;
@@ -59,20 +59,21 @@ public class GameManager : BaseManager<GameManager>
     public List<CharacterMsg> GetEnemyRole()
     {
         List<CharacterMsg> enemys = new List<CharacterMsg>();
-        foreach(var item in DataManager.GetInstance().characterTagDic)
+        /*foreach(var item in DataManager.GetInstance().characterTagDic)
         {
             if (item.Value == CharacterTag.Enemy) enemys.Add(DataManager.GetInstance().characterMsgDic[item.Key]);
-        }
+        }*/
+        enemys = CharacterManager.GetInstance().enemyMagDic.Values.ToList<CharacterMsg>();
 
         enemyCount = enemys.Count;
         return enemys;
     }
-    public List<SkillDatas> GetSkills()
+    public List<SkillData> GetSkills()
     {
-        List<SkillDatas> skills = new List<SkillDatas>();
-        foreach(var item in SkillManager.GetInstance().skillSO.skilldatas)
+        List<SkillData> skills = new List<SkillData>();
+        foreach(var item in SkillManager.skillDatas)
         {
-            skills.Add(item);
+            skills.Add(item.Value);
         }
 
         skillCount = skills.Count;
@@ -93,7 +94,7 @@ public class GameManager : BaseManager<GameManager>
     public void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString());
+        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString(),ResourceType.Player);
         
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
@@ -147,7 +148,7 @@ public class GameManager : BaseManager<GameManager>
         GameObject.Destroy(player.GetComponent<Player>());
         GameObject.Destroy(player.GetComponent<PlayerController>());
         CameraMove(CameraPointType.OrginPoint, 1f);
-        DataCenter.Money += levelMoney;
+        //DataCenter.Money += levelMoney;
     }
 
     public void ClearFloatDamage()
@@ -201,7 +202,7 @@ public class GameManager : BaseManager<GameManager>
     {
         for (int i = 0; i < num + increaseMoney; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString());
+            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString(),ResourceType.Prop);
 
             t.transform.position = point.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
         }
@@ -233,18 +234,38 @@ public class GameManager : BaseManager<GameManager>
 
     public void ShowDamage(Transform point,float damage,HPType  hpType)
     {
-        GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage");
+        GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage",ResourceType.UI);
 
         obj.transform.parent = mainCanvas.transform;
         
         obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
     }
-    public void GenerateEffect(Transform insTransform,GameObject effect)
+    public void GenerateEffect(Transform insTransform,GameObject effect,bool withTra=false,float existTime = 0f)
     {
         if (!effect) return;
         string effectName = effect.name;
         GameObject t = PoolManager.GetInstance().GetObj(effectName, effect);
-        
+
+        if (!t) return;
+
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+
+        timer.Init(effectName, existTime);
+        t.transform.position = insTransform.position;
+        t.transform.rotation = insTransform.rotation;
+        if (withTra) t.transform.SetParent(insTransform);
+    }
+    public void GenerateEffect(Transform insTransform, string effectName, float existTime = 0f)
+    {
+        GameObject t = PoolManager.GetInstance().GetObj(effectName,ResourceType.Effect);
+
+        if (!t) return;
+
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+
+        timer.Init(effectName, existTime);
         t.transform.position = insTransform.position;
         t.transform.rotation = insTransform.rotation;
     }
@@ -265,7 +286,7 @@ public class GameManager : BaseManager<GameManager>
 
     public void AddEvolutionProp(PropType propType)
     {
-        GameObject t = PoolManager.GetInstance().GetObj(propType.ToString());
+        GameObject t = PoolManager.GetInstance().GetObj(propType.ToString(),ResourceType.Prop);
         t.transform.position = new Vector3(Player._instance.transform.position.x
             , Player._instance.transform.position.y-1
             , Player._instance.transform.position.z);

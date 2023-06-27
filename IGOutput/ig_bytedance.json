@@ -4,12 +4,12 @@
         {
             "abi": "",
             "filename": "first.zip",
-            "download_link": "https://a.unity.cn/client_api/v1/buckets/1a72b623-c6ca-484f-adf1-269ccf3634d6/release_by_badge/v1/content/first.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/93252193-8242-43f8-b227-16c03ff08334/release_by_badge/v1/content/first.zip",
             "keep_after_unzip": true,
             "is_main_resource": true,
             "parent_dir_type": "PACKAGE",
-            "size": 18497836,
-            "md5": "f142bb1498c42eff08885abb7aaede8e",
+            "size": 18507030,
+            "md5": "a1e1fa4dd6a4a6721dc75e765d19d4f4",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": []
@@ -17,18 +17,18 @@
         {
             "abi": "",
             "filename": "game_res.zip",
-            "download_link": "https://a.unity.cn/client_api/v1/buckets/1a72b623-c6ca-484f-adf1-269ccf3634d6/release_by_badge/v1/content/game_res.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/93252193-8242-43f8-b227-16c03ff08334/release_by_badge/v1/content/game_res.zip",
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 112598027,
-            "md5": "35a63dc21589991cadafa94293e1a97e",
+            "size": 121140002,
+            "md5": "8d5b89a35edb37d82302828ea946d67c",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "data.unity3d",
-                    "md5": "616018796897375a2d7be6f521039b35",
+                    "md5": "4f586f315cee260c5d58a649ddd18778",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": ""
                 }
@@ -37,24 +37,24 @@
         {
             "abi": "arm64-v8a",
             "filename": "gamelibs_arm64-v8a.zip",
-            "download_link": "https://a.unity.cn/client_api/v1/buckets/1a72b623-c6ca-484f-adf1-269ccf3634d6/release_by_badge/v1/content/gamelibs_arm64-v8a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/93252193-8242-43f8-b227-16c03ff08334/release_by_badge/v1/content/gamelibs_arm64-v8a.zip",
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 13009479,
-            "md5": "35902783de1cd4c4b14f72bf1f4f9da2",
+            "size": 13031195,
+            "md5": "8f185ba9b0bfe328e662520563e7aa4f",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "2f87fa5668b7f9eb9972fee9b7e9f597",
+                    "md5": "715ac328c18be057041d3f4eaf65b849",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
                 {
                     "filename": "libunity.so",
-                    "md5": "dce4c21b4daf9eb22367851d7381bb56",
+                    "md5": "e9874698dcc2db5b16f0c69ea65c4c39",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 }
@@ -63,24 +63,24 @@
         {
             "abi": "armeabi-v7a",
             "filename": "gamelibs_armeabi-v7a.zip",
-            "download_link": "https://a.unity.cn/client_api/v1/buckets/1a72b623-c6ca-484f-adf1-269ccf3634d6/release_by_badge/v1/content/gamelibs_armeabi-v7a.zip",
+            "download_link": "https://a.unity.cn/client_api/v1/buckets/93252193-8242-43f8-b227-16c03ff08334/release_by_badge/v1/content/gamelibs_armeabi-v7a.zip",
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 11940984,
-            "md5": "5dfa58d230d59081a629dd5856d88894",
+            "size": 11952163,
+            "md5": "7975014159c21ec64f378b4d4b1aa57b",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "eba894fae967c088537ab71d7d713226",
+                    "md5": "be8628d378e351be9cee62be78f6d44f",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
                 {
                     "filename": "libunity.so",
-                    "md5": "b8b9734901c2e6e7ed0fae5ca4f39ad7",
+                    "md5": "59644c7fd44c85ab11c432d31ff78d13",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 }

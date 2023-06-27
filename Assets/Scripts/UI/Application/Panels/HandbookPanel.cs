@@ -15,7 +15,7 @@ public class HandbookPanel : BasePanel
 
     GameObject skillArea;
     GameObject skillList;
-    List<SkillDatas> skills;
+    List<SkillData> skills;
     
     IDragButton dragButton;
 
@@ -32,6 +32,7 @@ public class HandbookPanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         {
+            AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Pop();
         });
         enemyArea = UITool.GetOrAddComponentInChildren<Transform>("Enemy", panel).gameObject;
@@ -48,12 +49,14 @@ public class HandbookPanel : BasePanel
         {
             enemyArea.SetActive(true);
             skillArea.SetActive(false);
+            AudioManager.GetInstance().PlaySound("NormalButton");
             dragButton = enemyList.GetComponent<IDragButton>();
         });
         UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", panel).onClick.AddListener(() =>
         {
             skillArea.SetActive(true);
             enemyArea.SetActive(false);
+            AudioManager.GetInstance().PlaySound("NormalButton");
             dragButton = skillList.GetComponent<IDragButton>();
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
@@ -61,7 +64,7 @@ public class HandbookPanel : BasePanel
             dragButton.LeftButton_Click();
         });
         UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        {
+        {            
             dragButton.RightButton_Click();
         });
     }
@@ -74,7 +77,7 @@ public class HandbookPanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch { }
-        GameObject.Instantiate(enemys[index].icon,t).transform.parent = t;
+        GameObject.Instantiate(enemys[index].image,t).transform.parent = t;
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = enemys[index].name;
         UITool.GetOrAddComponentInChildren<Text>("IntroductionText", panel).text = enemys[index].describe;
@@ -84,7 +87,7 @@ public class HandbookPanel : BasePanel
 
     public void UpdateSkillPanel(int index, GameObject panel)
     {
-        UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = skills[index].icon[0];
+        UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = skills[index].icon;
         UITool.GetOrAddComponentInChildren<Text>("SkillNameText", panel).text = skills[index].name;
         UITool.GetOrAddComponentInChildren<Text>("DescribeText", panel).text = skills[index].describe;
     }

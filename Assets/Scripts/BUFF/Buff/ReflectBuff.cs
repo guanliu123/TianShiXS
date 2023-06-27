@@ -7,8 +7,8 @@ public class ReflectBuff : BuffBase
     public ReflectBuff()
     {
         buffType = BuffType.Reflect;
-        buffData = DataManager.GetInstance().AskBuffDate(buffType);
-
+        //buffData = DataManager.GetInstance().AskBuffDate(buffType);
+        buffData = BuffManager.BuffDic[buffType];
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
