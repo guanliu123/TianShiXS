@@ -8,6 +8,16 @@ namespace Abelkhan
 {
 /*this enum code is codegen by abelkhan codegen for c#*/
 
+    public enum EMChestType{
+        Normal = 1,
+        Rare = 2,
+        Epic = 3,
+        Legend = 4
+    }
+    public enum EMCostCoinPath{
+        BuyRole = 1,
+        UpdateRole = 2
+    }
 /*this struct code is codegen by abelkhan codegen for c#*/
     public class UserInformation
     {
