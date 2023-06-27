@@ -11,8 +11,8 @@
             "keep_after_unzip": true,
             "is_main_resource": true,
             "parent_dir_type": "PACKAGE",
-            "size": 18507030,
-            "md5": "a1e1fa4dd6a4a6721dc75e765d19d4f4",
+            "size": 18097887,
+            "md5": "026d3972f62d8d743725c77062b428db",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": []
@@ -24,14 +24,14 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 121140002,
-            "md5": "8d5b89a35edb37d82302828ea946d67c",
+            "size": 121137924,
+            "md5": "f845306bd3f5d04ac81aa854b1ea4f57",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "data.unity3d",
-                    "md5": "4f586f315cee260c5d58a649ddd18778",
+                    "md5": "bd0718be73eb819de32ec8bb97bc13cb",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": ""
                 }
@@ -44,20 +44,20 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 13031195,
-            "md5": "8f185ba9b0bfe328e662520563e7aa4f",
+            "size": 13028772,
+            "md5": "f8acd63c8362a61b1602895995a70d6f",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "715ac328c18be057041d3f4eaf65b849",
+                    "md5": "753bd2f7cab03566ef8b7bc97745b758",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
                 {
                     "filename": "libunity.so",
-                    "md5": "e9874698dcc2db5b16f0c69ea65c4c39",
+                    "md5": "0009a22ae367be5cbefb4b2817edd116",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 }
@@ -70,20 +70,20 @@
             "keep_after_unzip": false,
             "is_main_resource": false,
             "parent_dir_type": "PACKAGE",
-            "size": 11952163,
-            "md5": "7975014159c21ec64f378b4d4b1aa57b",
+            "size": 11952097,
+            "md5": "8ee483286626e4ca87ce2e481ea4f685",
             "engine_folder": "",
             "sub_dir": "",
             "unzip_files": [
                 {
                     "filename": "libil2cpp.so",
-                    "md5": "be8628d378e351be9cee62be78f6d44f",
+                    "md5": "fe256f2ce75530d7854aebf7706d526d",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 },
                 {
                     "filename": "libunity.so",
-                    "md5": "59644c7fd44c85ab11c432d31ff78d13",
+                    "md5": "d4ccec331b6a4909b5b2a6f219869d62",
                     "parent_dir_type": "PACKAGE",
                     "sub_dir": "sos"
                 }

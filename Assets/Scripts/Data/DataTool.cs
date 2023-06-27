@@ -254,23 +254,24 @@ public static class LevelDataTool
             {
                 levelData.normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
             }
-            levelData.normalSize =new float[2];
+            levelData.normalSize = new float[2] { 20, 10 };
+            /*levelData.normalSize =new float[2];
             int j = 0;
             foreach(JsonData t in item["NormalSize"])
             {
                 levelData.normalSize[j++] =float.Parse(t.ToString());
-            }            
+            }*/            
             levelData.widthPlanes = new List<GameObject>();
             for (int i = 0; i < (int)item["WidthPlaneNum"]; i++)
             {
                 levelData.widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
             }
-            levelData.widthSize = new float[2];
-            j = 0;
+            levelData.widthSize = new float[2] { 20, 40 };
+            /*j = 0;
             foreach (JsonData t in item["WidthSize"])
             {
                 levelData.widthSize[j++] = float.Parse(t.ToString());
-            }
+            }*/
 
             levelData.StageDatas = new List<StageData>();
             foreach(JsonData stageData in item["StageDatas"])
