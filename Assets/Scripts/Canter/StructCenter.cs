@@ -108,7 +108,8 @@ public struct SkillUpgrade
     public Sprite icon;//对应技能的图标
     public string name;//对应技能名字
     public string describe;//对应技能的描述
-    public ISkill skill;
+    public string quality;
+    public SkillBase skill;
 }
 [Serializable]
 public struct SkillData
@@ -118,6 +119,7 @@ public struct SkillData
     [Header("技能图标")] public Sprite icon;
     [Header("技能描述")] public string describe;
     [Header("技能出现概率")] public float probability;
+    [Header("技能品级")] public string quality;
     [Header("技能可出现次数")] public int num;
     [Header("前置技能id列表")] public List<int> beforeSkills;
     //[Header("技能品级")]

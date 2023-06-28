@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Skills;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,193 +11,140 @@ namespace Skills
         void OnUse();
     }
 
-    public class AddCritProbability : ISkill
+    public class AddCritProbability : SkillBase
     {
-        int id;
-        public AddCritProbability()
+        public override int id { get; set; } =5001;
+        /*public AddCritProbability()
         {
-            id = 0;
-        }
+            id = 5001;
+        }*/
 
-        public void OnUse()
+        public override void OnUse()
         {
-            GameManager.GetInstance().critProbability += 0.05f;
+            GameManager.GetInstance().critProbability += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddCritRate : ISkill
+    public class AddCritRate : SkillBase
     {
-        int id;
-        public AddCritRate()
+        public override int id { get; set; } = 5002;
+        
+        public override void OnUse()
         {
-            id = 1;
-        }
-        public void OnUse()
-        {
-            GameManager.GetInstance().critRate += 0.1f;
+            GameManager.GetInstance().critRate += 0.3f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddPosionWeapon :ISkill
+    public class AddPosionWeapon :SkillBase
     {
-        int id;
-        public AddPosionWeapon()
-        {
-            id = 2;
-        }
+        public override int id { get; set; } = 5003;
+        
 
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.PoisonBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddPosionPile : ISkill
+    public class AddPosionPile : SkillBase
     {
-        int id;
-        public AddPosionPile()
-        {
-            id = 3;
-        }
+        public override int id { get; set; } = 5004;
 
-        public void OnUse()
+        public override void OnUse()
         {
             BulletManager.GetInstance().BulletEvolute(BuffType.Poison,BulletType.PoisonBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddShootPosionProbability : ISkill
+    public class AddShootPosionProbability : SkillBase
     {
-        int id;
-        public AddShootPosionProbability()
-        {
-            id = 4;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5005;
+        public override void OnUse()
         {
             BulletManager.GetInstance().increaseProbability[BulletType.PoisonBullet] += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddForst : ISkill
+    public class AddForst : SkillBase
     {
-        int id;
-        public AddForst()
-        {
-            id = 5;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5006;
+
+        public override void OnUse()
         {
             foreach(var item in Player._instance.nowBullet)
             {
                 BulletManager.GetInstance().BulletEvolute(BuffType.Frost, item.Key);
-                BulletManager.GetInstance().ChangeBullet(BulletType.TaiChiDart, BulletType.IceBullet);
+                Player._instance.AddBullet(BulletType.IceBullet);
+                //BulletManager.GetInstance().ChangeBullet(BulletType.TaiChiDart, BulletType.IceBullet);
             }
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddForstProbability : ISkill
+    public class AddForstProbability : SkillBase
     {
-        int id;
-        public AddForstProbability()
-        {
-            id = 6;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5007;
+
+        public override void OnUse()
         {
             BuffManager.GetInstance().Buffs[BuffType.Frost]._probability += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddForstTime:ISkill
+    public class AddForstTime:SkillBase
     {
-        int id;
-        public AddForstTime()
-        {
-            id = 7;
-        }
+        public override int id { get; set; } = 5008;
 
-        public void OnUse()
+
+        public override void OnUse()
         {
             BuffManager.GetInstance().Buffs[BuffType.Frost]._duration += 0.5f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddForstDamage:ISkill
+    public class AddForstDamage:SkillBase
     {
-        int id;
-        public AddForstDamage()
-        {
-            id = 8;
-        }
+        public override int id { get; set; } = 5009;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Debug.Log("获得技能：增加解冻后伤害");
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddBulletDamage : ISkill
-    {
-        int id;
-        public AddBulletDamage()
-        {
-            id = 9;
-        }
-        public void OnUse()
-        {
-            foreach(var item in Player._instance.nowBullet)
-            {
-                BulletManager.GetInstance().increaseATK[item.Key] += 5;
-            }
-            SkillManager.GetInstance().UpdateSkillPool(id);
-        }
-    }
+    
 
-    public class AddFanshaped : ISkill
+    public class AddFanshaped : SkillBase
     {
-        int id;
-        public AddFanshaped()
-        {
-            id = 10;
-        }
+        public override int id { get; set; } = 5010;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.Fanshaped);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class IncreaseFanshapedAttack:ISkill
+    public class IncreaseFanshapedSpeed:SkillBase
     {
-        int id;
-        public IncreaseFanshapedAttack()
-        {
-            id = 11;
-        }
+        public override int id { get; set; } = 5011;
 
-        public void OnUse()
+        public override void OnUse()
         {
             BulletManager.GetInstance().increaseShootTimer[BulletType.Fanshaped] += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddLaserBullet : ISkill
+    public class AddLaserBullet : SkillBase
     {
-        int id;
-        public AddLaserBullet()
-        {
-            id = 12;
-        }
+        public override int id { get; set; } = 5012;
 
-        public void OnUse()
+        public override void OnUse()
         {
             /*Player._instance.nowBullet.Add(BulletType.LaserBullet,
                 BulletManager.GetInstance().BulletDic[BulletType.LaserBullet].damageInterval);*/
@@ -205,58 +153,44 @@ namespace Skills
         }
     }
 
-    public class IncreaseLaserTime : ISkill
+    public class IncreaseLaserTime : SkillBase
     {
-        int id;
-        public IncreaseLaserTime()
+        public override int id { get; set; } = 5013;
+
+        public override void OnUse()
         {
-            id = 13;
-        }
-        public void OnUse()
-        {
-            Debug.Log("获得使激光弹幕发射时间增长");
+            //Debug.Log("获得使激光弹幕发射时间增长");
+            BulletManager.GetInstance().increaseExistTime[BulletType.LaserBullet]+=2f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddPerpetualBullet : ISkill
+    public class AddPerpetualBullet : SkillBase
     {
-        int id;
-        public AddPerpetualBullet()
-        {
-            id = 14;
-        }
+        public override int id { get; set; } = 5014;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.PerpetualBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class IncreasePerpetualTrack : ISkill
+    public class IncreasePerpetualTrack : SkillBase
     {
-        int id;
-        public IncreasePerpetualTrack()
-        {
-            id = 15;
-        }
+        public override int id { get; set; } = 5015;
 
-        public void OnUse()
+        public override void OnUse()
         {
             BulletManager.GetInstance().BulletEvolute(BuffType.Multiply, BulletType.PerpetualBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class IncreasePerpetualNum : ISkill
+    public class IncreasePerpetualNum : SkillBase
     {
-        int id;
-        public IncreasePerpetualNum()
-        {
-            id = 16;
-        }
+        public override int id { get; set; } = 5016;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Debug.Log("获得使连击子弹连击次数增加");
             BulletManager.GetInstance().haveSpecialEvolved[BulletType.PerpetualBullet] = true;
@@ -264,30 +198,22 @@ namespace Skills
         }
     }
 
-    public class AddFireBall : ISkill
+    public class AddFireBall : SkillBase
     {
-        int id;
-        public AddFireBall()
-        {
-            id = 17;
-        }
+        public override int id { get; set; } = 5017;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.FireBall);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class IncreaseFireSize : ISkill
+    public class IncreaseFireSize : SkillBase
     {
-        int id;
-        public IncreaseFireSize()
-        {
-            id = 18;
-        }
+        public override int id { get; set; } = 5018;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Debug.Log("增加火球大小");
             BulletManager.GetInstance().haveSpecialEvolved[BulletType.FireBall] = true;
@@ -295,99 +221,77 @@ namespace Skills
         }
     }
 
-    public class IncreaseFireTrack : ISkill
+    public class IncreaseFireTrack : SkillBase
     {
-        int id;
-        public IncreaseFireTrack()
-        {
-            id = 19;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5019;
+
+        public override void OnUse()
         {
             BulletManager.GetInstance().BulletEvolute(BuffType.Multiply, BulletType.FireBall);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddRotateBullet : ISkill 
+    public class AddRotateBullet : SkillBase
     {
-        int id;
-        public AddRotateBullet()
-        {
-            id = 20;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5020;
+
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.RotateBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddRotateBulletDivision : ISkill
+    public class AddRotateBulletDivision : SkillBase
     {
-        int id;
-        public AddRotateBulletDivision()
-        {
-            id = 21;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5021;
+
+        public override void OnUse()
         {
             BulletManager.GetInstance().haveSpecialEvolved[BulletType.RotateBullet] = true;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddBounceBullet : ISkill
+    public class AddBounceBullet : SkillBase
     {
-        int id;
-        public AddBounceBullet()
-        {
-            id = 22;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5022;
+
+        public override void OnUse()
         {
             Player._instance.AddBullet(BulletType.BounceBullet);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class EvolveBounceBullet:ISkill
+    public class EvolveBounceBullet:SkillBase
     {
-        int id;
-        public EvolveBounceBullet()
-        {
-            id= 23;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5023;
+
+        public override void OnUse()
         {
             BulletManager.GetInstance().haveSpecialEvolved[BulletType.RotateBullet] = true;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddBulletShoot : ISkill
+    public class AddBulletShoot : SkillBase
     {
-        int id;
-        public AddBulletShoot()
-        {
-            id = 24;
-        }
+        public override int id { get; set; } = 5024;
 
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.ATKSpeed += 0.2f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class AddVampirism : ISkill
+    public class AddVampirism : SkillBase
     {
-        int id;
-        public AddVampirism()
-        {
-            id = 25;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5025;
+
+        public override void OnUse()
         {
             foreach (var item in Player._instance.nowBullet)
             {
@@ -396,42 +300,33 @@ namespace Skills
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddMaxHP : ISkill
+    public class AddMaxHP : SkillBase
     {
-        int id;
-        public AddMaxHP()
-        {
-            id = 26;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5026;
+  
+        public override void OnUse()
         {
             Player._instance.maxHP += 5;
             Player._instance.nowHP += 5;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddMoney : ISkill {
-        int id;
-        public AddMoney()
-        {
-            id = 27;
-        }
-        public void OnUse()
+    public class AddMoney : SkillBase
+    {
+        public override int id { get; set; } = 5027;
+
+        public override void OnUse()
         {
             GameManager.GetInstance().increaseMoney +=1;
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddBulletTrack : ISkill
+    public class AddBulletTrack : SkillBase
     {
-        int id;
+        public override int id { get; set; } = 5028;
 
-        public AddBulletTrack()
-        {
-            id = 28;
-        }
-        public void OnUse()
+        public override void OnUse()
         {
             foreach (var item in Player._instance.nowBullet)
             {
@@ -440,27 +335,21 @@ namespace Skills
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddReflect : ISkill
+    public class AddReflect : SkillBase
     {
-        int id;
+        public override int id { get; set; } = 5029;
 
-        public AddReflect()
-        {
-            id = 29;
-        }
-        public void OnUse()
+        public override void OnUse()
         {
             Player._instance.TakeBuff(null,null,BuffType.Reflect);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
-    public class AddEnergy : ISkill {
-        int id;
-        public AddEnergy()
-        {
-            id = 30;
-        }
-        public void OnUse()
+    public class AddEnergy : SkillBase
+    {
+        public override int id { get; set; } = 5030;
+
+        public override void OnUse()
         {
             GameManager.GetInstance().increaseEnergy += 5f;
 
@@ -468,31 +357,48 @@ namespace Skills
         }
     }
 
-    public class AddShield : ISkill {
-        int id;
-        public AddShield()
-        {
-            id = 31;
-        }
-        public void OnUse()
+    public class AddShield : SkillBase
+    {
+        public override int id { get; set; } = 5031;
+
+        public override void OnUse()
         {
             Player._instance.TakeBuff(null, null, BuffType.Shield);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
 
-    public class IncreaseSpeed : ISkill
+    public class IncreaseSpeed : SkillBase
     {
-        int id;
-        public IncreaseSpeed()
-        {
-            id = 32;
-        }
-        public void OnUse()
+        public override int id { get; set; } = 5032;
+
+        public override void OnUse()
         {
             Debug.Log("获得加速");
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
+    }
+}
+
+public class AddBulletDamage : SkillBase
+{
+    public override int id { get; set; } = 5033;
+    public override void OnUse()
+    {
+        foreach (var item in Player._instance.nowBullet)
+        {
+            BulletManager.GetInstance().increaseATK[item.Key] += 5;
+        }
+        SkillManager.GetInstance().UpdateSkillPool(id);
+    }
+}
+
+public class AddAllAttribute:SkillBase
+{
+    public override int id { get; set; } = 5034;
+    public override void OnUse()
+    {
+        Debug.Log("获得神");
     }
 }

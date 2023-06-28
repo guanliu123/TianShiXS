@@ -17,7 +17,7 @@ public class BulletManager : BaseManager<BulletManager>
     public Dictionary<BulletType, float> increaseProbability = new Dictionary<BulletType, float>();
     public Dictionary<BulletType, float> increaseATK = new Dictionary<BulletType, float>();
     public Dictionary<BulletType, float> increaseShootTimer = new Dictionary<BulletType, float>();
-    public Dictionary<BulletType, float> increaseTime = new Dictionary<BulletType, float>();
+    public Dictionary<BulletType, float> increaseExistTime = new Dictionary<BulletType, float>();
     public Dictionary<BulletType, bool> haveSpecialEvolved = new Dictionary<BulletType, bool>();
 
     private List<GameObject> bulletList = new List<GameObject>();
@@ -45,7 +45,7 @@ public class BulletManager : BaseManager<BulletManager>
             increaseProbability.Add(item.Key, 0);
             increaseATK.Add(item.Key, 0);
             increaseShootTimer.Add(item.Key, 0);
-            increaseTime.Add(item.Key, 0);
+            increaseExistTime.Add(item.Key, 0);
             haveSpecialEvolved.Add(item.Key, false);           
         }
     }
@@ -53,7 +53,7 @@ public class BulletManager : BaseManager<BulletManager>
     {
         increaseBuffs.Clear();
         increaseProbability.Clear();
-        increaseTime.Clear();
+        increaseExistTime.Clear();
         increaseATK.Clear();
         increaseShootTimer.Clear();
         haveSpecialEvolved.Clear();
@@ -104,7 +104,7 @@ public class BulletManager : BaseManager<BulletManager>
 
                 initData.shootProbability += increaseProbability[bulletType];
                 initData.ATK += increaseATK[bulletType];
-                initData.existTime += increaseTime[bulletType];
+                initData.existTime += increaseExistTime[bulletType];
             }
         }
         initData.ATK += aggressivity;
@@ -155,7 +155,7 @@ public class BulletManager : BaseManager<BulletManager>
 
                 initData.shootProbability += increaseProbability[bulletType];
                 initData.ATK += increaseATK[bulletType];
-                initData.existTime += increaseTime[bulletType];
+                initData.existTime += increaseExistTime[bulletType];
             }
         }
         initData.ATK += aggressivity;

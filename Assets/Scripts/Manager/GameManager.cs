@@ -79,7 +79,7 @@ public class GameManager : BaseManager<GameManager>
     public List<SkillData> GetSkills()
     {
         List<SkillData> skills = new List<SkillData>();
-        foreach(var item in SkillManager.skillDatas)
+        foreach(var item in SkillManager.SkillDic)
         {
             skills.Add(item.Value);
         }

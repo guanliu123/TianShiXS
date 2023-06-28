@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class SkillBase
 {
-    
+    public virtual int id{ get; set; }
+    public virtual void OnUse() { }
 }

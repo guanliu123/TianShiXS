@@ -20,7 +20,7 @@ public class testmap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CameraManager.GetInstance().CameraShake(0.2f, 0.5f);
+            SkillManager.GetInstance().RandomSkill();
         }
     }
 }

@@ -44,8 +44,12 @@ public class SkillPanel : BasePanel
         List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
         for (int i = 1; i <= 3; i++)
         {
-            UITool.GetOrAddComponentInChildren<Image>("Skill_Icon" + i, panel).sprite = su[i - 1].icon;
-            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn" + i, panel);
+            GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
+            //GameObject skillRect = PoolManager.GetInstance().GetObj();
+            UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = su[i - 1].icon;
+            //更改品级框
+            
+            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
             t.GetComponentInChildren<Text>().text = su[i - 1].describe;
 
             SkillPromote(t, i, su);
@@ -61,11 +65,6 @@ public class SkillPanel : BasePanel
             GameManager.GetInstance().PlayerEvolution();
             PanelManager.Instance.Pop();
         });
-    }
-
-    public void ShowSkills()
-    {
-
     }
 
     public override void OnExit()

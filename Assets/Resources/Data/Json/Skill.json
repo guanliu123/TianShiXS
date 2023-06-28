@@ -1,10 +1,334 @@
 [
   {
-    "SkillID": 0,
-    "Name": "���ޡ�����",
-    "Describe": "���ӱ�������",
-    "Probability": 0.5,
-    "Num": 999,
+    "SkillID": 5001,
+    "Name": "修罗——极",
+    "Describe": "增加暴击几率",
+    "Probability": 0.05,
+    "Quality": "Mid",
+    "Num": 5,
     "BeforeSkills": []
+  },
+  {
+    "SkillID": 5002,
+    "Name": "修罗—灭",
+    "Describe": "增加暴击伤害",
+    "Probability": 0.05,
+    "Quality": "Mid",
+    "Num": 5,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5003,
+    "Name": "毒道",
+    "Describe": "玩家有几率释放毒镖",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5004,
+    "Name": "毒道—千虫",
+    "Describe": "增加对方中毒层数",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 10,
+    "BeforeSkills": [
+      5003
+    ]
+  },
+  {
+    "SkillID": 5005,
+    "Name": "毒道—蛊",
+    "Describe": "增加发射毒镖的概率",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 10,
+    "BeforeSkills": [
+      5003
+    ]
+  },
+  {
+    "SkillID": 5006,
+    "Name": "北国",
+    "Describe": "玩家有概率发射冰箭",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5007,
+    "Name": "北国—冰封",
+    "Describe": "增加冰冻弹幕冰冻的概率",
+    "Probability": 0.2,
+    "Quality": "Low",
+    "Num": 2,
+    "BeforeSkills": [
+      5006
+    ]
+  },
+  {
+    "SkillID": 5008,
+    "Name": "北国—雪飘",
+    "Describe": "增加冰冻时间",
+    "Probability": 0.1,
+    "Quality": "Low",
+    "Num": 5,
+    "BeforeSkills": [
+      5006
+    ]
+  },
+  {
+    "SkillID": 5009,
+    "Name": "北国—寂灭",
+    "Describe": "增加解冻后伤害",
+    "Probability": 0.1,
+    "Quality": "High",
+    "Num": 5,
+    "BeforeSkills": [
+      5006
+    ]
+  },
+  {
+    "SkillID": 5010,
+    "Name": "月光",
+    "Describe": "获得月牙弹幕",
+    "Probability": 0.1,
+    "Quality": "Mid",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5011,
+    "Name": "月光—聚光",
+    "Describe": "增加月牙弹幕发射速度",
+    "Probability": 0.05,
+    "Quality": "Mid",
+    "Num": 5,
+    "BeforeSkills": [
+      5010
+    ]
+  },
+  {
+    "SkillID": 5012,
+    "Name": "激光",
+    "Describe": "获得激光弹幕",
+    "Probability": 0.1,
+    "Quality": "High",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5013,
+    "Name": "激光—时",
+    "Describe": "增加激光弹幕发射时间",
+    "Probability": 0.1,
+    "Quality": "High",
+    "Num": 5,
+    "BeforeSkills": [
+      5012
+    ]
+  },
+  {
+    "SkillID": 5014,
+    "Name": "连斩",
+    "Describe": "获得连击弹幕",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5015,
+    "Name": "连斩—分身",
+    "Describe": "使连击弹幕多一条轨道",
+    "Probability": 0.1,
+    "Quality": "Mid",
+    "Num": 2,
+    "BeforeSkills": [
+      5014
+    ]
+  },
+  {
+    "SkillID": 5016,
+    "Name": "连斩—强化",
+    "Describe": "使连击弹幕连击次数增加",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 5,
+    "BeforeSkills": [
+      5014
+    ]
+  },
+  {
+    "SkillID": 5017,
+    "Name": "火山",
+    "Describe": "获得火球弹幕",
+    "Probability": 0.1,
+    "Quality": "High",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5018,
+    "Name": "火山—大化",
+    "Describe": "增加火球弹幕大小",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 2,
+    "BeforeSkills": [
+      5017
+    ]
+  },
+  {
+    "SkillID": 5019,
+    "Name": "火山—连发",
+    "Describe": "一次性发射两枚火球",
+    "Probability": 0.1,
+    "Quality": "Mid",
+    "Num": 1,
+    "BeforeSkills": [
+      5017
+    ]
+  },
+  {
+    "SkillID": 5020,
+    "Name": "散华",
+    "Describe": "获得旋转弹幕",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5021,
+    "Name": "散华—乱舞",
+    "Describe": "使旋转弹幕会产生分裂",
+    "Probability": 0.3,
+    "Quality": "Mid",
+    "Num": 2,
+    "BeforeSkills": [
+      5020
+    ]
+  },
+  {
+    "SkillID": 5022,
+    "Name": "连珠",
+    "Describe": "获得弹射弹幕",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5023,
+    "Name": "连珠—强化",
+    "Describe": "增加弹射弹幕伤害和弹射次数",
+    "Probability": 0.3,
+    "Quality": "Low",
+    "Num": 3,
+    "BeforeSkills": [
+      5023
+    ]
+  },
+  {
+    "SkillID": 5024,
+    "Name": "极意—临",
+    "Describe": "增加弹幕发射频率",
+    "Probability": 0.2,
+    "Quality": "Mid",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5025,
+    "Name": "极意—兵",
+    "Describe": "玩家获得5%的吸血",
+    "Probability": 0.2,
+    "Quality": "Mid",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5026,
+    "Name": "极意—斗",
+    "Describe": "增加生命上限",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5027,
+    "Name": "极意—者",
+    "Describe": "结算时增加金币获取",
+    "Probability": 0.2,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5028,
+    "Name": "极意—皆",
+    "Describe": "使玩家的弹幕多一个轨道",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5029,
+    "Name": "极意—阵",
+    "Describe": "玩家可以反弹25%的伤害",
+    "Probability": 0.2,
+    "Quality": "High",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5030,
+    "Name": "极意—列",
+    "Describe": "增加经验获取",
+    "Probability": 0.2,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5031,
+    "Name": "极意—前",
+    "Describe": "玩家每隔五秒获得一次护盾",
+    "Probability": 0.2,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5032,
+    "Name": "极意—行",
+    "Describe": "增加移动速度",
+    "Probability": 0.2,
+    "Quality": "Low",
+    "Num": 1,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5033,
+    "Name": "勇力",
+    "Describe": "提高弹幕基础攻击力",
+    "Probability": 0.4,
+    "Quality": "Low",
+    "Num": 5,
+    "BeforeSkills": []
+  },
+  {
+    "SkillID": 5034,
+    "Name": "极意-神",
+    "Describe": "增加每一个极意天赋的能力",
+    "Probability": 0.4,
+    "Quality": "Mid",
+    "Num": 1,
+    "BeforeSkills": [5024,5025,5026,5027,5028,5029,5030,5031,5032]
   }
 ]

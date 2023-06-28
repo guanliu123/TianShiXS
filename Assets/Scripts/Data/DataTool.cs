@@ -357,6 +357,7 @@ public static class SkillDataTool
             skillData.icon = ResourceManager.GetInstance().LoadByName<Sprite>(skillData.name+"Icon",ResourceType.UI);
             skillData.describe = item["Describe"].ToString();
             skillData.probability= float.Parse(item["Probability"].ToString());
+            skillData.quality = item["Quality"].ToString() + "Quality";
             skillData.num = (int)item["Num"];
             skillData.beforeSkills = new List<int>();
             foreach(JsonData id in item["BeforeSkills"])
