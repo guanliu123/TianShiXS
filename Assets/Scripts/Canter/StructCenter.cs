@@ -109,6 +109,7 @@ public struct SkillUpgrade
     public string name;//对应技能名字
     public string describe;//对应技能的描述
     public string quality;
+    public bool isNew;//是否是新技能
     public SkillBase skill;
 }
 [Serializable]

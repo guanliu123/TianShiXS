@@ -35,20 +35,23 @@ public class SkillPanel : BasePanel
             skillIcons.Add(t);
         }
 
-        if (skillIcons.Count > 0)
+        /*if (skillIcons.Count > 0)
         {
             float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
             content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
-        }
+        }*/
 
         List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
         for (int i = 1; i <= 3; i++)
         {
-            GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
-            //GameObject skillRect = PoolManager.GetInstance().GetObj();
+            //GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
+            GameObject skillRect = PoolManager.GetInstance().GetObj(su[i-1].quality,ResourceType.UI);
+            var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
+            skillRect.transform.position = tra.position;
+            skillRect.transform.SetParent(tra);
             UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = su[i - 1].icon;
             //更改品级框
-            
+            UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i-1].isNew);
             var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
             t.GetComponentInChildren<Text>().text = su[i - 1].describe;
 

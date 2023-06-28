@@ -127,6 +127,7 @@ public class SkillManager : BaseManager<SkillManager>
                 temp.describe = "现在没有可用技能！";
                 temp.quality = null;
                 temp.skill = null;
+                temp.isNew = false;
 
                 skillUpgrades.Add(temp);
                 break;
@@ -144,6 +145,7 @@ public class SkillManager : BaseManager<SkillManager>
             temp.describe = data.describe;
             temp.quality = data.quality;
             temp.skill = skillEvent[data.id];
+            temp.isNew = !occurredSkill.ContainsKey(data.id);
 
             skillUpgrades.Add(temp);
         }
