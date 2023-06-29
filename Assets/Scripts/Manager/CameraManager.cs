@@ -12,6 +12,8 @@ public class CameraManager : BaseManager<CameraManager>
     private Dictionary<CameraPointType, Vector3> cameraPos = new Dictionary<CameraPointType, Vector3>();
     private Dictionary<CameraPointType, Vector3> cameraRot = new Dictionary<CameraPointType, Vector3>();
 
+    CameraShaker cameraShaker;
+
     public CameraManager(){
         mainCamera = Camera.main;
         cameraPos.Add(CameraPointType.MainPoint, new Vector3(0, 3.77f, -3f));
@@ -21,6 +23,8 @@ public class CameraManager : BaseManager<CameraManager>
         cameraPos.Add(CameraPointType.OrginPoint, new Vector3(2.16f,4.55f,-7.1f));
         cameraRot.Add(CameraPointType.OrginPoint, new Vector3(10.02f,-14.32f,0));
 
+        cameraShaker = mainCamera.gameObject.GetComponent<CameraShaker>();
+        if (!cameraShaker) cameraShaker = mainCamera.gameObject.AddComponent<CameraShaker>();
         //MonoManager.GetInstance().AddUpdateListener(CameraEvent);    
     }
 
@@ -54,9 +58,10 @@ public class CameraManager : BaseManager<CameraManager>
     
     public void CameraShake(float duration,float strength)
     {
-        MonoManager.GetInstance().StartCoroutine(Shake(duration,strength));
+        cameraShaker.Shake(strength, duration);
+        //MonoManager.GetInstance().StartCoroutine(Shake(duration,strength));
     }
-    private IEnumerator Shake(float duration,float strength)
+    /*private IEnumerator Shake(float duration,float strength)
     {
         Vector3 originPos = mainCamera.transform.position;
         float elapsed = 0.0f;//摇晃进行时间
@@ -67,12 +72,13 @@ public class CameraManager : BaseManager<CameraManager>
             float y = Random.Range(-2f, 2f) * strength;//y轴随机抖动幅度
 
             Vector3 t = new Vector3(originPos.x+x, originPos.y+y, originPos.z);
-            mainCamera.transform.localPosition = t;
+            //mainCamera.transform.localPosition = t;
+
 
             elapsed += Time.deltaTime;
 
             yield return new WaitForSeconds(Time.deltaTime);
         }
         mainCamera.transform.localPosition = originPos;//再次复原
-    }
+    }*/
 }

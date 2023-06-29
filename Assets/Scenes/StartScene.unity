@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 128025255765792225}
-  m_IndirectSpecularColor: {r: 0.4468801, g: 0.4919225, b: 0.5489955, a: 1}
+  m_IndirectSpecularColor: {r: 0.4468804, g: 0.49192286, b: 0.5489964, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 2093930022}
   - component: {fileID: 2093930025}
   - component: {fileID: 2093930026}
+  - component: {fileID: 2093930027}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -773,6 +774,21 @@ MonoBehaviour:
   brightness: 1.12
   contrast: 1.25
   saturation: 1.2
+--- !u!114 &2093930027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093930021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42302415a7024440a1c43de880522f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeLevel: 3
+  ShakeTime: 0.15
+  shakeFps: 45
 --- !u!1 &128025255765792224
 GameObject:
   m_ObjectHideFlags: 0
