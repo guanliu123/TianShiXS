@@ -18,7 +18,7 @@ public class LoadScene : SceneBase
         }
         else
         {
-            //PanelManager.Instance.Push(new StartPanel());
+            PanelManager.Instance.Push(new LoadPanel());
         }
         //MapManager.GetInstance().StartMapCreate();
     }
@@ -31,6 +31,6 @@ public class LoadScene : SceneBase
 
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //PanelManager.Instance.Push(new StartPanel());
+        PanelManager.Instance.Push(new LoadPanel());
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using StarkSDKSpace;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,14 +19,16 @@ public class GameRoot : MonoBehaviour
     }
     private void Start()
     {
-       //SceneSystem.Instance.SetScene(new LoadScene());
-        SceneSystem.Instance.SetScene(new StartScene());
+        if (SceneManager.GetActiveScene().name == "LoadScene")
+            SceneSystem.Instance.SetScene(new LoadScene());
+        if (SceneManager.GetActiveScene().name == "StartScene")
+            SceneSystem.Instance.SetScene(new StartScene());
     }
 
     public void SwitchScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-        //StartCoroutine(Delay(sceneName));
+        //SceneManager.LoadScene(sceneName);
+        StartCoroutine(Delay(sceneName));
     }
 
     private IEnumerator Delay(string sceneName)
@@ -36,5 +39,17 @@ public class GameRoot : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
         }
         
+    }
+
+    public void StartGame()
+    {
+        StarkSDK.API.GetAccountManager().CheckSession(() =>
+        {
+            SceneSystem.Instance.SetScene(new StartScene());
+        },
+        (err) =>
+        {
+            StarkSDK.API.GetAccountManager().Login(ClientRoot.Instance.DySuccessLogin, ClientRoot.Instance.DyFailedLogin, true);
+        });
     }
 }
