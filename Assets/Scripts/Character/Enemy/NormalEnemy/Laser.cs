@@ -10,7 +10,8 @@ public class Laser : CharacterBase
     {
         base.Awake();
 
-        this.characterType = CharacterType.Laser;
+        //this.characterID = CharacterType.Laser;
+        characterID = 2002;
         characterTag = CharacterTag.Enemy;
 
         statesDic.Add(CharacterStateType.Idle, new LaserIdleState(this));

@@ -1,13 +1,13 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BuffManager : BaseManager<BuffManager>
 {
-    public static Dictionary<BuffType, BuffData> BuffDic = new Dictionary<BuffType, BuffData>();
-    public Dictionary<BuffType, BuffBase> Buffs = new Dictionary<BuffType, BuffBase>();
-    private Dictionary<BuffType, List<GameObject>> buffList = new Dictionary<BuffType, List<GameObject>>();//用于有持续作用的buff
+    public static Dictionary<int, BuffData> BuffDic = new Dictionary<int, BuffData>();
+    public Dictionary<int, BuffBase> BuffEvent = new Dictionary<int, BuffBase>();
+    private Dictionary<int, List<GameObject>> buffList = new Dictionary<int, List<GameObject>>();//用于有持续作用的buff
 
     static BuffManager()
     {
@@ -16,43 +16,61 @@ public class BuffManager : BaseManager<BuffManager>
 
     public BuffManager()
     {
-        InitBuffDic();
+        InitBuffEvent();
     }
 
-    public void AddToBuffList(BuffType buffType, GameObject character)
+    public void AddToBuffList(int buffID, GameObject character)
     {
         //将传入的物体加入对应的buff列表，如果buffList不存在当前buff则在字典中增加，并且开启当前buff的携程
         if (character == null) return;
-        if (!buffList.ContainsKey(buffType))
+        if (!buffList.ContainsKey(buffID))
         {
-            buffList.Add(buffType, new List<GameObject>());
-            buffList[buffType].Add(character);
-            MonoManager.GetInstance().StartCoroutine(Buffs[buffType].coroutineType, Buffs[buffType].OnSustain(buffList[buffType]));
+            buffList.Add(buffID, new List<GameObject>());
+            buffList[buffID].Add(character);
+            MonoManager.GetInstance().StartCoroutine(BuffEvent[buffID].coroutineType, BuffEvent[buffID].OnSustain(buffList[buffID]));
         }
-        else buffList[buffType].Add(character);
+        else buffList[buffID].Add(character);
     }
-    public void RemoveFromBuffList(BuffType buffType, GameObject character)
+    public void RemoveFromBuffList(int buffID, GameObject character)
     {
         //将传入的物体移出对应的buff列表，如果移出后字典的相应列表为空，则将该buff移出字典，并且停止对应协程
-        if (!buffList.ContainsKey(buffType) || !buffList[buffType].Contains(character)) return;
-        buffList[buffType].Remove(character);
-        if (buffList[buffType].Count <= 0)
+        if (!buffList.ContainsKey(buffID) || !buffList[buffID].Contains(character)) return;
+        buffList[buffID].Remove(character);
+        if (buffList[buffID].Count <= 0)
         {
-            MonoManager.GetInstance().KillCoroutine(Buffs[buffType].coroutineType);
-            buffList.Remove(buffType);
+            MonoManager.GetInstance().KillCoroutine(BuffEvent[buffID].coroutineType);
+            buffList.Remove(buffID);
         }
     }
 
-    public void OnBuff(GameObject taker, BuffType buffType)
+    public void OnBuff(GameObject taker, int buffID)
     {
-        GameObject effect = BuffDic[buffType].effect;
+        GameObject effect = BuffDic[buffID].effect;
         GameManager.GetInstance().GenerateEffect(taker.transform, effect,true,0.3F);
     }
 
-    private void InitBuffDic()
+    private void InitBuffEvent()
     {
-        Buffs.Add(BuffType.Crit, new BulletCrit());
-        Buffs.Add(BuffType.Poison, new PoisonBuff());
+        int buffNum = BuffDic.Count;
+        int n = 0;
+
+        Type baseType = typeof(BuffBase);
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Type[] types = assembly.GetTypes();
+
+        foreach (Type type in types)
+        {
+            if (type.IsSubclassOf(baseType))
+            {
+                BuffBase buff = (BuffBase)Activator.CreateInstance(type);
+                // 在这里可以对skill进行进一步的操作
+                if(!BuffEvent.ContainsKey(buff.buffID)) BuffEvent.Add(buff.buffID, buff);
+                n++;
+            }
+            if (n >= buffNum) break;
+        }
+        /*BuffEvent.Add(BuffType.Crit, new BulletCrit());
+        BuffEvent.Add(BuffType.Poison, new PoisonBuff());*/
         /*Buffs.Add(BuffType.Burn, new BurnBuff());       
         Buffs.Add(BuffType.Frost, new ForstBuff());
         Buffs.Add(BuffType.Vampirism, new VampirismBuff());        

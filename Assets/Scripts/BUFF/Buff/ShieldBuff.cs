@@ -6,10 +6,10 @@ public class ShieldBuff : BuffBase
 {
     public ShieldBuff()
     {
-        buffType = BuffType.Shield;
+        //buffID = BuffType.Shield;
         coroutineType = CoroutineType.ShieldBuff;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
         triggerInterval = 5f;
         _probability = buffData.probability;
         _duration = buffData.duration;
@@ -22,7 +22,7 @@ public class ShieldBuff : BuffBase
 
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
-        BuffManager.GetInstance().AddToBuffList(buffType, _taker);
+        BuffManager.GetInstance().AddToBuffList(buffID, _taker);
     }
 
     public override void OnUpdate(GameObject _taker)

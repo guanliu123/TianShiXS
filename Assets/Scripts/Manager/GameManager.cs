@@ -22,7 +22,7 @@ public class GameManager : BaseManager<GameManager>
 
     public int levelMoney {get; private set;}
 
-    public CharacterType nowPlayerType { get; private set; }
+    public int nowPlayerID { get; private set; }
     public int playerCount;
     public int enemyCount;
     public int skillCount;
@@ -50,11 +50,12 @@ public class GameManager : BaseManager<GameManager>
     public GameManager(){
         ChangeRole();
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        nowPlayerID = 1001;
     }
 
-    public Dictionary<CharacterType,CharacterMsg> GetPlayerRole()
+    public Dictionary<int,CharacterMsg> GetPlayerRole()
     {
-        Dictionary<CharacterType, CharacterMsg> players = new Dictionary<CharacterType, CharacterMsg>(CharacterManager.GetInstance().roleMsgDic);
+        Dictionary<int, CharacterMsg> players = new Dictionary<int, CharacterMsg>(CharacterManager.GetInstance().roleMsgDic);
 
         /*foreach(var item in DataManager.GetInstance().characterTagDic)
         {
@@ -88,9 +89,9 @@ public class GameManager : BaseManager<GameManager>
         return skills;
     }
 
-    public void ChangeRole(CharacterType playerType=CharacterType.DaoShi)
+    public void ChangeRole(int playerID=0)
     {
-        nowPlayerType = playerType;
+        nowPlayerID = playerID;
     }
 
     public void ChangeLevel(int levelNum)
@@ -102,13 +103,15 @@ public class GameManager : BaseManager<GameManager>
     public void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerType.ToString(),ResourceType.Player);
+        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerID.ToString(),ResourceType.Player);
+        Debug.Log(player+"1");
         
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
-        
+
+        Debug.Log(player + "2");
         playerObj.transform.parent = player.transform;
         playerObj.transform.position = new Vector3(0, 0, -1);
 

@@ -8,8 +8,9 @@ public class PerpetualBullet : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.PerpetualBullet;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletType = BulletType.PerpetualBullet;
+
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
     }
 
@@ -29,7 +30,7 @@ public class PerpetualBullet : BulletBase
         }
         for (int i = 0; i < num; i++)
         {
-            BulletManager.GetInstance().BulletLauncher(transform, BulletType.PerpetualBullet_Base, 0,attacker);
+            BulletManager.GetInstance().BulletLauncher(transform, -1, 0,attacker);
             yield return new WaitForSeconds(0.2f);
         }
     }
@@ -37,7 +38,7 @@ public class PerpetualBullet : BulletBase
     protected override void SpecialEvolution()
     {
         base.SpecialEvolution();
-        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
+        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletID]) return;
         num += 2;
     }
 }

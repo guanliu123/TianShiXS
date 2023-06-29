@@ -8,8 +8,9 @@ using UnityEngine.Events;
 public class BulletBase : MonoBehaviour
 {
     public BulletData bulletData;
-    public BulletType bulletType;
-    public Dictionary<BuffType, int> nowBuffs=new Dictionary<BuffType, int>();
+    public int bulletID;
+    //public int bulletID;
+    public Dictionary<int, int> nowBuffs=new Dictionary<int, int>();
     public GameObject attacker;
 
     public UnityAction bulletAction;
@@ -28,7 +29,7 @@ public class BulletBase : MonoBehaviour
         //bulletAction += AttackCheck;
     }
 
-    public virtual void InitBullet(GameObject _attacker,CharacterTag _tag,BulletData _bulletData,Dictionary<BuffType,int> buffs)
+    public virtual void InitBullet(GameObject _attacker,CharacterTag _tag,BulletData _bulletData,Dictionary<int, int> buffs)
     {
         attacker = _attacker;
         bulletData = _bulletData;
@@ -111,6 +112,6 @@ public class BulletBase : MonoBehaviour
     {
         existTimer = 0;
         OnExit();
-        PoolManager.GetInstance().PushObj(bulletType.ToString(), this.gameObject);
+        PoolManager.GetInstance().PushObj(bulletID.ToString(), this.gameObject);
     }
 }

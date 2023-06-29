@@ -7,10 +7,10 @@ public class BurnBuff : BuffBase
 {
     public BurnBuff()
     {
-        buffType = BuffType.Burn;
+        //buffID = BuffType.Burn;
         coroutineType = CoroutineType.BurnBuff;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
 
         triggerInterval = 0.5f;
         _probability = buffData.probability;
@@ -25,7 +25,7 @@ public class BurnBuff : BuffBase
 
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
-        BuffManager.GetInstance().AddToBuffList(buffType,_taker);
+        BuffManager.GetInstance().AddToBuffList(buffID,_taker);
     }
 
     public override void OnUpdate(GameObject _taker)
@@ -38,6 +38,6 @@ public class BurnBuff : BuffBase
 
     public override void OnEnd(GameObject _taker)
     {
-        BuffManager.GetInstance().RemoveFromBuffList(buffType, _taker);
+        BuffManager.GetInstance().RemoveFromBuffList(buffID, _taker);
     }
 }

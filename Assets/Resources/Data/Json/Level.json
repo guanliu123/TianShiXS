@@ -1,58 +1,31 @@
 [
   {
-    "ID": 0,
-    "NormalPlaneNum":1,
+    "ID": 1,
+    "NormalPlaneNum": 1,
     "WidthPlaneNum": 1,
-    "StageDatas": [
-      {
-        "StageID": 0,
-        "IsSpecial": false,
-        "BossType": [],
-        "WaveEnemyNum": [
-          20
-        ],
-        "WaveEnemyType": [
-          "Bat"
-        ]
-      },
-      {
-        "StageID": 1,
-        "IsSpecial": true,
-        "BossType": [],
-        "WaveEnemyNum": [
-          5,
-          10
-        ],
-        "WaveEnemyType": [
-          "Laser"
-        ]
-      },
-      {
-        "StageID": 2,
-        "IsSpecial": false,
-        "BossType": [],
-        "WaveEnemyNum": [
-          20
-        ],
-        "WaveEnemyType": [
-          "Bat"
-        ]
-      },
-      {
-        "StageID": 3,
-        "IsSpecial": true,
-        "BossType": [
-          "BigMouse"
-        ],
-        "WaveEnemyNum": [
-          5,
-          10,
-          5
-        ],
-        "WaveEnemyType": [
-          "Laser"
-        ]
-      }
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
     ]
   }
 ]

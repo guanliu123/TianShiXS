@@ -11,7 +11,7 @@ public class NormalBullet : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.NormalBullet;
+        //bulletID = BulletType.NormalBullet;
 
         bulletAction += Move;
     }

@@ -18,7 +18,7 @@ using UnityEngine;
         Skybox,
     }
 
-public enum CharacterType
+/*public enum CharacterType
 {
     DaoShi,
     Bat,//普通蝙蝠小怪
@@ -32,7 +32,7 @@ public enum CharacterType
     ShiXu,
     Turtle,
     Claw,
-}
+}*/
 public enum CharacterTag {
     Null,
     Player,
@@ -51,9 +51,9 @@ public enum MapItemType
     BuffDoors,
 }
 
-public enum BulletType
+/*public enum BulletType
 {
-    
+
     Combat,
     TaiChiDart,
     BaseBullet,
@@ -71,7 +71,7 @@ public enum BulletType
     NormalBullet,
     IceBullet,
     PerpetualBullet_Base,
-}
+}*/
 
 public enum CameraPointType
 {
@@ -91,7 +91,7 @@ public enum PropType
     Shield
 }
 
-public enum BuffType
+/*public enum BuffType
 {
     
     Burn,//燃烧
@@ -103,7 +103,7 @@ public enum BuffType
     NULL,
     Reflect,//反弹伤害
     Shield,
-}
+}*/
 
 public enum CoroutineType {//各种主要的固定协程事件如火烧buff，在这里注册才好在协程管理中统一调度并且存入字典
     BurnBuff,

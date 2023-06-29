@@ -6,9 +6,9 @@ public class ReflectBuff : BuffBase
 {
     public ReflectBuff()
     {
-        buffType = BuffType.Reflect;
+       // buffID = BuffType.Reflect;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
         _probability = buffData.probability;
         _duration = buffData.duration;
     }

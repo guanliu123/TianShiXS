@@ -6,9 +6,9 @@ public class ForstBuff : BuffBase
 {
     public ForstBuff()
     {
-        buffType = BuffType.Frost;
+        //buffID = BuffType.Frost;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
 
         _probability = buffData.probability;
         _duration = buffData.duration;

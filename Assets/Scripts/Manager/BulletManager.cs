@@ -7,18 +7,18 @@ using UnityEngine;
 public class BulletManager : BaseManager<BulletManager>
 {
     //存储每种子弹数据
-    public Dictionary<BulletType, BulletData> BulletDic = new Dictionary<BulletType, BulletData>();
-    public Dictionary<BulletType, List<BuffType>> evolvableBuffDic = new Dictionary<BulletType, List<BuffType>>();
+    public Dictionary<int, BulletData> BulletDic = new Dictionary<int, BulletData>();
+    public Dictionary<int, List<int>> evolvableBuffList = new Dictionary<int, List<int>>();
     //存每种子弹先挂载效果的层数
-    public Dictionary<BulletType, Dictionary<BuffType, int>> BulletBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();
+    public Dictionary<int, Dictionary<int, int>> BulletBuffs = new Dictionary<int, Dictionary<int, int>>();
 
     //子弹进化数据
-    public Dictionary<BulletType, Dictionary<BuffType, int>> increaseBuffs = new Dictionary<BulletType, Dictionary<BuffType, int>>();
-    public Dictionary<BulletType, float> increaseProbability = new Dictionary<BulletType, float>();
-    public Dictionary<BulletType, float> increaseATK = new Dictionary<BulletType, float>();
-    public Dictionary<BulletType, float> increaseShootTimer = new Dictionary<BulletType, float>();
-    public Dictionary<BulletType, float> increaseExistTime = new Dictionary<BulletType, float>();
-    public Dictionary<BulletType, bool> haveSpecialEvolved = new Dictionary<BulletType, bool>();
+    public Dictionary<int, Dictionary<int, int>> increaseBuffs = new Dictionary<int, Dictionary<int, int>>();
+    public Dictionary<int, float> increaseProbability = new Dictionary<int, float>();
+    public Dictionary<int, float> increaseATK = new Dictionary<int, float>();
+    public Dictionary<int, float> increaseShootTimer = new Dictionary<int, float>();
+    public Dictionary<int, float> increaseExistTime = new Dictionary<int, float>();
+    public Dictionary<int, bool> haveSpecialEvolved = new Dictionary<int, bool>();
 
     private List<GameObject> bulletList = new List<GameObject>();
 
@@ -34,14 +34,14 @@ public class BulletManager : BaseManager<BulletManager>
         {
             if (!BulletBuffs.ContainsKey(item.Key))
             {
-                BulletBuffs.Add(item.Key, new Dictionary<BuffType, int>());
+                BulletBuffs.Add(item.Key, new Dictionary<int, int>());
                 foreach (var t in item.Value.buffList)
                 {
                     BulletBuffs[item.Key].Add(t, 1);
                 }
             }
-            if (!evolvableBuffDic.ContainsKey(item.Key)) evolvableBuffDic.Add(item.Key, item.Value.evolvableList);
-            increaseBuffs.Add(item.Key, new Dictionary<BuffType, int>());
+            if (!evolvableBuffList.ContainsKey(item.Key)) evolvableBuffList.Add(item.Key, item.Value.evolvableList);
+            increaseBuffs.Add(item.Key, new Dictionary<int, int>());
             increaseProbability.Add(item.Key, 0);
             increaseATK.Add(item.Key, 0);
             increaseShootTimer.Add(item.Key, 0);
@@ -72,21 +72,23 @@ public class BulletManager : BaseManager<BulletManager>
         bulletList.Clear();
     }
 
-    public void BulletLauncher(Transform shooter, BulletType bulletType, float aggressivity, GameObject attacker)
+    public void BulletLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
     {
-        if (BulletDic[bulletType].isRandomShoot)
+
+        if (bulletID < 0) return;
+        if (BulletDic[bulletID].isRandomShoot)
         {
-            RandomLauncher(shooter, bulletType, aggressivity, attacker);
+            RandomLauncher(shooter, bulletID, aggressivity, attacker);
         }
         else
         {
-            StraightLauncher(shooter, bulletType, aggressivity, attacker);
+            StraightLauncher(shooter, bulletID, aggressivity, attacker);
         }
     }
-    private void RandomLauncher(Transform shooter, BulletType bulletType, float aggressivity, GameObject attacker)
+    private void RandomLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
     {
-        Dictionary<BuffType, int> initBuffs = new Dictionary<BuffType, int>(BulletBuffs[bulletType]);
-        BulletData initData = BulletDic[bulletType];
+        Dictionary<int, int> initBuffs = new Dictionary<int, int>(BulletBuffs[bulletID]);
+        BulletData initData = BulletDic[bulletID];
         CharacterTag attackerTag = CharacterTag.Null;
 
         //针对玩家发出的弹幕进行特化
@@ -96,15 +98,15 @@ public class BulletManager : BaseManager<BulletManager>
             attackerTag = character.characterTag;
             if (attackerTag == CharacterTag.Player)
             {
-                foreach (var item in increaseBuffs[bulletType])
+                foreach (var item in increaseBuffs[bulletID])
                 {
                     if (initBuffs.ContainsKey(item.Key)) initBuffs[item.Key] += item.Value;
                     else initBuffs.Add(item.Key, item.Value);
                 }
 
-                initData.shootProbability += increaseProbability[bulletType];
-                initData.ATK += increaseATK[bulletType];
-                initData.existTime += increaseExistTime[bulletType];
+                initData.shootProbability += increaseProbability[bulletID];
+                initData.ATK += increaseATK[bulletID];
+                initData.existTime += increaseExistTime[bulletID];
             }
         }
         initData.ATK += aggressivity;
@@ -114,16 +116,18 @@ public class BulletManager : BaseManager<BulletManager>
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
 
-        int n;
-        if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
+        int n=1;
+        //确定好倍增buff的id后修改这里
+
+        /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
         else
         {
             n = initBuffs[BuffType.Multiply] + 1;
             n = n < 2 ? 2 : n;
-        }
+        }*/
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString(),ResourceType.Bullet);
+            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(),ResourceType.Bullet);
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
             bulletList.Add(t);
             //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
@@ -131,13 +135,13 @@ public class BulletManager : BaseManager<BulletManager>
             t.transform.position = instantPos;
             t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
                  new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
-            if (BulletDic[bulletType].isFollowShooter) t.transform.parent = shooter;
+            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
         }
     }
-    private void StraightLauncher(Transform shooter, BulletType bulletType, float aggressivity, GameObject attacker)
+    private void StraightLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
     {
-        Dictionary<BuffType, int> initBuffs = new Dictionary<BuffType, int>(BulletBuffs[bulletType]);
-        BulletData initData = BulletDic[bulletType];
+        Dictionary<int, int> initBuffs = new Dictionary<int, int>(BulletBuffs[bulletID]);
+        BulletData initData = BulletDic[bulletID];
         CharacterTag attackerTag = CharacterTag.Null;
 
         //针对玩家发出的弹幕进行特化
@@ -147,15 +151,15 @@ public class BulletManager : BaseManager<BulletManager>
             attackerTag = character.characterTag;
             if (attackerTag == CharacterTag.Player)
             {
-                foreach (var item in increaseBuffs[bulletType])
+                foreach (var item in increaseBuffs[bulletID])
                 {
                     if (initBuffs.ContainsKey(item.Key)) initBuffs[item.Key] += item.Value;
                     else initBuffs.Add(item.Key, item.Value);
                 }
 
-                initData.shootProbability += increaseProbability[bulletType];
-                initData.ATK += increaseATK[bulletType];
-                initData.existTime += increaseExistTime[bulletType];
+                initData.shootProbability += increaseProbability[bulletID];
+                initData.ATK += increaseATK[bulletID];
+                initData.existTime += increaseExistTime[bulletID];
             }
         }
         initData.ATK += aggressivity;
@@ -165,16 +169,17 @@ public class BulletManager : BaseManager<BulletManager>
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
 
-        int n;
-        if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
+        int n=1;
+        //确定好倍增buff的id后修改这里
+        /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
         else
         {
             n = initBuffs[BuffType.Multiply] + 1;
             n = n < 2 ? 2 : n;
-        }
+        }*/
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletType.ToString(), ResourceType.Bullet);
+            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(), ResourceType.Bullet);
             t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
             bulletList.Add(t);
             //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
@@ -199,15 +204,15 @@ public class BulletManager : BaseManager<BulletManager>
             }
 
             t.transform.rotation = shooter.transform.rotation;
-            if (BulletDic[bulletType].isFollowShooter) t.transform.parent = shooter;
+            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
         }
     }
 
-    public void BulletEvolute(BuffType evolutionType, BulletType bulletType)
+    public void BulletEvolute(int evolutionID, int bulletType)
     {
-        if (!evolvableBuffDic.ContainsKey(bulletType) || !evolvableBuffDic[bulletType].Contains(evolutionType)) return;
-        if (!increaseBuffs[bulletType].ContainsKey(evolutionType)) increaseBuffs[bulletType].Add(evolutionType, 1);
-        else increaseBuffs[bulletType][evolutionType]++;
+        if (!evolvableBuffList.ContainsKey(bulletType) || !evolvableBuffList[bulletType].Contains(evolutionID)) return;
+        if (!increaseBuffs[bulletType].ContainsKey(evolutionID)) increaseBuffs[bulletType].Add(evolutionID, 1);
+        else increaseBuffs[bulletType][evolutionID]++;
         //if (!BulletDic[bulletType].evolvableList.Contains(evolutionType)) return;
 
         /*if (BulletBuffs[bulletType].ContainsKey(evolutionType))
@@ -219,7 +224,7 @@ public class BulletManager : BaseManager<BulletManager>
             BulletBuffs[bulletType].Add(evolutionType, 1);
         }*/
     }
-    public void ChangeBullet(BulletType originBullet,BulletType changedBullet)
+    public void ChangeBullet(int originBullet,int changedBullet)
     {
         foreach(var item in Player._instance.nowBullet)
         {

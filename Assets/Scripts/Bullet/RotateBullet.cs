@@ -7,8 +7,8 @@ public class RotateBullet : BulletBase
     float divisionTimer;
     private void Awake()
     {
-        bulletType = BulletType.RotateBullet;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.RotateBullet;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 
         bulletAction += Move;
@@ -27,7 +27,7 @@ public class RotateBullet : BulletBase
     protected override void SpecialEvolution()
     {
         base.SpecialEvolution();
-        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
+        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletID]) return;
         divisionTimer = 0.3f;
     }
 
@@ -38,7 +38,7 @@ public class RotateBullet : BulletBase
             divisionTimer -= Time.deltaTime;
             if (divisionTimer <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(transform, BulletType.TrackingBullet, 0,attacker);
+                BulletManager.GetInstance().BulletLauncher(transform, -1, 0,attacker);
                 divisionTimer = 0.3f;
             }
         }

@@ -49,21 +49,14 @@ public class LevelManager : BaseManager<LevelManager>
 
     public LevelManager()
     {
-        //levelSO = ResourceManager.GetInstance().LoadByPath<LevelSO>("ScriptableObject/LevelSO");
-        /*foreach (var item in levelSO.leveldatas)
-        {
-            levelDatasDic.Add(item.id, item.levelData);
-        }*/
         levelDatasDic = LevelDataTool.ReadLevelData();
 
-        nowLevel = levelDatasDic[0];
-        
-        //nowPlane = nowLevel.normalPlanes;
+        nowLevel = levelDatasDic[1];        
     }
 
     public void ChangeLevel(int levelNum)
     {
-        nowLevelNum = levelNum - 1;
+        nowLevelNum = levelNum;
         nowLevel = levelDatasDic[nowLevelNum];
         nowPlane = nowLevel.normalPlanes;
     }
@@ -90,7 +83,7 @@ public class LevelManager : BaseManager<LevelManager>
         }
 
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Count;
+        requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
 
 
         Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
@@ -322,7 +315,7 @@ public class LevelManager : BaseManager<LevelManager>
         for (int i = 0; i < n; i++)
         {
             GameObject t = PoolManager.GetInstance().GetObj(
-                nowLevel.StageDatas[nowStage].WaveEnemyType[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyType.Count)].ToString(),ResourceType.Enemy);
+                nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)].ToString(),ResourceType.Enemy);
 
             if (t == null) return;
 
@@ -372,7 +365,7 @@ public class LevelManager : BaseManager<LevelManager>
     {
         requireBOSS--;
         GameObject t = PoolManager.GetInstance().GetObj(
-            nowLevel.StageDatas[nowStage].BOSSType[Random.Range(0, nowLevel.StageDatas[nowStage].BOSSType.Count)].ToString(),ResourceType.Enemy);
+            nowLevel.StageDatas[nowStage].BOSSList[Random.Range(0, nowLevel.StageDatas[nowStage].BOSSList.Count)].ToString(),ResourceType.Enemy);
 
         t.transform.position = new Vector3(bossPoint.x, bossPoint.y + 20f, bossPoint.z);
 
@@ -397,7 +390,7 @@ public class LevelManager : BaseManager<LevelManager>
             nowWave = 0;
         }
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Count-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSType.Count;
+        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Count-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
         if (nowLevel.StageDatas[nowStage].isSpecial != isChange)
         {
             PrepareChangeStage();
