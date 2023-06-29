@@ -18,6 +18,7 @@ public class GameRoot : MonoBehaviour
     }
     private void Start()
     {
+       //SceneSystem.Instance.SetScene(new LoadScene());
         SceneSystem.Instance.SetScene(new StartScene());
     }
 

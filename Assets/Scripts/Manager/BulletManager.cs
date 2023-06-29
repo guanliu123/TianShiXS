@@ -4,7 +4,7 @@ using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class BulletManager : BaseManager<BulletManager>
+public class BulletManager : SingletonBase<BulletManager>
 {
     //存储每种子弹数据
     public Dictionary<int, BulletData> BulletDic = new Dictionary<int, BulletData>();

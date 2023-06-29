@@ -7,7 +7,7 @@ using Skills;
 using System;
 using System.Reflection;
 
-public class SkillManager : BaseManager<SkillManager>
+public class SkillManager : SingletonBase<SkillManager>
 {
     public static Dictionary<int, SkillData> SkillDic = new Dictionary<int, SkillData>();
 

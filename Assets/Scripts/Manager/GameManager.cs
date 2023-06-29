@@ -8,7 +8,7 @@ using UIFrameWork;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : BaseManager<GameManager>
+public class GameManager : SingletonBase<GameManager>
 {
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;

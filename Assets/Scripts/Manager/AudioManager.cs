@@ -37,7 +37,7 @@ public class AudioManager : BaseManager<AudioManager>
             bkMusic = obj.AddComponent<AudioSource>();
         }
 
-        ResourceManager.GetInstance().LoadAsync<AudioClip>("Music/bk" + musciName, (clip) =>
+        ResourceManager.Instance.LoadAsync<AudioClip>("Music/bk" + musciName, (clip) =>
         {
             bkMusic.clip = clip;
             bkMusic.loop = true;
@@ -93,7 +93,7 @@ public class AudioManager : BaseManager<AudioManager>
 
     public void PlaySound(string audioName, bool isLoop=false, UnityAction<AudioSource> callback = null)
     {
-        AudioClip audio = ResourceManager.GetInstance().LoadByName<AudioClip>(audioName, ResourceType.Audio);
+        AudioClip audio = ResourceManager.Instance.LoadByName<AudioClip>(audioName, ResourceType.Audio);
         if (!audio) return;
 
         if (soundObj == null)

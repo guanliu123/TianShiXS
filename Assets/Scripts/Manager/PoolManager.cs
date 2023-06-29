@@ -82,7 +82,7 @@ public class PoolManager : BaseManager<PoolManager>
             if (t != null) return t;
         }
 
-        GameObject t1 = ResourceManager.GetInstance().LoadByName<GameObject>(poolName, resourceType);
+        GameObject t1 = ResourceManager.Instance.LoadByName<GameObject>(poolName, resourceType);
         if(t1!=null) t = GameObject.Instantiate(t1);
         return t;
     }
@@ -117,7 +117,7 @@ public class PoolManager : BaseManager<PoolManager>
         else
         {
             //注意生成的物体的this.name此时并不是objName，而是objName（clone），若是使用this.name进行PushObj的话，则无法使用objName从字典中进行Get
-            ResourceManager.GetInstance().LoadAsync<GameObject>(objName, callback);
+            ResourceManager.Instance.LoadAsync<GameObject>(objName, callback);
         }
     }
 

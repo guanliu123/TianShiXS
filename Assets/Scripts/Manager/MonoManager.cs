@@ -5,7 +5,7 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MonoManager : BaseManager<MonoManager>
+public class MonoManager : SingletonBase<MonoManager>
 {
     //为了能够使用并管理MonoController,我们首先需要一个MonoController对象
     private MonoController controller;

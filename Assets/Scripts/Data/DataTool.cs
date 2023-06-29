@@ -57,7 +57,7 @@ public static class RoleDataTool
             roleDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
             characterMsg.name = characterDataJson["Name"].ToString();
-            characterMsg.image= ResourceManager.GetInstance().LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
+            characterMsg.image= ResourceManager.Instance.LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
             characterMsg.describe= characterDataJson["Describe"].ToString();
             roleMsgDic.Add(characterID, characterMsg);
 
@@ -156,7 +156,7 @@ public static class EnemyDataTool
                 enemyDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
                 enemyMsg.name = enemyDataJson["Name"].ToString();
-                enemyMsg.image = ResourceManager.GetInstance().LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
+                enemyMsg.image = ResourceManager.Instance.LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
                 enemyMsg.describe = enemyDataJson["Describe"].ToString();
                 enemyMsgDic.Add(characterID, enemyMsg);
             }
@@ -227,8 +227,8 @@ public static class BulletDataTool
             bulletData.isFollowShooter = (bool)item["IsFollowShooter"];
             bulletData.shootProbability= float.Parse(item["ShootProbability"].ToString());
 
-            bulletData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(bulletID+ "Audio",ResourceType.Audio);
-            bulletData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(bulletID + "Effect", ResourceType.Effect);
+            bulletData.audio = ResourceManager.Instance.LoadByName<AudioClip>(bulletID+ "Audio",ResourceType.Audio);
+            bulletData.effect = ResourceManager.Instance.LoadByName<GameObject>(bulletID + "Effect", ResourceType.Effect);
 
             bulletDataDic.Add(bulletID, bulletData);
         }
@@ -268,17 +268,17 @@ public static class LevelDataTool
                 
                 levelID = t;
 
-                levelData.skybox = ResourceManager.GetInstance().LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
+                levelData.skybox = ResourceManager.Instance.LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
                 levelData.normalPlanes = new List<GameObject>();
                 for(int i = 0; i < (int)item["NormalPlaneNum"]; i++)
                 {
-                    levelData.normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
+                    levelData.normalPlanes.Add(ResourceManager.Instance.LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
                 }
                 levelData.normalSize = new float[2] { 20, 10 };           
                 levelData.widthPlanes = new List<GameObject>();
                 for (int i = 0; i < (int)item["WidthPlaneNum"]; i++)
                 {
-                    levelData.widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
+                    levelData.widthPlanes.Add(ResourceManager.Instance.LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
                 }
                 levelData.widthSize = new float[2] { 20, 40 };
 
@@ -334,8 +334,8 @@ public static class BuffDataTool
             int buffID = (int)item["BuffID"];
             BuffData buffData = new BuffData();
 
-            buffData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(buffID+"Audio", ResourceType.Audio);
-            buffData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(buffID + "Effect", ResourceType.Effect);
+            buffData.audio = ResourceManager.Instance.LoadByName<AudioClip>(buffID+"Audio", ResourceType.Audio);
+            buffData.effect = ResourceManager.Instance.LoadByName<GameObject>(buffID + "Effect", ResourceType.Effect);
             buffData.duration = float.Parse(item["Duration"].ToString());
             buffData.probability= float.Parse(item["Probability"].ToString());
 
@@ -367,7 +367,7 @@ public static class SkillDataTool
 
             skillData.id = (int)item["SkillID"];
             skillData.name = item["Name"].ToString();
-            skillData.icon = ResourceManager.GetInstance().LoadByName<Sprite>(skillData.name+"Icon",ResourceType.UI);
+            skillData.icon = ResourceManager.Instance.LoadByName<Sprite>(skillData.name+"Icon",ResourceType.UI);
             skillData.describe = item["Describe"].ToString();
             skillData.probability= float.Parse(item["Probability"].ToString());
             skillData.quality = item["Quality"].ToString() + "Quality";

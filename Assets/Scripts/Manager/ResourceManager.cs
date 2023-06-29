@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 
-public class ResourceManager : BaseManager<ResourceManager>
+public class ResourceManager : SingletonBase<ResourceManager>
 {
     //private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
 

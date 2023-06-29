@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterManager : BaseManager<CharacterManager>
+public class CharacterManager : SingletonBase<CharacterManager>
 {
     public Dictionary<int, CharacterMsg> roleMsgDic = new Dictionary<int, CharacterMsg>();
     public Dictionary<int, CharacterMsg> enemyMagDic = new Dictionary<int, CharacterMsg>();

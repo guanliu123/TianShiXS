@@ -1,4 +1,5 @@
 ﻿//线程安全的单例基类
+
 public class SingletonBase<T> where T : class, new()
 {
     private static T _instance;
@@ -22,5 +23,27 @@ public class SingletonBase<T> where T : class, new()
             }
             return _instance;
         }
+    }
+
+    public static T GetInstance()
+    {
+        if (_instance == null)
+        {
+            lock (syslock)
+            {
+                if (_instance == null)
+                {
+                    _instance = new T();
+                    
+                }
+                    
+            }
+        }
+        return _instance;
+    }
+
+    public virtual void Reset()
+    {
+
     }
 }
