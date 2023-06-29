@@ -14,14 +14,15 @@ public interface IAttack
     void ChangeHealth(GameObject applicator, float damage,HPType damageType=HPType.Default);
     //void ShowDamage(float damage);
     void TakeMove(float speed, float time, Vector3 direction=default);
-    void TakeBuff(GameObject attacker,GameObject bullet,BuffType buffType, int piles = 1);
+    void TakeBuff(GameObject attacker,GameObject bullet,int buffID, int piles = 1);
 }
 
 public class CharacterBase : MonoBehaviour, IAttack
 {
     public CharacterData characterData;
 
-    public CharacterType characterType;
+    //public int characterID;
+    public int characterID;
     public CharacterTag characterTag;
 
     public ICharacterState currentState;
@@ -33,10 +34,10 @@ public class CharacterBase : MonoBehaviour, IAttack
     public float ATKSpeed;//攻速加成
     public float _avoidance;//减伤率
 
-    public Dictionary<BuffType, (int,float)> buffDic=new Dictionary<BuffType, (int, float)>();//里面存放的是每个buff和其对应的层数与持续时间
-    public Dictionary<BulletType, float> nowBullet = new Dictionary<BulletType, float>();//存放角色的攻击方式（弹幕类型,值是每种子弹的攻击间隔）
+    public Dictionary<int, (int,float)> buffDic=new Dictionary<int, (int, float)>();//里面存放的是每个buff和其对应的层数与持续时间
+    public Dictionary<int, float> nowBullet = new Dictionary<int, float>();//存放角色的攻击方式（弹幕类型,值是每种子弹的攻击间隔）
     //public Dictionary<BulletType, List<BuffType>> bulletBuff = new Dictionary<BulletType, List<BuffType>>();
-    public Dictionary<BulletType, float> bulletTimer = new Dictionary<BulletType, float>();
+    public Dictionary<int, float> bulletTimer = new Dictionary<int, float>();
 
     public Animator animator;
     public HPSlider hpSlider;
@@ -78,10 +79,10 @@ public class CharacterBase : MonoBehaviour, IAttack
             float t = item.Value.Item2 - Time.deltaTime;
             if (t<= 0.0001)
             {
-                buffDic[item.Key]= BuffManager.GetInstance().Buffs[item.Key].OnZero(this.gameObject, item.Value.Item1);
+                buffDic[item.Key]= BuffManager.GetInstance().BuffEvent[item.Key].OnZero(this.gameObject, item.Value.Item1);
                 if (buffDic[item.Key].Item1 <= 0)
                 {
-                    BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
+                    BuffManager.GetInstance().BuffEvent[item.Key].OnEnd(this.gameObject);
                     buffDic.Remove(item.Key);
                 }
             }
@@ -89,28 +90,28 @@ public class CharacterBase : MonoBehaviour, IAttack
         }
     }
 
-    public void AddBullet(BulletType bulletType)
+    public void AddBullet(int bulletID)
     {
-        if (nowBullet.ContainsKey(bulletType))
+        if (nowBullet.ContainsKey(bulletID))
         {
-            BulletManager.GetInstance().BulletEvolute(BuffType.Multiply,bulletType);
+            //BulletManager.GetInstance().BulletEvolute(BuffType.Multiply,bulletID);
             return;
         }
-        nowBullet.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
-        bulletTimer.Add(bulletType, BulletManager.GetInstance().BulletDic[BulletType.RotateBullet].damageInterval);
+        nowBullet.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].damageInterval);
+        bulletTimer.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].damageInterval);
     }
 
     protected void InitData(bool isPlayer=false)
     {
         int askNum = isPlayer ? 0 : LevelManager.GetInstance().nowLevelNum;
-        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterType) ||
-            !CharacterManager.GetInstance().characterDatasDic[characterType].ContainsKey(askNum))
+        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID) ||
+            !CharacterManager.GetInstance().characterDatasDic[characterID].ContainsKey(askNum))
         {
-            Debug.Log("角色获取数据失败，销毁");
-            Recovery(true);
+            Debug.Log("未获取到角色数据");
+            if(characterTag!=CharacterTag.Player) Recovery(true);
             return;
         }
-        characterData = CharacterManager.GetInstance().characterDatasDic[characterType][askNum];
+        characterData = CharacterManager.GetInstance().characterDatasDic[characterID][askNum];
         
         maxHP = characterData.MaxHP;
         nowHP = maxHP;
@@ -122,7 +123,7 @@ public class CharacterBase : MonoBehaviour, IAttack
             hpSlider.UpdateHPSlider(maxHP, nowHP);
         }
 
-        foreach (var item in characterData.bulletTypes)
+        foreach (var item in characterData.bulletList)
         {
             //Debug.Log(item);
             if (!nowBullet.ContainsKey(item)) nowBullet.Add(item, BulletManager.GetInstance().BulletDic[item].transmissionFrequency);
@@ -180,20 +181,20 @@ public class CharacterBase : MonoBehaviour, IAttack
         yield return null;
     }
 
-    public void TakeBuff(GameObject attacker,GameObject bullet, BuffType buffType,int piles=1)
+    public void TakeBuff(GameObject attacker,GameObject bullet, int buffID,int piles=1)
     {
-        if (!buffDic.ContainsKey(buffType))
+        if (!buffDic.ContainsKey(buffID))
         {
             //(int, float) t = (piles, 0f);
-            buffDic.Add(buffType, BuffManager.GetInstance().Buffs[buffType].Init());
-            if(buffDic[buffType].Item1!=0) BuffManager.GetInstance().Buffs[buffType].OnAdd(attacker, bullet, this.gameObject);           
+            buffDic.Add(buffID, BuffManager.GetInstance().BuffEvent[buffID].Init());
+            if(buffDic[buffID].Item1!=0) BuffManager.GetInstance().BuffEvent[buffID].OnAdd(attacker, bullet, this.gameObject);           
         }
         else
         {
             (int, float) t =
-                (buffDic[buffType].Item1 + BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker, this.gameObject, piles).Item1
-                , buffDic[buffType].Item2 + BuffManager.GetInstance().Buffs[buffType].OnSuperpose(attacker, this.gameObject, piles).Item2);
-            buffDic[buffType] = t;
+                (buffDic[buffID].Item1 + BuffManager.GetInstance().BuffEvent[buffID].OnSuperpose(attacker, this.gameObject, piles).Item1
+                , buffDic[buffID].Item2 + BuffManager.GetInstance().BuffEvent[buffID].OnSuperpose(attacker, this.gameObject, piles).Item2);
+            buffDic[buffID] = t;
         }
     }
 
@@ -213,7 +214,7 @@ public class CharacterBase : MonoBehaviour, IAttack
             float atkSpeed = ATKSpeed;
             if (characterTag == CharacterTag.Player) atkSpeed += BulletManager.GetInstance().increaseShootTimer[item.Key];
 
-            if (item.Key == BulletType.Combat)//近战攻击
+            if (item.Key == 3003)//近战攻击
             {
                 if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
                 {
@@ -265,9 +266,9 @@ public class CharacterBase : MonoBehaviour, IAttack
         if (characterTag == CharacterTag.Enemy) GameManager.GetInstance().EnemyDecrease(this.gameObject);
         foreach (var item in buffDic)
         {
-            BuffManager.GetInstance().Buffs[item.Key].OnEnd(this.gameObject);
+            BuffManager.GetInstance().BuffEvent[item.Key].OnEnd(this.gameObject);
         }
         buffDic.Clear();
-        if(characterTag!= CharacterTag.Player) PoolManager.GetInstance().PushObj(characterType.ToString(), this.gameObject);
+        if(characterTag!= CharacterTag.Player) PoolManager.GetInstance().PushObj(characterID.ToString(), this.gameObject);
     }
 }

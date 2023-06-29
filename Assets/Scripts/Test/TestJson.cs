@@ -19,7 +19,7 @@ public class TestJson : MonoBehaviour
             //Debug.Log(RoleDataTool.ReadRoleData().ElementAt(0).Value.MaxHP);
         }
         if (Input.GetKeyDown(KeyCode.S)){
-            RoleDataTool.WriteRoleData(CharacterType.DaoShi, 30);
+            //RoleDataTool.WriteRoleData(CharacterType.DaoShi, 30);
         }
     }
 }

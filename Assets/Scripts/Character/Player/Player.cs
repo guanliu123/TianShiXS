@@ -15,7 +15,7 @@ public class Player : CharacterBase
         base.Awake();
         _instance = this;
 
-        this.characterType = GameManager.GetInstance().nowPlayerType;
+        this.characterID = GameManager.GetInstance().nowPlayerID;
         characterTag = CharacterTag.Player;
         statesDic.Add(CharacterStateType.Idle, new IdleState(this));
         statesDic.Add(CharacterStateType.Attack, new AttackState(this));
@@ -26,7 +26,7 @@ public class Player : CharacterBase
 
     public void InitPlayer()
     {
-        this.characterType = GameManager.GetInstance().nowPlayerType;
+        this.characterID = GameManager.GetInstance().nowPlayerID;
         //InitData();
     }
     public void ResetRole()

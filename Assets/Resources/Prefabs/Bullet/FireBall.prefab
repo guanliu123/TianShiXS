@@ -51,7 +51,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 12844fbe86a8fcc4fa1c42ba782bc0f4, type: 3}
+  - {fileID: 2100000, guid: 4b6a30ac48392ac46bbc2fdc4141b3ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
     damageInterval: 0
     isFollowShooter: 0
     shootProbability: 0
+    audio: {fileID: 0}
+    effect: {fileID: 0}
   bulletType: 0
   attacker: {fileID: 0}
   isCrit: 0

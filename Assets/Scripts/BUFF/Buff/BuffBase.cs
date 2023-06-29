@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuffBase
 {
-    public BuffType buffType;
+    public virtual int buffID { get; set; }
     public CoroutineType coroutineType;//给假如存在持续作用效果的buff开的协程类型
     public BuffData buffData;
 

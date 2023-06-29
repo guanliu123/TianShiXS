@@ -10,8 +10,8 @@ public class RolePanel : BasePanel
     private static readonly string path = "Prefabs/Panels/RolePanel";
 
     GameObject panel;
-    Dictionary<CharacterType, CharacterMsg> players;
-    CharacterType choosePlayer;
+    Dictionary<int, CharacterMsg> players;
+    int choosePlayer;
 
     public RolePanel() : base(new UIType(path))
     {

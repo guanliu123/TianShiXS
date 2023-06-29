@@ -13,8 +13,8 @@ public class BounceBullet : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.BounceBullet;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.BounceBullet;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 
         bulletAction += Move;
@@ -52,7 +52,7 @@ public class BounceBullet : BulletBase
     protected override void SpecialEvolution()
     {
         base.SpecialEvolution();
-        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletType]) return;
+        if (!BulletManager.GetInstance().haveSpecialEvolved[bulletID]) return;
 
         bounceNum += 2;
         bulletData.ATK += 5f;

@@ -5,15 +5,18 @@ using System.Linq;
 using UnityEngine;
 using System.IO;
 using LitJson;
+//using Boo.Lang;
 
 #region 资源数据的读写工具
 public class ResourceDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Resource.json";
-
+    //static string filePath = Application.dataPath + "/Resources/Data/Resource.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Resource.json";
+    
     public static Dictionary<ResourceType, string> ReadResourceData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Resource").text;
         Dictionary<ResourceType, string> resourceDataDic = new Dictionary<ResourceType, string>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -33,21 +36,15 @@ public class ResourceDataTool
 #region 玩家角色数据的读写工具
 public static class RoleDataTool
 {   
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Role.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Role.json";
     static JsonData jsonData;
-    public static Dictionary<CharacterType, CharacterMsg> roleMsgDic = new Dictionary<CharacterType, CharacterMsg>();
-    public static Dictionary<CharacterType, Dictionary<int, CharacterData>> roleDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
-
-    static RoleDataTool()
-    {
-        string jsonString = File.ReadAllText(filePath);
-        jsonData = JsonMapper.ToObject(jsonString);
-    }
+    public static Dictionary<int, CharacterMsg> roleMsgDic = new Dictionary<int, CharacterMsg>();
+    public static Dictionary<int, Dictionary<int, CharacterData>> roleDataDic = new Dictionary<int, Dictionary<int, CharacterData>>();
 
     public static void ReadRoleData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        //Dictionary<CharacterType, Dictionary<int, CharacterData>> playerDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+        string jsonString = Resources.Load<TextAsset>("Data/Role").text;
+        //string jsonString = File.ReadAllText(filePath);
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
         foreach (JsonData characterDataJson in jsonData)
@@ -55,26 +52,27 @@ public static class RoleDataTool
             CharacterData characterData = new CharacterData();
             CharacterMsg characterMsg = new CharacterMsg();
 
-            CharacterType characterType = (CharacterType)System.Enum.Parse(typeof(CharacterType), characterDataJson["CharacterType"].ToString());
-            roleDataDic.Add(characterType, new Dictionary<int, CharacterData>());
+            int characterID = (int)characterDataJson["RoleID"];
+            //CharacterType characterType = (CharacterType)System.Enum.Parse(typeof(CharacterType), characterDataJson["CharacterType"].ToString());
+            roleDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
             characterMsg.name = characterDataJson["Name"].ToString();
-            characterMsg.image= ResourceManager.GetInstance().LoadByName<GameObject>(characterType + "Image",ResourceType.UI);
+            characterMsg.image= ResourceManager.GetInstance().LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
             characterMsg.describe= characterDataJson["Describe"].ToString();
-            roleMsgDic.Add(characterType, characterMsg);
+            roleMsgDic.Add(characterID, characterMsg);
 
             characterData.MaxHP = float.Parse(characterDataJson["MaxHP"].ToString());
-            characterData.bulletTypes = new List<BulletType>();
-            foreach (JsonData bulletTypeJson in characterDataJson["Bullets"])
+            characterData.bulletList = new List<int>();
+            foreach (JsonData bulletIDJson in characterDataJson["Bullets"])
             {
-                characterData.bulletTypes.Add((BulletType)System.Enum.Parse(typeof(BulletType), bulletTypeJson.ToString()));
+                characterData.bulletList.Add((int)bulletIDJson);
             }
             characterData.ATK = float.Parse(characterDataJson["ATK"].ToString());
             characterData.ATKSpeed = float.Parse(characterDataJson["ATKSpeed"].ToString());           
             characterData.energy = 0;
             characterData.money = 0;
 
-            roleDataDic[characterType].Add(0, characterData);
+            roleDataDic[characterID].Add(0, characterData);
         }
     }
 
@@ -91,9 +89,10 @@ public static class RoleDataTool
     /// <param name="_money"></param>
     /// <returns></returns>
     public static bool WriteRoleData(
-        CharacterType characterType,
+        int characterID,
+        //CharacterType characterType,
         float _hp = -1,
-        List<BulletType> _bullet = null,
+        List<int> _bullet = null,
         float _aggressivity = -1,
         float _atkspeed = -1
         )
@@ -101,7 +100,7 @@ public static class RoleDataTool
         for (int i = 0; i < jsonData.Count; i++)
         {
             JsonData characterDataJson = jsonData[i];
-            if (characterDataJson["characterType"].ToString() == characterType.ToString())
+            if ((int)characterDataJson["RoleID"] == characterID)
             {
                 if(_hp>0) characterDataJson["MaxHP"] = float.Parse(characterDataJson["MaxHP"].ToString()) + _hp;
                 if (_bullet != null)
@@ -133,47 +132,49 @@ public static class RoleDataTool
 
 public static class EnemyDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Enemy.json";
-    public static Dictionary<CharacterType, CharacterMsg> enemyMsgDic = new Dictionary<CharacterType, CharacterMsg>();
-    public static Dictionary<CharacterType, Dictionary<int, CharacterData>> enemyDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+    static string filePath = Application.streamingAssetsPath + "/Data/Enemy.json";
+    public static Dictionary<int, CharacterMsg> enemyMsgDic = new Dictionary<int, CharacterMsg>();
+    public static Dictionary<int, Dictionary<int, CharacterData>> enemyDataDic = new Dictionary<int, Dictionary<int, CharacterData>>();
 
 
     public static void ReadEnemyData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        //Dictionary<CharacterType, Dictionary<int, CharacterData>> playerDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Enemy").text;
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
+        int characterID=-1;
         foreach (JsonData enemyDataJson in jsonData)
         {
             CharacterData enemyData = new CharacterData();
             CharacterMsg enemyMsg = new CharacterMsg();
 
-            CharacterType characterType = (CharacterType)System.Enum.Parse(typeof(CharacterType), enemyDataJson["CharacterType"].ToString());
-            enemyDataDic.Add(characterType, new Dictionary<int, CharacterData>());
+            int t = int.Parse(enemyDataJson["EnemyID"].ToString());
+            if (t != 0) {
+                characterID = t;
+            //CharacterType characterType = (CharacterType)System.Enum.Parse(typeof(CharacterType), enemyDataJson["CharacterType"].ToString());
+                enemyDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
-            enemyMsg.name = enemyDataJson["Name"].ToString();
-            enemyMsg.image = ResourceManager.GetInstance().LoadByName<GameObject>(characterType + "Image",ResourceType.UI);
-            enemyMsg.describe = enemyDataJson["Describe"].ToString();
-            enemyMsgDic.Add(characterType, enemyMsg);
-
-            foreach (JsonData item in enemyDataJson["LevelDatas"])
-            {
-                int levelNum = int.Parse(item["LevelNum"].ToString());
-                enemyData.MaxHP = float.Parse(item["MaxHP"].ToString());
-                enemyData.bulletTypes = new List<BulletType>();
-                foreach (JsonData bulletTypeJson in item["Bullets"])
-                {
-                    enemyData.bulletTypes.Add((BulletType)System.Enum.Parse(typeof(BulletType), bulletTypeJson.ToString()));
-                }
-                enemyData.ATK = float.Parse(item["ATK"].ToString());
-                enemyData.ATKSpeed = float.Parse(item["ATKSpeed"].ToString());
-                //characterData.avoidance = float.Parse(characterDataJson["avoidance"].ToString());
-                enemyData.energy = float.Parse(item["Energy"].ToString());
-                enemyData.money = int.Parse(item["Money"].ToString());
-
-                enemyDataDic[characterType].Add(levelNum, enemyData);
+                enemyMsg.name = enemyDataJson["Name"].ToString();
+                enemyMsg.image = ResourceManager.GetInstance().LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
+                enemyMsg.describe = enemyDataJson["Describe"].ToString();
+                enemyMsgDic.Add(characterID, enemyMsg);
             }
+
+            int levelNum = int.Parse(enemyDataJson["LevelNum"].ToString());
+            enemyData.MaxHP = float.Parse(enemyDataJson["MaxHP"].ToString());
+            enemyData.bulletList = new List<int>();
+            foreach (JsonData bulletIDJson in enemyDataJson["Bullets"])
+            {
+                enemyData.bulletList.Add((int)bulletIDJson);
+            }
+            enemyData.ATK = float.Parse(enemyDataJson["ATK"].ToString());
+            enemyData.ATKSpeed = float.Parse(enemyDataJson["ATKSpeed"].ToString());
+            //characterData.avoidance = float.Parse(characterDataJson["avoidance"].ToString());
+            enemyData.energy = float.Parse(enemyDataJson["Energy"].ToString());
+            enemyData.money = int.Parse(enemyDataJson["Money"].ToString());
+
+            enemyDataDic[characterID].Add(levelNum, enemyData);
         }
     }
 }
@@ -184,17 +185,21 @@ public static class EnemyDataTool
 
 public static class BulletDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Bullet.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Bullet.json";
 
-    public static Dictionary<BulletType, BulletData> ReadBulletData()
+    public static Dictionary<int, BulletData> ReadBulletData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        Dictionary<BulletType, BulletData> bulletDataDic = new Dictionary<BulletType, BulletData>();
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Bullet").text;
+
+
+        Dictionary<int, BulletData> bulletDataDic = new Dictionary<int, BulletData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
         foreach (JsonData item in jsonData)
         {
-            BulletType bulletType = (BulletType)System.Enum.Parse(typeof(BulletType), item["BulletType"].ToString());
+            //BulletType bulletType = (BulletType)System.Enum.Parse(typeof(BulletType), item["BulletType"].ToString());
+            int bulletID = (int)item["BulletID"];
             BulletData bulletData = new BulletData();
 
             bulletData.transmissionFrequency = float.Parse(item["TransmissionFrequency"].ToString());
@@ -202,16 +207,18 @@ public static class BulletDataTool
             bulletData.existTime= float.Parse(item["ExistTime"].ToString());
             bulletData.moveSpeed= float.Parse(item["MoveSpeed"].ToString());
             bulletData.rotateSpeed= float.Parse(item["RotateSpeed"].ToString());
-            bulletData.buffList = new List<BuffType>();
-            foreach(JsonData buffType in item["BuffList"])
+            bulletData.buffList = new List<int>();
+            foreach(JsonData buff in item["BuffList"])
             {
                 //Debug.Log((BuffType)System.Enum.Parse(typeof(BuffType), buffType.ToString()));
-                bulletData.buffList.Add((BuffType)System.Enum.Parse(typeof(BuffType), buffType.ToString()));
+                //bulletData.buffList.Add((BuffType)System.Enum.Parse(typeof(BuffType), buff.ToString()));
+                bulletData.buffList.Add((int)buff);
             }
-            bulletData.evolvableList = new List<BuffType>();
-            foreach (JsonData buffType in item["EvolvableList"])
+            bulletData.evolvableList = new List<int>();
+            foreach (JsonData buff in item["EvolvableList"])
             {
-                bulletData.evolvableList.Add((BuffType)System.Enum.Parse(typeof(BuffType), buffType.ToString()));
+                //bulletData.evolvableList.Add((BuffType)System.Enum.Parse(typeof(BuffType), buffType.ToString()));
+                bulletData.evolvableList.Add((int)buff);
             }
             bulletData.crit= float.Parse(item["Crit"].ToString());
             bulletData.critRate= float.Parse(item["CritRate"].ToString());
@@ -220,10 +227,10 @@ public static class BulletDataTool
             bulletData.isFollowShooter = (bool)item["IsFollowShooter"];
             bulletData.shootProbability= float.Parse(item["ShootProbability"].ToString());
 
-            bulletData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(bulletType.ToString() + "Audio",ResourceType.Audio);
-            bulletData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(bulletType.ToString() + "Effect", ResourceType.Effect);
+            bulletData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(bulletID+ "Audio",ResourceType.Audio);
+            bulletData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(bulletID + "Effect", ResourceType.Effect);
 
-            bulletDataDic.Add(bulletType, bulletData);
+            bulletDataDic.Add(bulletID, bulletData);
         }
         return bulletDataDic;
     }
@@ -235,70 +242,72 @@ public static class BulletDataTool
 
 public static class LevelDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Level.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Level.json";
 
     public static Dictionary<int, LevelData> ReadLevelData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Level").text;
+
         Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
+        int levelID = -1;
+        LevelData levelData = new LevelData();
+        levelData.StageDatas = new List<StageData>();
+        //List<StageData> stageDatas = new List<StageData>();
         foreach (JsonData item in jsonData)
         {
-            int levelID = int.Parse(item["ID"].ToString());
-            LevelData levelData = new LevelData();
+            //int levelID = int.Parse(item["ID"].ToString());
+            int t = int.Parse(item["ID"].ToString());
 
-            levelData.skybox = ResourceManager.GetInstance().LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
-            levelData.normalPlanes = new List<GameObject>();
-            for(int i = 0; i < (int)item["NormalPlaneNum"]; i++)
+            if (t != 0) 
             {
-                levelData.normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
-            }
-            levelData.normalSize =new float[2];
-            int j = 0;
-            foreach(JsonData t in item["NormalSize"])
-            {
-                levelData.normalSize[j++] =float.Parse(t.ToString());
-            }            
-            levelData.widthPlanes = new List<GameObject>();
-            for (int i = 0; i < (int)item["WidthPlaneNum"]; i++)
-            {
-                levelData.widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
-            }
-            levelData.widthSize = new float[2];
-            j = 0;
-            foreach (JsonData t in item["WidthSize"])
-            {
-                levelData.widthSize[j++] = float.Parse(t.ToString());
-            }
+                //将上一个数据存入
+                if (levelID != -1) levelDataDic.Add(levelID, levelData);                    
+                
+                levelID = t;
 
-            levelData.StageDatas = new List<StageData>();
-            foreach(JsonData stageData in item["StageDatas"])
-            {
-                StageData t = new StageData();
-                t.StageID = (int)stageData["StageID"];
-                t.isSpecial = (bool)stageData["IsSpecial"];
-                t.BOSSType = new List<CharacterType>();
-                foreach(JsonData bossType in stageData["BossType"])
+                levelData.skybox = ResourceManager.GetInstance().LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
+                levelData.normalPlanes = new List<GameObject>();
+                for(int i = 0; i < (int)item["NormalPlaneNum"]; i++)
                 {
-                    t.BOSSType.Add((CharacterType)System.Enum.Parse(typeof(CharacterType), bossType.ToString()));
+                    levelData.normalPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "NormalGround" + (i + 1),ResourceType.MapGround));
                 }
-                t.WaveEnemyNum = new List<int>();
-                foreach(JsonData num in stageData["WaveEnemyNum"])
+                levelData.normalSize = new float[2] { 20, 10 };           
+                levelData.widthPlanes = new List<GameObject>();
+                for (int i = 0; i < (int)item["WidthPlaneNum"]; i++)
                 {
-                    t.WaveEnemyNum.Add((int)num);
+                    levelData.widthPlanes.Add(ResourceManager.GetInstance().LoadByName<GameObject>(levelID + "WidthGround" + (i + 1), ResourceType.MapGround));
                 }
-                t.WaveEnemyType = new List<CharacterType>();
-                foreach(JsonData enemyType in stageData["WaveEnemyType"])
-                {
-                    t.WaveEnemyType.Add((CharacterType)System.Enum.Parse(typeof(CharacterType), enemyType.ToString()));
-                }
+                levelData.widthSize = new float[2] { 20, 40 };
 
-                levelData.StageDatas.Add(t);
+                levelData.StageDatas.Clear();
             }
 
-            levelDataDic.Add(levelID, levelData);
+            StageData temp = new StageData();
+            temp.StageID = (int)item["StageID"];
+            temp.isSpecial = (bool)item["IsSpecial"];
+            temp.BOSSList = new List<int>();
+            foreach (JsonData boss in item["BossList"])
+            {
+                temp.BOSSList.Add((int)boss);
+            }
+            temp.WaveEnemyNum = new List<int>();
+            foreach (JsonData num in item["WaveEnemyNum"])
+            {
+                temp.WaveEnemyNum.Add((int)num);
+            }
+            temp.WaveEnemyList = new List<int>();
+            foreach (JsonData enemy in item["WaveEnemyList"])
+            {
+                //t.WaveEnemyList.Add((CharacterType)System.Enum.Parse(typeof(CharacterType), enemy.ToString()));
+                temp.WaveEnemyList.Add((int)enemy);
+            }
+            levelData.StageDatas.Add(temp);            
         }
+        levelDataDic.Add(levelID, levelData);
+
         return levelDataDic;
     }
 }
@@ -309,25 +318,28 @@ public static class LevelDataTool
 
 public static class BuffDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Buff.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Buff.json";
 
-    public static Dictionary<BuffType, BuffData> ReadBuffData()
+    public static Dictionary<int, BuffData> ReadBuffData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        Dictionary<BuffType, BuffData> buffDataDic = new Dictionary<BuffType, BuffData>();
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Buff").text;
+
+
+        Dictionary<int, BuffData> buffDataDic = new Dictionary<int, BuffData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
         foreach (JsonData item in jsonData)
         {
-            BuffType buffType = (BuffType)System.Enum.Parse(typeof(BuffType), item["BuffType"].ToString());
+            int buffID = (int)item["BuffID"];
             BuffData buffData = new BuffData();
 
-            buffData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(buffType+"Audio", ResourceType.Audio);
-            buffData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(buffType + "Effect", ResourceType.Effect);
+            buffData.audio = ResourceManager.GetInstance().LoadByName<AudioClip>(buffID+"Audio", ResourceType.Audio);
+            buffData.effect = ResourceManager.GetInstance().LoadByName<GameObject>(buffID + "Effect", ResourceType.Effect);
             buffData.duration = float.Parse(item["Duration"].ToString());
             buffData.probability= float.Parse(item["Probability"].ToString());
 
-            buffDataDic.Add(buffType, buffData);
+            buffDataDic.Add(buffID, buffData);
         }
         return buffDataDic;
     }
@@ -339,11 +351,13 @@ public static class BuffDataTool
 
 public static class SkillDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Skill.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Skill.json";
 
     public static Dictionary<int, SkillData> ReadSkillData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Skill").text;
+
+        //string jsonString = File.ReadAllText(filePath);
         Dictionary<int, SkillData> skillDataDic = new Dictionary<int, SkillData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -356,6 +370,7 @@ public static class SkillDataTool
             skillData.icon = ResourceManager.GetInstance().LoadByName<Sprite>(skillData.name+"Icon",ResourceType.UI);
             skillData.describe = item["Describe"].ToString();
             skillData.probability= float.Parse(item["Probability"].ToString());
+            skillData.quality = item["Quality"].ToString() + "Quality";
             skillData.num = (int)item["Num"];
             skillData.beforeSkills = new List<int>();
             foreach(JsonData id in item["BeforeSkills"])

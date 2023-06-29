@@ -6,8 +6,8 @@ public class TaiChiDart : BulletBase
 {
     private void Awake()
     {
-        bulletType = BulletType.TaiChiDart;
-
+        //bulletID = BulletType.TaiChiDart;
+        bulletID = 3001;
         bulletAction += Move;
     }
     // Update is called once per frame

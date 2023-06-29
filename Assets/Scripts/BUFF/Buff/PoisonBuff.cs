@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PoisonBuff : BuffBase
 {
+    public override int buffID { get; set; } = 4002;
     public PoisonBuff()
     {
-        buffType = BuffType.Poison;
         coroutineType = CoroutineType.PoisonBuff;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
 
         triggerInterval = 1f;
         _probability = buffData.probability;
@@ -24,7 +24,7 @@ public class PoisonBuff : BuffBase
 
     public override void OnAdd(GameObject _attacker, GameObject bullet, GameObject _taker)
     {
-        BuffManager.GetInstance().AddToBuffList(buffType, _taker);
+        BuffManager.GetInstance().AddToBuffList(buffID, _taker);
     }
 
     public override void OnUpdate(GameObject _taker)
@@ -32,7 +32,7 @@ public class PoisonBuff : BuffBase
         IAttack t = _taker.GetComponent<IAttack>();
         if (!_taker) return;
 
-        int n = _taker.GetComponent<CharacterBase>().buffDic[buffType].Item1;
+        int n = _taker.GetComponent<CharacterBase>().buffDic[buffID].Item1;
         t.ChangeHealth(null,-7 * n,HPType.Poison);
     }
 
@@ -48,6 +48,6 @@ public class PoisonBuff : BuffBase
 
     public override void OnEnd(GameObject _taker)
     {
-        BuffManager.GetInstance().RemoveFromBuffList(buffType, _taker);
+        BuffManager.GetInstance().RemoveFromBuffList(buffID, _taker);
     }
 }

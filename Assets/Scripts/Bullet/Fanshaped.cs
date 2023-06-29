@@ -12,8 +12,8 @@ public class Fanshaped : BulletBase
 
     public void Awake()
     {
-        bulletType = BulletType.Fanshaped;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.Fanshaped;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 
         bulletAction += AttckInterval;

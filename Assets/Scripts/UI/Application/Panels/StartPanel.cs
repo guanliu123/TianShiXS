@@ -38,7 +38,10 @@ public class StartPanel : BasePanel
             AudioManager.GetInstance().PlaySound("NormalButton");
             PanelManager.Instance.Push(new LevelPanel());
         });
-        UITool.GetOrAddComponentInChildren<Toggle>("Audio_Tog", panel).onValueChanged.AddListener((value) =>
+
+        Toggle audiotog = UITool.GetOrAddComponentInChildren<Toggle>("Audio_Tog", panel);
+        audiotog.isOn=AudioManager.GetInstance().soundValue<0.5f?true:false;
+        audiotog.onValueChanged.AddListener((value) =>
         {            
             if (value)
             {

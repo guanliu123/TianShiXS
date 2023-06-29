@@ -8,8 +8,8 @@ public class PoisonousFloor : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.PoisonousFloor;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.PoisonousFloor;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
         bulletAction += Move;
     }

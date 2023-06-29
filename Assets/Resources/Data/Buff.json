@@ -1,11 +1,11 @@
 [
   {
-    "BuffType": "Crit",
+    "BuffID": 4001,
     "Duration": 9999,
     "Probability": 1
   },
   {
-    "BuffType": "Poison",
+    "BuffID": 4002,
     "Duration": 3,
     "Probability": 1
   }

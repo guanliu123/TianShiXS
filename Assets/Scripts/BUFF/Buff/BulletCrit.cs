@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BulletCrit : BuffBase
 {
+    public override int buffID { get; set; } = 4001;
+
     //每种子弹对应的下次暴击几率和暴击倍率
-    private Dictionary<BulletType, (float, float)> critDic = new Dictionary<BulletType, (float, float)>();
+    private Dictionary<int, (float, float)> critDic = new Dictionary<int, (float, float)>();
     public float critGrowthRate;
 
     public BulletCrit()
     {
-        buffType = BuffType.Crit;
+        //buffID = BuffType.Crit;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
         critGrowthRate = 0.05f;
         _probability = buffData.probability;
         _duration = buffData.duration;
@@ -28,19 +30,19 @@ public class BulletCrit : BuffBase
     public override void  OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
         int t = Random.Range(0, 100);
-        BulletType _type = _bullet.GetComponent<BulletBase>().bulletType;
-        if (!critDic.ContainsKey(_type)) critDic.Add(_type, 
-            (BulletManager.GetInstance().BulletDic[_type].crit, BulletManager.GetInstance().BulletDic[_type].critRate));
+        int _id = _bullet.GetComponent<BulletBase>().bulletID;
+        if (!critDic.ContainsKey(_id)) critDic.Add(_id, 
+            (BulletManager.GetInstance().BulletDic[_id].crit, BulletManager.GetInstance().BulletDic[_id].critRate));
 
-        if (t < (critDic[_type].Item1+GameManager.GetInstance().critProbability)*100)
+        if (t < (critDic[_id].Item1+GameManager.GetInstance().critProbability)*100)
         {
             //如果触发暴击了就重置几率
             _bullet.GetComponent<BulletBase>().isCrit = true;
-            critDic[_type] = (BulletManager.GetInstance().BulletDic[_type].crit, BulletManager.GetInstance().BulletDic[_type].critRate);
+            critDic[_id] = (BulletManager.GetInstance().BulletDic[_id].crit, BulletManager.GetInstance().BulletDic[_id].critRate);
         }
         else
         {
-            critDic[_type] = (critDic[_type].Item1 +critGrowthRate, critDic[_type].Item2);
+            critDic[_id] = (critDic[_id].Item1 +critGrowthRate, critDic[_id].Item2);
         }       
     }
 }

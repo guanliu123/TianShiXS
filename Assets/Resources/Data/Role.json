@@ -1,12 +1,11 @@
 [
   {
-    "RoleID": 0,
-    "CharacterType": "DaoShi",
+    "RoleID": 1001,
     "Name": "普通道士",
     "Describe": "使用普通的太极剑攻击",
     "MaxHP": 100,
     "Bullets": [
-      "TaiChiDart"
+      3001
     ],
     "ATK": 0,
     "ATKSpeed": 0

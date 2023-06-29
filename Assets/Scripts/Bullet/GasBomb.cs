@@ -6,8 +6,8 @@ public class GasBomb : BulletBase
 {
     public void Awake()
     {
-        bulletType = BulletType.GasBomb;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.GasBomb;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 
         bulletAction += Move;
@@ -30,7 +30,7 @@ public class GasBomb : BulletBase
         gameObject.transform.Translate(-transform.up * 0.9f * Time.deltaTime);
         if (transform.position.y <= 0)
         {
-            BulletManager.GetInstance().BulletLauncher(gameObject.transform, BulletType.PoisonousFloor, 0,attacker);
+            BulletManager.GetInstance().BulletLauncher(gameObject.transform, -1, 0,attacker);
             Recovery();
         }
     }

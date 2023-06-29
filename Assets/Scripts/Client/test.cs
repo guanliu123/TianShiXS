@@ -112,7 +112,7 @@ public class test : MonoBehaviour
         });
 #endif
 #if UNITY_ANDROID
-        _client.get_hub_info("login", (hub_info) =>
+        /*_client.get_hub_info("login", (hub_info) =>
         {
             _login_Caller.get_hub(hub_info.hub_name).player_login_dy(code , anonymousCode).callBack((string player_hub_name, string token) =>
             {
@@ -140,7 +140,7 @@ public class test : MonoBehaviour
             {
                 Debug.Log($"player_login_dy err:{err}");
             });
-        });
+        });*/
 #endif
     }
 

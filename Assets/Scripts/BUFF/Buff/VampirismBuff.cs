@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VampirismBuff : BuffBase
+/*public class VampirismBuff : BuffBase
 {
     public VampirismBuff()
     {
-        buffType = BuffType.Vampirism;
+        //buffID = BuffType.Vampirism;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
         _probability = buffData.probability;
         _duration = buffData.duration;
     }
@@ -29,4 +29,4 @@ public class VampirismBuff : BuffBase
     {
         Debug.Log("吸血5%");
     }
-}
+}*/

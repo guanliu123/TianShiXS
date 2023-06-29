@@ -16,8 +16,8 @@ public class LaserBullet : BulletBase
 
     private void Awake()
     {
-        bulletType = BulletType.LaserBullet;
-        bulletData = BulletManager.GetInstance().BulletDic[bulletType];
+        //bulletID = BulletType.LaserBullet;
+        bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 
         bulletAction += Rotat;

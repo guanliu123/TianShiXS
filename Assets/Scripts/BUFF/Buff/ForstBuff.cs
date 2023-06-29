@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForstBuff : BuffBase
+/*public class ForstBuff : BuffBase
 {
     public ForstBuff()
     {
-        buffType = BuffType.Frost;
+        //buffID = BuffType.Frost;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
-        buffData = BuffManager.BuffDic[buffType];
+        buffData = BuffManager.BuffDic[buffID];
 
         _probability = buffData.probability;
         _duration = buffData.duration;
@@ -35,4 +35,4 @@ public class ForstBuff : BuffBase
         t.canActive = true;
         t.animator.speed = 1;
     }
-}
+}*/

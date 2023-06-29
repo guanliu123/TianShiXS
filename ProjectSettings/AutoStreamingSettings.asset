@@ -4,10 +4,170 @@
 AutoStreamingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  mSearchMode: 15
+  mSearchMode: 7
   mCustomSearchFile: 
   mTextures: []
-  mAudios: []
+  mAudios:
+  - onDemandDownload: 1
+    assetPath: Assets/Resources/Audios/BuyButton.wav
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 112896
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 1
+    assetPath: Assets/Resources/Audios/NormalButton.wav
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 115040
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 1
+    assetPath: Assets/Resources/Audios/PageturnButton.wav
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 99008
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 1
+    assetPath: Assets/Resources/Audios/TaiChiDartAudio.wav
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 23968
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 1
+    assetPath: Assets/Resources/Audios/ToggleButton.wav
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 61152
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u5207\u5272\u7C7B\u547D\u4E2DB.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 23136
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u5207\u5272\u7C7B\u547D\u4E2DC.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 26240
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u5207\u5272\u7C7B\u547D\u4E2DD.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 25920
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u5B9D\u7BB1\u62FE\u53D6.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 55872
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u7ECF\u9A8C\u83B7\u53D6A.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 32864
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u7ECF\u9A8C\u83B7\u53D6B.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 32384
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u5347\u7EA7.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 107776
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u6B7B\u4EA1.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 92288
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u88AB\u547D\u4E2DA.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 26560
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u88AB\u547D\u4E2DB.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 26656
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u88AB\u547D\u4E2DC.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 29088
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u89D2\u8272\u88AB\u547D\u4E2DD.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 29856
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u8D2F\u7A7F\u7C7B\u547D\u4E2DA.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 24096
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u8D2F\u7A7F\u7C7B\u547D\u4E2DB.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 24416
+    warningFlag: 0
+    refs:
+    - res
+  - onDemandDownload: 0
+    assetPath: "Assets/Resources/Audios/\u6E38\u620F\u7C7B\u578B/\u8D2F\u7A7F\u7C7B\u547D\u4E2DC.wav"
+    localFileId: 8300000
+    cloudAssetName: 
+    rtMem: 28064
+    warningFlag: 0
+    refs:
+    - res
   mMeshes: []
   mAnimations: []
   mSharedSceneAssets: []
@@ -16,7 +176,7 @@ AutoStreamingSettings:
     assetPath: Assets/Scenes/StartScene.unity
     localFileId: -1
     cloudAssetName: 
-    rtMem: 910734
+    rtMem: 910610
     warningFlag: 0
     refs: []
   mConfigCCD:

@@ -20,6 +20,11 @@ public class ObjTimer : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (timer < recoveryTime) return;
+        Recovery();
+    }
+
+    private void Recovery()
+    {
         PoolManager.GetInstance().PushObj(effectName, gameObject);
     }
 }
