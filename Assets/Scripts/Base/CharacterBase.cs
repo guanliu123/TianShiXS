@@ -243,7 +243,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (characterTag != CharacterTag.Player)
         {
-            CameraManager.GetInstance().CameraShake(0.15f, 0.5f);
+            CameraManager.GetInstance().CameraShake(0.3f, 1.5f);
             GameManager.GetInstance().ChangeEnergy(characterData.energy);
             GameManager.GetInstance().FallMoney(transform, characterData.money);
         }
