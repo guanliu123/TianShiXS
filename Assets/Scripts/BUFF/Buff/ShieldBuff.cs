@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldBuff : BuffBase
+/*public class ShieldBuff : BuffBase
 {
     public ShieldBuff()
     {
@@ -36,3 +36,4 @@ public class ShieldBuff : BuffBase
         timer.Init(PropType.Shield.ToString(), 2.5f);
     }
 }
+*/

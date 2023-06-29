@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReflectBuff : BuffBase
+/*public class ReflectBuff : BuffBase
 {
     public ReflectBuff()
     {
@@ -38,3 +38,4 @@ public class ReflectBuff : BuffBase
         }
     }
 }
+*/

@@ -70,6 +70,7 @@ public class AudioManager : BaseManager<AudioManager>
 
     public void PlaySound(AudioClip audio, bool isLoop=false)
     {
+        if (!audio) return;
         if (soundObj == null)
         {
             soundObj = new GameObject();
@@ -92,22 +93,23 @@ public class AudioManager : BaseManager<AudioManager>
 
     public void PlaySound(string audioName, bool isLoop=false, UnityAction<AudioSource> callback = null)
     {
+        AudioClip audio = ResourceManager.GetInstance().LoadByName<AudioClip>(audioName, ResourceType.Audio);
+        if (!audio) return;
+
         if (soundObj == null)
         {
             soundObj = new GameObject();
             soundObj.name = "Sounds";
         }
 
-        AudioSource source;
-        AudioClip audio = ResourceManager.GetInstance().LoadByName<AudioClip>(audioName, ResourceType.Audio);
+        AudioSource source;        
         if (emptyList.Count <= 0) source = soundObj.AddComponent<AudioSource>();
         else
         {
             source = emptyList[0];
             playingList.Add(emptyList[0]);
             emptyList.RemoveAt(0);
-        }
-
+        }        
         source.clip = audio;
         source.loop = isLoop;
         source.volume = soundValue;

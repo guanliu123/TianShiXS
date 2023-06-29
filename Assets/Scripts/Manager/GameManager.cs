@@ -104,14 +104,12 @@ public class GameManager : BaseManager<GameManager>
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerID.ToString(),ResourceType.Player);
-        Debug.Log(player+"1");
         
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
 
-        Debug.Log(player + "2");
         playerObj.transform.parent = player.transform;
         playerObj.transform.position = new Vector3(0, 0, -1);
 

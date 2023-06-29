@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VampirismBuff : BuffBase
+/*public class VampirismBuff : BuffBase
 {
     public VampirismBuff()
     {
@@ -29,4 +29,4 @@ public class VampirismBuff : BuffBase
     {
         Debug.Log("吸血5%");
     }
-}
+}*/

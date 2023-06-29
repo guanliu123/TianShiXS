@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PoisonBuff : BuffBase
 {
+    public override int buffID { get; set; } = 4002;
     public PoisonBuff()
     {
-        //buffID = BuffType.Poison;
         coroutineType = CoroutineType.PoisonBuff;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
         buffData = BuffManager.BuffDic[buffID];

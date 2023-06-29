@@ -25,8 +25,6 @@ public class SkillManager : BaseManager<SkillManager>
         SkillDic =SkillDataTool.ReadSkillData();
     }
     public SkillManager(){
-        //skillSO = ResourceManager.GetInstance().LoadByPath<SkillSO>("ScriptableObject/SkillSO");
-
         InitSkillPool();
         InitSkillEvent();
     }

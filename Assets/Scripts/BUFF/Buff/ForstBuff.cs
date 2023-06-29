@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForstBuff : BuffBase
+/*public class ForstBuff : BuffBase
 {
     public ForstBuff()
     {
@@ -35,4 +35,4 @@ public class ForstBuff : BuffBase
         t.canActive = true;
         t.animator.speed = 1;
     }
-}
+}*/

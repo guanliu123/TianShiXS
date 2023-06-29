@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BurnBuff : BuffBase
+/*public class BurnBuff : BuffBase
 {
     public BurnBuff()
     {
@@ -25,7 +25,7 @@ public class BurnBuff : BuffBase
 
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
-        BuffManager.GetInstance().AddToBuffList(buffID,_taker);
+        BuffManager.GetInstance().AddToBuffList(buffID, _taker);
     }
 
     public override void OnUpdate(GameObject _taker)
@@ -33,11 +33,11 @@ public class BurnBuff : BuffBase
         IAttack t = _taker.GetComponent<IAttack>();
         if (!_taker) return;
 
-        t.ChangeHealth(null,-5f,HPType.Burn);
+        t.ChangeHealth(null, -5f, HPType.Burn);
     }
 
     public override void OnEnd(GameObject _taker)
     {
         BuffManager.GetInstance().RemoveFromBuffList(buffID, _taker);
     }
-}
+}*/

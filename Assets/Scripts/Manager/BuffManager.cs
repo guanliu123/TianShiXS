@@ -69,13 +69,5 @@ public class BuffManager : BaseManager<BuffManager>
             }
             if (n >= buffNum) break;
         }
-        /*BuffEvent.Add(BuffType.Crit, new BulletCrit());
-        BuffEvent.Add(BuffType.Poison, new PoisonBuff());*/
-        /*Buffs.Add(BuffType.Burn, new BurnBuff());       
-        Buffs.Add(BuffType.Frost, new ForstBuff());
-        Buffs.Add(BuffType.Vampirism, new VampirismBuff());        
-        Buffs.Add(BuffType.Multiply, new BulletMultiply());
-        Buffs.Add(BuffType.Shield, new ShieldBuff());
-        Buffs.Add(BuffType.Reflect, new ReflectBuff());*/
     }
 }

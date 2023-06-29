@@ -10,11 +10,13 @@ using LitJson;
 #region 资源数据的读写工具
 public class ResourceDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Resource.json";
-
+    //static string filePath = Application.dataPath + "/Resources/Data/Resource.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Resource.json";
+    
     public static Dictionary<ResourceType, string> ReadResourceData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Resource").text;
         Dictionary<ResourceType, string> resourceDataDic = new Dictionary<ResourceType, string>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -34,21 +36,15 @@ public class ResourceDataTool
 #region 玩家角色数据的读写工具
 public static class RoleDataTool
 {   
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Role.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Role.json";
     static JsonData jsonData;
     public static Dictionary<int, CharacterMsg> roleMsgDic = new Dictionary<int, CharacterMsg>();
     public static Dictionary<int, Dictionary<int, CharacterData>> roleDataDic = new Dictionary<int, Dictionary<int, CharacterData>>();
 
-    static RoleDataTool()
-    {
-        string jsonString = File.ReadAllText(filePath);
-        jsonData = JsonMapper.ToObject(jsonString);
-    }
-
     public static void ReadRoleData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        //Dictionary<CharacterType, Dictionary<int, CharacterData>> playerDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+        string jsonString = Resources.Load<TextAsset>("Data/Role").text;
+        //string jsonString = File.ReadAllText(filePath);
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
         foreach (JsonData characterDataJson in jsonData)
@@ -136,15 +132,15 @@ public static class RoleDataTool
 
 public static class EnemyDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Enemy.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Enemy.json";
     public static Dictionary<int, CharacterMsg> enemyMsgDic = new Dictionary<int, CharacterMsg>();
     public static Dictionary<int, Dictionary<int, CharacterData>> enemyDataDic = new Dictionary<int, Dictionary<int, CharacterData>>();
 
 
     public static void ReadEnemyData()
     {
-        string jsonString = File.ReadAllText(filePath);
-        //Dictionary<CharacterType, Dictionary<int, CharacterData>> playerDataDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Enemy").text;
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
         int characterID=-1;
@@ -189,11 +185,14 @@ public static class EnemyDataTool
 
 public static class BulletDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Bullet.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Bullet.json";
 
     public static Dictionary<int, BulletData> ReadBulletData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Bullet").text;
+
+
         Dictionary<int, BulletData> bulletDataDic = new Dictionary<int, BulletData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -243,11 +242,13 @@ public static class BulletDataTool
 
 public static class LevelDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Level.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Level.json";
 
     public static Dictionary<int, LevelData> ReadLevelData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Level").text;
+
         Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -317,11 +318,14 @@ public static class LevelDataTool
 
 public static class BuffDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Buff.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Buff.json";
 
     public static Dictionary<int, BuffData> ReadBuffData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Buff").text;
+
+
         Dictionary<int, BuffData> buffDataDic = new Dictionary<int, BuffData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
@@ -347,11 +351,13 @@ public static class BuffDataTool
 
 public static class SkillDataTool
 {
-    static string filePath = Application.dataPath + "/Resources/Data/Json/Skill.json";
+    static string filePath = Application.streamingAssetsPath + "/Data/Skill.json";
 
     public static Dictionary<int, SkillData> ReadSkillData()
     {
-        string jsonString = File.ReadAllText(filePath);
+        string jsonString = Resources.Load<TextAsset>("Data/Skill").text;
+
+        //string jsonString = File.ReadAllText(filePath);
         Dictionary<int, SkillData> skillDataDic = new Dictionary<int, SkillData>();
 
         JsonData jsonData = JsonMapper.ToObject(jsonString);
