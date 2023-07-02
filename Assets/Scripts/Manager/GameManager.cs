@@ -48,7 +48,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public GameManager(){
         ChangeRole();
-        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        MonoManager.GetInstance().AddUpdateListener(() => {if(mainCanvas==null) mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas"); });
         nowPlayerID = 1001;
     }
 
