@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ClientRoot : MonoBehaviour
 {
+    public static ClientRoot Instance { get; private set; }
+
     public GameClient.GameClient _gameClient;
 
     void Start()
@@ -37,7 +39,7 @@ public class ClientRoot : MonoBehaviour
         };
     }
 
-    private void DySuccessLogin(string code, string anonymousCode, bool isLogin)
+    public void DySuccessLogin(string code, string anonymousCode, bool isLogin)
     {
         Debug.Log("抖音登录成功");
         _gameClient._client.get_hub_info("login", (hub_info) =>
@@ -48,7 +50,6 @@ public class ClientRoot : MonoBehaviour
                 _gameClient._player_login_Caller.get_hub(player_hub_name).player_login(token, "dy_name").callBack((UserData data) =>
                 {
                     Debug.Log($"player_login success!");
-                    Debug.Log($"" + data.User.UserName);
                     GameManager.GetInstance()._UserData = data;
                     //SceneSystem.Instance.SetScene(new StartScene());
                 }, (err) =>
@@ -60,6 +61,7 @@ public class ClientRoot : MonoBehaviour
                         {
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance()._UserData = data;
+                            //SceneSystem.Instance.SetScene(new StartScene());
                             //...
                         }, (error) =>
                         {
@@ -74,7 +76,7 @@ public class ClientRoot : MonoBehaviour
         });
     }
 
-    private void DyFailedLogin(string errMsg)
+    public void DyFailedLogin(string errMsg)
     {
         Debug.LogError("抖音登录失败，失败原因：" + errMsg);
     }
