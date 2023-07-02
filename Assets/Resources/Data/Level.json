@@ -27,5 +27,19 @@
     "WaveEnemyList": [
       2002
     ]
+  },
+  {
+    "ID": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
   }
 ]

@@ -57,7 +57,7 @@ public static class RoleDataTool
             roleDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
             characterMsg.name = characterDataJson["Name"].ToString();
-            characterMsg.image= ResourceManager.Instance.LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
+            characterMsg.image= ResourceManager.Instance.LoadByName<GameObject>("CharacterImage/" + characterID + "Image",ResourceType.UI);
             characterMsg.describe= characterDataJson["Describe"].ToString();
             roleMsgDic.Add(characterID, characterMsg);
 
@@ -156,7 +156,7 @@ public static class EnemyDataTool
                 enemyDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
                 enemyMsg.name = enemyDataJson["Name"].ToString();
-                enemyMsg.image = ResourceManager.Instance.LoadByName<GameObject>(characterID + "Image",ResourceType.UI);
+                enemyMsg.image = ResourceManager.Instance.LoadByName<GameObject>("CharacterImage/"+characterID + "Image",ResourceType.UI);
                 enemyMsg.describe = enemyDataJson["Describe"].ToString();
                 enemyMsgDic.Add(characterID, enemyMsg);
             }

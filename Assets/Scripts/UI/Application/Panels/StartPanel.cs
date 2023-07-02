@@ -23,6 +23,9 @@ public class StartPanel : BasePanel
         topArea = UITool.FindChildGameObject("TopArea", panel);
         midArea = UITool.FindChildGameObject("MidArea", panel);
 
+        //UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength+" / "+100;
+        //UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin+"";
+
         UITool.GetOrAddComponentInChildren<Button>("Role_Btn", panel).onClick.AddListener(() =>
         {
             AudioManager.GetInstance().PlaySound("NormalButton");
@@ -104,10 +107,6 @@ public class StartPanel : BasePanel
         //        imgClose.enabled = false;
         //    }
         //});
-    }
-    public void LevelListener()
-    {
-        
     }
     public override void OnPause()
     {       

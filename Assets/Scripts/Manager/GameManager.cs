@@ -39,7 +39,6 @@ public class GameManager : SingletonBase<GameManager>
     }
 
     private int evolutionNum = 0;
-    //private GameObject gameCanvas;
 
     //=====================所有会因为技能变化的公共数据==========================//
     public float critProbability;
@@ -157,7 +156,13 @@ public class GameManager : SingletonBase<GameManager>
         GameObject.Destroy(player.GetComponent<Player>());
         GameObject.Destroy(player.GetComponent<PlayerController>());
         CameraMove(CameraPointType.OrginPoint, 1f);
+        WriteData();
         //DataCenter.Money += levelMoney;
+    }
+
+    public void WriteData()
+    {
+
     }
 
     public void ClearFloatDamage()
@@ -176,12 +181,14 @@ public class GameManager : SingletonBase<GameManager>
     {
         //PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         MonoManager.GetInstance().AddUpdateListener(ControllerLock);
+        Debug.Log("lock");
     }
     public void UnlockMove()
     {
         MonoManager.GetInstance().RemoveUpdeteListener(ControllerLock);
         PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = true;
+        Debug.Log("UnlockMove");
     }
 
     private void ControllerLock()

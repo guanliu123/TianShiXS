@@ -172,11 +172,18 @@ AutoStreamingSettings:
   mAnimations: []
   mSharedSceneAssets: []
   mScenes:
+  - onDemandDownload: 0
+    assetPath: Assets/Scenes/LoadScene.unity
+    localFileId: -1
+    cloudAssetName: 
+    rtMem: 0
+    warningFlag: 0
+    refs: []
   - onDemandDownload: 1
     assetPath: Assets/Scenes/StartScene.unity
     localFileId: -1
     cloudAssetName: 
-    rtMem: 910610
+    rtMem: 910870
     warningFlag: 0
     refs: []
   mConfigCCD:

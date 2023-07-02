@@ -11,12 +11,28 @@ public class CharacterManager : SingletonBase<CharacterManager>
 
     public CharacterManager()
     {
+        //角色数据读取部分
         RoleDataTool.ReadRoleData();
         roleMsgDic = RoleDataTool.roleMsgDic;
         characterDatasDic = new Dictionary<int, Dictionary<int, CharacterData>>(RoleDataTool.roleDataDic);
+        foreach(var item in GameManager.GetInstance()._UserData.RoleList)
+        {
+            if (characterDatasDic.ContainsKey(item.RoleID))
+            {
+                CharacterData t = new CharacterData();
+                CharacterData originData = characterDatasDic[item.RoleID][0];
+
+                t.MaxHP = originData.MaxHP + item.Heath;
+                t.ATK =originData.ATK + item.AttNum;
+                t.ATKSpeed =originData.ATKSpeed + item.AttSpd;
+
+                characterDatasDic[item.RoleID][0] = t;
+            }
+        }
+               
         enemyMagDic = EnemyDataTool.enemyMsgDic;
         EnemyDataTool.ReadEnemyData();
-        foreach(var item in EnemyDataTool.enemyDataDic)
+        foreach (var item in EnemyDataTool.enemyDataDic)
         {
             characterDatasDic.Add(item.Key, item.Value);
         }
