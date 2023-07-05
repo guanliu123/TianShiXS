@@ -9,12 +9,12 @@ public class ClientRoot : MonoBehaviour
 {
     public static ClientRoot Instance { get; private set; }
 
-    public GameClient.GameClient _gameClient;
+    public Game.GameClient _gameClient;
 
     void Start()
     {
         Debug.Log("Client Is Run");
-        _gameClient = new GameClient.GameClient();
+        _gameClient = new Game.GameClient();
 
         _gameClient._client.connect_gate("wss://tsxs.ucat.games:3001", 3000);
         _gameClient._client.onGateConnect += () =>

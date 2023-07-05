@@ -4,7 +4,7 @@ using UnityEngine;
 using static StarkSDKSpace.StarkAccount;
 using Abelkhan;
 
-namespace GameClient
+namespace Game
 {
     public class GameClient
     {

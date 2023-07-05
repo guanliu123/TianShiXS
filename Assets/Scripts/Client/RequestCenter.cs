@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameClient
+namespace Game
 {
-    public class RequestCenter
+    public class RequestCenter : SingletonBase<RequestCenter>
     {
         public void AddCoinReq(GameClient client,int n, Action<UserData> cb)
         {
