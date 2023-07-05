@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Abelkhan;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,31 @@ public class CharacterManager : SingletonBase<CharacterManager>
         foreach (var item in EnemyDataTool.enemyDataDic)
         {
             characterDatasDic.Add(item.Key, item.Value);
+        }
+    }
+    public void UpgradeRole(int id, float increaseHP, float increaseATK,float increaseATKSpd)
+    {
+        foreach(var item in GameManager.GetInstance()._UserData.RoleList)
+        {
+            if (item.RoleID == id)
+            {
+                item.Heath += increaseHP;
+                item.AttNum += increaseATK;
+                item.AttSpd += increaseATKSpd;
+                if (characterDatasDic.ContainsKey(id))
+                {
+                    CharacterData t = new CharacterData();
+                    CharacterData originData = characterDatasDic[item.RoleID][0];
+
+                    t.MaxHP = originData.MaxHP + increaseHP;
+                    t.ATK = originData.ATK + increaseATK;
+                    t.ATKSpeed = originData.ATKSpeed + increaseATKSpd;
+
+                    characterDatasDic[item.RoleID][0] = t;
+                }
+            }
+
+            UserData.UserData_to_protcol(GameManager.GetInstance()._UserData);
         }
     }
 }

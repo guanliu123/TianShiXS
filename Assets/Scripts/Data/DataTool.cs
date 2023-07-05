@@ -57,7 +57,7 @@ public static class RoleDataTool
             roleDataDic.Add(characterID, new Dictionary<int, CharacterData>());
 
             characterMsg.name = characterDataJson["Name"].ToString();
-            characterMsg.image= ResourceManager.Instance.LoadByName<GameObject>("CharacterImage/" + characterID + "Image",ResourceType.UI);
+            characterMsg.image= ResourceManager.Instance.LoadByName<GameObject>("CharacterImage/"+characterID + "Image",ResourceType.UI);
             characterMsg.describe= characterDataJson["Describe"].ToString();
             roleMsgDic.Add(characterID, characterMsg);
 
