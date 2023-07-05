@@ -1,4 +1,5 @@
-﻿using StarkSDKSpace;
+﻿using Game;
+using StarkSDKSpace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class GameRoot : MonoBehaviour
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
+
     }
     private void Start()
     {

@@ -26,6 +26,8 @@ public class StartPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength+" / "+100;
         UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin+"";
 
+        Debug.Log(GameManager.GetInstance()._UserData.Strength);
+
         UITool.GetOrAddComponentInChildren<Button>("Role_Btn", panel).onClick.AddListener(() =>
         {
             AudioManager.GetInstance().PlaySound("NormalButton");

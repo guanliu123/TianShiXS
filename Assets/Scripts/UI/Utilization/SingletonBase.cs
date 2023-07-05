@@ -27,19 +27,20 @@ public class SingletonBase<T> where T : class, new()
 
     public static T GetInstance()
     {
-        if (_instance == null)
-        {
-            lock (syslock)
+            if (_instance == null)
             {
-                if (_instance == null)
+                lock (syslock)
                 {
-                    _instance = new T();
-                    
+                    if (_instance == null)
+                    {
+                        _instance = new T();
+
+                    }
+
                 }
-                    
             }
-        }
-        return _instance;
+            return _instance;
+
     }
 
     public virtual void Reset()
