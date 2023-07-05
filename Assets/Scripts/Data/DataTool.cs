@@ -267,6 +267,7 @@ public static class LevelDataTool
                 if (levelID != -1) levelDataDic.Add(levelID, levelData);                    
                 
                 levelID = t;
+                levelData.energy = (int)item["Energy"];
 
                 levelData.skybox = ResourceManager.Instance.LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
                 levelData.normalPlanes = new List<GameObject>();

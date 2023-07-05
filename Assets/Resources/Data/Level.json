@@ -1,6 +1,7 @@
 [
   {
     "ID": 1,
+    "Energy": 5,
     "NormalPlaneNum": 1,
     "WidthPlaneNum": 1,
     "StageID": 0,

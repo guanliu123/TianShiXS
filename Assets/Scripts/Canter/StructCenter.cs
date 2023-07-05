@@ -144,6 +144,7 @@ public struct StageData
 [Serializable] 
 public struct LevelData
 {
+    public int energy;
     [Header("关卡普通地面类型")] public List<GameObject> normalPlanes;
     [Header("关卡普通地面长和宽")] public float[] normalSize;
     [Header("关卡特殊地面类型")] public List<GameObject> widthPlanes;
