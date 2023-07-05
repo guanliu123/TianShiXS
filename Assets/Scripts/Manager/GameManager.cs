@@ -33,11 +33,7 @@ public class GameManager : SingletonBase<GameManager>
     public List<GameObject> bulletList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
-    public UserData _UserData 
-    { 
-        get => userData; 
-        set => userData = value; 
-    }
+    public UserData _UserData { get => userData; set => userData = value; }
 
     private int evolutionNum = 0;
 
@@ -118,10 +114,11 @@ public class GameManager : SingletonBase<GameManager>
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
 
-        RequestCenter.Instance.CostStrengthReq(ClientRoot.Instance._gameClient, 5, (data) =>
+        RequestCenter.CostStrengthReq(ClientRoot.gameClient, 5, (data) =>
         {
-            userData = data;
+            _UserData = data;
         });
+
 
         Init();
     }
@@ -167,7 +164,7 @@ public class GameManager : SingletonBase<GameManager>
         WriteData();
         //DataCenter.Money += levelMoney;
 
-        RequestCenter.Instance.AddCoinReq(ClientRoot.Instance._gameClient, levelMoney, (data) =>
+        RequestCenter.AddCoinReq(ClientRoot.gameClient, levelMoney, (data) =>
         {
             userData = data;
         });
