@@ -62,12 +62,14 @@ public class StartPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", panel).onClick.AddListener(() =>
         {
             AudioManager.GetInstance().PlaySound("NormalButton");
-            GameManager.GetInstance().StartGame();
-            PanelManager.Instance.Clear();
-            PanelManager.Instance.Push(new GamePanel());
+            if (GameManager.Instance._UserData.Strength > 5)
+            {
+                GameManager.GetInstance().StartGame();
+                PanelManager.Instance.Clear();
+                PanelManager.Instance.Push(new GamePanel());
+            }
         });
-        //UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money+"";
-        //UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = DataCenter.Energy + "";
+
 
         //MonoManager.GetInstance().AddUpdateListener(StartUIEvent);
         /*UITool.GetOrAddComponentInChildren<Button>("Audio_Btn", panel).onClick.AddListener(() =>
@@ -87,26 +89,7 @@ public class StartPanel : BasePanel
             return;
         }
         UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
-        //UITool.GetOrAddComponentInChildren<Button>("Btn_Play", panel).onClick.AddListener(() =>
-        //{
-        //    SceneSystem.Instance.SetScene(new MainScene());
-        //});
-        //Button btn_Audio = UITool.GetOrAddComponentInChildren<Button>("Btn_Audio", panel);
-        //btn_Audio.onClick.AddListener(() =>
-        //{
-        //    Image imgOpen = btn_Audio.transform.Find("Icon1").GetComponent<Image>();
-        //    Image imgClose = btn_Audio.transform.Find("Icon2").GetComponent<Image>();
-        //    if(imgOpen.enabled)
-        //    {
-        //        imgOpen.enabled = false;
-        //        imgClose.enabled = true;
-        //    }
-        //    else
-        //    {
-        //        imgOpen.enabled = true;
-        //        imgClose.enabled = false;
-        //    }
-        //});
+
     }
     public override void OnPause()
     {       

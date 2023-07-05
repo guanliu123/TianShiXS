@@ -1,5 +1,6 @@
 ﻿using Abelkhan;
 using DG.Tweening;
+using Game;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ public class GameManager : SingletonBase<GameManager>
     //public static GameManager Instance { get; private set; }
     public GameObject mainCanvas;
 
-    private UserData userData;
+    private UserData userData = new UserData();
 
     public int nowLevel;
 
@@ -32,11 +33,7 @@ public class GameManager : SingletonBase<GameManager>
     public List<GameObject> bulletList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
-    public UserData _UserData 
-    { 
-        get => userData; 
-        set => userData = value; 
-    }
+    public UserData _UserData { get => userData; set => userData = value; }
 
     private int evolutionNum = 0;
 
@@ -104,6 +101,7 @@ public class GameManager : SingletonBase<GameManager>
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerID.ToString(),ResourceType.Player);
         
+
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
@@ -115,6 +113,12 @@ public class GameManager : SingletonBase<GameManager>
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
+
+        RequestCenter.CostStrengthReq(ClientRoot.gameClient, 5, (data) =>
+        {
+            _UserData = data;
+        });
+
 
         Init();
     }
@@ -129,6 +133,7 @@ public class GameManager : SingletonBase<GameManager>
         playerEnergy = 0;
         levelMoney = 0;
         playerLevel = 1;
+
     }
     public void QuitGame()
     {
@@ -158,6 +163,11 @@ public class GameManager : SingletonBase<GameManager>
         CameraMove(CameraPointType.OrginPoint, 1f);
         WriteData();
         //DataCenter.Money += levelMoney;
+
+        RequestCenter.AddCoinReq(ClientRoot.gameClient, levelMoney, (data) =>
+        {
+            userData = data;
+        });
     }
 
     public void WriteData()

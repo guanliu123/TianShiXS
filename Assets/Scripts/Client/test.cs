@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static StarkSDKSpace.StarkAccount;
-using GameClient;
+using Game;
 public class test : MonoBehaviour
 {
    /*
@@ -18,12 +18,12 @@ public class test : MonoBehaviour
     private OnLoginSuccessCallback successCallback;
     private OnLoginFailedCallback failedCallback; 
    */
-    public GameClient.GameClient _gameClient;
+    public Game.GameClient _gameClient;
 
     void Start()
     {
         Debug.Log("Client Is Run");
-        _gameClient = new GameClient.GameClient();
+        _gameClient = new Game.GameClient();
 
         _gameClient._client.connect_gate("wss://tsxs.ucat.games:3001", 3000);
         _gameClient._client.onGateConnect += () =>
