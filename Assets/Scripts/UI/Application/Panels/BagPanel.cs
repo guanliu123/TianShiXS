@@ -28,21 +28,38 @@ public class BagPanel : BasePanel
             AudioManager.GetInstance().PlaySound("NormalButton");
         });
 
-        /*//这里是背包界面Toggle组的事件，通过当前所选Toggle来判断隐藏props字典中的哪些项目
-        UITool.GetOrAddComponentInChildren<Toggle>("", panel).onValueChanged.AddListener((value) =>
+        //这里是背包界面Toggle组的事件，通过当前所选Toggle来判断隐藏props字典中的哪些项目
+        UITool.GetOrAddComponentInChildren<Toggle>("All_Toggle", panel).onValueChanged.AddListener((value) =>
         {
-            if (value) { }
-        });        
+            if (value) { 
+                foreach(var item in props)
+                {
+                    if (!item.Value[0].activeInHierarchy)
+                    {
+                        foreach (var t in item.Value) t.SetActive(true);
+                    }
+                }
+            }
+        });
+        UITool.GetOrAddComponentInChildren<Toggle>("Warehouse_Toggle", panel).onValueChanged.AddListener((value) =>
+        {
+            if (value) { foreach (var item in props[1]) item.SetActive(false); foreach (var item in props[0]) item.SetActive(true); }
+        });
+        UITool.GetOrAddComponentInChildren<Toggle>("Debris_Toggle", panel).onValueChanged.AddListener((value) =>
+        {
+            if (value) { foreach (var item in props[0]) item.SetActive(false); foreach (var item in props[1]) item.SetActive(true); }
+        });
         //加入组的同时记录道具类型
-        foreach(var item in GameManager.GetInstance()._UserData.PropList)
+        foreach (var item in GameManager.GetInstance()._UserData.PropList)
         {
-            //这里记得将道具加入字典
-
+            if (!props.ContainsKey(item.PropID % 10)) props.Add(item.PropID % 10, new List<GameObject>());
             GameObject t = ResourceManager.GetInstance().LoadByName<GameObject>("BagProp", ResourceType.UI);
             //载入物品的图标
             UITool.GetOrAddComponentInChildren<Image>("ObjIcom", t).sprite = ResourceManager.GetInstance().LoadByPath<Sprite>("");
-            UITool.GetOrAddComponentInChildren<Text>("ObjCount", t).text = item.Count+"";
+            UITool.GetOrAddComponentInChildren<Text>("ObjCount", t).text = item.Count + "";
             t.transform.SetParent(bagPanel);
-        }*/
+
+            props[item.PropID % 10].Add(t);
+        }
     }
 }
