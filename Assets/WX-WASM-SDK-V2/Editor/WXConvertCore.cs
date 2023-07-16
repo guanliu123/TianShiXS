@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using LitJson;
+using UnityEditor.Build;
 
 namespace WeChatWASM
 {
@@ -218,7 +219,7 @@ namespace WeChatWASM
             PlayerSettings.WebGL.emscriptenArgs = string.Empty;
             if (WXExtEnvDef.GETDEF("UNITY_2021_2_OR_NEWER"))
             {
-                PlayerSettings.WebGL.emscriptenArgs += " -s EXPORTED_FUNCTIONS=_sbrk,_emscripten_stack_get_base,_emscripten_stack_get_end";
+                PlayerSettings.WebGL.emscriptenArgs += " -s EXPORTED_FUNCTIONS=_main,_sbrk,_emscripten_stack_get_base,_emscripten_stack_get_end";
             }
             PlayerSettings.runInBackground = false;
             if (config.ProjectConf.MemorySize != 0)
@@ -246,7 +247,14 @@ namespace WeChatWASM
                 PlayerSettings.WebGL.emscriptenArgs += " --profiling-funcs ";
             }
 
-            WXExtEnvDef.GOTO("WXEditorWindow.Build");
+#if UNITY_2021_2_OR_NEWER
+#if UNITY_2022_1_OR_NEWER
+                // 默认更改为OptimizeSize，减少代码包体积
+            PlayerSettings.SetIl2CppCodeGeneration(NamedBuildTarget.WebGL, config.CompileOptions.Il2CppOptimizeSize ? Il2CppCodeGeneration.OptimizeSize : Il2CppCodeGeneration.OptimizeSpeed);
+#else
+            EditorUserBuildSettings.il2CppCodeGeneration = config.CompileOptions.Il2CppOptimizeSize ? Il2CppCodeGeneration.OptimizeSize : Il2CppCodeGeneration.OptimizeSpeed;
+#endif
+#endif
 
             UnityEngine.Debug.Log("[Builder] Starting to build WebGL project ... ");
             UnityEngine.Debug.Log("PlayerSettings.WebGL.emscriptenArgs : " + PlayerSettings.WebGL.emscriptenArgs);
@@ -369,7 +377,7 @@ namespace WeChatWASM
                 tempDataPath = tempDataBrPath;
                 UnityEngine.Debug.LogFormat("[Compressing] Starting to compress datapackage");
                 dataPackageBrotliRet = Brotlib(dataFilename, sourceDataPath, tempDataPath);
-                Debug.Log("[Compressing] compress ret = "+dataPackageBrotliRet);
+                Debug.Log("[Compressing] compress ret = " + dataPackageBrotliRet);
                 // 若压缩资源包失败，回退未压缩状态
                 if (dataPackageBrotliRet != 0)
                 {
@@ -395,9 +403,9 @@ namespace WeChatWASM
                 var brcodeSize = brcodeInfo.Length;
                 // 计算首资源包大小
                 var tempDataInfo = new FileInfo(tempDataPath);
-                dataFileSize = tempDataInfo.Length.ToString();
+                var tempFileSize = tempDataInfo.Length.ToString();
                 // 胶水层及sdk可能占一定大小，粗略按照1M来算，则剩余19M
-                if (brcodeSize + int.Parse(dataFileSize) > (20 - 1) * 1024 * 1024)
+                if (brcodeSize + int.Parse(tempFileSize) > (20 - 1) * 1024 * 1024)
                 {
                     config.ProjectConf.assetLoadType = 0;
                     Debug.LogError("资源文件过大，不适宜用放小游戏包内加载，请上传资源文件到CDN");
@@ -853,6 +861,7 @@ namespace WeChatWASM
                 config.CompileOptions.showMonitorSuggestModal ? "true" : "false",
                 config.CompileOptions.enableProfileStats ? "true" : "false",
                 config.CompileOptions.iOSAutoGCInterval.ToString(),
+                dataFileSize,
             });
 
             List<Rule> replaceList = new List<Rule>(replaceArrayList);

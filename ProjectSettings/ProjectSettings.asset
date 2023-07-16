@@ -84,9 +84,8 @@ PlayerSettings:
   submitAnalytics: 1
   usePlayerLog: 1
   autoStreaming: 1
+  useAnimationStreaming: 0
   useFontStreaming: 0
-  useCCD: 1
-  maxCacheSize: 0
   autoStreamingId: /v1/buckets/93252193-8242-43f8-b227-16c03ff08334/release_by_badge/v1/content
   instantGameAppId: 052e9d1c-8bbb-4fa8-88c3-273217994988
   bakeCollisionMeshes: 0

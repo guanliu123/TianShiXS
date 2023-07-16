@@ -906,6 +906,10 @@ export const ResType = {
         feedIdList: 'string[]',
         errMsg: 'string',
     },
+    MidasPaymentGameItemError: {
+        errMsg: 'string',
+        errCode: 'int',
+    },
     FrameDataOptions: {
         data: 'arrayBuffer',
         arrayBufferLength: 'int',

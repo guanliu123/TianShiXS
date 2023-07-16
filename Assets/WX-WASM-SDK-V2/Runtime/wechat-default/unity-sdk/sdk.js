@@ -3113,6 +3113,30 @@ export default {
             },
         });
     },
+    WX_RequestMidasPaymentGameItem(conf, callbackId) {
+        const config = formatJsonStr(conf);
+        wx.requestMidasPaymentGameItem({
+            ...config,
+            success(res) {
+                formatResponse('GeneralCallbackResult', res);
+                moduleHelper.send('RequestMidasPaymentGameItemCallback', JSON.stringify({
+                    callbackId, type: 'success', res: JSON.stringify(res),
+                }));
+            },
+            fail(res) {
+                formatResponse('MidasPaymentGameItemError', res);
+                moduleHelper.send('RequestMidasPaymentGameItemCallback', JSON.stringify({
+                    callbackId, type: 'fail', res: JSON.stringify(res),
+                }));
+            },
+            complete(res) {
+                formatResponse('MidasPaymentGameItemError', res);
+                moduleHelper.send('RequestMidasPaymentGameItemCallback', JSON.stringify({
+                    callbackId, type: 'complete', res: JSON.stringify(res),
+                }));
+            },
+        });
+    },
     WX_OperateGameRecorderVideo(option) {
         wx.operateGameRecorderVideo(formatJsonStr(option));
     },
@@ -3148,12 +3172,6 @@ export default {
     },
     WX_TriggerGC() {
         wx.triggerGC();
-    },
-    WX_StopDownloadTexture() {
-        wx.stopDownloadTexture();
-    },
-    WX_StarDownloadTexture() {
-        wx.starDownloadTexture();
     },
     WX_OnAccelerometerChange() {
         if (!OnAccelerometerChangeList) {

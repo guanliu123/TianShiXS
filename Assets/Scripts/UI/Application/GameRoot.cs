@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using WeChatWASM;
 //游戏的根管理器
@@ -23,11 +24,10 @@ public class GameRoot : MonoBehaviour
     }
     private void Start()
     {
-        
-            if (SceneManager.GetActiveScene().name == "LoadScene")
-                SceneSystem.Instance.SetScene(new LoadScene());
-            if (SceneManager.GetActiveScene().name == "StartScene")
-                SceneSystem.Instance.SetScene(new StartScene());    
+         if (SceneManager.GetActiveScene().name == "LoadScene")
+             SceneSystem.Instance.SetScene(new LoadScene());
+         if (SceneManager.GetActiveScene().name == "StartScene")
+             SceneSystem.Instance.SetScene(new StartScene());    
     }
 
     public void SwitchScene(string sceneName)
@@ -38,12 +38,24 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator Delay(string sceneName)
     {
-        AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName);
-        while(!ao.isDone)
-        {
-            yield return new WaitForSeconds(3.0f);
-        }
+        //AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName);
+        //while(!ao.isDone)
+        //{
+        //    yield return new WaitForSeconds(3.0f);
+        //}
+       
+        var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, true);
         
+        handle.Completed += (obj) =>
+        {
+
+        };
+        while (!handle.IsDone)
+        {
+            // 在此可使用handle.PercentComplete进行进度展示
+            yield return new WaitForSeconds(1.0f);
+        }
+
     }
 
     public void StartGame()

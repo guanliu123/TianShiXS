@@ -16,17 +16,12 @@ public class LoadPanel : BasePanel
 
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        
+        UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
         {
-            if (obj.activeSelf)
-            {
-                UITool.GetOrAddComponent<Button>(obj).onClick.AddListener(() =>
-                {
-                    GameRoot.Instance.StartGame();
-                });
-            }
+            GameRoot.Instance.StartGame();
         });
-
 
     }
 

@@ -69,7 +69,7 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         Init();
     }

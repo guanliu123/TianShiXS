@@ -15,9 +15,9 @@ MonoBehaviour:
   ProjectConf:
     projectName: tsxs
     Appid: wx712f6e7f71bf1211
-    CDN: http://127.0.0.1:8080
+    CDN: https://www.ucat.games:8001/tsxs/
     assetLoadType: 0
-    compressDataPackage: 0
+    compressDataPackage: 1
     VideoUrl: 
     DST: E:/UnityProj/TianShiXS/Bin
     StreamCDN: 
@@ -48,9 +48,10 @@ MonoBehaviour:
     DevelopBuild: 0
     AutoProfile: 0
     ScriptOnly: 0
+    Il2CppOptimizeSize: 1
     profilingFuncs: 0
     Webgl2: 0
-    fbslim: 0
+    fbslim: 1
     DeleteStreamingAssets: 1
     ProfilingMemory: 0
     CleanBuild: 0

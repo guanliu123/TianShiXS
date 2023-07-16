@@ -15,9 +15,10 @@ public class PausePanel : BasePanel
     }
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        GameObject panel = null;
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
-
+            panel = obj;
         });
         GameManager.GetInstance().ClearFloatDamage();
 

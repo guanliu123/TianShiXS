@@ -131,7 +131,7 @@ namespace WeChatWASM
 
                 this.formInput("videoUrl", "加载阶段视频URL");
                 this.formIntPopup("assetLoadType", "首包资源加载方式", new[] { "CDN", "小游戏包内" }, new[] { 0, 1 });
-                this.formCheckbox("compressDataPackage", "压缩首包资源(?)", "将首包资源Brotli压缩, 降低资源大小. 注意: 首次启动耗时可能会增加200ms");
+                this.formCheckbox("compressDataPackage", "压缩首包资源(?)", "将首包资源Brotli压缩, 降低资源大小. 注意: 首次启动耗时可能会增加200ms, 仅推荐使用小游戏分包加载时节省包体大小使用");
                 this.formInput("bundleExcludeExtensions", "不自动缓存文件类型(?)", "(使用;分割)当请求url包含资源'cdn+StreamingAssets'时会自动缓存，但StreamingAssets目录下不是所有文件都需缓存，此选项配置不需要自动缓存的文件拓展名。默认值json");
                 this.formInput("bundleHashLength", "Bundle名称Hash长度(?)", "自定义Bundle文件名中hash部分长度，默认值32，用于缓存控制。");
                 this.formInput("preloadFiles", "预下载文件列表(?)", "使用;间隔，支持模糊匹配");
@@ -147,7 +147,7 @@ namespace WeChatWASM
                 this.formCheckbox("useFriendRelation", "使用好友关系链");
                 this.formCheckbox("useMiniGameChat", "使用社交组件");
                 this.formCheckbox("preloadWXFont", "预加载微信字体(?)", "在game.js执行开始时预载微信系统字体，运行期间可使用WX.GetWXFont获取微信字体");
-                
+
                 EditorGUILayout.EndVertical();
             }
 
@@ -160,6 +160,7 @@ namespace WeChatWASM
                 this.formCheckbox("developBuild", "Development Build");
                 this.formCheckbox("autoProfile", "Auto connect Profiler");
                 this.formCheckbox("scriptOnly", "Scripts Only Build");
+                this.formCheckbox("il2CppOptimizeSize", "Il2Cpp Optimize Size(?)", "对应于Il2CppCodeGeneration选项，勾选时使用OptimizeSize(默认推荐)，生成代码小15%左右，取消勾选则使用OptimizeSpeed。游戏中大量泛型集合的高频访问建议OptimizeSpeed，在使用HybridCLR等第三方组件时只能用OptimizeSpeed。");
                 this.formCheckbox("profilingFuncs", "Profiling Funcs");
                 this.formCheckbox("profilingMemory", "Profiling Memory");
                 this.formCheckbox("webgl2", "WebGL2.0(beta)");
@@ -366,6 +367,7 @@ namespace WeChatWASM
             this.setData("developBuild", config.CompileOptions.DevelopBuild);
             this.setData("autoProfile", config.CompileOptions.AutoProfile);
             this.setData("scriptOnly", config.CompileOptions.ScriptOnly);
+            this.setData("il2CppOptimizeSize", config.CompileOptions.Il2CppOptimizeSize);
             this.setData("profilingFuncs", config.CompileOptions.profilingFuncs);
             this.setData("profilingMemory", config.CompileOptions.ProfilingMemory);
             this.setData("deleteStreamingAssets", config.CompileOptions.DeleteStreamingAssets);
@@ -413,6 +415,7 @@ namespace WeChatWASM
             config.CompileOptions.DevelopBuild = this.getDataCheckbox("developBuild");
             config.CompileOptions.AutoProfile = this.getDataCheckbox("autoProfile");
             config.CompileOptions.ScriptOnly = this.getDataCheckbox("scriptOnly");
+            config.CompileOptions.Il2CppOptimizeSize = this.getDataCheckbox("il2CppOptimizeSize");
             config.CompileOptions.profilingFuncs = this.getDataCheckbox("profilingFuncs");
             config.CompileOptions.ProfilingMemory = this.getDataCheckbox("profilingMemory");
             config.CompileOptions.DeleteStreamingAssets = this.getDataCheckbox("deleteStreamingAssets");

@@ -380,6 +380,9 @@ WX_OpenChannelsLiveCollection:function(conf, callbackId) {
 WX_OpenPage:function(conf, callbackId) {
     window.WXWASMSDK.WX_OpenPage(_WXPointer_stringify_adaptor(conf), _WXPointer_stringify_adaptor(callbackId));
 },
+WX_RequestMidasPaymentGameItem:function(conf, callbackId) {
+    window.WXWASMSDK.WX_RequestMidasPaymentGameItem(_WXPointer_stringify_adaptor(conf), _WXPointer_stringify_adaptor(callbackId));
+},
 
 WX_OperateGameRecorderVideo:function(option){
     window.WXWASMSDK.WX_OperateGameRecorderVideo(_WXPointer_stringify_adaptor(option));
@@ -416,12 +419,6 @@ WX_ShareAppMessage:function(option){
 },
 WX_TriggerGC:function() {
     window.WXWASMSDK.WX_TriggerGC();
-},
-WX_StopDownloadTexture:function() {
-    window.WXWASMSDK.WX_StopDownloadTexture();
-},
-WX_StarDownloadTexture:function() {
-    window.WXWASMSDK.WX_StarDownloadTexture();
 },
 
 WX_OnAccelerometerChange:function() {

@@ -2453,6 +2453,15 @@ namespace WeChatWASM
         }
 
         /// <summary>
+        /// [wx.requestMidasPaymentGameItem(Object object)]
+        /// 发起米大师支付
+        /// </summary>
+        public static void RequestMidasPaymentGameItem(RequestMidasPaymentGameItemOption callback)
+        {
+            WXSDKManagerHandler.Instance.RequestMidasPaymentGameItem(callback);
+        }
+
+        /// <summary>
         /// [wx.operateGameRecorderVideo(Object object)](https://developers.weixin.qq.com/minigame/dev/api/game-recorder/wx.operateGameRecorderVideo.html)
         /// 需要基础库： `2.26.1`
         /// 分享游戏对局回放。安卓微信8.0.28开始支持，iOS微信8.0.30开始支持。
@@ -2600,22 +2609,6 @@ namespace WeChatWASM
         public static void TriggerGC()
         {
             WXSDKManagerHandler.Instance.TriggerGC();
-        }
-
-        /// <summary>
-        /// 停止纹理下载
-        /// </summary>
-        public static void StopDownloadTexture()
-        {
-            WXSDKManagerHandler.Instance.StopDownloadTexture();
-        }
-
-        /// <summary>
-        /// 开始纹理下载
-        /// </summary>
-        public static void StarDownloadTexture()
-        {
-            WXSDKManagerHandler.Instance.StarDownloadTexture();
         }
 
         /// <summary>

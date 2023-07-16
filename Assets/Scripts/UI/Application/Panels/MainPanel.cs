@@ -13,9 +13,10 @@ public class MainPanel : BasePanel
     }
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        GameObject panel = null;
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
-
+            panel= obj;
         });
         UITool.GetOrAddComponentInChildren<Button>("Btn_Exit", panel).onClick.AddListener(() =>
         {

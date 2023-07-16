@@ -37,7 +37,7 @@ const managerConfig = {
     CODE_FILE_MD5: '$CODE_MD5',
     GAME_NAME: '$GAME_NAME',
     APPID: '$APP_ID',
-    
+    DATA_FILE_SIZE: "$DATA_FILE_SIZE",
     DATA_CDN: '$DEPLOY_URL',
     
     loadDataPackageFromSubpackage: $LOAD_DATA_FROM_SUBPACKAGE,

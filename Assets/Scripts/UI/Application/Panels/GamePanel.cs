@@ -45,10 +45,11 @@ public class GamePanel : BasePanel
         //energyOrigin = energySlider1.transform.position;
     }
     public override void OnEnter()
-    {     
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+    {
+        GameObject panel = null;
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
-
+            panel = obj;
         });
 
         energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
