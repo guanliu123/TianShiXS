@@ -21,7 +21,10 @@ namespace UIFrameWork
                 topPanel.OnPause();
             }
             stackPanel.Push(nextPanel);
-            GameObject panel = UIManager.Instance.GetSingleUI(nextPanel.UIType);
+            //GameObject panel = UIManager.Instance.GetSingleUI(nextPanel.UIType, (obj)=>
+            //{
+
+            //});
             nextPanel.OnEnter();//新面板要调用进入方法
         }
 

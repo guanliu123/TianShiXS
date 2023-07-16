@@ -18,7 +18,10 @@ public class BagPanel : BasePanel
 
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+
+        });
         //UITool.GetOrAddComponentInChildren<Button>("Open_Btn", panel).onClick.AddListener(() => { DataCenter.Money += 100; });
         Transform bagPanel = UITool.GetOrAddComponentInChildren<Transform>("ObjArea", panel);
         

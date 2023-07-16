@@ -19,7 +19,10 @@ public class StartPanel : BasePanel
     }
     public override void OnEnter()
     {   
-        panel = UIManager.Instance.GetSingleUI(UIType);
+        panel = UIManager.Instance.GetSingleUI(UIType,(obj)=>
+        {
+
+        });
         topArea = UITool.FindChildGameObject("TopArea", panel);
         midArea = UITool.FindChildGameObject("MidArea", panel);
 

@@ -16,7 +16,10 @@ public class SkillPanel : BasePanel
     }
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType,(obj)=>
+        {
+
+        });
         GameManager.GetInstance().ClearFloatDamage();
         GameManager.GetInstance().LockMove();
 

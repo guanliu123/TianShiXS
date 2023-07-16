@@ -13,7 +13,10 @@ public class MainPanel : BasePanel
     }
     public override void OnEnter()
     {
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+
+        });
         UITool.GetOrAddComponentInChildren<Button>("Btn_Exit", panel).onClick.AddListener(() =>
         {
             AudioManager.GetInstance().PlaySound("NormalButton");

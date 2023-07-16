@@ -3,6 +3,7 @@ guid: 50969505dc8274145812a310dda05e04
 ShaderImporter:
   externalObjects: {}
   defaultTextures: []
+  nonModifiableTextures: []
   userData: 
-  assetBundleName: shaders
+  assetBundleName: 
   assetBundleVariant: 

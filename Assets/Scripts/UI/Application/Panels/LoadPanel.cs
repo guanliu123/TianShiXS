@@ -1,8 +1,8 @@
-﻿using StarkSDKSpace;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UIFrameWork;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 public class LoadPanel : BasePanel
@@ -16,11 +16,18 @@ public class LoadPanel : BasePanel
 
     public override void OnEnter()
     {
-        GameObject panel= UIManager.Instance.GetSingleUI(UIType);
-        UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
-            GameRoot.Instance.StartGame();
+            if (obj.activeSelf)
+            {
+                UITool.GetOrAddComponent<Button>(obj).onClick.AddListener(() =>
+                {
+                    GameRoot.Instance.StartGame();
+                });
+            }
         });
+
+
     }
 
     public override void OnPause()

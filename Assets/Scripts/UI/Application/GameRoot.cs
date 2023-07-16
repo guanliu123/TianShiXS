@@ -1,9 +1,9 @@
 ﻿using Game;
-using StarkSDKSpace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using WeChatWASM;
 //游戏的根管理器
 public class GameRoot : MonoBehaviour
 {
@@ -11,20 +11,23 @@ public class GameRoot : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-        Application.targetFrameRate = 60;
-
+        WX.InitSDK((int code) =>
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
+            Application.targetFrameRate = 60;
+        });
     }
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "LoadScene")
-            SceneSystem.Instance.SetScene(new LoadScene());
-        if (SceneManager.GetActiveScene().name == "StartScene")
-            SceneSystem.Instance.SetScene(new StartScene());
+        
+            if (SceneManager.GetActiveScene().name == "LoadScene")
+                SceneSystem.Instance.SetScene(new LoadScene());
+            if (SceneManager.GetActiveScene().name == "StartScene")
+                SceneSystem.Instance.SetScene(new StartScene());    
     }
 
     public void SwitchScene(string sceneName)
@@ -45,13 +48,15 @@ public class GameRoot : MonoBehaviour
 
     public void StartGame()
     {
-        StarkSDK.API.GetAccountManager().CheckSession(() =>
-        {
-            SceneSystem.Instance.SetScene(new StartScene());
-        },
-        (err) =>
-        {
-            StarkSDK.API.GetAccountManager().Login(ClientRoot.Instance.DySuccessLogin, ClientRoot.Instance.DyFailedLogin, true);
-        });
+        //StarkSDK.API.GetAccountManager().CheckSession(() =>
+        //{
+        //    SceneSystem.Instance.SetScene(new StartScene());
+        //},
+        //(err) =>
+        //{
+        //    StarkSDK.API.GetAccountManager().Login(ClientRoot.Instance.DySuccessLogin, ClientRoot.Instance.DyFailedLogin, true);
+        //});
+
+        SceneSystem.Instance.SetScene(new StartScene());
     }
 }

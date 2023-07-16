@@ -19,9 +19,12 @@ public class RolePanel : BasePanel
     }
     public override void OnEnter()
     {
-        panel = UIManager.Instance.GetSingleUI(UIType);
+        panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
 
-        players= GameManager.GetInstance().GetPlayerRole();
+        });
+
+        players = GameManager.GetInstance().GetPlayerRole();
 
         //UpdatePlayerPanel(0);
 

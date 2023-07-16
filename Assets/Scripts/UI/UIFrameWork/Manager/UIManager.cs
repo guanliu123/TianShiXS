@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 //UI管理器
 namespace UIFrameWork
 {
@@ -9,7 +12,7 @@ namespace UIFrameWork
     {
         private Dictionary<UIType, GameObject> dicUI = new Dictionary<UIType, GameObject>();
         //获取一个面板
-        public GameObject GetSingleUI(UIType uIType)
+        public GameObject GetSingleUI(UIType uIType, Action<GameObject> cb)
         {
             if (uIType == null)
                 return null;
@@ -23,18 +26,31 @@ namespace UIFrameWork
             if (dicUI.ContainsKey(uIType))
                 return dicUI[uIType];
             //如果不存在，从预设中加载
-            GameObject uiPrefab = Resources.Load<GameObject>(uIType.Path);
+            //GameObject uiPrefab = Resources.Load<GameObject>(uIType.Path);
+
+            var uiPrefab = Addressables.LoadAssetAsync<GameObject>(uIType.Path);
             GameObject uiInstance = null;
-            if (uiPrefab != null)
+            uiPrefab.Completed += (handle)=>
             {
-                uiInstance = GameObject.Instantiate(uiPrefab, parent.transform);
-                uiInstance.name = uIType.Name;
-                dicUI.Add(uIType, uiInstance);
-            }
-            else
-                Debug.LogError($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
+
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    GameObject result = handle.Result;
+                    uiInstance = GameObject.Instantiate(result, parent.transform);
+                    cb.Invoke(uiInstance);
+                    uiInstance.name = uIType.Name;
+                    dicUI.Add(uIType, uiInstance);
+                }
+                else
+                {
+                    Debug.LogError($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
+                }
+            };
+            
             return uiInstance;
         }
+
+
 
         //销毁一个面板
         public void DestroyUI(UIType uIType)
@@ -47,6 +63,7 @@ namespace UIFrameWork
                 dicUI.Remove(uIType);
             }
         }
+
     }
 }
 

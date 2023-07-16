@@ -46,7 +46,10 @@ public class GamePanel : BasePanel
     }
     public override void OnEnter()
     {     
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);        
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+
+        });
 
         energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
         energySlider2 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar2", panel);

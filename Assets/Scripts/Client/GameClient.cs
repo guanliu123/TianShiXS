@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static StarkSDKSpace.StarkAccount;
 using Abelkhan;
 
 namespace Game

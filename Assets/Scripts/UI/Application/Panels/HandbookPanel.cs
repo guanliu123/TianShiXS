@@ -26,7 +26,10 @@ public class HandbookPanel : BasePanel
 
     public override void OnEnter()
     {
-        panel = UIManager.Instance.GetSingleUI(UIType);
+        panel = UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+
+        });
         enemys = GameManager.GetInstance().GetEnemyRole();
         skills = GameManager.GetInstance().GetSkills();
 
