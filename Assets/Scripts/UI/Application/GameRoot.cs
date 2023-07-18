@@ -17,7 +17,6 @@ public class GameRoot : MonoBehaviour
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
-
     }
     private void Start()
     {

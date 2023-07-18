@@ -11,7 +11,10 @@ public class ClientRoot : MonoBehaviour
     public static ClientRoot Instance { get; private set; }
 
     //public static Game.GameClient gameClient;
-
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         Debug.Log("Client Is Run");

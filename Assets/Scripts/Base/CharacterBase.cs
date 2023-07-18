@@ -1,4 +1,6 @@
+using Abelkhan;
 using DG.Tweening;
+using Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -250,6 +252,11 @@ public class CharacterBase : MonoBehaviour, IAttack
         else
         {
             PanelManager.Instance.Push(new FailPanel());
+            RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
+            {
+                GameManager.Instance._UserData = data;
+                Debug.Log(GameManager.Instance._UserData.Strength);
+            });
             //GameManager.GetInstance().QuitGame();
         }
         Recovery(); 

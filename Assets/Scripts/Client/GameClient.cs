@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static StarkSDKSpace.StarkAccount;
 using Abelkhan;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -31,7 +32,12 @@ namespace Game
 
         public void _player_Client_Module_on_archive_sync(UserData obj)
         {
-            //... do some thing
+            GameManager.Instance._UserData= obj;
+            if(SceneManager.GetActiveScene().name == "StartScene") 
+            {
+                Debug.Log("FlushSrt");
+                StartPanel.FlushStr();
+            }
         }
     }
 }

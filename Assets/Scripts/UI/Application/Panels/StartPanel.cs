@@ -9,7 +9,7 @@ using Unity;
 public class StartPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/StartScenePanel";
-    GameObject panel;
+    private static GameObject panel;
     private GameObject topArea;
     private GameObject midArea;
 
@@ -25,8 +25,6 @@ public class StartPanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength+" / "+100;
         UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin+"";
-
-        Debug.Log(GameManager.GetInstance()._UserData.Strength);
 
         UITool.GetOrAddComponentInChildren<Button>("Role_Btn", panel).onClick.AddListener(() =>
         {
@@ -113,6 +111,12 @@ public class StartPanel : BasePanel
     {
         topArea.SetActive(isShow);
         midArea.SetActive(isShow);
+    }
+
+    public static void FlushStr()
+    {
+        UITool.GetOrAddComponentInChildren<Text>("", panel).text = GameManager.GetInstance()._UserData.Strength + " / " + 100; ;
+        return;
     }
 
 }

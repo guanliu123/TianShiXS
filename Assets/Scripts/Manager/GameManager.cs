@@ -114,10 +114,11 @@ public class GameManager : SingletonBase<GameManager>
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
 
-        RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
-        {
-            _UserData = data;
-        });
+        //RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
+        //{
+        //    _UserData = data;
+        //    Debug.Log(_UserData.Strength);
+        //});
 
 
         Init();
@@ -133,6 +134,7 @@ public class GameManager : SingletonBase<GameManager>
         playerEnergy = 0;
         levelMoney = 0;
         playerLevel = 1;
+
 
     }
     public void QuitGame()
