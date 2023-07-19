@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static StarkSDKSpace.StarkAccount;
 using Abelkhan;
 
 namespace Game
 {
-    public class GameClient
+    public class GameClient : SingletonBase<GameClient>
     {
         public Client.Client _client;
         public Abelkhan.login_caller _login_Caller;
@@ -27,6 +26,7 @@ namespace Game
             _player_Client_Module = new player_client_module(_client);
             _player_Client_Module.on_archive_sync += _player_Client_Module_on_archive_sync;
         }
+
 
         public void _player_Client_Module_on_archive_sync(UserData obj)
         {

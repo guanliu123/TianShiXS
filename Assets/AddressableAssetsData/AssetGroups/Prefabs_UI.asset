@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Prefabs_UI
+  m_EditorClassIdentifier: 
+  m_GroupName: Prefabs_UI
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e33d247f6e2cd6b408ecf01654693f3c
+  m_SerializeEntries:
+  - m_GUID: daef4ee12d5c02a408a2de0fb87e470b
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/1001Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aecc5353370fc442827bccd4435a0a9
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/2001Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 542c8c2bc55f82241a5db2cd01d96217
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/BigMouseImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6b6541d1fe37a84cb604513af314c5e
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/ClawImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cea2c562e92284d46ae5bd82667add48
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/EageleImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe2e1766622fcdb41af408c4f3b79bc2
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/JinWuWeiImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155e7a4372502fa45b772199e700be51
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/JinYiWeiImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57b7c26381abb194ab191a13a03c0f78
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/LaserImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a3ac524d3c07b4478026d5c478d7b76
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/ShiXuImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11f86e98d4464934f9e14f003ee49a48
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/TaowuImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb1d737088808fa47b7ebb72226e7723
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/TurtleImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4008642a532dd0b44b4be8a7f0af64b3
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/XiaKeImage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74fd8fa5d6f9cad45a2a08fc206a0895
+    m_Address: Assets/Resources_Move/Prefabs/UI/BagProp.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1f278d3a8f1f9b42a136b751318e277
+    m_Address: Assets/Resources_Move/Prefabs/UI/Box.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28399ed08ad8efc44a7b01eca898d378
+    m_Address: Assets/Resources_Move/Prefabs/UI/Canvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1718f4f628cc2b9418c0d2031253f802
+    m_Address: Assets/Resources_Move/Prefabs/UI/DownBtn.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcf15094b5062b040a76e39347ed00b5
+    m_Address: Assets/Resources_Move/Prefabs/UI/EnemyPortrait.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ff08a1a4c29ed74eb1ceae6d697a770
+    m_Address: Assets/Resources_Move/Prefabs/UI/FloatDamage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5807367ba5ecfd14fb22e95d5b9fd0e3
+    m_Address: Assets/Resources_Move/Prefabs/UI/HighQuality.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 949db3e92a3e64b43afb99ee0942ace6
+    m_Address: Assets/Resources_Move/Prefabs/UI/LevelList.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a39fc76ecc9f31a4e9e01e7100ca5d65
+    m_Address: Assets/Resources_Move/Prefabs/UI/LowQuality.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 497e551a6632b4e4a968ef9212858f1e
+    m_Address: Assets/Resources_Move/Prefabs/UI/MidQuality.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 792d8de5bcee2c641aa86a068747d9ee
+    m_Address: Assets/Resources_Move/Prefabs/UI/Money.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f13f478be6079749b10991db319cf61
+    m_Address: Assets/Resources_Move/Prefabs/UI/PlayerPortrait.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8d81c4fad8ef50438ec35fca4452b63
+    m_Address: Assets/Resources_Move/Prefabs/UI/SkillList.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16ee291af56a5e24eaa310c4b766fb90
+    m_Address: Assets/Resources_Move/Prefabs/UI/SkillPortrait.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14392a24fdee4484594c4fd2df1ff11d
+    m_Address: Assets/Resources_Move/Prefabs/UI/SkillTag.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bf8de9015c66a143b9e90edcc34afa4
+    m_Address: Assets/Resources_Move/Prefabs/UI/Strength.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9900621fb7780cb4a9f6c80db14a848f, type: 2}
+    - {fileID: 11400000, guid: 896162b67f4fcce4eaf5ad34c636d1a8, type: 2}

@@ -30,7 +30,6 @@ public class CharacterManager : SingletonBase<CharacterManager>
                 characterDatasDic[item.RoleID][0] = t;
             }
         }
-               
         enemyMagDic = EnemyDataTool.enemyMsgDic;
         EnemyDataTool.ReadEnemyData();
         foreach (var item in EnemyDataTool.enemyDataDic)

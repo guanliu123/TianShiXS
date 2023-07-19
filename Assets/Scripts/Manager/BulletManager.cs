@@ -24,7 +24,7 @@ public class BulletManager : SingletonBase<BulletManager>
 
     public BulletManager()
     {
-        BulletDic = BulletDataTool.ReadBulletData();
+            BulletDic = BulletDataTool.ReadBulletData();
 
         Init();
     }

@@ -19,26 +19,32 @@ public class RolePanel : BasePanel
     }
     public override void OnEnter()
     {
-        panel = UIManager.Instance.GetSingleUI(UIType);
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+            panel = obj;
+            UITool.GetOrAddComponentInChildren<Button>("Close_Btn", obj).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                PanelManager.Instance.Pop();
+            });
 
-        players= GameManager.GetInstance().GetPlayerRole();
+            UITool.GetOrAddComponentInChildren<Button>("Use_Btn", obj).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                GameManager.GetInstance().ChangeRole(choosePlayer);
+            });
+
+            var t = UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", obj);
+            t._panel = this;
+        });
+
+        //players = GameManager.GetInstance().GetPlayerRole();
 
         //UpdatePlayerPanel(0);
 
-        var t= UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", panel);
-        t._panel = this;
+        
 
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Pop();
-        });
-
-        UITool.GetOrAddComponentInChildren<Button>("Use_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            GameManager.GetInstance().ChangeRole(choosePlayer);
-        });
+       
     }
 
 

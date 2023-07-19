@@ -17,13 +17,21 @@ namespace UIFrameWork
         //被其他面板覆盖时
         public virtual void OnPause()
         {
-            GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+            GameObject panel = null;
+            UIManager.Instance.GetSingleUI(UIType,(obj)=>
+            {
+               panel = obj;
+            });
             UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = false;
         }
         //恢复时
         public virtual void OnResume()
         {
-            GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+            GameObject panel = null;
+            UIManager.Instance.GetSingleUI(UIType, (obj) =>
+            {
+                panel= obj;
+            });
             UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = true;
             UITool.RemoveComponent<CanvasGroup>(panel);
         }

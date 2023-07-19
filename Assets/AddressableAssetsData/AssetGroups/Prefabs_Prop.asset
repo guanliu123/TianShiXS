@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Prefabs_Prop
+  m_EditorClassIdentifier: 
+  m_GroupName: Prefabs_Prop
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d2298e25721ff9942bf121af41406f27
+  m_SerializeEntries:
+  - m_GUID: f6eeae6c097e7c04d8a925697e7bcd57
+    m_Address: Assets/Resources_Move/Prefabs/Prop/Banners.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27c23409a713a8c408013bd4a2dde81c
+    m_Address: Assets/Resources_Move/Prefabs/Prop/Bell.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c3778598d4a775478443b16f0fdc1fd
+    m_Address: Assets/Resources_Move/Prefabs/Prop/DaoQi.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5ca91644849088469101509d3eaba16
+    m_Address: Assets/Resources_Move/Prefabs/Prop/HuLu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75ab7e36d744f1148a7e52d90ede2c37
+    m_Address: Assets/Resources_Move/Prefabs/Prop/Money.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06970c89a5e62194a85f5ac4eef912f7
+    m_Address: Assets/Resources_Move/Prefabs/Prop/Shield.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6026504bc9ae0f42ad735b3b0b94230
+    m_Address: Assets/Resources_Move/Prefabs/Prop/Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f7d5c83af5914674eb2cc7f9c816915c, type: 2}
+    - {fileID: 11400000, guid: c8bc7414caed75240a4c95129ecf18f7, type: 2}

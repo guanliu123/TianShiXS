@@ -16,7 +16,11 @@ public class VictoryPanel : BasePanel
     {
         GameManager.GetInstance().ClearFloatDamage();
         GameManager.GetInstance().QuitGame();
-        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        GameObject panel = null;
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+            panel= obj;
+        });
 
         UITool.GetOrAddComponentInChildren<Button>("OK_Btn", panel).onClick.AddListener(() =>
         {

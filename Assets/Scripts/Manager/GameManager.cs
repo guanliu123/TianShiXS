@@ -114,7 +114,7 @@ public class GameManager : SingletonBase<GameManager>
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
 
-        RequestCenter.CostStrengthReq(ClientRoot.gameClient, 5, (data) =>
+        RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
         {
             _UserData = data;
         });
@@ -164,7 +164,7 @@ public class GameManager : SingletonBase<GameManager>
         WriteData();
         //DataCenter.Money += levelMoney;
 
-        RequestCenter.AddCoinReq(ClientRoot.gameClient, levelMoney, (data) =>
+        RequestCenter.AddCoinReq(GameClient.Instance, levelMoney, (data) =>
         {
             userData = data;
         });

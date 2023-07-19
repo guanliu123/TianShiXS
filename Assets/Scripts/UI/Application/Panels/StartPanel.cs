@@ -19,56 +19,78 @@ public class StartPanel : BasePanel
     }
     public override void OnEnter()
     {   
-        panel = UIManager.Instance.GetSingleUI(UIType);
-        topArea = UITool.FindChildGameObject("TopArea", panel);
-        midArea = UITool.FindChildGameObject("MidArea", panel);
-
-        UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength+" / "+100;
-        UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin+"";
-
-        UITool.GetOrAddComponentInChildren<Button>("Role_Btn", panel).onClick.AddListener(() =>
+        UIManager.Instance.GetSingleUI(UIType,(obj)=>
         {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Push(new RolePanel());
-        });
-        UITool.GetOrAddComponentInChildren<Button>("Handbook_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Push(new HandbookPanel());
-        });
-        UITool.GetOrAddComponentInChildren<Button>("Level_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Push(new LevelPanel());
-        });
-
-        Toggle audiotog = UITool.GetOrAddComponentInChildren<Toggle>("Audio_Tog", panel);
-        audiotog.isOn=AudioManager.GetInstance().soundValue<0.5f?true:false;
-        audiotog.onValueChanged.AddListener((value) =>
-        {            
-            if (value)
+            panel = obj;
+            if(obj.activeSelf)
             {
-                AudioManager.GetInstance().soundValue = 0;
-                AudioManager.GetInstance().bkValue = 0;
-            }
-            else
-            {               
-                AudioManager.GetInstance().soundValue = 1;
-                AudioManager.GetInstance().bkValue = 1;
-                AudioManager.GetInstance().PlaySound("NormalButton");
+                topArea = UITool.FindChildGameObject("TopArea", obj);
+                midArea = UITool.FindChildGameObject("MidArea", obj);
+
+                //UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength + " / " + 100;
+                //UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin + "";
+
+                //Debug.Log(GameManager.GetInstance()._UserData.Strength);
+
+                UITool.GetOrAddComponentInChildren<Button>("Role_Btn", obj).onClick.AddListener(() =>
+                {
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    PanelManager.Instance.Push(new RolePanel());
+                });
+                UITool.GetOrAddComponentInChildren<Button>("Handbook_Btn", obj).onClick.AddListener(() =>
+                {
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    PanelManager.Instance.Push(new HandbookPanel());
+                });
+                UITool.GetOrAddComponentInChildren<Button>("Level_Btn", obj).onClick.AddListener(() =>
+                {
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    PanelManager.Instance.Push(new LevelPanel());
+                });
+
+                Toggle audiotog = UITool.GetOrAddComponentInChildren<Toggle>("Audio_Tog", obj);
+                audiotog.isOn = AudioManager.GetInstance().soundValue < 0.5f ? true : false;
+                audiotog.onValueChanged.AddListener((value) =>
+                {
+                    if (value)
+                    {
+                        AudioManager.GetInstance().soundValue = 0;
+                        AudioManager.GetInstance().bkValue = 0;
+                    }
+                    else
+                    {
+                        AudioManager.GetInstance().soundValue = 1;
+                        AudioManager.GetInstance().bkValue = 1;
+                        AudioManager.GetInstance().PlaySound("NormalButton");
+                    }
+                });
+
+                UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
+                {
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    if (GameManager.Instance._UserData.Strength > 5)
+                    {
+                        GameManager.GetInstance().StartGame();
+                        PanelManager.Instance.Clear();
+                        PanelManager.Instance.Push(new GamePanel());
+                    }
+                });
+
+                UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>
+                {
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    PanelManager.Instance.Push(new ChestPanel());
+                });
+
+                if (GameManager.GetInstance().nowLevel == 0)
+                {
+                    UITool.GetOrAddComponentInChildren<Text>("LevelNum", obj).text = "关卡选择";
+                    return;
+                }
+                UITool.GetOrAddComponentInChildren<Text>("LevelNum", obj).text = "第" + GameManager.GetInstance().nowLevel + "关";
             }
         });
        
-        UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            if (GameManager.Instance._UserData.Strength > 5)
-            {
-                GameManager.GetInstance().StartGame();
-                PanelManager.Instance.Clear();
-                PanelManager.Instance.Push(new GamePanel());
-            }
-        });
 
 
         //MonoManager.GetInstance().AddUpdateListener(StartUIEvent);
@@ -77,18 +99,7 @@ public class StartPanel : BasePanel
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
         });*/
 
-        UITool.GetOrAddComponentInChildren<Button>("Box_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Push(new ChestPanel());
-        });
-
-        if (GameManager.GetInstance().nowLevel == 0)
-        {
-            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
-            return;
-        }
-        UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
+       
 
     }
     public override void OnPause()
@@ -100,6 +111,7 @@ public class StartPanel : BasePanel
     {
         SetAreaActive(true);
         //UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money + "";
+        Debug.Log(panel.name);
         if (GameManager.GetInstance().nowLevel == 0)
         {
             UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";

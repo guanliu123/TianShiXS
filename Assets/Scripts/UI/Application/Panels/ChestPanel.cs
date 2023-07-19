@@ -23,7 +23,10 @@ public class ChestPanel : BasePanel
 
     public override void OnEnter()
     {
-        panel = UIManager.Instance.GetSingleUI(UIType);
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        {
+            panel = obj;
+        });
         selectTogs = new List<Toggle>();
 
         //selectPanel = UITool.GetOrAddComponentInChildren<Transform>("SelectPanel", panel);

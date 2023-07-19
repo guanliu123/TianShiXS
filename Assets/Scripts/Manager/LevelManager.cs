@@ -49,7 +49,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     public LevelManager()
     {
-        levelDatasDic = LevelDataTool.ReadLevelData();
+            levelDatasDic = LevelDataTool.ReadLevelData();
 
         nowLevel = levelDatasDic[1];        
     }

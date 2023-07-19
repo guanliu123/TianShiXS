@@ -6,6 +6,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
+using UnityEngine.AddressableAssets;
+using System;
+using Object = UnityEngine.Object;
 
 public class ResourceManager : SingletonBase<ResourceManager>
 {
@@ -33,10 +36,15 @@ public class ResourceManager : SingletonBase<ResourceManager>
     {
 
         //T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
-        T res=null;
+        T res=default(T);
         if (pathDic.ContainsKey(resourceType))
-        {       
-           res = Resources.Load<T>(pathDic[resourceType]+objName);
+        {
+            //res = Resources.Load<T>(pathDic[resourceType]+objName);
+            //res =(T)Convert.ChangeType(Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName),typeof(T));
+            Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName).Completed += (Obj) =>
+            {
+                res = (T)Convert.ChangeType(Obj, typeof(T));
+            };
         }
 
         return res;

@@ -11,7 +11,7 @@ public class BuffManager : BaseManager<BuffManager>
 
     static BuffManager()
     {
-        BuffDic = BuffDataTool.ReadBuffData();
+            BuffDic = BuffDataTool.ReadBuffData();
     }
 
     public BuffManager()

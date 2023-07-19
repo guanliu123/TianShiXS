@@ -91,9 +91,9 @@ public class AudioManager : BaseManager<AudioManager>
         source.Play();
     }
 
-    public void PlaySound(string audioName, bool isLoop=false, UnityAction<AudioSource> callback = null)
+    public async void PlaySound(string audioName, bool isLoop=false, UnityAction<AudioSource> callback = null)
     {
-        AudioClip audio = ResourceManager.Instance.LoadByName<AudioClip>(audioName, ResourceType.Audio);
+        AudioClip audio =ResourceManager.Instance.LoadByName<AudioClip>(audioName, ResourceType.Audio);
         if (!audio) return;
 
         if (soundObj == null)
