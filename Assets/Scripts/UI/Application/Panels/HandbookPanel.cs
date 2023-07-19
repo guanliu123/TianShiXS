@@ -26,50 +26,54 @@ public class HandbookPanel : BasePanel
 
     public override void OnEnter()
     {
-        UIManager.Instance.GetSingleUI(UIType, (obj) =>
-        {
-            panel = obj;
-        });
+
         enemys = GameManager.GetInstance().GetEnemyRole();
         skills = GameManager.GetInstance().GetSkills();
 
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
+        UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Pop();
-        });
-        enemyArea = UITool.GetOrAddComponentInChildren<Transform>("Enemy", panel).gameObject;
-        enemyList = UITool.GetOrAddComponentInChildren<Transform>("EnemyPortrait_List", panel).gameObject;
-        enemyList.GetComponent<EnemyPortraitList>()._panel = this;
+            panel = obj;
+            UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                PanelManager.Instance.Pop();
 
-        skillArea = UITool.GetOrAddComponentInChildren<Transform>("Skill", panel).gameObject;
-        skillList= UITool.GetOrAddComponentInChildren<Transform>("SkillPortrait_List", panel).gameObject;
-        skillList.GetComponent<SkillPortraitList>()._panel = this;
-        skillArea.SetActive(false);
-        dragButton=enemyList.GetComponent<IDragButton>();
+                enemyArea = UITool.GetOrAddComponentInChildren<Transform>("Enemy", panel).gameObject;
+                enemyList = UITool.GetOrAddComponentInChildren<Transform>("EnemyPortrait_List", panel).gameObject;
+                enemyList.GetComponent<EnemyPortraitList>()._panel = this;
 
-        UITool.GetOrAddComponentInChildren<Button>("Enemy_Btn", panel).onClick.AddListener(() =>
-        {
-            enemyArea.SetActive(true);
-            skillArea.SetActive(false);
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            dragButton = enemyList.GetComponent<IDragButton>();
+                skillArea = UITool.GetOrAddComponentInChildren<Transform>("Skill", panel).gameObject;
+                skillList = UITool.GetOrAddComponentInChildren<Transform>("SkillPortrait_List", panel).gameObject;
+                skillList.GetComponent<SkillPortraitList>()._panel = this;
+                skillArea.SetActive(false);
+                dragButton = enemyList.GetComponent<IDragButton>();
+
+                UITool.GetOrAddComponentInChildren<Button>("Enemy_Btn", panel).onClick.AddListener(() =>
+                {
+                    enemyArea.SetActive(true);
+                    skillArea.SetActive(false);
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    dragButton = enemyList.GetComponent<IDragButton>();
+                });
+                UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", panel).onClick.AddListener(() =>
+                {
+                    skillArea.SetActive(true);
+                    enemyArea.SetActive(false);
+                    AudioManager.GetInstance().PlaySound("NormalButton");
+                    dragButton = skillList.GetComponent<IDragButton>();
+                });
+                UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
+                {
+                    dragButton.LeftButton_Click();
+                });
+                UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
+                {
+                    dragButton.RightButton_Click();
+                });
+            });
         });
-        UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", panel).onClick.AddListener(() =>
-        {
-            skillArea.SetActive(true);
-            enemyArea.SetActive(false);
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            dragButton = skillList.GetComponent<IDragButton>();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
-        {
-            dragButton.LeftButton_Click();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        {            
-            dragButton.RightButton_Click();
-        });
+        
+
     }
 
     public void UpdateEnemyPanel(int index, GameObject enemyPanel)

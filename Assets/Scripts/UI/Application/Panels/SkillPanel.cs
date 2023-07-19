@@ -16,51 +16,55 @@ public class SkillPanel : BasePanel
     }
     public override void OnEnter()
     {
+        GameManager.GetInstance().ClearFloatDamage();
+        GameManager.GetInstance().LockMove();
         GameObject panel = null;
         UIManager.Instance.GetSingleUI(UIType,(obj)=>
         {
             panel = obj;
+
+            Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
+            for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
+            {
+                GameObject t = PoolManager.GetInstance().GetObj("SkillTag", ResourceType.UI);
+                UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
+                t.transform.position = content.position;
+                t.transform.SetParent(content);
+                skillIcons.Add(t);
+            }
+
+            List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
+            for (int i = 1; i <= 3; i++)
+            {
+                //GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
+                GameObject skillRect = PoolManager.GetInstance().GetObj(su[i - 1].quality, ResourceType.UI);
+                var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
+                skillRect.transform.position = tra.position;
+                skillRect.transform.SetParent(tra);
+                UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = su[i - 1].icon;
+                //更改品级框
+                UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
+                var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
+                t.GetComponentInChildren<Text>().text = su[i - 1].describe;
+
+                SkillPromote(t, i, su);
+            }
         });
-        GameManager.GetInstance().ClearFloatDamage();
-        GameManager.GetInstance().LockMove();
+       
 
         //UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
         //{
         //    PanelManager.Instance.Pop();
         //});
 
-        Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
-        for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
-        {
-            GameObject t = PoolManager.GetInstance().GetObj("SkillTag",ResourceType.UI);
-            UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value;
-            t.transform.position = content.position;
-            t.transform.SetParent(content);
-            skillIcons.Add(t);
-        }
-
+        
         /*if (skillIcons.Count > 0)
         {
             float scrollRectX = skillIcons.Count * (skillIcons[0].GetComponent<RectTransform>().sizeDelta.x + content.GetComponent<HorizontalLayoutGroup>().spacing);
             content.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollRectX, content.GetComponent<RectTransform>().sizeDelta.y);
         }*/
 
-        List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
-        for (int i = 1; i <= 3; i++)
-        {
-            //GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
-            GameObject skillRect = PoolManager.GetInstance().GetObj(su[i-1].quality,ResourceType.UI);
-            var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
-            skillRect.transform.position = tra.position;
-            skillRect.transform.SetParent(tra);
-            UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = su[i - 1].icon;
-            //更改品级框
-            UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i-1].isNew);
-            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
-            t.GetComponentInChildren<Text>().text = su[i - 1].describe;
-
-            SkillPromote(t, i, su);
-        }
+        
     }
 
     void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
