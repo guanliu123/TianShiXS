@@ -2,7 +2,9 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using WebSocketSharp;
+using UnityEngine;
+using UnityWebSocket;
+using WeChatWASM;
 
 namespace Abelkhan
 {
@@ -19,7 +21,8 @@ namespace Abelkhan
             _channel_onrecv = new ChannelOnRecv(this);
 
             s.OnMessage += (sender, e) => {
-                onRead(e);
+                Debug.Log($"OnMessage {e.RawData}");
+                onRead(e.RawData);
             };
         }
 
@@ -39,11 +42,11 @@ namespace Abelkhan
         {
         }
 
-        private void onRead(MessageEventArgs e)
+        private void onRead(byte[] e)
         {
             try
             {
-                _channel_onrecv.on_recv(e.RawData);
+                _channel_onrecv.on_recv(e);
             }
             catch (System.ObjectDisposedException)
             {
@@ -58,7 +61,7 @@ namespace Abelkhan
 
         public void send(byte[] data)
         {
-            s.Send(data);
+            s.SendAsync(data);
         }
 
         public WebSocket s;
