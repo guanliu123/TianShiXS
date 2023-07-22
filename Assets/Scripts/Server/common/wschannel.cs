@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using UnityWebSocket;
+using WebSocketSharp;
 
 namespace Abelkhan
 {
@@ -58,7 +58,7 @@ namespace Abelkhan
 
         public void send(byte[] data)
         {
-            s.SendAsync(data);
+            s.Send(data);
         }
 
         public WebSocket s;
