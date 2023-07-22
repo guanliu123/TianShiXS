@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using WebSocketSharp;
+using UnityWebSocket;
 
 namespace Abelkhan
 {
@@ -25,7 +25,7 @@ namespace Abelkhan
 
         public void disconnect()
         {
-            s.Close();
+            s.CloseAsync();
 
             Disconnect?.Invoke(this);
         }
@@ -58,7 +58,7 @@ namespace Abelkhan
 
         public void send(byte[] data)
         {
-            s.Send(data);
+            s.SendAsync(data);
         }
 
         public WebSocket s;

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using WebSocketSharp;
+using UnityWebSocket;
 using UnityEngine;
 
 namespace Client
@@ -321,7 +321,7 @@ namespace Client
                 {
                     add_chs.Add(ch);
                 }
-                s.Connect();
+                s.ConnectAsync();
 
                 cb(true, ch);
             }
