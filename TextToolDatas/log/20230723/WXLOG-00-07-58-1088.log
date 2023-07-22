@@ -1,6 +1,6 @@
 ﻿<wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:5466</timestamp>
+  <timestamp>00:07:58:8555</timestamp>
   <msgtype>MsgWXLogLaunch</msgtype>
   <content>[The WXLogger is launched!]</content>
   <stackFrames>
@@ -11,7 +11,7 @@
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:5686</timestamp>
+  <timestamp>00:07:58:8765</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|String[]
 OptionsConfig,-option=fb
@@ -30,7 +30,7 @@ OptionsConfig,-option=fb
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:5706</timestamp>
+  <timestamp>00:07:58:8795</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 UnityBridgeHandler - SetDataDir,E:/UnityProj/TianShiXS/TextToolDatas\temp</content>
@@ -41,7 +41,7 @@ UnityBridgeHandler - SetDataDir,E:/UnityProj/TianShiXS/TextToolDatas\temp</conte
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8837</timestamp>
+  <timestamp>00:07:59:1926</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,Soft</content>
@@ -53,7 +53,7 @@ FirstBundleText slim,Soft</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8847</timestamp>
+  <timestamp>00:07:59:1936</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-small</content>
@@ -65,7 +65,7 @@ FirstBundleText slim,UnityWatermark-small</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8867</timestamp>
+  <timestamp>00:07:59:1956</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,EscToExit_back</content>
@@ -77,7 +77,7 @@ FirstBundleText slim,EscToExit_back</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8867</timestamp>
+  <timestamp>00:07:59:1956</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,EscToExit_Text</content>
@@ -89,7 +89,7 @@ FirstBundleText slim,EscToExit_Text</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8887</timestamp>
+  <timestamp>00:07:59:1976</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-trial-big</content>
@@ -101,7 +101,7 @@ FirstBundleText slim,UnityWatermark-trial-big</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8887</timestamp>
+  <timestamp>00:07:59:1976</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-trial</content>
@@ -113,7 +113,7 @@ FirstBundleText slim,UnityWatermark-trial</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8887</timestamp>
+  <timestamp>00:07:59:1976</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-beta</content>
@@ -125,7 +125,7 @@ FirstBundleText slim,UnityWatermark-beta</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8887</timestamp>
+  <timestamp>00:07:59:1976</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-edu</content>
@@ -137,7 +137,7 @@ FirstBundleText slim,UnityWatermark-edu</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8897</timestamp>
+  <timestamp>00:07:59:1986</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-dev</content>
@@ -149,7 +149,7 @@ FirstBundleText slim,UnityWatermark-dev</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8897</timestamp>
+  <timestamp>00:07:59:1986</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,WarningSign</content>
@@ -161,7 +161,7 @@ FirstBundleText slim,WarningSign</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8897</timestamp>
+  <timestamp>00:07:59:1986</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermark-proto</content>
@@ -173,7 +173,7 @@ FirstBundleText slim,UnityWatermark-proto</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8897</timestamp>
+  <timestamp>00:07:59:1986</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnityWatermarkPlugin-beta</content>
@@ -185,7 +185,7 @@ FirstBundleText slim,UnityWatermarkPlugin-beta</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8897</timestamp>
+  <timestamp>00:07:59:1986</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,box</content>
@@ -197,7 +197,7 @@ FirstBundleText slim,box</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,button active</content>
@@ -209,7 +209,7 @@ FirstBundleText slim,button active</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,button hover</content>
@@ -221,7 +221,7 @@ FirstBundleText slim,button hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,button on hover</content>
@@ -233,7 +233,7 @@ FirstBundleText slim,button on hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,button on</content>
@@ -245,7 +245,7 @@ FirstBundleText slim,button on</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,button</content>
@@ -257,7 +257,7 @@ FirstBundleText slim,button</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,horizontal scrollbar thumb</content>
@@ -269,7 +269,7 @@ FirstBundleText slim,horizontal scrollbar thumb</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:1996</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,horizontal scrollbar</content>
@@ -281,7 +281,7 @@ FirstBundleText slim,horizontal scrollbar</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8907</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,horizontalslider</content>
@@ -293,7 +293,7 @@ FirstBundleText slim,horizontalslider</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,slider thumb active</content>
@@ -305,7 +305,7 @@ FirstBundleText slim,slider thumb active</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,slider thumb</content>
@@ -317,7 +317,7 @@ FirstBundleText slim,slider thumb</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,slidert humb hover</content>
@@ -329,7 +329,7 @@ FirstBundleText slim,slidert humb hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle active</content>
@@ -341,7 +341,7 @@ FirstBundleText slim,toggle active</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle hover</content>
@@ -353,7 +353,7 @@ FirstBundleText slim,toggle hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8917</timestamp>
+  <timestamp>00:07:59:2006</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle on hover</content>
@@ -365,7 +365,7 @@ FirstBundleText slim,toggle on hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle on</content>
@@ -377,7 +377,7 @@ FirstBundleText slim,toggle on</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle on active</content>
@@ -389,7 +389,7 @@ FirstBundleText slim,toggle on active</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,toggle</content>
@@ -401,7 +401,7 @@ FirstBundleText slim,toggle</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,vertical scrollbar thumb</content>
@@ -413,7 +413,7 @@ FirstBundleText slim,vertical scrollbar thumb</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,vertical scrollbar</content>
@@ -425,7 +425,7 @@ FirstBundleText slim,vertical scrollbar</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8927</timestamp>
+  <timestamp>00:07:59:2016</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,verticalslider</content>
@@ -437,7 +437,7 @@ FirstBundleText slim,verticalslider</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,window on</content>
@@ -449,7 +449,7 @@ FirstBundleText slim,window on</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,window</content>
@@ -461,7 +461,7 @@ FirstBundleText slim,window</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,textfield</content>
@@ -473,7 +473,7 @@ FirstBundleText slim,textfield</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,textfield on</content>
@@ -485,7 +485,7 @@ FirstBundleText slim,textfield on</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,textfield hover</content>
@@ -497,7 +497,7 @@ FirstBundleText slim,textfield hover</content>
 </wxlog>
 <wxlog>
   <threadId>#main</threadId>
-  <timestamp>17:24:45:8937</timestamp>
+  <timestamp>00:07:59:2026</timestamp>
   <msgtype>MsgMixture</msgtype>
   <content>string|string
 FirstBundleText slim,UnitySplash-HolographicTrackingLoss</content>

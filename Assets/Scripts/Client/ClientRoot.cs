@@ -47,7 +47,7 @@ public class ClientRoot : MonoBehaviour
                             });
                         }
                     };
- 
+                    WX.GetSetting(_getSettingCallBack);
                 }
                 else
                 {
