@@ -21,8 +21,9 @@ namespace UIFrameWork
             UIManager.Instance.GetSingleUI(UIType,(obj)=>
             {
                panel = obj;
+               UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = false;
             });
-            UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = false;
+            
         }
         //恢复时
         public virtual void OnResume()
@@ -31,9 +32,10 @@ namespace UIFrameWork
             UIManager.Instance.GetSingleUI(UIType, (obj) =>
             {
                 panel= obj;
+                UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = true;
+                UITool.RemoveComponent<CanvasGroup>(panel);
             });
-            UITool.GetOrAddComponent<CanvasGroup>(panel).blocksRaycasts = true;
-            UITool.RemoveComponent<CanvasGroup>(panel);
+            
         }
         //退出时
         public virtual void OnExit()

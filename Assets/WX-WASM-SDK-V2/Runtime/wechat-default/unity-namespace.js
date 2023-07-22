@@ -39,6 +39,10 @@ const unityNamespace = {
     preloadwXFont: $PRELOAD_WXFONT,
     
     iOSAutoGCInterval: $IOS_AUTO_GC_INTERVAL,
+    
+    usedTextureCompression: GameGlobal.USED_TEXTURE_COMPRESSION,
+    
+    usedAutoStreaming: $USED_AUTO_STREAMING,
 };
 
 unityNamespace.monitorConfig = {
@@ -102,7 +106,7 @@ GameGlobal.WebAssembly = GameGlobal.WXWebAssembly;
 GameGlobal.unityNamespace = GameGlobal.unityNamespace || unityNamespace;
 GameGlobal.realtimeLogManager = wx.getRealtimeLogManager();
 GameGlobal.logmanager = wx.getLogManager({ level: 0 });
-GameGlobal.onCrash = function () {
+GameGlobal.onCrash = GameGlobal.unityNamespace.onCrash = function () {
     GameGlobal.manager.showAbort();
     const sysInfo = wx.getSystemInfoSync();
     wx.createFeedbackButton({

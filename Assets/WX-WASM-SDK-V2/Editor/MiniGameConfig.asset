@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MiniGameConfig
   m_EditorClassIdentifier: 
   ProjectConf:
-    projectName: tsxs
+    projectName: test
     Appid: wx712f6e7f71bf1211
     CDN: https://www.ucat.games:8001/tsxs/
     assetLoadType: 0
-    compressDataPackage: 1
+    compressDataPackage: 0
     VideoUrl: 
     DST: E:/UnityProj/TianShiXS/Bin
     StreamCDN: 
@@ -51,7 +51,7 @@ MonoBehaviour:
     Il2CppOptimizeSize: 1
     profilingFuncs: 0
     Webgl2: 0
-    fbslim: 1
+    fbslim: 0
     DeleteStreamingAssets: 1
     ProfilingMemory: 0
     CleanBuild: 0

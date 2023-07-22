@@ -1,10 +1,10 @@
 
 import './weapp-adapter';
+import 'texture-config.js';
 import unityNamespace from './unity-namespace';
 import './$GAME_NAME.wasm.framework.unityweb';
 import './unity-sdk/index.js';
 import checkVersion from './check-version';
-import 'texture-config.js';
 import { launchEventType, scaleMode } from './plugin-config';
 import { preloadWxCommonFont } from './unity-sdk/font/index';
 function checkUpdate() {
@@ -38,6 +38,7 @@ const managerConfig = {
     GAME_NAME: '$GAME_NAME',
     APPID: '$APP_ID',
     DATA_FILE_SIZE: "$DATA_FILE_SIZE",
+    OPT_DATA_FILE_SIZE: "$OPT_DATA_FILE_SIZE",
     DATA_CDN: '$DEPLOY_URL',
     
     loadDataPackageFromSubpackage: $LOAD_DATA_FROM_SUBPACKAGE,
