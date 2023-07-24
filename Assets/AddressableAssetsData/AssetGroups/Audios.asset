@@ -33,7 +33,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a04f5d80c65acb4ab0d053911b0e441
-    m_Address: Assets/Resources_Move/Audios/TaiChiDartAudio.wav
+    m_Address: Assets/Resources_Move/Audios/3001Audio.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

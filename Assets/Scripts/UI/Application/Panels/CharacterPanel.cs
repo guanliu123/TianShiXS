@@ -24,8 +24,7 @@ public class CharacterPanel : BasePanel
                 PanelManager.Instance.Pop();
                 AudioManager.GetInstance().PlaySound("NormalButton");
             });
-        });
-       
+        });        
     }
 
 }

@@ -27,6 +27,7 @@ public class ChestPanel : BasePanel
         {
             panel = obj;
             selectTogs = new List<Toggle>();
+
             //selectPanel = UITool.GetOrAddComponentInChildren<Transform>("SelectPanel", panel);
             obtainPanel = UITool.GetOrAddComponentInChildren<Transform>("ObtainPanel", panel);
 
@@ -55,9 +56,8 @@ public class ChestPanel : BasePanel
                 CloseTopPanel();
                 AudioManager.GetInstance().PlaySound("NormalButton");
             });
-
-            obtainPanel.gameObject.SetActive(false);
         });
+        
 
         /*for (int i = 0; i < 5; i++)
         {
@@ -67,7 +67,7 @@ public class ChestPanel : BasePanel
         }*/
 
         //selectPanel.gameObject.SetActive(false);
-       
+        obtainPanel.gameObject.SetActive(false);
     }
 
     private void OpenChest()

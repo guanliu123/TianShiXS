@@ -22,8 +22,6 @@ public class BagPanel : BasePanel
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
-
-            //UITool.GetOrAddComponentInChildren<Button>("Open_Btn", panel).onClick.AddListener(() => { DataCenter.Money += 100; });
             Transform bagPanel = UITool.GetOrAddComponentInChildren<Transform>("ObjArea", panel);
 
             UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
@@ -58,16 +56,18 @@ public class BagPanel : BasePanel
             foreach (var item in GameManager.GetInstance()._UserData.PropList)
             {
                 if (!props.ContainsKey(item.PropID % 10)) props.Add(item.PropID % 10, new List<GameObject>());
-                GameObject t = ResourceManager.GetInstance().LoadByName<GameObject>("BagProp", ResourceType.UI);
-                //载入物品的图标
-                UITool.GetOrAddComponentInChildren<Image>("ObjIcom", t).sprite = ResourceManager.GetInstance().LoadByPath<Sprite>("");
-                UITool.GetOrAddComponentInChildren<Text>("ObjCount", t).text = item.Count + "";
-                t.transform.SetParent(bagPanel);
+                ResourceManager.GetInstance().LoadRes<GameObject>("BagProp", result =>
+                {
+                    UITool.GetOrAddComponentInChildren<Image>("ObjIcom", result).sprite = ResourceManager.GetInstance().LoadByPath<Sprite>("");
+                    UITool.GetOrAddComponentInChildren<Text>("ObjCount", result).text = item.Count + "";
+                    result.transform.SetParent(bagPanel);
 
-                props[item.PropID % 10].Add(t);
+                    props[item.PropID % 10].Add(result);
+                }, ResourceType.UI);
+                //载入物品的图标            
             }
         });
+        //UITool.GetOrAddComponentInChildren<Button>("Open_Btn", panel).onClick.AddListener(() => { DataCenter.Money += 100; });
         
-       
     }
 }
