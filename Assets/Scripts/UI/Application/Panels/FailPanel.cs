@@ -20,13 +20,14 @@ public class FailPanel : BasePanel
          UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
+            UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                PanelManager.Instance.Pop();
+                PanelManager.Instance.Push(new StartPanel());
+            });
         });
 
-        UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Pop();
-            PanelManager.Instance.Push(new StartPanel());
-        });
+        
     }
 }

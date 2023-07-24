@@ -26,37 +26,38 @@ public class ChestPanel : BasePanel
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
-        });
-        selectTogs = new List<Toggle>();
+            selectTogs = new List<Toggle>();
 
-        //selectPanel = UITool.GetOrAddComponentInChildren<Transform>("SelectPanel", panel);
-        obtainPanel = UITool.GetOrAddComponentInChildren<Transform>("ObtainPanel", panel);
+            //selectPanel = UITool.GetOrAddComponentInChildren<Transform>("SelectPanel", panel);
+            obtainPanel = UITool.GetOrAddComponentInChildren<Transform>("ObtainPanel", panel);
 
-        UITool.GetOrAddComponentInChildren<Button>("OpenChest_Btn", panel).onClick.AddListener(() =>
-        {
-               OpenChest();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("Bag_Btn", panel).onClick.AddListener(() =>
-        {
-            PanelManager.Instance.Push(new BagPanel());
-            AudioManager.GetInstance().PlaySound("NormalButton");
-        });
+            UITool.GetOrAddComponentInChildren<Button>("OpenChest_Btn", panel).onClick.AddListener(() =>
+            {
+                OpenChest();
+            });
+            UITool.GetOrAddComponentInChildren<Button>("Bag_Btn", panel).onClick.AddListener(() =>
+            {
+                PanelManager.Instance.Push(new BagPanel());
+                AudioManager.GetInstance().PlaySound("NormalButton");
+            });
 
-        /*UITool.GetOrAddComponentInChildren<Button>("ObtainPanel", panel).onClick.AddListener(() =>
-         {
-             CloseTopPanel();
-         });*/
+            /*UITool.GetOrAddComponentInChildren<Button>("ObtainPanel", panel).onClick.AddListener(() =>
+             {
+                 CloseTopPanel();
+             });*/
 
-        UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
-         {
-             PanelManager.Instance.Pop();
-             AudioManager.GetInstance().PlaySound("NormalButton");
-         });
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", obtainPanel.gameObject).onClick.AddListener(() =>
-        {
-            CloseTopPanel();
-            AudioManager.GetInstance().PlaySound("NormalButton");
+            UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
+            {
+                PanelManager.Instance.Pop();
+                AudioManager.GetInstance().PlaySound("NormalButton");
+            });
+            UITool.GetOrAddComponentInChildren<Button>("Close_Btn", obtainPanel.gameObject).onClick.AddListener(() =>
+            {
+                CloseTopPanel();
+                AudioManager.GetInstance().PlaySound("NormalButton");
+            });
         });
+        
 
         /*for (int i = 0; i < 5; i++)
         {

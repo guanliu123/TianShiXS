@@ -19,45 +19,46 @@ public class PausePanel : BasePanel
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
-        });
-        GameManager.GetInstance().ClearFloatDamage();
+            GameManager.GetInstance().ClearFloatDamage();
 
-        Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
-        for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
-        {
-            PoolManager.GetInstance().GetObj("SkillTag", t =>
+            Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
+            for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
             {
-                ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
+                PoolManager.GetInstance().GetObj("SkillTag", t =>
                 {
-                    UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = result;
-                },ResourceType.Null,".png");
-                t.transform.position = content.position;
-                t.transform.SetParent(content);
-                skillIcons.Add(t);
-            },ResourceType.UI);           
-        }
+                    ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
+                    {
+                        UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = result;
+                    }, ResourceType.Null, ".png");
+                    t.transform.position = content.position;
+                    t.transform.SetParent(content);
+                    skillIcons.Add(t);
+                }, ResourceType.UI);
+            }
 
-        Time.timeScale = 0;
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            Time.timeScale = 1;
-            PanelManager.Instance.Pop();
+            Time.timeScale = 0;
+            UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                Time.timeScale = 1;
+                PanelManager.Instance.Pop();
+            });
+            UITool.GetOrAddComponentInChildren<Button>("Continue_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                Time.timeScale = 1;
+                PanelManager.Instance.Pop();
+            });
+            UITool.GetOrAddComponentInChildren<Button>("Exit_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                Time.timeScale = 1;
+                GameManager.GetInstance().QuitGame();
+                PanelManager.Instance.Clear();
+                PanelManager.Instance.Push(new StartPanel());
+            });
         });
-        UITool.GetOrAddComponentInChildren<Button>("Continue_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            Time.timeScale = 1;
-            PanelManager.Instance.Pop();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("Exit_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            Time.timeScale = 1;
-            GameManager.GetInstance().QuitGame();
-            PanelManager.Instance.Clear();
-            PanelManager.Instance.Push(new StartPanel());
-        });
+        
     }
 
     public override void OnExit()
