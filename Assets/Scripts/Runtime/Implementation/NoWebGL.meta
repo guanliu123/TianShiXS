@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Runtime/Implementation.meta
+guid: 396c66b333d624d539153070900bb73b
+========
 guid: 6c110a898ae8b0b41bcf4da49c2b0425
+>>>>>>>> 523b7ae7b6a25fe507cb4d18a5f44bab1cfae9e8:Assets/Scripts/Runtime/Implementation/NoWebGL.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

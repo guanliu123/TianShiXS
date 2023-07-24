@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Editor/UnityWebSocket.Editor.asmdef.meta
+guid: ee833745c57bd4369ab8f0ff380a96fa
+AssemblyDefinitionImporter:
+========
+guid: 447d85cbb422074428da9bd613206307
+DefaultImporter:
+>>>>>>>> 523b7ae7b6a25fe507cb4d18a5f44bab1cfae9e8:Assets/Scripts/Server/msgpack/MsgPack.pdb.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
