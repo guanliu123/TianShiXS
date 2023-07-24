@@ -337,7 +337,7 @@ public class LevelManager : BaseManager<LevelManager>
                 nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)].ToString(),
                 t =>
                 {
-                    if (!t)
+                    if(t)
                     {
                         t.transform.position = _newPoint;
                         //t.transform.parent = ground.transform;

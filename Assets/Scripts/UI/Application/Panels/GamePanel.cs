@@ -50,16 +50,21 @@ public class GamePanel : BasePanel
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
+            energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
+            energySlider2 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar2", panel);
+            levelText = UITool.GetOrAddComponentInChildren<Text>("LevelText", panel);
+
+            stageText = UITool.GetOrAddComponentInChildren<Text>("StageText", panel);
+
+            Init(panel);
+            UITool.GetOrAddComponentInChildren<Button>("Pause_Btn", panel).onClick.AddListener(() =>
+            {
+                PanelManager.Instance.Push(new PausePanel());
+                AudioManager.GetInstance().PlaySound("NormalButton");
+            });
+
+            MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
         });
-
-        energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
-        energySlider2 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar2", panel);
-        levelText = UITool.GetOrAddComponentInChildren<Text>("LevelText", panel);
-
-        stageText = UITool.GetOrAddComponentInChildren<Text>("StageText", panel);
-
-        Init(panel);
-
         /*UITool.GetOrAddComponentInChildren<Image>("EnergySlider1", panel).fillAmount.onValueChanged.AddListener((float value) =>
         {
             if (value >= 1)
@@ -67,13 +72,7 @@ public class GamePanel : BasePanel
                 GameManager.GetInstance().CallSkillPanel();
             }
         });    */
-        UITool.GetOrAddComponentInChildren<Button>("Pause_Btn", panel).onClick.AddListener(() =>
-        {
-            PanelManager.Instance.Push(new PausePanel());
-            AudioManager.GetInstance().PlaySound("NormalButton");
-        });
-
-        MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
+        
     }
     public override void OnExit()
     {

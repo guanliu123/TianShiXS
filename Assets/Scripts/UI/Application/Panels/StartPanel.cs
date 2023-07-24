@@ -68,13 +68,16 @@ public class StartPanel : BasePanel
                 UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
-
-                    if (GameManager.Instance._UserData.Strength > 5)
+                    PanelManager.Instance.Clear();
+                    PanelManager.Instance.Push(new GamePanel());
+                    GameManager.GetInstance().StartGame();
+                    
+                    /*if (GameManager.Instance._UserData.Strength > 5)
                     {
                         GameManager.GetInstance().StartGame();
                         PanelManager.Instance.Clear();
                         PanelManager.Instance.Push(new GamePanel());
-                    }
+                    }*/
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>

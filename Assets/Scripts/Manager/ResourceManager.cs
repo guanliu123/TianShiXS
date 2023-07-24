@@ -45,15 +45,11 @@ public class ResourceManager : SingletonBase<ResourceManager>
             if (resourceType != ResourceType.Null) path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;
             else path += objName + suffix;
 
-            try
-            {
                 var handle = Addressables.LoadAssetAsync<T>(path);
                 await handle.Task;
 
                 if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
                 else Debug.Log($"加载{objName}资源失败！");
-            }
-            catch { Debug.Log($"加载{objName}资源失败，可能是路径不正确!"); };
             
             //LoadRes<T>(path,callback);
         }
