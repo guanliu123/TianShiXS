@@ -91,8 +91,8 @@ public class BulletBase : MonoBehaviour
             isCrit = false;
         }
         else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
-        GameManager.GetInstance().GenerateEffect(obj.transform, bulletData.effect);
-        AudioManager.GetInstance().PlaySound(bulletData.audio,false);
+        GameManager.GetInstance().GenerateEffect(obj.transform, bulletData.effectPath);
+        AudioManager.GetInstance().PlaySound(bulletData.audioPath,false);
     }
     protected virtual void SpecialEvolution()
     {

@@ -57,11 +57,11 @@ public class BagPanel : BasePanel
         foreach (var item in GameManager.GetInstance()._UserData.PropList)
         {
             if (!props.ContainsKey(item.PropID % 10)) props.Add(item.PropID % 10, new List<GameObject>());
-            ResourceManager.GetInstance().LoadByName<GameObject>("BagProp", result =>
+            ResourceManager.GetInstance().LoadRes<GameObject>("BagProp", result =>
             {
                 UITool.GetOrAddComponentInChildren<Image>("ObjIcom", result).sprite = ResourceManager.GetInstance().LoadByPath<Sprite>("");
                 UITool.GetOrAddComponentInChildren<Text>("ObjCount", result).text = item.Count + "";
-                t.transform.SetParent(bagPanel);
+                result.transform.SetParent(bagPanel);
 
                 props[item.PropID % 10].Add(result);
             } , ResourceType.UI);

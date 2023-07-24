@@ -17,7 +17,7 @@ public class ResourceManager : SingletonBase<ResourceManager>
 {
     //private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
 
-    private Dictionary<ResourceType, string> pathDic = new Dictionary<ResourceType, string>();
+    private Dictionary<ResourceType, (string, string)> pathDic = new Dictionary<ResourceType, (string, string)>();
     public ResourceManager()
     {
         //resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
@@ -36,17 +36,25 @@ public class ResourceManager : SingletonBase<ResourceManager>
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
     //UnityAction<T> callback, 
-    public async void LoadByName<T>(string objName, UnityAction<T> callback, ResourceType resourceType) where T : Object
+    public async void LoadRes<T>(string objName, UnityAction<T> callback, ResourceType resourceType =ResourceType.Null, string suffix = "") where T : Object
     {
         if (pathDic.ContainsKey(resourceType))
         {
-            //res = Resources.Load<T>(pathDic[resourceType]+objName);         
-            string path = "Assets/Resources_Move/"+ pathDic[resourceType] + objName+".wav";
-            var handle = Addressables.LoadAssetAsync<T>(path);
-            await handle.Task;
+            //res = Resources.Load<T>(pathDic[resourceType]+objName);
+            string path = "Assets/Resources_Move/";
+            if (resourceType != ResourceType.Null) path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;
+            else path += objName + suffix;
 
-            if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
-            else Debug.Log("加载资源失败！");
+            try
+            {
+                var handle = Addressables.LoadAssetAsync<T>(path);
+                await handle.Task;
+
+                if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
+                else Debug.Log($"加载{objName}资源失败！");
+            }
+            catch { Debug.Log($"加载{objName}资源失败，可能是路径不正确!"); };
+            
             //LoadRes<T>(path,callback);
         }
     }

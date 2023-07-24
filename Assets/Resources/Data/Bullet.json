@@ -7,8 +7,7 @@
     "MoveSpeed": 20,
     "RotateSpeed": 0,
     "BuffList": [
-      4001,
-      4002
+      4001
     ],
     "EvolvableList": [],
     "Crit": 0.2,

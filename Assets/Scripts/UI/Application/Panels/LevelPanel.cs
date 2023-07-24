@@ -22,26 +22,26 @@ public class LevelPanel : BasePanel {
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
-        });
-        levelNum = LevelManager.GetInstance().levelDatasDic.Count;
+            levelNum = LevelManager.GetInstance().levelDatasDic.Count;
 
-        var t = UITool.GetOrAddComponentInChildren<LevelPortraitList>("LevelList", panel);
-        t._panel = this;
-        UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            PanelManager.Instance.Pop();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("PageturnButton");
-            t.LeftButton_Click();
-        });
-        UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
-        {
-            AudioManager.GetInstance().PlaySound("PageturnButton");
-            t.RightButton_Click();
-        });
+            var t = UITool.GetOrAddComponentInChildren<LevelPortraitList>("LevelList", panel);
+            t._panel = this;
+            UITool.GetOrAddComponentInChildren<Button>("Close_Btn", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                PanelManager.Instance.Pop();
+            });
+            UITool.GetOrAddComponentInChildren<Button>("ListBtn_Left", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("PageturnButton");
+                t.LeftButton_Click();
+            });
+            UITool.GetOrAddComponentInChildren<Button>("ListBtn_Right", panel).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("PageturnButton");
+                t.RightButton_Click();
+            });
+        });        
     }
     
     public void UpdateLevelList(int index,GameObject levelPanel)

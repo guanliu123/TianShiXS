@@ -10,7 +10,7 @@ public class RolePanel : BasePanel
     private static readonly string path = "Prefabs/Panels/RolePanel";
 
     GameObject panel;
-    Dictionary<int, CharacterMsg> players;
+    Dictionary<int, CharacterMsg> players = new Dictionary<int, CharacterMsg>();
     int choosePlayer;
 
     public RolePanel() : base(new UIType(path))
@@ -38,13 +38,9 @@ public class RolePanel : BasePanel
             t._panel = this;
         });
 
-        //players = GameManager.GetInstance().GetPlayerRole();
+        players = GameManager.GetInstance().GetPlayerRole();
 
-        //UpdatePlayerPanel(0);
-
-        
-
-       
+        //UpdatePlayerPanel(0);      
     }
 
 
@@ -58,7 +54,11 @@ public class RolePanel : BasePanel
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
         catch{ }
-        GameObject.Instantiate(players.ElementAt(index).Value.image,t).transform.parent = t;
+        //GameObject.Instantiate(players.ElementAt(index).Value.imagePath,t).transform.parent = t;
+        ResourceManager.GetInstance().LoadRes<GameObject>(players.ElementAt(index).Value.imagePath, temp => {
+            GameObject.Instantiate(temp, t).transform.parent = t;
+        }, ResourceType.UI);
+
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;     
 
         //UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
