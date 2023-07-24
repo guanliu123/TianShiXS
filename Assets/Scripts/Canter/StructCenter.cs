@@ -41,9 +41,7 @@ public struct CharacterMsg
 {
     //[Header("角色标签")] public CharacterTag tag;
     [Header("角色名称")] public string name;
-    //[Header("角色立绘")] public GameObject image;
-    [Header("角色立绘路径")] public string imagePath;
-
+    [Header("角色立绘")] public GameObject image;
     [Header("角色描述")] public string describe;
 }
 
@@ -74,8 +72,8 @@ public struct BulletData
     [Header("伤害间隔")] public float damageInterval;
     [Header("是否跟随射出物体")] public bool isFollowShooter;
     [Header("发射几率")] public float shootProbability;
-    [Header("命中音效")] public string audioPath;
-    [Header("命中特效")] public string effectPath;
+    [Header("命中音效")] public AudioClip audio;
+    [Header("命中特效")] public GameObject effect;
 }
 [Serializable]
 public struct BulletDatas
@@ -92,8 +90,8 @@ public struct BulletDatas
 public struct BuffData
 {
     //[Header("buff图标")] public Sprite icon;
-    [Header("buff音效")] public string audioPath;
-    [Header("产生特效")] public string effectPath;
+    [Header("buff音效")] public AudioClip audio;
+    [Header("产生特效")] public GameObject effect;
     [Header("持续时间")] public float duration;
     [Header("触发几率")] public float probability;
 }
@@ -109,9 +107,7 @@ public struct BuffDatas
 #region 技能相关结构体
 public struct SkillUpgrade
 {
-    //public Sprite iconPath;//对应技能的图标
-    public string iconPath;//对应技能的图标
-
+    public Sprite icon;//对应技能的图标
     public string name;//对应技能名字
     public string describe;//对应技能的描述
     public string quality;
@@ -123,9 +119,7 @@ public struct SkillData
 {
     [Header("技能ID")] public int id;
     [Header("技能名字")] public string name;
-    //[Header("技能图标")] public Sprite iconPath;
-    [Header("技能图标")] public string iconPath;
-
+    [Header("技能图标")] public Sprite icon;
     [Header("技能描述")] public string describe;
     [Header("技能出现概率")] public float probability;
     [Header("技能品级")] public string quality;
@@ -151,9 +145,9 @@ public struct StageData
 public struct LevelData
 {
     public int energy;
-    [Header("关卡普通地面类型")] public List<string> normalPlanes;
+    [Header("关卡普通地面类型")] public List<GameObject> normalPlanes;
     [Header("关卡普通地面长和宽")] public float[] normalSize;
-    [Header("关卡特殊地面类型")] public List<string> widthPlanes;
+    [Header("关卡特殊地面类型")] public List<GameObject> widthPlanes;
     [Header("关卡特殊地面长和宽")] public float[] widthSize;
     [Header("关卡天空盒")] public Material skybox;
     /*[Header("关卡敌人类型")] public List<CharacterType> enemyTypes;

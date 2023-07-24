@@ -19,7 +19,7 @@ public class SkillManager : SingletonBase<SkillManager>
     public Dictionary<int, SkillBase> skillEvent = new Dictionary<int, SkillBase>();
 
 
-    public Dictionary<int,string> nowSkillIcons = new Dictionary<int, string>();
+    public Dictionary<int,Sprite> nowSkillIcons = new Dictionary<int, Sprite>();
     static SkillManager()
     {
         SkillDic =SkillDataTool.ReadSkillData();
@@ -54,7 +54,7 @@ public class SkillManager : SingletonBase<SkillManager>
 
     public void UpdateSkillPool(int usedId)
     {
-        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, SkillDic[usedId].iconPath);
+        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, SkillDic[usedId].icon);
         int n = skillPool[usedId] - 1;       
         if (n <= 0)
         {
@@ -120,7 +120,7 @@ public class SkillManager : SingletonBase<SkillManager>
             }
             if (t_id < 0)
             {
-                temp.iconPath = null;
+                temp.icon = null;
                 temp.name = "无";
                 temp.describe = "现在没有可用技能！";
                 temp.quality = null;
@@ -138,7 +138,7 @@ public class SkillManager : SingletonBase<SkillManager>
                 iconNum = Mathf.Min(occurredSkill[skillPool.ElementAt(t).Key], data.icon);
             }*/
 
-            temp.iconPath = data.iconPath;
+            temp.icon = data.icon;
             temp.name = data.name;
             temp.describe = data.describe;
             temp.quality = data.quality;

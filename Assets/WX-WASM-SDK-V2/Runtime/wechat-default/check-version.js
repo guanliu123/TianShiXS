@@ -94,9 +94,11 @@ export default () => new Promise((resolve) => {
             || isBrotliInvalid) {
             let updateWechat = true;
             let content = '当前微信版本过低\n请更新微信后进行游戏';
-            if (!isIOSH5SystemVersionValid || isWebgl2SystemVersionInvalid()) {
-                content = '当前操作系统版本过低\n请更新iOS系统后进行游戏';
-                updateWechat = false;
+            if (isIOS) {
+                if (!isIOSH5SystemVersionValid || isWebgl2SystemVersionInvalid()) {
+                    content = '当前操作系统版本过低\n请更新iOS系统后进行游戏';
+                    updateWechat = false;
+                }
             }
             wx.showModal({
                 title: '提示',

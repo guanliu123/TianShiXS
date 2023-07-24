@@ -862,6 +862,7 @@ namespace WeChatWASM
                 config.CompileOptions.enableProfileStats ? "true" : "false",
                 config.CompileOptions.iOSAutoGCInterval.ToString(),
                 dataFileSize,
+                "false",
             });
 
             List<Rule> replaceList = new List<Rule>(replaceArrayList);

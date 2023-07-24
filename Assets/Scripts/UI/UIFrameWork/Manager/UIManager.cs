@@ -54,7 +54,19 @@ namespace UIFrameWork
             }
             //如果内存池中存在该UI面板
             if (dicUI.ContainsKey(uIType))
+            {
                 cb.Invoke(dicUI[uIType]);
+                return;
+            }
+            foreach (Transform item in parent.transform)
+            {
+                if(item.name==uIType.Name)
+                {
+                    cb.Invoke(item.gameObject);
+                    return;
+                }
+            }
+                
             var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/"+uIType.Path+ ".prefab");
             GameObject uiInstance = null;
             uiPrefab.Completed += (handle) =>

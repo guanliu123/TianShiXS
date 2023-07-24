@@ -57,7 +57,7 @@ public class GameManager : SingletonBase<GameManager>
         {
             if (item.Value == CharacterTag.Player) players.Add(item.Key,DataManager.GetInstance().characterMsgDic[item.Key]);
         }*/
-        
+
         playerCount = players.Count;
         return players;
     }
@@ -99,16 +99,17 @@ public class GameManager : SingletonBase<GameManager>
     public void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-        PoolManager.GetInstance().GetObj(nowPlayerID.ToString(), res => {
-            res.transform.parent = player.transform;
-            res.transform.position = new Vector3(0, 0, -1);
-        }, ResourceType.Player);
+        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerID.ToString(),ResourceType.Player);
+        
 
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);       
-        
+        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
+
+        playerObj.transform.parent = player.transform;
+        playerObj.transform.position = new Vector3(0, 0, -1);
+
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
@@ -117,6 +118,7 @@ public class GameManager : SingletonBase<GameManager>
         {
             _UserData = data;
         });
+
 
         Init();
     }
@@ -226,10 +228,9 @@ public class GameManager : SingletonBase<GameManager>
     {
         for (int i = 0; i < num + increaseMoney; i++)
         {
-            PoolManager.GetInstance().GetObj(PropType.Money.ToString(), res =>
-            {
-                res.transform.position = point.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
-            },ResourceType.Prop);
+            GameObject t = PoolManager.GetInstance().GetObj(PropType.Money.ToString(),ResourceType.Prop);
+
+            t.transform.position = point.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
         }
     }
     public void ChangeMoney(int money)
@@ -259,29 +260,13 @@ public class GameManager : SingletonBase<GameManager>
 
     public void ShowDamage(Transform point,float damage,HPType  hpType)
     {
-        PoolManager.GetInstance().GetObj("FloatDamage", obj =>
-        {
-            obj.transform.parent = mainCanvas.transform;
+        GameObject obj = PoolManager.GetInstance().GetObj("FloatDamage",ResourceType.UI);
 
-            obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
-        },ResourceType.UI);        
+        obj.transform.parent = mainCanvas.transform;
+        
+        obj.GetComponent<FloatDamage>().Init(point, damage, floatDamageList, hpType);
     }
-    public void GenerateEffect(Transform insTransform, string effectName, bool withTra = false, float existTime = 0f)
-    {
-        PoolManager.GetInstance().GetObj(effectName, t =>
-        {
-            if (!t) return;
-
-            ObjTimer timer = t.GetComponent<ObjTimer>();
-            if (!timer) timer = t.AddComponent<ObjTimer>();
-
-            timer.Init(effectName, existTime);
-            t.transform.position = insTransform.position;
-            t.transform.rotation = insTransform.rotation;
-            if (withTra) t.transform.SetParent(insTransform);
-        }, ResourceType.Effect);
-    }
-    /*public void GenerateEffect(Transform insTransform,GameObject effect,bool withTra=false,float existTime = 0f)
+    public void GenerateEffect(Transform insTransform,GameObject effect,bool withTra=false,float existTime = 0f)
     {
         if (!effect) return;
         string effectName = effect.name;
@@ -296,22 +281,20 @@ public class GameManager : SingletonBase<GameManager>
         t.transform.position = insTransform.position;
         t.transform.rotation = insTransform.rotation;
         if (withTra) t.transform.SetParent(insTransform);
-    }*/
-    /*public void GenerateEffect(Transform insTransform, string effectName, float existTime = 0f)
+    }
+    public void GenerateEffect(Transform insTransform, string effectName, float existTime = 0f)
     {
-        PoolManager.GetInstance().GetObj(effectName,t=>
-        {
-            if (!t)
-            {
-                ObjTimer timer = t.GetComponent<ObjTimer>();
-                if (!timer) timer = t.AddComponent<ObjTimer>();
+        GameObject t = PoolManager.GetInstance().GetObj(effectName,ResourceType.Effect);
 
-                timer.Init(effectName, existTime);
-                t.transform.position = insTransform.position;
-                t.transform.rotation = insTransform.rotation;
-            }
-        },ResourceType.Effect);       
-    }*/
+        if (!t) return;
+
+        ObjTimer timer = t.GetComponent<ObjTimer>();
+        if (!timer) timer = t.AddComponent<ObjTimer>();
+
+        timer.Init(effectName, existTime);
+        t.transform.position = insTransform.position;
+        t.transform.rotation = insTransform.rotation;
+    }
 
     public void PlayerEvolution()
     {
@@ -329,12 +312,10 @@ public class GameManager : SingletonBase<GameManager>
 
     public void AddEvolutionProp(PropType propType)
     {
-        PoolManager.GetInstance().GetObj(propType.ToString(), t =>
-        {
-            t.transform.position = new Vector3(Player._instance.transform.position.x
-            , Player._instance.transform.position.y - 1
+        GameObject t = PoolManager.GetInstance().GetObj(propType.ToString(),ResourceType.Prop);
+        t.transform.position = new Vector3(Player._instance.transform.position.x
+            , Player._instance.transform.position.y-1
             , Player._instance.transform.position.z);
-            t.transform.parent = Player._instance.transform;
-        },ResourceType.Prop);       
+        t.transform.parent = Player._instance.transform;
     }
 }

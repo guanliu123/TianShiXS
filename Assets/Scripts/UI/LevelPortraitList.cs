@@ -79,14 +79,11 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        PoolManager.GetInstance().GetObj("LevelList", t =>
-        {
-            currentPortrait = t;
-            currentPortrait.transform.parent = transform;
-            currentPortrait.transform.localScale = new Vector3(1, 1, 1);
-            currentPortrait.transform.localPosition = midTemp.localPosition;
-            _panel.UpdateLevelList(0, currentPortrait);
-        }, ResourceType.UI);        
+        currentPortrait = PoolManager.GetInstance().GetObj("LevelList", ResourceType.UI);
+        currentPortrait.transform.parent = transform;
+        currentPortrait.transform.localScale = new Vector3(1, 1, 1);
+        currentPortrait.transform.localPosition = midTemp.localPosition;
+        _panel.UpdateLevelList(0, currentPortrait);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -183,20 +180,18 @@ public class LevelPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-        PoolManager.GetInstance().GetObj("LevelList",t=> {
-            preparePortrait = t;
-            _panel.UpdateLevelList(i, preparePortrait);
-            preparePortrait.transform.SetParent(transform);
-            preparePortrait.transform.localScale = new Vector3(1, 1, 1);
-            if (flag)
-            {
-                preparePortrait.transform.localPosition = rightTemp.localPosition;
-            }
-            else
-            {
-                preparePortrait.transform.localPosition = leftTemp.localPosition;
-            }
-        }, ResourceType.UI);       
+        preparePortrait = PoolManager.GetInstance().GetObj("LevelList", ResourceType.UI);
+        _panel.UpdateLevelList(i, preparePortrait);
+        preparePortrait.transform.SetParent(transform);
+        preparePortrait.transform.localScale = new Vector3(1, 1, 1);
+        if (flag)
+        {
+            preparePortrait.transform.localPosition = rightTemp.localPosition;
+        }
+        else
+        {
+            preparePortrait.transform.localPosition = leftTemp.localPosition;
+        }
     }
     private void FixedUpdate()
     {

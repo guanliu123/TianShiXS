@@ -1,61 +1,42 @@
 [
   {
     "ResourceType": "Audio",
-    "ResourcePath": "Audios/",
-    "ResourceSuffix": ".wav"
+    "ResourcePath": "Audios/"
   },
   {
     "ResourceType": "Enemy",
-    "ResourcePath": "Prefabs/Enemy/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Enemy/"
   },
   {
     "ResourceType": "MapGround",
-    "ResourcePath": "Prefabs/Map/Ground/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Map/Ground/"
   },
   {
     "ResourceType": "Bullet",
-    "ResourcePath": "Prefabs/Bullet/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Bullet/"
   },
   {
     "ResourceType": "UI",
-    "ResourcePath": "Prefabs/UI/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/UI/"
   },
   {
     "ResourceType": "Prop",
-    "ResourcePath": "Prefabs/Prop/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Prop/"
   },
   {
     "ResourceType": "Player",
-    "ResourcePath": "Prefabs/Player/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Player/"
   },
   {
     "ResourceType": "MapItem",
-    "ResourcePath": "Prefabs/Map/Item/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Map/Item/"
   },
   {
     "ResourceType": "Skybox",
-    "ResourcePath": "SkyBoxs/",
-    "ResourceSuffix": ".mat"
-
+    "ResourcePath": "Skyboxs/"
   },
   {
     "ResourceType": "Effect",
-    "ResourcePath": "Prefabs/Effects/",
-    "ResourceSuffix": ".prefab"
-
+    "ResourcePath": "Prefabs/Effects/"
   }
 ]

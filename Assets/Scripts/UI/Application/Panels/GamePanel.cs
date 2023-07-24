@@ -57,14 +57,14 @@ public class GamePanel : BasePanel
             stageText = UITool.GetOrAddComponentInChildren<Text>("StageText", panel);
 
             Init(panel);
+
             UITool.GetOrAddComponentInChildren<Button>("Pause_Btn", panel).onClick.AddListener(() =>
             {
                 PanelManager.Instance.Push(new PausePanel());
                 AudioManager.GetInstance().PlaySound("NormalButton");
             });
-
-            MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
         });
+
         /*UITool.GetOrAddComponentInChildren<Image>("EnergySlider1", panel).fillAmount.onValueChanged.AddListener((float value) =>
         {
             if (value >= 1)
@@ -72,7 +72,9 @@ public class GamePanel : BasePanel
                 GameManager.GetInstance().CallSkillPanel();
             }
         });    */
-        
+       
+
+        MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
     }
     public override void OnExit()
     {

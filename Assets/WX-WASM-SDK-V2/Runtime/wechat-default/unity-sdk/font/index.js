@@ -9,6 +9,7 @@ const { platform } = wx.getSystemInfoSync();
 const tempCacheObj = {};
 let fontDataCache;
 let getFontPromise;
+let isReadFromCache = false;
 const isIOS = platform === 'ios';
 const isAndroid = platform === 'android';
 
@@ -28,6 +29,7 @@ function handleGetFontData(config, forceLoad = false) {
                     if ((xhr.status === 200 || xhr.status === 0) && xhr.response) {
                         const notoFontData = xhr.response;
                         fontDataCache = notoFontData;
+                        isReadFromCache = xhr.isReadFromCache;
                         resolve();
                     }
                 };
@@ -59,8 +61,10 @@ function handleGetFontData(config, forceLoad = false) {
 function WXGetFontRawData(conf, callbackId) {
     const config = formatJsonStr(conf);
     const loadFromRemote = !GameGlobal.manager?.font?.getCommonFont;
+    GameGlobal.manager.TimeLogger.timeStart('WXGetFontRawData');
     handleGetFontData(config).then(() => {
         if (fontDataCache) {
+            GameGlobal.manager.font.reportGetFontCost(GameGlobal.manager.TimeLogger.timeEnd('WXGetFontRawData'), { loadFromRemote, isReadFromCache });
             const { ascent, descent, lineGap, unitsPerEm } = readMetrics(fontDataCache) || {};
             tempCacheObj[callbackId] = fontDataCache;
             moduleHelper.send('GetFontRawDataCallback', JSON.stringify({ callbackId, type: 'success', res: JSON.stringify({ byteLength: fontDataCache.byteLength, ascent, descent, lineGap, unitsPerEm }) }));

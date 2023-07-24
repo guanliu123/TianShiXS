@@ -19,12 +19,13 @@ public class CharacterPanel : BasePanel
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
+            UITool.GetOrAddComponentInChildren<Button>("Btn_Close", panel).onClick.AddListener(() =>
+            {
+                PanelManager.Instance.Pop();
+                AudioManager.GetInstance().PlaySound("NormalButton");
+            });
         });
-        UITool.GetOrAddComponentInChildren<Button>("Btn_Close", panel).onClick.AddListener(() =>
-        {            
-            PanelManager.Instance.Pop();
-            AudioManager.GetInstance().PlaySound("NormalButton");
-        });
+       
     }
 
 }

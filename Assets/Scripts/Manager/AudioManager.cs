@@ -93,6 +93,9 @@ public class AudioManager : BaseManager<AudioManager>
 
     public async void PlaySound(string audioName, bool isLoop=false, UnityAction<AudioSource> callback = null)
     {
+        AudioClip audio =ResourceManager.Instance.LoadByName<AudioClip>(audioName, ResourceType.Audio);
+        if (!audio) return;
+
         if (soundObj == null)
         {
             soundObj = new GameObject();
@@ -106,18 +109,20 @@ public class AudioManager : BaseManager<AudioManager>
             source = emptyList[0];
             playingList.Add(emptyList[0]);
             emptyList.RemoveAt(0);
-        }
-        ResourceManager.Instance.LoadRes<AudioClip>(audioName, result =>
+        }        
+        source.clip = audio;
+        source.loop = isLoop;
+        source.volume = soundValue;
+        source.Play();
+        /*ResourceManager.GetInstance().LoadAsync<AudioClip>("Music/Sounds/" + musicName, (clip) =>
         {
-            source.clip = result;
+            source.clip = clip;
             source.loop = isLoop;
             source.volume = soundValue;
             source.Play();
-        }, ResourceType.Audio);
-        /*source.clip = audio;
-        source.loop = isLoop;
-        source.volume = soundValue;
-        source.Play();*/
+            if (callback != null)
+                callback(source);
+        });*/
     }
 
     public void ChangeSoundValue(float value)

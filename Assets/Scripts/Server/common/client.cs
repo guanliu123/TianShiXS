@@ -2,10 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using WebSocketSharp;
+using UnityWebSocket;
 using UnityEngine;
+using WeChatWASM;
 
 namespace Client
 {
@@ -160,9 +160,12 @@ namespace Client
 
         private void ntf_cuuid(string _uuid)
         {
+            Debug.Log("ntf_cuuid begin!");
             uuid = _uuid;
 
+            Debug.Log("ntf_cuuid call onGateConnect begin!");
             onGateConnect?.Invoke();
+            Debug.Log("ntf_cuuid call onGateConnect end!");
         }
 
         private void gate_call_client(string hub_name, byte[] rpc_argv)
@@ -243,6 +246,7 @@ namespace Client
         public event Action onGateConnectFaild;
         public void connect_gate(string wss, long timeout)
         {
+            Debug.Log("connect_gate begin");
             connect(wss, timeout, (is_conn, ch) => {
                 if (is_conn && ch != null)
                 {
@@ -313,6 +317,7 @@ namespace Client
 
         private void connect(string wss, long timeout, Action<bool, Abelkhan.Ichannel> cb)
         {
+            Debug.Log($"connect {wss} begin!");
             try
             {
                 var s = new WebSocket(wss);
@@ -321,7 +326,7 @@ namespace Client
                 {
                     add_chs.Add(ch);
                 }
-                s.Connect();
+                s.ConnectAsync();
 
                 cb(true, ch);
             }
@@ -330,6 +335,7 @@ namespace Client
                 Log.Log.err("ex:{0}", ex);
                 cb(false, null);
             }
+            Debug.Log($"connect {wss} end!");
         }
 
         public Int64 poll()

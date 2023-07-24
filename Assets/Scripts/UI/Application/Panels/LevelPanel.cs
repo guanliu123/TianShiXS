@@ -18,11 +18,11 @@ public class LevelPanel : BasePanel {
     }
     public override void OnEnter()
     {
+        levelNum = LevelManager.GetInstance().levelDatasDic.Count;
         GameObject panel = null;
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
-            levelNum = LevelManager.GetInstance().levelDatasDic.Count;
 
             var t = UITool.GetOrAddComponentInChildren<LevelPortraitList>("LevelList", panel);
             t._panel = this;
@@ -41,7 +41,10 @@ public class LevelPanel : BasePanel {
                 AudioManager.GetInstance().PlaySound("PageturnButton");
                 t.RightButton_Click();
             });
-        });        
+        });
+        
+
+       
     }
     
     public void UpdateLevelList(int index,GameObject levelPanel)

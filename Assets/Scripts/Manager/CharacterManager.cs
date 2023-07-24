@@ -16,27 +16,22 @@ public class CharacterManager : SingletonBase<CharacterManager>
         RoleDataTool.ReadRoleData();
         roleMsgDic = RoleDataTool.roleMsgDic;
         characterDatasDic = new Dictionary<int, Dictionary<int, CharacterData>>(RoleDataTool.roleDataDic);
-        if (GameManager.GetInstance()._UserData.RoleList != null)
+        foreach(var item in GameManager.GetInstance()._UserData.RoleList)
         {
-            foreach (var item in GameManager.GetInstance()._UserData.RoleList)
+            if (characterDatasDic.ContainsKey(item.RoleID))
             {
-                if (characterDatasDic.ContainsKey(item.RoleID))
-                {
-                    CharacterData t = new CharacterData();
-                    CharacterData originData = characterDatasDic[item.RoleID][0];
+                CharacterData t = new CharacterData();
+                CharacterData originData = characterDatasDic[item.RoleID][0];
 
-                    t.MaxHP = originData.MaxHP + item.Heath;
-                    t.ATK = originData.ATK + item.AttNum;
-                    t.ATKSpeed = originData.ATKSpeed + item.AttSpd;
+                t.MaxHP = originData.MaxHP + item.Heath;
+                t.ATK =originData.ATK + item.AttNum;
+                t.ATKSpeed =originData.ATKSpeed + item.AttSpd;
 
-                    characterDatasDic[item.RoleID][0] = t;
-                }
+                characterDatasDic[item.RoleID][0] = t;
             }
         }
-
-        EnemyDataTool.ReadEnemyData();
         enemyMagDic = EnemyDataTool.enemyMsgDic;
-        
+        EnemyDataTool.ReadEnemyData();
         foreach (var item in EnemyDataTool.enemyDataDic)
         {
             characterDatasDic.Add(item.Key, item.Value);

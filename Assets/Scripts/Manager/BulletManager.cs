@@ -127,16 +127,15 @@ public class BulletManager : SingletonBase<BulletManager>
         }*/
         for (int i = 0; i < n; i++)
         {
-            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
-            {
-                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
-                bulletList.Add(t);
+            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(),ResourceType.Bullet);
+            t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+            bulletList.Add(t);
+            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
-                t.transform.position = instantPos;
-                t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
-                     new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
-                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
-            },ResourceType.Bullet);           
+            t.transform.position = instantPos;
+            t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
+                 new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
+            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
         }
     }
     private void StraightLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
@@ -180,34 +179,32 @@ public class BulletManager : SingletonBase<BulletManager>
         }*/
         for (int i = 0; i < n; i++)
         {
-            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
-            {
-                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
-                bulletList.Add(t);
-                //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
+            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(), ResourceType.Bullet);
+            t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+            bulletList.Add(t);
+            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
-                if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
+            if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
+            {
+                Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
+                t.transform.position = point;
+            }
+            else
+            {
+                if (i < n / 2)
                 {
                     Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
                     t.transform.position = point;
                 }
                 else
                 {
-                    if (i < n / 2)
-                    {
-                        Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
-                        t.transform.position = point;
-                    }
-                    else
-                    {
-                        Vector3 point = new Vector3(instantPos.x + (i - n / 2 + 1) * 1f, instantPos.y, instantPos.z);
-                        t.transform.position = point;
-                    }
+                    Vector3 point = new Vector3(instantPos.x + (i - n / 2 + 1) * 1f, instantPos.y, instantPos.z);
+                    t.transform.position = point;
                 }
+            }
 
-                t.transform.rotation = shooter.transform.rotation;
-                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
-            }, ResourceType.Bullet);
+            t.transform.rotation = shooter.transform.rotation;
+            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
         }
     }
 
