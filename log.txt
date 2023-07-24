@@ -1,0 +1,60 @@
+[2023/7/20 3:36:51] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 3:37:47] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 3:38:08] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 3:44:27] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 3:57:14] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 4:08:13] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 4:16:56] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 4:17:34] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/20 4:20:31] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
+[2023/7/21 15:40:41] [err] [Service.Timerservice] [polltickhandleimpl]:System.ExceptioAbelkhan.Exception: error argvs
+  at Abelkhan.Icaller.call_module_method (System.String methodname, System.Collections.ArrayList argvs) [0x000fb] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\abelkhan.cs:125 
+  at Abelkhan.client_call_gate_caller.heartbeats () [0x00020] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\rpc_protocol\gate.cs:256 
+  at Client.GateProxy.heartbeats () [0x00001] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:27 
+  at Client.Client.heartbeats (System.Int64 tick) [0x0000f] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\client.cs:212 
+  at Service.Timerservice.polltickhandleimpl () [0x00070] in E:\UnityProj\TianShiXS\Assets\Scripts\Server\common\timerservice.cs:87 
