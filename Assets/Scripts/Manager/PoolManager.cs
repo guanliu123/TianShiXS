@@ -72,19 +72,23 @@ public class PoolManager : BaseManager<PoolManager>
     /// </summary>
     /// <param name="poolName">物体所在对象池名称（就是想取出的物体名称）</param>
     /// <returns></returns>
-    public GameObject GetObj(string poolName,ResourceType resourceType)
+    public void GetObj(string poolName,UnityAction<GameObject> callback, ResourceType resourceType)
     {
-        if (!isActive) return null;
         GameObject t=null;
         if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
         {
             t = poolDic[poolName].GetObj();
-            if (t != null) return t;
+            if (t != null) callback(t);
         }
 
-        GameObject t1 = ResourceManager.Instance.LoadByName<GameObject>(poolName, resourceType);
-        if(t1!=null) t = GameObject.Instantiate(t1);
-        return t;
+        //GameObject t1 = null;
+        ResourceManager.Instance.LoadByName<GameObject>(poolName, result =>
+        {
+            t = GameObject.Instantiate(result);
+            callback(t);
+        }, resourceType);
+        /*if(t1!=null) t = GameObject.Instantiate(t1);
+        return t;*/
     }
 
     /// <summary>

@@ -9,6 +9,9 @@ using System.Security.AccessControl;
 using UnityEngine.AddressableAssets;
 using System;
 using Object = UnityEngine.Object;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
+using UnityEditor;
 
 public class ResourceManager : SingletonBase<ResourceManager>
 {
@@ -32,23 +35,43 @@ public class ResourceManager : SingletonBase<ResourceManager>
     }
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
-    public T LoadByName<T>(string objName, ResourceType resourceType) where T : Object
+    //UnityAction<T> callback, 
+    public async void LoadByName<T>(string objName, UnityAction<T> callback, ResourceType resourceType) where T : Object
     {
-
-        //T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
-        T res=default(T);
         if (pathDic.ContainsKey(resourceType))
         {
-            //res = Resources.Load<T>(pathDic[resourceType]+objName);
-            //res =(T)Convert.ChangeType(Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName),typeof(T));
-            Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName).Completed += (Obj) =>
-            {
-                res = (T)Convert.ChangeType(Obj, typeof(T));
-            };
-        }
+            //res = Resources.Load<T>(pathDic[resourceType]+objName);         
+            string path = "Assets/Resources_Move/"+ pathDic[resourceType] + objName+".wav";
+            var handle = Addressables.LoadAssetAsync<T>(path);
+            await handle.Task;
 
-        return res;
+            if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
+            else Debug.Log("加载资源失败！");
+            //LoadRes<T>(path,callback);
+        }
     }
+
+    public async void LoadRes<T>(string path,UnityAction<T> callback) where T : Object
+    {
+        var handle = Addressables.LoadAssetAsync<T>(path);
+        await handle.Task;
+
+        if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
+        else Debug.Log("加载资源失败！");
+        //return null;
+    }
+
+    public IEnumerator LoadRes<T>(string path,Object temp) where T : Object
+    {
+        var handle = Addressables.LoadAssetAsync<T>(path);
+        if (!handle.IsDone) yield return handle;
+        // 加载完成回调
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            temp = handle.Result;
+        }
+    }
+
     public T LoadByPath<T>(string objPath) where T : Object
     {
         T res = Resources.Load<T>(objPath);

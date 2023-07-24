@@ -98,18 +98,18 @@ public class GameManager : SingletonBase<GameManager>
 
     public void StartGame()
     {
-        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-        GameObject playerObj = PoolManager.GetInstance().GetObj(nowPlayerID.ToString(),ResourceType.Player);
-        
+        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];   
 
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
 
-        playerObj.transform.parent = player.transform;
-        playerObj.transform.position = new Vector3(0, 0, -1);
-
+        PoolManager.GetInstance().GetObj(nowPlayerID.ToString(), res => {
+            res.transform.parent = player.transform;
+            res.transform.position = new Vector3(0, 0, -1);
+        }, ResourceType.Player);
+        
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
