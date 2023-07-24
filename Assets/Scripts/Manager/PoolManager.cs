@@ -84,11 +84,11 @@ public class PoolManager : BaseManager<PoolManager>
         //GameObject t1 = null;
         else ResourceManager.Instance.LoadRes<GameObject>(poolName, result =>
         {
-            /*if (!t)
+            if (!result)
             {
                 Debug.Log($"对象池新生成{poolName}对象不正确，可能是给出的对象名称/加载路径/资源类型不正确");
                 return;
-            }*/
+            }
             t = GameObject.Instantiate(result);
             callback(t);
         }, resourceType);
