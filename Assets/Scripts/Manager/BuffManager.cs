@@ -11,7 +11,7 @@ public class BuffManager : BaseManager<BuffManager>
 
     static BuffManager()
     {
-            BuffDic = BuffDataTool.ReadBuffData();
+        BuffDic = BuffDataTool.ReadBuffData();
     }
 
     public BuffManager()
@@ -45,8 +45,8 @@ public class BuffManager : BaseManager<BuffManager>
 
     public void OnBuff(GameObject taker, int buffID)
     {
-        GameObject effect = BuffDic[buffID].effect;
-        GameManager.GetInstance().GenerateEffect(taker.transform, effect,true,0.3F);
+        string effect = BuffDic[buffID].effectPath;
+        GameManager.GetInstance().GenerateEffect(taker.transform, effect, true, 0.3F);
     }
 
     private void InitBuffEvent()
@@ -64,7 +64,7 @@ public class BuffManager : BaseManager<BuffManager>
             {
                 BuffBase buff = (BuffBase)Activator.CreateInstance(type);
                 // 在这里可以对skill进行进一步的操作
-                if(!BuffEvent.ContainsKey(buff.buffID)) BuffEvent.Add(buff.buffID, buff);
+                if (!BuffEvent.ContainsKey(buff.buffID)) BuffEvent.Add(buff.buffID, buff);
                 n++;
             }
             if (n >= buffNum) break;

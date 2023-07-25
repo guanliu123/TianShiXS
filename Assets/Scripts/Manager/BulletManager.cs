@@ -24,7 +24,7 @@ public class BulletManager : SingletonBase<BulletManager>
 
     public BulletManager()
     {
-            BulletDic = BulletDataTool.ReadBulletData();
+        BulletDic = BulletDataTool.ReadBulletData();
 
         Init();
     }
@@ -46,7 +46,7 @@ public class BulletManager : SingletonBase<BulletManager>
             increaseATK.Add(item.Key, 0);
             increaseShootTimer.Add(item.Key, 0);
             increaseExistTime.Add(item.Key, 0);
-            haveSpecialEvolved.Add(item.Key, false);           
+            haveSpecialEvolved.Add(item.Key, false);
         }
     }
     public override void Reset()
@@ -116,7 +116,7 @@ public class BulletManager : SingletonBase<BulletManager>
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
 
-        int n=1;
+        int n = 1;
         //确定好倍增buff的id后修改这里
 
         /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
@@ -127,15 +127,16 @@ public class BulletManager : SingletonBase<BulletManager>
         }*/
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(),ResourceType.Bullet);
-            t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
-            bulletList.Add(t);
-            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
+            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
+            {
+                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+                bulletList.Add(t);
 
-            t.transform.position = instantPos;
-            t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
-                 new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
-            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+                t.transform.position = instantPos;
+                t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
+                     new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
+                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+            }, ResourceType.Bullet);
         }
     }
     private void StraightLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
@@ -169,7 +170,7 @@ public class BulletManager : SingletonBase<BulletManager>
         Vector3 instantPos = new Vector3(
                     shooter.transform.position.x, 1f, shooter.transform.position.z);
 
-        int n=1;
+        int n = 1;
         //确定好倍增buff的id后修改这里
         /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
         else
@@ -179,32 +180,34 @@ public class BulletManager : SingletonBase<BulletManager>
         }*/
         for (int i = 0; i < n; i++)
         {
-            GameObject t = PoolManager.GetInstance().GetObj(bulletID.ToString(), ResourceType.Bullet);
-            t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
-            bulletList.Add(t);
-            //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
+            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
+            {
+                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+                bulletList.Add(t);
+                //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
-            if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
-            {
-                Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
-                t.transform.position = point;
-            }
-            else
-            {
-                if (i < n / 2)
+                if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
                 {
                     Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
                     t.transform.position = point;
                 }
                 else
                 {
-                    Vector3 point = new Vector3(instantPos.x + (i - n / 2 + 1) * 1f, instantPos.y, instantPos.z);
-                    t.transform.position = point;
+                    if (i < n / 2)
+                    {
+                        Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
+                        t.transform.position = point;
+                    }
+                    else
+                    {
+                        Vector3 point = new Vector3(instantPos.x + (i - n / 2 + 1) * 1f, instantPos.y, instantPos.z);
+                        t.transform.position = point;
+                    }
                 }
-            }
 
-            t.transform.rotation = shooter.transform.rotation;
-            if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+                t.transform.rotation = shooter.transform.rotation;
+                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+            }, ResourceType.Bullet);
         }
     }
 
@@ -224,9 +227,9 @@ public class BulletManager : SingletonBase<BulletManager>
             BulletBuffs[bulletType].Add(evolutionType, 1);
         }*/
     }
-    public void ChangeBullet(int originBullet,int changedBullet)
+    public void ChangeBullet(int originBullet, int changedBullet)
     {
-        foreach(var item in Player._instance.nowBullet)
+        foreach (var item in Player._instance.nowBullet)
         {
             if (item.Key == originBullet)
             {

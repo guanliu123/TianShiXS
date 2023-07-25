@@ -82,11 +82,14 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
         leftTemp = GameObject.Find("Left_Temp").transform;
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
-        currentPortrait = PoolManager.GetInstance().GetObj("PlayerPortrait", ResourceType.UI);
-        currentPortrait.transform.parent = transform;
-        currentPortrait.transform.localScale = new Vector3(1, 1, 1);
-        currentPortrait.transform.localPosition = midTemp.localPosition;
-        _panel.UpdatePlayerPanel(0, currentPortrait);
+        PoolManager.GetInstance().GetObj("PlayerPortrait", t =>
+        {
+            currentPortrait = t;
+            currentPortrait.transform.parent = transform;
+            currentPortrait.transform.localScale = new Vector3(1, 1, 1);
+            currentPortrait.transform.localPosition = midTemp.localPosition;
+            _panel.UpdatePlayerPanel(0, currentPortrait);
+        }, ResourceType.UI);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -171,26 +174,26 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
         expirePortrait = currentPortrait;
         destroyList.Add(expirePortrait);
-        currentPortrait = preparePortrait;     
+        currentPortrait = preparePortrait;
     }
 
-   // private void DragReset()
+    // private void DragReset()
     //{
-        //if (offfsetx > -200 && offfsetx < 200)
-        //{
-            //currentPortrait.transform.localPosition = midTemp.localPosition;
-           // CurSelectIndex = lastIndex;
-            //lastIndex = 0;
-            //Destroy(preparePortrait);
-        //}
+    //if (offfsetx > -200 && offfsetx < 200)
+    //{
+    //currentPortrait.transform.localPosition = midTemp.localPosition;
+    // CurSelectIndex = lastIndex;
+    //lastIndex = 0;
+    //Destroy(preparePortrait);
+    //}
 
-        //isDrag = false;
+    //isDrag = false;
 
     //}
     //private void Draging()
     //{
-        //currentPortrait.transform.localPosition = new Vector3(currentPortrait.transform.localPosition.x - offfsetx, currentPortrait.transform.localPosition.y, 0);
-        //preparePortrait.transform.localPosition = new Vector3(preparePortrait.transform.localPosition.x - offfsetx, preparePortrait.transform.localPosition.y, 0);
+    //currentPortrait.transform.localPosition = new Vector3(currentPortrait.transform.localPosition.x - offfsetx, currentPortrait.transform.localPosition.y, 0);
+    //preparePortrait.transform.localPosition = new Vector3(preparePortrait.transform.localPosition.x - offfsetx, preparePortrait.transform.localPosition.y, 0);
     //}
     /// <summary>
     /// 生成立绘
@@ -199,18 +202,20 @@ public class PlayerPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHand
     /// <param name="i"></param>
     private void InsPortrait(bool flag, int i)
     {
-        preparePortrait = PoolManager.GetInstance().GetObj("PlayerPortrait", ResourceType.UI);
-        _panel.UpdatePlayerPanel(i, preparePortrait);
-        preparePortrait.transform.SetParent(transform);
-        preparePortrait.transform.localScale = new Vector3(1, 1, 1);
-        if (flag)
-        {
-            preparePortrait.transform.localPosition = rightTemp.localPosition;
-        }
-        else
-        {
-            preparePortrait.transform.localPosition = leftTemp.localPosition;
-        }
+        PoolManager.GetInstance().GetObj("PlayerPortrait", t => {
+            preparePortrait = t;
+            _panel.UpdatePlayerPanel(i, preparePortrait);
+            preparePortrait.transform.SetParent(transform);
+            preparePortrait.transform.localScale = new Vector3(1, 1, 1);
+            if (flag)
+            {
+                preparePortrait.transform.localPosition = rightTemp.localPosition;
+            }
+            else
+            {
+                preparePortrait.transform.localPosition = leftTemp.localPosition;
+            }
+        }, ResourceType.UI);
     }
     private void FixedUpdate()
     {

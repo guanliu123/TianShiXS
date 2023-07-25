@@ -15,7 +15,7 @@ public interface IDragButton
 /// <summary>
 /// 角色立绘列表
 /// </summary>
-public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler,IDragButton
+public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDragButton
 {
     //private ArcList arcList;
     public HandbookPanel _panel;
@@ -90,11 +90,13 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
         rightTemp = GameObject.Find("Right_Temp").transform;
         midTemp = GameObject.Find("Mid_Temp").transform;
         //arcList = GameObject.Find("ArcList").GetComponent<ArcList>();
-        currentPortrait = PoolManager.GetInstance().GetObj("EnemyPortrait",ResourceType.UI);
-        currentPortrait.transform.parent = transform;
-        currentPortrait.transform.localScale = new Vector3(1, 1, 1);
-        currentPortrait.transform.localPosition = midTemp.localPosition;
-        _panel.UpdateEnemyPanel(0, currentPortrait);
+        PoolManager.GetInstance().GetObj("EnemyPortrait", t => {
+            currentPortrait = t;
+            currentPortrait.transform.parent = transform;
+            currentPortrait.transform.localScale = new Vector3(1, 1, 1);
+            currentPortrait.transform.localPosition = midTemp.localPosition;
+            _panel.UpdateEnemyPanel(0, currentPortrait);
+        }, ResourceType.UI);
     }
     private void OnDestroy()
     {
@@ -210,19 +212,22 @@ public class EnemyPortraitList : MonoBehaviour, IBeginDragHandler, IEndDragHandl
     private void InsPortrait(bool flag, int i)
     {
         //GameObject.Instantiate<GameObject>(portraits[i]);
-        preparePortrait = PoolManager.GetInstance().GetObj("EnemyPortrait", ResourceType.UI);
-        _panel.UpdateEnemyPanel(i, preparePortrait);
+        PoolManager.GetInstance().GetObj("EnemyPortrait", t =>
+        {
+            preparePortrait = t;
+            _panel.UpdateEnemyPanel(i, preparePortrait);
 
-        preparePortrait.transform.SetParent(transform);
-        preparePortrait.transform.localScale = new Vector3(1, 1, 1);
-        if (flag)
-        {
-            preparePortrait.transform.localPosition = rightTemp.localPosition;
-        }
-        else
-        {
-            preparePortrait.transform.localPosition = leftTemp.localPosition;
-        }
+            preparePortrait.transform.SetParent(transform);
+            preparePortrait.transform.localScale = new Vector3(1, 1, 1);
+            if (flag)
+            {
+                preparePortrait.transform.localPosition = rightTemp.localPosition;
+            }
+            else
+            {
+                preparePortrait.transform.localPosition = leftTemp.localPosition;
+            }
+        }, ResourceType.UI);
     }
     private void FixedUpdate()
     {

@@ -10,7 +10,7 @@ public class BulletBase : MonoBehaviour
     public BulletData bulletData;
     public int bulletID;
     //public int bulletID;
-    public Dictionary<int, int> nowBuffs=new Dictionary<int, int>();
+    public Dictionary<int, int> nowBuffs = new Dictionary<int, int>();
     public GameObject attacker;
 
     public UnityAction bulletAction;
@@ -29,7 +29,7 @@ public class BulletBase : MonoBehaviour
         //bulletAction += AttackCheck;
     }
 
-    public virtual void InitBullet(GameObject _attacker,CharacterTag _tag,BulletData _bulletData,Dictionary<int, int> buffs)
+    public virtual void InitBullet(GameObject _attacker, CharacterTag _tag, BulletData _bulletData, Dictionary<int, int> buffs)
     {
         attacker = _attacker;
         bulletData = _bulletData;
@@ -72,7 +72,7 @@ public class BulletBase : MonoBehaviour
     public virtual void Rotat()
     {
 
-    }  
+    }
 
     protected virtual void AttackCheck(GameObject obj)
     {
@@ -91,8 +91,8 @@ public class BulletBase : MonoBehaviour
             isCrit = false;
         }
         else { targetIAttck.ChangeHealth(attacker, -bulletData.ATK); }
-        GameManager.GetInstance().GenerateEffect(obj.transform, bulletData.effect);
-        AudioManager.GetInstance().PlaySound(bulletData.audio,false);
+        GameManager.GetInstance().GenerateEffect(obj.transform, bulletData.effectPath);
+        AudioManager.GetInstance().PlaySound(bulletData.audioPath, false);
     }
     protected virtual void SpecialEvolution()
     {

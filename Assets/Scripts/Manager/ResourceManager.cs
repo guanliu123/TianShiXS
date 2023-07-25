@@ -9,12 +9,15 @@ using System.Security.AccessControl;
 using UnityEngine.AddressableAssets;
 using System;
 using Object = UnityEngine.Object;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
+using UnityEditor;
 
 public class ResourceManager : SingletonBase<ResourceManager>
 {
     //private Dictionary<ResourceType, Dictionary<string, string>> objPathDic = new Dictionary<ResourceType, Dictionary<string, string>>();
 
-    private Dictionary<ResourceType, string> pathDic = new Dictionary<ResourceType, string>();
+    private Dictionary<ResourceType, (string, string)> pathDic = new Dictionary<ResourceType, (string, string)>();
     public ResourceManager()
     {
         //resourcepathSO = Resources.Load<ResourcepathSO>("ScriptableObject/ResourcepathSO");
@@ -32,23 +35,47 @@ public class ResourceManager : SingletonBase<ResourceManager>
     }
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
-    public T LoadByName<T>(string objName, ResourceType resourceType) where T : Object
+    //UnityAction<T> callback, 
+    public async void LoadRes<T>(string objName, UnityAction<T> callback, ResourceType resourceType = ResourceType.Null, string suffix = "") where T : Object
     {
-
-        //T res = Resources.Load<T>(DataManager.GetInstance().AskAPath(objName));
-        T res=default(T);
         if (pathDic.ContainsKey(resourceType))
         {
             //res = Resources.Load<T>(pathDic[resourceType]+objName);
-            //res =(T)Convert.ChangeType(Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName),typeof(T));
-            Addressables.LoadAssetAsync<T>(pathDic[resourceType] + objName).Completed += (Obj) =>
-            {
-                res = (T)Convert.ChangeType(Obj, typeof(T));
-            };
-        }
+            string path = "Assets/Resources_Move/";
+            if (resourceType != ResourceType.Null) path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;
+            else path += objName + suffix;
 
-        return res;
+            var handle = Addressables.LoadAssetAsync<T>(path);
+            await handle.Task;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
+            else Debug.Log($"加载{objName}资源失败！");
+
+            //LoadRes<T>(path,callback);
+        }
     }
+
+    public async void LoadRes<T>(string path, UnityAction<T> callback) where T : Object
+    {
+        var handle = Addressables.LoadAssetAsync<T>(path);
+        await handle.Task;
+
+        if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
+        else Debug.Log("加载资源失败！");
+        //return null;
+    }
+
+    public IEnumerator LoadRes<T>(string path, Object temp) where T : Object
+    {
+        var handle = Addressables.LoadAssetAsync<T>(path);
+        if (!handle.IsDone) yield return handle;
+        // 加载完成回调
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            temp = handle.Result;
+        }
+    }
+
     public T LoadByPath<T>(string objPath) where T : Object
     {
         T res = Resources.Load<T>(objPath);
@@ -61,10 +88,10 @@ public class ResourceManager : SingletonBase<ResourceManager>
 
         }*/
         //else
-            return res;
+        return res;
     }
 
-    public T Load<T>(string instantName,string objName) where T : Object
+    public T Load<T>(string instantName, string objName) where T : Object
     {
         T res = Resources.Load<T>(objName);
         //如果res是一个GameObject
@@ -75,7 +102,7 @@ public class ResourceManager : SingletonBase<ResourceManager>
             return t;
         }*/
         //else //else情况示例：TextAsset、AudioClip
-            return res;
+        return res;
     }
     //异步加载，异步加载使用起来在观感上更加顺滑，适用于较大的资源
     //异步加载使用协程

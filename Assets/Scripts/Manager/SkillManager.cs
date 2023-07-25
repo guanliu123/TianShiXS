@@ -11,7 +11,7 @@ public class SkillManager : SingletonBase<SkillManager>
 {
     public static Dictionary<int, SkillData> SkillDic = new Dictionary<int, SkillData>();
 
-    public Dictionary<int,int> skillPool = new Dictionary<int, int>();//目前可以抽取的所有技能所在的池子
+    public Dictionary<int, int> skillPool = new Dictionary<int, int>();//目前可以抽取的所有技能所在的池子
     public Dictionary<int, int> occurredSkill = new Dictionary<int, int>();//目前已经出现过的技能池子
     private float randomValue;
 
@@ -19,12 +19,13 @@ public class SkillManager : SingletonBase<SkillManager>
     public Dictionary<int, SkillBase> skillEvent = new Dictionary<int, SkillBase>();
 
 
-    public Dictionary<int,Sprite> nowSkillIcons = new Dictionary<int, Sprite>();
+    public Dictionary<int, string> nowSkillIcons = new Dictionary<int, string>();
     static SkillManager()
     {
-        SkillDic =SkillDataTool.ReadSkillData();
+        SkillDic = SkillDataTool.ReadSkillData();
     }
-    public SkillManager(){
+    public SkillManager()
+    {
         InitSkillPool();
         InitSkillEvent();
     }
@@ -39,7 +40,7 @@ public class SkillManager : SingletonBase<SkillManager>
                 skillPool.Add(item.Value.id, item.Value.num);
                 occurredSkill.Add(item.Value.id, 1);
                 randomValue += item.Value.probability;
-            }            
+            }
         }
     }
 
@@ -54,8 +55,8 @@ public class SkillManager : SingletonBase<SkillManager>
 
     public void UpdateSkillPool(int usedId)
     {
-        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, SkillDic[usedId].icon);
-        int n = skillPool[usedId] - 1;       
+        if (!nowSkillIcons.ContainsKey(usedId)) nowSkillIcons.Add(usedId, SkillDic[usedId].iconPath);
+        int n = skillPool[usedId] - 1;
         if (n <= 0)
         {
             skillPool.Remove(usedId);
@@ -90,7 +91,7 @@ public class SkillManager : SingletonBase<SkillManager>
     }
 
     public List<SkillUpgrade> RandomSkill()
-    {        
+    {
         List<SkillUpgrade> skillUpgrades = new List<SkillUpgrade>();
         HashSet<int> indices = new HashSet<int>();
 
@@ -120,7 +121,7 @@ public class SkillManager : SingletonBase<SkillManager>
             }
             if (t_id < 0)
             {
-                temp.icon = null;
+                temp.iconPath = null;
                 temp.name = "无";
                 temp.describe = "现在没有可用技能！";
                 temp.quality = null;
@@ -138,7 +139,7 @@ public class SkillManager : SingletonBase<SkillManager>
                 iconNum = Mathf.Min(occurredSkill[skillPool.ElementAt(t).Key], data.icon);
             }*/
 
-            temp.icon = data.icon;
+            temp.iconPath = data.iconPath;
             temp.name = data.name;
             temp.describe = data.describe;
             temp.quality = data.quality;
@@ -153,7 +154,7 @@ public class SkillManager : SingletonBase<SkillManager>
 
     private int ExtractSkill(HashSet<int> indices)
     {
-        int id = -1;       
+        int id = -1;
 
         float t_random = UnityEngine.Random.Range(0, randomValue * 100);
         foreach (var item in skillPool)
@@ -168,7 +169,7 @@ public class SkillManager : SingletonBase<SkillManager>
             }
             t_random -= SkillDic[item.Key].probability * 100;
         }
-        
+
         return id;
     }
 

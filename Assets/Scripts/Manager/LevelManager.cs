@@ -23,7 +23,7 @@ public class LevelManager : BaseManager<LevelManager>
     public int nowLevelNum;
     private LevelData nowLevel;
 
-    public int maxStage{ get; private set; }
+    public int maxStage { get; private set; }
     public int nowStage { get; private set; }//当前所处阶段数
     public int nowWave { get; private set; }//当前波次
     private int requireEnemy;//当前波次剩余需要生成的敌人数量
@@ -44,15 +44,15 @@ public class LevelManager : BaseManager<LevelManager>
     public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
     public List<Vector3> enemyPoints = new List<Vector3>();//已经生成了敌人的点位，不能重复在一个点上生成敌人
 
-    public Vector3 specialPoint=new Vector3(0,2,20);//特殊阶段生成固定敌人的大致位置
+    public Vector3 specialPoint = new Vector3(0, 2, 20);//特殊阶段生成固定敌人的大致位置
     public Vector3 bossPoint = new Vector3(0, 2, 25);
-    
+
 
     public LevelManager()
     {
-            levelDatasDic = LevelDataTool.ReadLevelData();
+        levelDatasDic = LevelDataTool.ReadLevelData();
 
-        nowLevel = levelDatasDic[1];        
+        nowLevel = levelDatasDic[1];
     }
 
     public void ChangeLevel(int levelNum)
@@ -87,7 +87,8 @@ public class LevelManager : BaseManager<LevelManager>
         requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
 
         ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
-            Camera.main.GetComponent<Skybox>().material = result; }, ResourceType.Skybox);
+            Camera.main.GetComponent<Skybox>().material = result;
+        }, ResourceType.Skybox);
 
         for (int i = 0; i < defaultNum; i++)
         {
@@ -108,7 +109,7 @@ public class LevelManager : BaseManager<LevelManager>
                     t.transform.rotation = Quaternion.identity;
 
                     exitingSquare.Add(t);
-                },ResourceType.MapGround);      */        
+                },ResourceType.MapGround);      */
             }
             else
             {
@@ -132,13 +133,13 @@ public class LevelManager : BaseManager<LevelManager>
 
                     if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
                     exitingSquare.Add(t);
-                }, ResourceType.MapGround);  */             
+                }, ResourceType.MapGround);  */
             }
-        }        
+        }
     }
 
     public void Start()
-    {   
+    {
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 
@@ -176,7 +177,7 @@ public class LevelManager : BaseManager<LevelManager>
     {
         if (checkPoint == null) return;
 
-        if(checkPoint.transform.position.z - Player._instance.transform.position.z <= 0.1f)
+        if (checkPoint.transform.position.z - Player._instance.transform.position.z <= 0.1f)
         {
             ChangeStage();
 
@@ -201,7 +202,7 @@ public class LevelManager : BaseManager<LevelManager>
                     exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
                 exitingSquare.Add(t2);
                 if (t2.transform.position.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t2);
-            }, ResourceType.MapGround);           
+            }, ResourceType.MapGround);
         }
         if (distanceSquare.Count <= 0) return;
         if (distanceSquare[0].transform.position.z - Vector3.zero.z <= closeDistance)
@@ -218,7 +219,7 @@ public class LevelManager : BaseManager<LevelManager>
 
         int n = Random.Range(0, t.childCount);
         for (int i = 0; i < t.childCount; i++) t.GetChild(i).gameObject.SetActive(false);
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             int r;
             do
@@ -243,7 +244,7 @@ public class LevelManager : BaseManager<LevelManager>
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().LockMove();
         }
-        ChangeEnvironment();     
+        ChangeEnvironment();
 
         //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
         checkPoint = new GameObject("CheckPoint");
@@ -260,7 +261,7 @@ public class LevelManager : BaseManager<LevelManager>
     }
     private void ChangeEnvironment()
     {
-        for(int i = distanceSquare.Count-1; i >= 0; i--)
+        for (int i = distanceSquare.Count - 1; i >= 0; i--)
         {
             GameObject t = distanceSquare[i];
             PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], newSquare =>
@@ -271,7 +272,7 @@ public class LevelManager : BaseManager<LevelManager>
                 exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
 
                 RecoveryGround(t);
-            },ResourceType.MapGround);           
+            }, ResourceType.MapGround);
         }
     }
 
@@ -286,13 +287,13 @@ public class LevelManager : BaseManager<LevelManager>
         }
         else
         {
-            mapSize = nowLevel.normalSize;            
+            mapSize = nowLevel.normalSize;
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
             GameManager.GetInstance().UnlockMove();
             /*smoke = PoolManager.GetInstance().GetObj("Smoke");
             smoke.transform.position= new Vector3(0, -6, 40);*/
         }
-        GameManager.GetInstance().SwitchMode();        
+        GameManager.GetInstance().SwitchMode();
     }
 
     /// <summary>
@@ -326,13 +327,13 @@ public class LevelManager : BaseManager<LevelManager>
 
         if (requireEnemy <= 0)
         {
-            if (requireBOSS>0)
+            if (requireBOSS > 0)
             {
                 BOSSCreate();
             }
             return;
         }
-        
+
         enemyPoints.Clear();
         GameObject enemyList = new GameObject("EnemyList");
         int n = Random.Range(1, Mathf.Min(requireEnemy, enemyDensity) + 1);
@@ -345,21 +346,21 @@ public class LevelManager : BaseManager<LevelManager>
                 do
                 {
                     _newPoint = InstantRandomPoint(ground);
-                }while (enemyPoints.Contains(_newPoint));
+                } while (enemyPoints.Contains(_newPoint));
 
                 enemyPoints.Add(_newPoint);
                 PoolManager.GetInstance().GetObj(
                 nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)].ToString(),
                 t =>
                 {
-                    if(t)
+                    if (t)
                     {
                         t.transform.position = _newPoint;
                         //t.transform.parent = ground.transform;
                         t.transform.parent = enemyList.transform;
                     }
                 }, ResourceType.Enemy);
-                
+
                 //Debug.Log("enemypos" + _newPoint);
                 enemyList.transform.parent = ground.transform;
             }
@@ -380,7 +381,7 @@ public class LevelManager : BaseManager<LevelManager>
                     {
                         t.transform.position = _newPoint;
                     }
-                }, ResourceType.Enemy);              
+                }, ResourceType.Enemy);
             }
             requireEnemy--;
         }
@@ -397,7 +398,7 @@ public class LevelManager : BaseManager<LevelManager>
                 ground.transform.position.y,
                 ground.transform.position.z - mapSize[0] / 2);
             t.transform.parent = ground.transform;
-        },ResourceType.MapItem);       
+        }, ResourceType.MapItem);
     }
     void BOSSCreate()
     {
@@ -410,12 +411,12 @@ public class LevelManager : BaseManager<LevelManager>
 
                 t.transform.DOMove(bossPoint, 3f);
                 boss = t;
-            },ResourceType.Enemy);      
+            }, ResourceType.Enemy);
     }
 
     public void WaveIncrease()
     {
-        if (requireEnemy > 0|| requireBOSS>0) return;
+        if (requireEnemy > 0 || requireBOSS > 0) return;
 
         nowWave++;
         if (nowWave >= nowLevel.StageDatas[nowStage].WaveEnemyNum.Count)
@@ -426,11 +427,11 @@ public class LevelManager : BaseManager<LevelManager>
                 //结束游戏               
                 PanelManager.Instance.Push(new VictoryPanel());
                 return;
-            }         
+            }
             nowWave = 0;
         }
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
-        if(nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Count-1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
+        if (nowWave == nowLevel.StageDatas[nowStage].WaveEnemyNum.Count - 1) requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
         if (nowLevel.StageDatas[nowStage].isSpecial != isChange)
         {
             PrepareChangeStage();
@@ -439,15 +440,15 @@ public class LevelManager : BaseManager<LevelManager>
 
     Vector3 InstantRandomPoint(GameObject parent)
     {
-        float[] _znumbers = {-5, -3, 3, 5};
-        float[] _xnumbers = { -2.5f, 0,2.5f };
+        float[] _znumbers = { -5, -3, 3, 5 };
+        float[] _xnumbers = { -2.5f, 0, 2.5f };
         float _randNum;
 
         _randNum = _znumbers[Random.Range(0, _znumbers.Length)];
         _randNum = Mathf.Clamp(_randNum, -mapSize[1] / 2, mapSize[1] / 2);
         float _z = parent.transform.position.z + _randNum;
 
-        _randNum = _xnumbers[Random.Range(_xnumbers.Length / 2 - 1, _xnumbers.Length / 2 + 2)];       
+        _randNum = _xnumbers[Random.Range(_xnumbers.Length / 2 - 1, _xnumbers.Length / 2 + 2)];
         _randNum = Mathf.Clamp(_randNum, -mapSize[1] / 2, mapSize[1] / 2);
         float _x = parent.transform.position.x + _randNum;
 
@@ -460,7 +461,7 @@ public class LevelManager : BaseManager<LevelManager>
     Vector3 InstantRandomPoint()
     {
         float _x = specialPoint.x + Random.Range(-2, 2);
-        float _z= specialPoint.z+ Random.Range(-2, 2);
+        float _z = specialPoint.z + Random.Range(-2, 2);
 
         return new Vector3(_x, 0, _z);
     }
