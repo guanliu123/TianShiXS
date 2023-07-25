@@ -288,8 +288,8 @@ public static class LevelDataTool
                 levelData.energy = (int)item["Energy"];
 
                 //levelData.skybox = ResourceManager.Instance.LoadByName<Material>("Skybox" + levelID,ResourceType.Skybox);
-                ResourceManager.Instance.LoadRes<Material>("Skybox" + levelID, result => { levelData.skybox = result; }, ResourceType.Skybox);
-
+                //ResourceManager.Instance.LoadRes<Material>("Skybox" + levelID, result => { levelData.skyboxName = result; }, ResourceType.Skybox);
+                levelData.skyboxName = "Skybox" + levelID;
 
                 levelData.normalPlanes = new List<string>();
                 for(int i = 0; i < (int)item["NormalPlaneNum"]; i++)

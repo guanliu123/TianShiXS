@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEditor;
 using UIFrameWork;
+using System.Threading.Tasks;
 
 public class LevelManager : BaseManager<LevelManager>
 {
@@ -61,7 +62,7 @@ public class LevelManager : BaseManager<LevelManager>
         nowPlane = nowLevel.normalPlanes;
     }
 
-    private void InitLevel()
+    public async Task InitLevelRes()
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
@@ -85,28 +86,36 @@ public class LevelManager : BaseManager<LevelManager>
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
         requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
 
-
-        Camera.main.GetComponent<Skybox>().material = nowLevel.skybox;
+        ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
+            Camera.main.GetComponent<Skybox>().material = result; }, ResourceType.Skybox);
 
         for (int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
             {
-                PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
+                ResourceManager.GetInstance().LoadRes<GameObject>(nowPlane[Random.Range(0, nowPlane.Count)], t =>
                 {
                     RandomSet(t);
                     t.transform.position = Vector3.zero;
                     t.transform.rotation = Quaternion.identity;
 
                     exitingSquare.Add(t);
-                },ResourceType.MapGround);              
+                }, ResourceType.MapGround);
+                /*PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
+                {
+                    RandomSet(t);
+                    t.transform.position = Vector3.zero;
+                    t.transform.rotation = Quaternion.identity;
+
+                    exitingSquare.Add(t);
+                },ResourceType.MapGround);      */        
             }
             else
             {
                 Vector3 nextSquare = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
-                PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
+                ResourceManager.GetInstance().LoadRes<GameObject>(nowPlane[Random.Range(0, nowPlane.Count)], t =>
                 {
                     t.transform.position = nextSquare;
                     t.transform.rotation = Quaternion.identity;
@@ -114,16 +123,22 @@ public class LevelManager : BaseManager<LevelManager>
 
                     if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
                     exitingSquare.Add(t);
-                }, ResourceType.MapGround);               
-            }
-        }
+                }, ResourceType.MapGround);
+                /*PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
+                {
+                    t.transform.position = nextSquare;
+                    t.transform.rotation = Quaternion.identity;
+                    RandomSet(t);
 
-        
+                    if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
+                    exitingSquare.Add(t);
+                }, ResourceType.MapGround);  */             
+            }
+        }        
     }
 
     public void Start()
-    {
-        InitLevel();       
+    {   
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 

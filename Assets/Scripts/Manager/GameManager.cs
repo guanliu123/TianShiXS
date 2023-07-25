@@ -96,7 +96,7 @@ public class GameManager : SingletonBase<GameManager>
         LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 
-    public void StartGame()
+    public async void StartGame()
     {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         PoolManager.GetInstance().GetObj(nowPlayerID.ToString(), res => {
@@ -107,8 +107,9 @@ public class GameManager : SingletonBase<GameManager>
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);       
-        
+        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
+
+        await LevelManager.GetInstance().InitLevelRes();
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();

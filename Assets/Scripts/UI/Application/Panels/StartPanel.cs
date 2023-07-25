@@ -71,7 +71,7 @@ public class StartPanel : BasePanel
                     /*PanelManager.Instance.Clear();
                     PanelManager.Instance.Push(new GamePanel());*/
                     SceneSystem.Instance.SetScene(new LevelScene());
-                    GameManager.GetInstance().StartGame();
+                    //GameManager.GetInstance().StartGame();
                     /*if (GameManager.Instance._UserData.Strength > 5)
                     {
                         GameManager.GetInstance().StartGame();
