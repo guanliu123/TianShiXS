@@ -98,6 +98,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public async void StartGame()
     {
+        //AsyncOperation sceneAsync= SceneSystem.Instance.SetScene(new LevelScene());
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         PoolManager.GetInstance().GetObj(nowPlayerID.ToString(), res => {
             res.transform.parent = player.transform;
