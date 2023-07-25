@@ -149,7 +149,7 @@ public struct LevelData
     [Header("关卡普通地面长和宽")] public float[] normalSize;
     [Header("关卡特殊地面类型")] public List<GameObject> widthPlanes;
     [Header("关卡特殊地面长和宽")] public float[] widthSize;
-    [Header("关卡天空盒")] public Material skybox;
+    [Header("关卡天空盒")] public string skyboxName;
     /*[Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
     [Header("关卡总波次")] public int waveNum;
     [Header("波次敌人基础数量")] public int baseEnemyNum;

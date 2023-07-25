@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0620fb137571da94cbad8d2d7a5b595f
-    m_Address: Assets/Scenes/LevelScene.unity
+    m_Address: Scenes/LevelScene
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

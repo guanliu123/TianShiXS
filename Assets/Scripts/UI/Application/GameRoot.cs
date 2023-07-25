@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using WeChatWASM;
 //游戏的根管理器
@@ -45,7 +46,7 @@ public class GameRoot : MonoBehaviour
         //}
        
         var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, true);
-        
+
         handle.Completed += (obj) =>
         {
 
