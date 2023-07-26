@@ -36,7 +36,7 @@ public class ResourceManager : SingletonBase<ResourceManager>
     //同步加载
     //使用是要注意给出T的类型，如ResMagr.GetInstance().Load<GameObject>()
     //UnityAction<T> callback, 
-    public async void LoadRes<T>(string objName, UnityAction<T> callback, ResourceType resourceType, string suffix = "") where T : Object
+    public async Task LoadRes<T>(string objName, UnityAction<T> callback, ResourceType resourceType, string suffix = "") where T : Object
     {
         string path = "Assets/Resources_Move/";
         if (resourceType == ResourceType.Null)

@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using Abelkhan;
+using Game;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,6 +71,6 @@ public class GameRoot : MonoBehaviour
         //    StarkSDK.API.GetAccountManager().Login(ClientRoot.Instance.DySuccessLogin, ClientRoot.Instance.DyFailedLogin, true);
         //});
 
-        SceneSystem.Instance.SetScene(new StartScene());
+        SceneSystem.Instance.SetScene(new StartScene());       
     }
 }

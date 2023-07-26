@@ -12,6 +12,7 @@ public class LevelScene : SceneBase
     {
         if (SceneManager.GetActiveScene().name != "LevelScene")
         {
+            
             //SceneManager.LoadScene(sceneName);
             GameRoot.Instance.SwitchScene(sceneName);
             SceneManager.sceneLoaded += SceneLoaded;
@@ -29,9 +30,9 @@ public class LevelScene : SceneBase
         PanelManager.Instance.Clear();
     }
 
-    private void SceneLoaded(Scene scene, LoadSceneMode mode)
+    private async void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PanelManager.Instance.Push(new GamePanel());
-        GameManager.GetInstance().StartGame();
+        GameManager.GetInstance().StartGame();        
     }
 }

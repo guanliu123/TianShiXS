@@ -4,6 +4,7 @@ using Game;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 //using System.Numerics;
 using UIFrameWork;
 using UnityEngine;
@@ -47,6 +48,7 @@ public class GameManager : SingletonBase<GameManager>
         ChangeRole();
         MonoManager.GetInstance().AddUpdateListener(() => {if(mainCanvas==null) mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas"); });
         nowPlayerID = 1001;
+        
     }
 
     public Dictionary<int,CharacterMsg> GetPlayerRole()
@@ -191,14 +193,12 @@ public class GameManager : SingletonBase<GameManager>
     {
         //PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         MonoManager.GetInstance().AddUpdateListener(ControllerLock);
-        Debug.Log("lock");
     }
     public void UnlockMove()
     {
         MonoManager.GetInstance().RemoveUpdeteListener(ControllerLock);
         PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = true;
-        Debug.Log("UnlockMove");
     }
 
     private void ControllerLock()

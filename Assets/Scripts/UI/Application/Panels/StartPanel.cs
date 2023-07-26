@@ -68,16 +68,8 @@ public class StartPanel : BasePanel
                 UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
-                    /*PanelManager.Instance.Clear();
-                    PanelManager.Instance.Push(new GamePanel());*/
-                    SceneSystem.Instance.SetScene(new LevelScene());
-                    //GameManager.GetInstance().StartGame();
-                    /*if (GameManager.Instance._UserData.Strength > 5)
-                    {
-                        GameManager.GetInstance().StartGame();
-                        PanelManager.Instance.Clear();
-                        PanelManager.Instance.Push(new GamePanel());
-                    }*/
+                    //if (GameManager.Instance._UserData.Strength > 5)
+                        SceneSystem.Instance.SetScene(new LevelScene());
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>
@@ -128,7 +120,6 @@ public class StartPanel : BasePanel
         topArea.SetActive(isShow);
         midArea.SetActive(isShow);
     }
-
 }
 
 
