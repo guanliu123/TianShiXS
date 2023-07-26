@@ -30,10 +30,9 @@ public class LevelScene : SceneBase
         PanelManager.Instance.Clear();
     }
 
-    private async void SceneLoaded(Scene scene, LoadSceneMode mode)
+    private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PanelManager.Instance.Push(new GamePanel());
         GameManager.GetInstance().StartGame();
-        //GameManager.GetInstance().StartGame();        
+        PanelManager.Instance.Push(new GamePanel());            
     }
 }
