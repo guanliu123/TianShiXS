@@ -98,9 +98,15 @@ public class GameManager : SingletonBase<GameManager>
         LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 
-    public async void StartGame()
+    public async void StartLoad()
     {
         //AsyncOperation sceneAsync= SceneSystem.Instance.SetScene(new LevelScene());
+        await LevelManager.GetInstance().LoadLevelRes();
+        SceneSystem.GetInstance().SetScene(new LevelScene());       
+    }
+
+    public void StartGame()
+    {
         GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
         PoolManager.GetInstance().GetObj(nowPlayerID.ToString(), res => {
             res.transform.parent = player.transform;
@@ -110,9 +116,8 @@ public class GameManager : SingletonBase<GameManager>
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
         //player.transform.GetChild(0).gameObject.SetActive(true);
-        player.transform.position = Vector3.zero + new Vector3(0,1,-1f);
+        player.transform.position = Vector3.zero + new Vector3(0, 1, -1f);
 
-        await LevelManager.GetInstance().InitLevelRes();
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
@@ -124,6 +129,7 @@ public class GameManager : SingletonBase<GameManager>
 
         Init();
     }
+
     public void Init()
     {
         critProbability=0;
@@ -191,12 +197,13 @@ public class GameManager : SingletonBase<GameManager>
     }
     public void LockMove()
     {
-        //PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
-        MonoManager.GetInstance().AddUpdateListener(ControllerLock);
+        PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
+        t.canMove = false;
+        //MonoManager.GetInstance().AddUpdateListener(ControllerLock);
     }
     public void UnlockMove()
     {
-        MonoManager.GetInstance().RemoveUpdeteListener(ControllerLock);
+        //MonoManager.GetInstance().RemoveUpdeteListener(ControllerLock);
         PlayerController t = Player._instance.gameObject.GetComponent<PlayerController>();
         t.canMove = true;
     }

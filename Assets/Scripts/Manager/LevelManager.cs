@@ -12,7 +12,7 @@ public class LevelManager : BaseManager<LevelManager>
 {
     public Dictionary<int, LevelData> levelDatasDic = new Dictionary<int, LevelData>();
 
-    private List<string> nowPlane = new List<string>();
+    private List<GameObject> nowPlane = new List<GameObject>();
 
     private bool isSp;//是否更换了当前预备生成的地图模板
     public bool isChange;//是否进入宽地面战斗模式
@@ -47,6 +47,10 @@ public class LevelManager : BaseManager<LevelManager>
     public Vector3 specialPoint = new Vector3(0, 2, 20);//特殊阶段生成固定敌人的大致位置
     public Vector3 bossPoint = new Vector3(0, 2, 25);
 
+    //======================缓存资源的句柄======================//
+    private List<GameObject> normalPlanes=new List<GameObject>();
+    private List<GameObject> widthPlanes = new List<GameObject>();
+    private Material skybox;
 
     public LevelManager()
     {
@@ -59,10 +63,36 @@ public class LevelManager : BaseManager<LevelManager>
     {
         nowLevelNum = levelNum;
         nowLevel = levelDatasDic[nowLevelNum];
-        nowPlane = nowLevel.normalPlanes;
+        //nowPlane = nowLevel.normalPlanes;
     }
 
-    public async Task InitLevelRes()
+    public async Task LoadLevelRes()
+    {
+        normalPlanes.Clear();
+        widthPlanes.Clear();
+
+        await ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
+            skybox = result;
+        }, ResourceType.Skybox);
+        for(int i = 0; i < nowLevel.normalPlanes.Count; i++)
+        {
+            await ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
+            {
+                normalPlanes.Add(result);
+            }, ResourceType.MapGround);
+        }
+        for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
+        {
+            await ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
+            {
+                widthPlanes.Add(result);
+            }, ResourceType.MapGround);
+        }
+        Debug.Log("关卡普通地面数量" + normalPlanes.Count);
+        Debug.Log("关卡宽地面数量" + widthPlanes.Count);
+    }
+
+    public void InitLevel()
     {
         exitingSquare.Clear();
         distanceSquare.Clear();
@@ -74,74 +104,43 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = nowLevel.StageDatas[nowStage].isSpecial;
         if (isSp)
         {
-            nowPlane = nowLevel.widthPlanes;
+            nowPlane = widthPlanes;
             mapSize = nowLevel.widthSize;
         }
         else
         {
-            nowPlane = nowLevel.normalPlanes;
+            nowPlane = normalPlanes;
             mapSize = nowLevel.normalSize;
         }
 
         requireEnemy = nowLevel.StageDatas[nowStage].WaveEnemyNum[nowWave];
         requireBOSS = nowLevel.StageDatas[nowStage].BOSSList.Count;
 
-        await ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
-            Camera.main.GetComponent<Skybox>().material = result;
-        }, ResourceType.Skybox);
-
+        Camera.main.GetComponent<Skybox>().material = skybox;
         for (int i = 0; i < defaultNum; i++)
         {
             if (exitingSquare.Count == 0)
             {
-                await ResourceManager.GetInstance().LoadRes<GameObject>(nowPlane[Random.Range(0, nowPlane.Count)], result =>
-                {
-                    GameObject t = GameObject.Instantiate(result);
-                    RandomSet(t);
-                    t.transform.position = Vector3.zero;
-                    t.transform.rotation = Quaternion.identity;
-
-                    exitingSquare.Add(t);
-                }, ResourceType.MapGround);
-                /*PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
-                {
-                    RandomSet(t);
-                    t.transform.position = Vector3.zero;
-                    t.transform.rotation = Quaternion.identity;
-
-                    exitingSquare.Add(t);
-                },ResourceType.MapGround);      */
+                GameObject t= GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)],Vector3.zero,Quaternion.identity);
+                RandomSet(t);
+                exitingSquare.Add(t);
             }
             else
             {
                 Vector3 nextSquare = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.y,
                                                  exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
-                await ResourceManager.GetInstance().LoadRes<GameObject>(nowPlane[Random.Range(0, nowPlane.Count)], result =>
-                {
-                    GameObject t = GameObject.Instantiate(result);
-                    t.transform.position = nextSquare;
-                    t.transform.rotation = Quaternion.identity;
-                    RandomSet(t);
-
-                    if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
-                    exitingSquare.Add(t);
-                }, ResourceType.MapGround);
-                /*PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t =>
-                {
-                    t.transform.position = nextSquare;
-                    t.transform.rotation = Quaternion.identity;
-                    RandomSet(t);
-
-                    if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
-                    exitingSquare.Add(t);
-                }, ResourceType.MapGround);  */
+                GameObject t = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)], nextSquare, Quaternion.identity);
+                RandomSet(t);
+                if (nextSquare.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t);
+                exitingSquare.Add(t);
             }
         }
     }
 
     public void Start()
     {
+        InitLevel();
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
 
@@ -196,15 +195,12 @@ public class LevelManager : BaseManager<LevelManager>
             exitingSquare.RemoveAt(0);
             RecoveryGround(t);
 
-            PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], t2 =>
-            {
-                RandomSet(t2);
-
-                t2.transform.position = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x, exitingSquare[exitingSquare.Count - 1].transform.position.y,
+            GameObject t2 = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)]);
+            RandomSet(t2);
+            t2.transform.position = new Vector3(exitingSquare[exitingSquare.Count - 1].transform.position.x, exitingSquare[exitingSquare.Count - 1].transform.position.y,
                     exitingSquare[exitingSquare.Count - 1].transform.position.z + mapSize[0]);
-                exitingSquare.Add(t2);
-                if (t2.transform.position.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t2);
-            }, ResourceType.MapGround);
+            exitingSquare.Add(t2);
+            if (t2.transform.position.z - Vector3.zero.z > closeDistance) distanceSquare.Add(t2);
         }
         if (distanceSquare.Count <= 0) return;
         if (distanceSquare[0].transform.position.z - Vector3.zero.z <= closeDistance)
@@ -237,65 +233,43 @@ public class LevelManager : BaseManager<LevelManager>
         isSp = !isSp;
         if (isSp)
         {
-            nowPlane = nowLevel.widthPlanes;
+            nowPlane = widthPlanes;
         }
         else
         {
-            nowPlane = nowLevel.normalPlanes;
+            nowPlane = normalPlanes;
             BulletManager.GetInstance().ClearExistBullet();
             GameManager.GetInstance().PlayerReset();
             GameManager.GetInstance().LockMove();
         }
-        ChangeEnvironment();        
+        ChangeEnvironment();
+
+        //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
+        checkPoint = new GameObject("CheckPoint");
+        Vector3 t1 = new Vector3(distanceSquare[0].transform.position.x,
+                              distanceSquare[0].transform.position.y,
+                              distanceSquare[0].transform.position.z - mapSize[0] / 2);
+        checkPoint.transform.position = t1;
+        checkPoint.transform.parent = distanceSquare[0].transform;
+
+        if (requireBOSS > 0)
+        {
+            BuffDoorCreate(distanceSquare[0]);
+        }
     }
     private void ChangeEnvironment()
     {
         for (int i = distanceSquare.Count - 1; i >= 0; i--)
-        {
+        {            
             GameObject t = distanceSquare[i];
-            ReservedFunction(i, t);
-            /*PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], newSquare =>
-            {
-                newSquare.transform.position = t.transform.position;
-                RandomSet(newSquare);
-                Debug.Log("地面" + i+"变更为宽地面");
-                distanceSquare[i] = newSquare;
-                exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
-
-                //RecoveryGround(t);
-                GameObject.Destroy(t);
-                Debug.Log("摧毁原地面");
-            }, ResourceType.MapGround);*/
-        }
-    }
-    //因为异步加载新地面后传入的i会是最后的i，所以再单独写一个保留函数保留i的值
-   private void ReservedFunction(int i,GameObject t)
-    {
-        PoolManager.GetInstance().GetObj(nowPlane[Random.Range(0, nowPlane.Count)], newSquare =>
-        {
+            GameObject newSquare = GameObject.Instantiate(nowPlane[Random.Range(0, nowPlane.Count)]);
             newSquare.transform.position = t.transform.position;
             RandomSet(newSquare);
             distanceSquare[i] = newSquare;
             exitingSquare[(exitingSquare.Count - distanceSquare.Count) + i] = newSquare;
 
             RecoveryGround(t);
-            //GameObject.Destroy(t);
-            if (i == 0)
-            {
-                //将一个检查点加到最末尾地图快的边缘，判断玩家与该点位置，若小于某个值，正式进入下一个阶段
-                checkPoint = new GameObject("CheckPoint");
-                Vector3 t1 = new Vector3(distanceSquare[0].transform.position.x,
-                                      distanceSquare[0].transform.position.y,
-                                      distanceSquare[0].transform.position.z - mapSize[0] / 2);
-                checkPoint.transform.position = t1;
-                checkPoint.transform.parent = distanceSquare[0].transform;
-
-                if (requireBOSS > 0)
-                {
-                    BuffDoorCreate(distanceSquare[0]);
-                }
-            }
-        }, ResourceType.MapGround);
+        }
     }
 
     //加上切换天空盒

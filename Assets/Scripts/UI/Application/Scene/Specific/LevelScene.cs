@@ -33,6 +33,7 @@ public class LevelScene : SceneBase
     private async void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PanelManager.Instance.Push(new GamePanel());
-        GameManager.GetInstance().StartGame();        
+        GameManager.GetInstance().StartGame();
+        //GameManager.GetInstance().StartGame();        
     }
 }
