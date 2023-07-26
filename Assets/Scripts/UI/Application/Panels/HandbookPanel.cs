@@ -92,6 +92,7 @@ public class HandbookPanel : BasePanel
 
     public void UpdateSkillPanel(int index, GameObject panel)
     {
+        Debug.Log(skills[index].iconPath);
         ResourceManager.GetInstance().LoadRes<Sprite>(skills[index].iconPath, t =>
         {
             UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = t;

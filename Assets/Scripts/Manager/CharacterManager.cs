@@ -33,9 +33,9 @@ public class CharacterManager : SingletonBase<CharacterManager>
                 }
             }
         }
-        
-        enemyMagDic = EnemyDataTool.enemyMsgDic;
+
         EnemyDataTool.ReadEnemyData();
+        enemyMagDic = EnemyDataTool.enemyMsgDic;        
         foreach (var item in EnemyDataTool.enemyDataDic)
         {
             characterDatasDic.Add(item.Key, item.Value);
