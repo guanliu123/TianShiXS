@@ -17,10 +17,17 @@ public class LoadPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-        
+   
         UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
         {
-            GameRoot.Instance.StartGame();
+            if(ClientRoot.WXLoggedIn) 
+            {
+                GameRoot.Instance.StartGame();
+            }
+            else
+            {
+               ClientRoot.Instance.WXlogin();
+            }
         });
 
     }
