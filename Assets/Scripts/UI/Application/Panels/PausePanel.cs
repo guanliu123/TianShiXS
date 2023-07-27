@@ -24,9 +24,9 @@ public class PausePanel : BasePanel
             Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
             for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
             {
-                PoolManager.GetInstance().GetObj("SkillTag", t =>
+                PoolManager.GetInstance().GetObj("SkillTag", async t =>
                 {
-                    ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
+                    await ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
                     {
                         UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = result;
                     }, ResourceType.Null, ".png");
