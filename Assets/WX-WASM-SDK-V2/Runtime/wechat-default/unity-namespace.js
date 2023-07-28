@@ -36,7 +36,7 @@ const unityNamespace = {
     
     enableProfileStats: $ENABLE_PROFILE_STATS,
     
-    preloadwXFont: $PRELOAD_WXFONT,
+    preloadWXFont: $PRELOAD_WXFONT,
     
     iOSAutoGCInterval: $IOS_AUTO_GC_INTERVAL,
     

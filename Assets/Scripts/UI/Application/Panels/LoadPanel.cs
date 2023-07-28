@@ -18,17 +18,18 @@ public class LoadPanel : BasePanel
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
    
-        UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
-        {
-            if(ClientRoot.WXLoggedIn) 
-            {
-                GameRoot.Instance.StartGame();
-            }
-            else
-            {
-               ClientRoot.Instance.WXlogin();
-            }
-        });
+        //UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
+        //{
+        //    if(ClientRoot.WXLoggedIn) 
+        //    {
+        //        GameRoot.Instance.StartGame();
+        //    }
+        //    else
+        //    {
+                //ClientRoot.Instance.WXlogin();
+                //UITool.GetOrAddComponent<Button>(panel).onClick.RemoveAllListeners();
+        //    }
+        //});
 
     }
 

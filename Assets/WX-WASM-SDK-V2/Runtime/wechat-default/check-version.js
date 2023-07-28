@@ -50,7 +50,9 @@ export const isSupportPlayBackRate = !isAndroid || compareVersion(version, '8.0.
 
 export const isSupportCacheAudio = !isIOS || compareVersion(version, '8.0.31');
 
-const isPcBrotliInvalid = isPc && !compareVersion(SDKVersion, '2.29.2');
+export const isSupportInnerAudio = compareVersion(version, '8.0.38');
+
+const isPcBrotliInvalid = isPc && !compareVersion(SDKVersion, '2.32.3');
 const isMobileBrotliInvalid = isMobile && !compareVersion(SDKVersion, '2.21.1');
 
 const isBrotliInvalid = $COMPRESS_DATA_PACKAGE && (isPcBrotliInvalid || isMobileBrotliInvalid);

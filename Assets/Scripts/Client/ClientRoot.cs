@@ -56,7 +56,7 @@ public class ClientRoot : MonoBehaviour
                     Debug.Log($"player_login success!");
                     GameManager.GetInstance()._UserData = data;
                     WXLoggedIn = true;
-                    //SceneSystem.Instance.SetScene(new StartScene());
+                    SceneSystem.Instance.SetScene(new StartScene());
                 }, (err) =>
                 {
                     Debug.Log($"player_login err:{err}");
@@ -67,7 +67,7 @@ public class ClientRoot : MonoBehaviour
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance()._UserData = data;
                             WXLoggedIn = true;
-                            //SceneSystem.Instance.SetScene(new StartScene());
+                            SceneSystem.Instance.SetScene(new StartScene());
                         }, (error) =>
                         {
                             Console.WriteLine("player_login_wx err:{0}", err);
@@ -90,19 +90,13 @@ public class ClientRoot : MonoBehaviour
             Debug.Log($"_callBack success begin e.code:{e.code}!");
             if (e.code != null)
             {
-                AuthorizeOption _authorizeCallBack = new AuthorizeOption();
-                _authorizeCallBack.scope = "scope.userInfo";
-                _authorizeCallBack.success += (err) =>
-                {
-
-                };
-                WX.Authorize(_authorizeCallBack);
                 Debug.Log("_callBack success begin!");
                 GetSettingOption _getSettingCallBack = new GetSettingOption();
                 _getSettingCallBack.success = (res) =>
                 {
-                   
-                    if (res.authSetting.ContainsKey("scope.userInfo")|| res.authSetting["scope.userInfo"])
+                    Debug.Log("_getSettingCallBack success begin!");
+
+                    if (res.authSetting.ContainsKey("scope.userInfo") && res.authSetting["scope.userInfo"])
                     {
                         GetUserInfoOption _userInfoCallBack = new GetUserInfoOption();
                         _userInfoCallBack.lang = "zh_CN";
@@ -115,11 +109,14 @@ public class ClientRoot : MonoBehaviour
                     }
                     else
                     {
+                        Debug.Log("_getSettingCallBack no scope.userInfo!");
+
                         var sysinfo = WX.GetSystemInfoSync();
                         var button = WX.CreateUserInfoButton(0, 0, (int)sysinfo.windowWidth, (int)sysinfo.windowHeight, "zh_CN", true);
                         button.OnTap((eee) =>
                         {
-                            if(eee != null)
+                            Debug.Log("button.OnTap!");
+                            if (eee != null)
                             {
                                 button.Destroy();
                                 WxSuccessLogin(e.code, eee.userInfo.nickName);
@@ -135,6 +132,8 @@ public class ClientRoot : MonoBehaviour
                            
                         });
                         button.Show();
+                        Debug.Log($"_getSettingCallBack no scope.userInfo button{JsonUtility.ToJson(button)}!");
+                        Debug.Log($"_getSettingCallBack no scope.userInfo sysinfo{JsonUtility.ToJson(sysinfo)}!");
                     }
                 };
                 WX.GetSetting(_getSettingCallBack);

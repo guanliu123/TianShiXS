@@ -3,6 +3,7 @@ import getFriendRankXML from './render/tpls/friendRank';
 import getFriendRankStyle from './render/styles/friendRank';
 import getTipsXML from './render/tpls/tips';
 import getTipsStyle from './render/styles/tips';
+import { showLoading } from './loading';
 const Layout = requirePlugin('Layout').default;
 const RANK_KEY = 'user_rank';
 const sharedCanvas = wx.getSharedCanvas();
@@ -58,7 +59,7 @@ function renderTips(tips = '') {
 }
 // 将好友排行榜数据渲染在 sharedCanvas
 async function renderFriendsRank() {
-    renderTips('好友数据加载中...');
+    showLoading();
     try {
         const data = await getFriendRankData(RANK_KEY);
         if (!data.length) {
@@ -80,7 +81,7 @@ async function renderFriendsRank() {
 }
 
 async function renderGroupFriendsRank(shareTicket) {
-    renderTips('群同玩好友数据加载中...');
+    showLoading();
     try {
         const data = await getGroupFriendsRankData(shareTicket, RANK_KEY);
         if (!data.length) {

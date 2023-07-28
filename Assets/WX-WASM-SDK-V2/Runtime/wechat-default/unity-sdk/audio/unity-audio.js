@@ -1,4 +1,4 @@
-import { isAndroid, isPc, webAudioNeedResume, isSupportBufferURL, isSupportPlayBackRate } from '../../check-version';
+import { isAndroid, isPc, webAudioNeedResume, isSupportBufferURL, isSupportPlayBackRate, isSupportInnerAudio } from '../../check-version';
 import { WEBAudio, soundVolumeHandler } from './store';
 import { TEMP_DIR_PATH } from './const';
 import { createInnerAudio, destroyInnerAudio, printErrMsg, resumeWebAudio } from './utils';
@@ -483,6 +483,7 @@ export class AudioChannelInstance {
                 mediaElement: getAudio,
                 url,
                 playbackStartTime: 0,
+                playbackRate: 1,
                 pauseRequested: false,
                 _reset,
                 _pauseMediaElement,
@@ -521,7 +522,8 @@ export class AudioChannelInstance {
             });
             Object.defineProperty(source, 'playbackRateValue', {
                 get() {
-                    return source?.mediaElement?.playbackRate ?? 0;
+                    
+                    return source?.playbackRate ?? 1;
                 },
                 set(v) {
                     if (!source || !source.mediaElement) {
@@ -532,6 +534,7 @@ export class AudioChannelInstance {
                         source.mediaElement.playbackRate = 1;
                     }
                     else {
+                        source.playbackRate = v;
                         source.mediaElement.playbackRate = v;
                     }
                 },
@@ -697,7 +700,12 @@ export default {
             decompress = 1;
         }
         
-        if (isAndroid || isPc) {
+        
+        if (isPc) {
+            decompress = 1;
+        }
+        
+        if (isAndroid && !isSupportInnerAudio) {
             decompress = 1;
         }
         if (decompress && WEBAudio.audioWebSupport) {
@@ -943,7 +951,7 @@ export default {
         }
     },
     _JS_Sound_SetPitch(channelInstance, v) {
-        if (WEBAudio.audio3DSupport === 0 || WEBAudio.audioWebSupport === 0 || WEBAudio.audioWebEnabled === 0) {
+        if (WEBAudio.audioWebSupport === 0 || WEBAudio.audioWebEnabled === 0) {
             return;
         }
         try {

@@ -85,6 +85,9 @@ export function formatResponse(type, data, id) {
                 data[key] = typeMap[conf[key]];
             }
         }
+        else if (conf[key] === 'long') {
+            data[key] = parseInt(data[key], 10);
+        }
         else if (conf[key] === 'int' && typeof data[key] === 'string') {
             data[key] = Number(data[key]);
         }

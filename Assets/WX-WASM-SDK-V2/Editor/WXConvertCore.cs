@@ -108,6 +108,19 @@ namespace WeChatWASM
 
                 ConvertCode();
                 string dataFilePath = GetWebGLDataPath();
+                string wxTextDataDir = WXAssetsTextTools.GetTextMinDataDir();
+                string dataFilePathBackupDir = $"{wxTextDataDir}{WXAssetsTextTools.DS}slim";
+                string dataFilePathBackupPath = $"{dataFilePathBackupDir}{WXAssetsTextTools.DS}backup.txt";
+                if (!Directory.Exists(dataFilePathBackupDir))
+                {
+                    Directory.CreateDirectory(dataFilePathBackupDir);
+                }
+                if (File.Exists(dataFilePathBackupPath))
+                {
+                    File.Delete(dataFilePathBackupPath);
+                }
+                File.Copy(dataFilePath, dataFilePathBackupPath);
+
                 if (config.CompileOptions.fbslim && !IsInstantGameAutoStreaming())
                 {
                     WXAssetsTextTools.FirstBundleSlim(dataFilePath, (result, info) =>
@@ -416,6 +429,7 @@ namespace WeChatWASM
                     File.Copy(tempDataPath, config.ProjectConf.compressDataPackage ? brMinigameDataPath : originMinigameDataPath, true);
                 }
             }
+            checkNeedRmovePackageParallelPreload();
 
             // 设置InstantGame的首资源包路径，上传用
             FirstBundlePath = tempDataPath;
@@ -441,6 +455,26 @@ namespace WeChatWASM
             };
             string[] files = { "game.js", "game.json", "project.config.json", "check-version.js" };
             ReplaceFileContent(files, rules);
+        }
+
+        private static void checkNeedRmovePackageParallelPreload()
+        {
+            // cdn下载时不需要填写并行下载配置
+            if (config.ProjectConf.assetLoadType == 0)
+            {
+                var filePath = Path.Combine(config.ProjectConf.DST, miniGameDir, "game.json");
+
+                string content = File.ReadAllText(filePath, Encoding.UTF8);
+                JsonData gameJson = JsonMapper.ToObject(content);
+                JsonWriter writer = new JsonWriter();
+                writer.IndentValue = 2;
+                writer.PrettyPrint = true;
+                gameJson["parallelPreloadSubpackages"].Remove(gameJson["parallelPreloadSubpackages"][1]);
+
+                // 将配置写回到文件夹
+                gameJson.ToJson(writer);
+                File.WriteAllText(filePath, writer.TextWriter.ToString());
+            }
         }
 
         /// <summary>
@@ -862,7 +896,7 @@ namespace WeChatWASM
                 config.CompileOptions.enableProfileStats ? "true" : "false",
                 config.CompileOptions.iOSAutoGCInterval.ToString(),
                 dataFileSize,
-                "false",
+                IsInstantGameAutoStreaming() ? "true" : "false",
             });
 
             List<Rule> replaceList = new List<Rule>(replaceArrayList);

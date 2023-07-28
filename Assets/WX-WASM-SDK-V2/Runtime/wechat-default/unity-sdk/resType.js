@@ -658,7 +658,7 @@ export const ResType = {
     OnKeyDownListenerResult: {
         code: 'string',
         key: 'string',
-        timeStamp: 'int',
+        timeStamp: 'long',
     },
     OnKeyboardInputListenerResult: {
         value: 'string',
@@ -709,7 +709,7 @@ export const ResType = {
     },
     OnTouchStartListenerResult: {
         changedTouches: 'Touch[]',
-        timeStamp: 'int',
+        timeStamp: 'long',
         touches: 'Touch[]',
     },
     Touch: {
@@ -748,7 +748,7 @@ export const ResType = {
         deltaX: 'int',
         deltaY: 'int',
         deltaZ: 'int',
-        timeStamp: 'int',
+        timeStamp: 'long',
         x: 'int',
         y: 'int',
     },

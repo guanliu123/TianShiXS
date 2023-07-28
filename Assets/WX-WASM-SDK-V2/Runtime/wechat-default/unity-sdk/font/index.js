@@ -64,7 +64,7 @@ function WXGetFontRawData(conf, callbackId) {
     GameGlobal.manager.TimeLogger.timeStart('WXGetFontRawData');
     handleGetFontData(config).then(() => {
         if (fontDataCache) {
-            GameGlobal.manager.font.reportGetFontCost(GameGlobal.manager.TimeLogger.timeEnd('WXGetFontRawData'), { loadFromRemote, isReadFromCache });
+            GameGlobal.manager.font.reportGetFontCost(GameGlobal.manager.TimeLogger.timeEnd('WXGetFontRawData'), { loadFromRemote, isReadFromCache, preloadWXFont: GameGlobal.unityNamespace.preloadWXFont });
             const { ascent, descent, lineGap, unitsPerEm } = readMetrics(fontDataCache) || {};
             tempCacheObj[callbackId] = fontDataCache;
             moduleHelper.send('GetFontRawDataCallback', JSON.stringify({ callbackId, type: 'success', res: JSON.stringify({ byteLength: fontDataCache.byteLength, ascent, descent, lineGap, unitsPerEm }) }));
