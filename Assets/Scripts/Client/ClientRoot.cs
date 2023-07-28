@@ -90,11 +90,19 @@ public class ClientRoot : MonoBehaviour
             Debug.Log($"_callBack success begin e.code:{e.code}!");
             if (e.code != null)
             {
+                AuthorizeOption _authorizeCallBack = new AuthorizeOption();
+                _authorizeCallBack.scope = "scope.userInfo";
+                _authorizeCallBack.success += (err) =>
+                {
+
+                };
+                WX.Authorize(_authorizeCallBack);
                 Debug.Log("_callBack success begin!");
                 GetSettingOption _getSettingCallBack = new GetSettingOption();
                 _getSettingCallBack.success = (res) =>
                 {
-                    if (res.authSetting["scope.userInfo"])
+                   
+                    if (res.authSetting.ContainsKey("scope.userInfo")|| res.authSetting["scope.userInfo"])
                     {
                         GetUserInfoOption _userInfoCallBack = new GetUserInfoOption();
                         _userInfoCallBack.lang = "zh_CN";
@@ -108,7 +116,7 @@ public class ClientRoot : MonoBehaviour
                     else
                     {
                         var sysinfo = WX.GetSystemInfoSync();
-                        var button = WX.CreateUserInfoButton((int)sysinfo.windowWidth / 2 - 50, (int)sysinfo.windowHeight / 2 - 50, 100, 60, "zh_CN", true);
+                        var button = WX.CreateUserInfoButton(0, 0, (int)sysinfo.windowWidth, (int)sysinfo.windowHeight, "zh_CN", true);
                         button.OnTap((eee) =>
                         {
                             if(eee != null)
