@@ -122,10 +122,10 @@ public class GameManager : SingletonBase<GameManager>
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
 
-        RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
-        {
-            _UserData = data;
-        });
+        //RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
+        //{
+        //    _UserData = data;
+        //});
 
         Init();
     }
