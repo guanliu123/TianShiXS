@@ -7,7 +7,6 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MainPanelTexture
-  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -32,6 +31,7 @@ SpriteAtlas:
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
       m_Overridden: 0
+      m_IgnorePlatformSupport: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     - serializedVersion: 3
@@ -44,6 +44,7 @@ SpriteAtlas:
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
       m_Overridden: 1
+      m_IgnorePlatformSupport: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
@@ -53,12 +54,20 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: 8fbfaf08aa7d71b41b68df0dcd62a866, type: 3}
     - {fileID: 21300000, guid: 4e648e41d9077fe4790969debf072e3e, type: 3}
     - {fileID: 21300000, guid: ecaa465b270365b4ea974436f5989f41, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 4e648e41d9077fe4790969debf072e3e: 21300000
+    - 8fbfaf08aa7d71b41b68df0dcd62a866: 21300000
+    - ecaa465b270365b4ea974436f5989f41: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 4e648e41d9077fe4790969debf072e3e, type: 3}
@@ -68,6 +77,6 @@ SpriteAtlas:
   - "\u5173\u5361\u9009\u62E9\u680F"
   - logo
   - front
+  m_RenderDataMap: {}
   m_Tag: MainPanelTexture
   m_IsVariant: 0
-  m_IsPlaceholder: 0

@@ -2,6 +2,7 @@
 using Game;
 using System.Collections;
 using System.Collections.Generic;
+using UIFrameWork;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
@@ -45,8 +46,8 @@ public class GameRoot : MonoBehaviour
         //{
         //    yield return new WaitForSeconds(3.0f);
         //}
-       
-        var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, true);
+
+        var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, false);
 
         handle.Completed += (obj) =>
         {
@@ -55,9 +56,12 @@ public class GameRoot : MonoBehaviour
         while (!handle.IsDone)
         {
             // 在此可使用handle.PercentComplete进行进度展示
-            yield return new WaitForSeconds(1.0f);
+            PanelManager.Instance.Push(new LoadingPanel());
+            LoadingPanel.PercentComplete = handle.PercentComplete;
+            yield return new WaitForSeconds(0.5f);
         }
-
+        PanelManager.Instance.Pop();
+        handle.Result.ActivateAsync();
     }
 
     public void StartGame()

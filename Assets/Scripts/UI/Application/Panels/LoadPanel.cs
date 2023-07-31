@@ -17,19 +17,13 @@ public class LoadPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = UIManager.Instance.GetSingleUI(UIType);
-   
-        //UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
-        //{
-        //    if(ClientRoot.WXLoggedIn) 
-        //    {
-        //        GameRoot.Instance.StartGame();
-        //    }
-        //    else
-        //    {
-                //ClientRoot.Instance.WXlogin();
-                //UITool.GetOrAddComponent<Button>(panel).onClick.RemoveAllListeners();
-        //    }
-        //});
+
+#if UNITY_EDITOR
+        UITool.GetOrAddComponent<Button>(panel).onClick.AddListener(() =>
+        {
+            GameRoot.Instance.StartGame();
+        });
+#endif
 
     }
 

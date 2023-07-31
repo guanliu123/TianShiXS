@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e498ea22a7a870642abfa25bca445583
   m_SerializeEntries:
-  - m_GUID: 7b5999a2e210fcd42b180ebcd3a75604
-    m_Address: Assets/Resources_Move/Prefabs/Panels/StartScenePanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf1da46596e92e4fafaa159345dc31d
     m_Address: Assets/Resources_Move/Prefabs/Panels/BagPanel.prefab
     m_ReadOnly: 0
@@ -74,11 +69,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 840eb5502312c5d4ba9fad4cfaee50ad
     m_Address: Assets/Resources_Move/Prefabs/Panels/VictoryPanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a63a7c02ea1aa924e8051d9c761cf587
-    m_Address: Assets/Resources_Move/Prefabs/Panels/LoadingPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

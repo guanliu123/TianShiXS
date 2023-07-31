@@ -172,10 +172,10 @@ public class GameManager : SingletonBase<GameManager>
         WriteData();
         //DataCenter.Money += levelMoney;
 
-        RequestCenter.AddCoinReq(GameClient.Instance, levelMoney, (data) =>
-        {
-            userData = data;
-        });
+        //RequestCenter.AddCoinReq(GameClient.Instance, levelMoney, (data) =>
+        //{
+        //    userData = data;
+        //});
     }
 
     public void WriteData()

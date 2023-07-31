@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 0b09264703cf53949b98202c52722327
+guid: 0413fc41e32c46a42b03795bde2c4f97
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 4130640169021434097
-    second: 5_0
-  - first:
-      213: -7200132072931614835
-    second: 5_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -71,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -88,19 +82,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 5_0
+      name: "\u8FDB\u5EA6\u6761\u5E95\u6846_0"
       rect:
         serializedVersion: 2
-        x: 48
-        y: 97
-        width: 643
-        height: 496
+        x: 3
+        y: 4
+        width: 940
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,29 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f86b71495bf25930800000000000000
-      internalID: 4130640169021434097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 5_1
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 339
-        width: 253
-        height: 270
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8f9301170ef31c90800000000000000
-      internalID: -7200132072931614835
+      spriteID: 8b85abb7318e2dd42b583848e38b0beb
+      internalID: 558565479
       vertices: []
       indices: 
       edges: []
@@ -194,8 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      5_0: 4130640169021434097
-      5_1: -7200132072931614835
+      "\u8FDB\u5EA6\u6761\u5E95\u6846_0": 558565479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

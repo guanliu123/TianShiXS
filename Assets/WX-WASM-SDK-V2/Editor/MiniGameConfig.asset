@@ -27,7 +27,7 @@ MonoBehaviour:
     AssetsUrl: 
     MemorySize: 256
     HideAfterCallMain: 1
-    preloadFiles: panels_assets_all;defaultlocalgroup_assets_all;prefabs_ui;
+    preloadFiles: prefabs_ui;defaultlocalgroup_assets_all;panels_assets_all;
     Orientation: 0
     bgImageSrc: Assets/WX-WASM-SDK-V2/Runtime/wechat-default/images/background.jpg
     dataFileSubPrefix: 
