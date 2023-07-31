@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e828965e93991a34a92e3c42f70a673b
+  m_SerializeEntries:
+  - m_GUID: ecaa465b270365b4ea974436f5989f41
+    m_Address: Assets/Resources_Move/Arts/Map/3/Skybox/front.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d43eed097e75834896a30f1ed2f4796
+    m_Address: "Assets/Resources_Move/Arts/UI/Icon/\u91D1\u5E01.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3441f1e806fe6fd48b910e2a8decbb32
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/\u5F00\u59CB\u6E38\u620Ficon.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cab66995e28ba04c8193ed07ff3904f
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/_0000s_0000s_0000s_0002s_0000_\u56FE\u9274.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1239339b182eac24aadc32099ee6fddf
+    m_Address: Assets/Resources_Move/Arts/UI/Icon/5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca0089aff5d167f4189353a701fedd57
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0001s_0001_\u56FE\u5C42-130.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b09cd96811d634c4182d19f49b207759
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/\u5F00\u59CB\u6E38\u620F .png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9dced7d57031b347b9a5919d6d38790
+    m_Address: Assets/Resources_Move/Arts/UI/Icon/x.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd522b0b0a0720140a8ec209dcafa663
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/\u4F53\u529B\u589E\u52A0.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 697f08ba58d15dd42ab031383b2d3ac6
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/_0000s_0000s_0000s_0000s_0000_\u97F3\u6548.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 257e570790bd7b74d86554f93b64a553
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/\u89D2\u8272.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eaf750479733c04490e49733b2d1835
+    m_Address: "Assets/Resources_Move/Arts/UI/BackGround/\u56FE\u5C42 27.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0505158f47b5b924096a3158000996c6
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0000s_0002_\u56FE\u5C42-122.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c23c44b2040ddb145813f442c216f17b
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0002s_0001_\u56FE\u5C42-129.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b97743b992d4f6041a3d02073a5205af
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/\u5B9D\u7BB1.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c25f20fa8a795364b8061a71fd10f6f4
+    m_Address: "Assets/Resources_Move/Arts/UI/Icon/\u4F53\u529B.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24cc965b6a2e22242be9711b5c6f7129
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/_0000s_0000s_0000s_0003s_0000_\u5B9D\u7BB1.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95a85b3e5b0a3de4ab0144953bd95a1d
+    m_Address: "Assets/Resources_Move/Arts/UI/BackGround/\u7EC4 25\uFF08\u5408\u5E76\uFF09.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b236d677c7e817c4ebd57dab6c58114f
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0000s_0003_\u56FE\u5C42-154.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a05e14120b63c174dae87c21deb4b803
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/_0000s_0000s_0000s_0001s_0000_\u89D2\u8272.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1eb263f0b874d2949a000f32557bcf1a
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0000s_0001_\u56FE\u5C42-132.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 828023dd2cc5f4d46973b1f1425807d3
+    m_Address: "Assets/Resources_Move/Arts/UI/Btn/_0000s_0000s_0000s_0003s_0001_\u56FE\u5C42-128.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cdbad1619723c0428cecc16cb18f921
+    m_Address: "Assets/Resources_Move/Arts/UI/Text/\u6F14\u793A\u60A0\u7136\u5C0F\u6977.ttf"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5371ddc2ce460a3448252dd77bce3ee7
+    m_Address: "Assets/Resources_Move/Arts/UI/ChestPanel/\u5B9D\u7BB1/\u91D1\u5E95.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1426e3a9874759548bc499074b6e04b0
+    m_Address: "Assets/Resources_Move/Arts/UI/ChestPanel/\u5B9D\u7BB1/\u5B9D\u7BB1_0001_\u56FE\u5C42-63.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96368f8cd4e82cc46a499b43b7bf8e59
+    m_Address: "Assets/Resources_Move/Arts/UI/BackGround/\u56FE\u9274\u68461.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5af99ba3c834b9f40a9dab03393ad24e
+    m_Address: "Assets/Resources_Move/Arts/UI/BackGround/\u9884\u89C8\u8FB9\u5E95.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c3a0e6a933f264fa771af4b2260314
+    m_Address: Assets/Resources_Move/Animations/UI/SkillList.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74a1f4144b9e71c428fca9565ed79884
+    m_Address: Assets/Resources_Move/Animations/UI/SkillList.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c0011e451200204b997c12ae55aed80
+    m_Address: "Assets/Resources_Move/Arts/UI/Icon/\u767D\u534A\u516B\u5366.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09ffdfc89226954c90e4f10f9a04fd5
+    m_Address: "Assets/Resources_Move/Arts/UI/Icon/\u9ED1\u534A\u516B\u5366.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f86558a0a73e1aa4ca6ea879a7a0e590
+    m_Address: "Assets/Scenes/test/\u6E38\u620F\u5185.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 550f7b33a3fd8554c891d52d59342c2f
+    m_Address: Assets/Game/Shaders/CamearEffectShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 987e6096dfecd7d4b84ff473f5c12023, type: 2}
+    - {fileID: 11400000, guid: 209f277e694f54e4c83532792277f9be, type: 2}
