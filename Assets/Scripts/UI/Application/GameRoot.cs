@@ -17,7 +17,7 @@ public class GameRoot : MonoBehaviour
     {
         WX.InitSDK((int code) =>
         {
-            StartCoroutine(PreLoadAllAssets("default"));
+            PreLoadAllAssets("default");
         });
         if (Instance == null)
             Instance = this;
@@ -36,18 +36,11 @@ public class GameRoot : MonoBehaviour
 
     public void SwitchScene(string sceneName)
     {
-        //SceneManager.LoadScene(sceneName);
         StartCoroutine(Delay(sceneName));
     }
 
     private IEnumerator Delay(string sceneName)
     {
-        //AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName);
-        //while(!ao.isDone)
-        //{
-        //    yield return new WaitForSeconds(3.0f);
-        //}
-
         var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, false);
 
         handle.Completed += (obj) =>
@@ -67,24 +60,17 @@ public class GameRoot : MonoBehaviour
 
     public void StartGame()
     {
-        //StarkSDK.API.GetAccountManager().CheckSession(() =>
-        //{
-        //    SceneSystem.Instance.SetScene(new StartScene());
-        //},
-        //(err) =>
-        //{
-        //    StarkSDK.API.GetAccountManager().Login(ClientRoot.Instance.DySuccessLogin, ClientRoot.Instance.DyFailedLogin, true);
-        //});
-
         SceneSystem.Instance.SetScene(new StartScene());       
     }
 
-    private IEnumerator PreLoadAllAssets(string label)
+    private void PreLoadAllAssets(string label)
     {
         var _handle=Addressables.DownloadDependenciesAsync(label,true);
-        while(!_handle.IsDone)
+        while(_handle.IsDone)
         {
-            yield return null;
+            Debug.Log(_handle.PercentComplete);
         }
+        return;
+
     }
 }

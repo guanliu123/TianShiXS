@@ -70,8 +70,8 @@ public class StartPanel : BasePanel
                     AudioManager.GetInstance().PlaySound("NormalButton");
                     //if (GameManager.Instance._UserData.Strength > 5)
                     //SceneSystem.Instance.SetScene(new LevelScene());
-                        PanelManager.GetInstance().Push(new LoadingPanel());
-                        GameManager.GetInstance().StartLoad();
+                    //PanelManager.GetInstance().Push(new LoadingPanel());
+                    GameManager.GetInstance().StartLoad();
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>
