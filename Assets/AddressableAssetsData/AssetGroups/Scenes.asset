@@ -20,12 +20,14 @@ MonoBehaviour:
   - m_GUID: f9044cd227d6c014e90bf711580b6056
     m_Address: Scenes/StartScene
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0620fb137571da94cbad8d2d7a5b595f
     m_Address: Scenes/LevelScene
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

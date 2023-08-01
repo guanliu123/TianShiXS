@@ -20,27 +20,32 @@ MonoBehaviour:
   - m_GUID: 9bb82b86e21ea3c43b0febaadfb1046b
     m_Address: Assets/Resources_Move/Audios/BuyButton.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 037e80c779b2f204caecebb35a8af46d
     m_Address: Assets/Resources_Move/Audios/NormalButton.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6e7702fd75aa734aa8b6cd16b42d900
     m_Address: Assets/Resources_Move/Audios/PageturnButton.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a04f5d80c65acb4ab0d053911b0e441
     m_Address: Assets/Resources_Move/Audios/3001Audio.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4f0cc674bb3a6843b0b38cdb85da219
     m_Address: Assets/Resources_Move/Audios/ToggleButton.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

@@ -20,19 +20,13 @@ public class LoadingPanel : BasePanel
     public override void OnEnter()
     {
         PercentComplete = 0;
-        GameObject panel = null;
-        UIManager.Instance.GetSingleUI(UIType,(obj) =>
+        GameObject panel = UIManager.Instance.GetSingleUI(UIType);
+        
+        slider = UITool.GetOrAddComponentInChildren<Slider>("Slider", panel);
+
+        MonoManager.Instance.AddUpdateListener(() =>
         {
-            panel = obj;
-            slider = UITool.GetOrAddComponentInChildren<Slider>("Slider", panel);
-            //while (slider.value != 1)
-            //{
-            //    slider.value = PercentComplete;
-            //}
-            MonoManager.Instance.AddUpdateListener(() =>
-            {
-                slider.value = PercentComplete;
-            });
+            slider.value = PercentComplete;
         });
     }
  

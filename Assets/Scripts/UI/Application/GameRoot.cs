@@ -17,13 +17,14 @@ public class GameRoot : MonoBehaviour
     {
         WX.InitSDK((int code) =>
         {
-            if (Instance == null)
-                Instance = this;
-            else
-                Destroy(gameObject);
-            DontDestroyOnLoad(gameObject);
-            Application.targetFrameRate = 60;
+            StartCoroutine(PreLoadAllAssets("default"));
         });
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+        Application.targetFrameRate = 60;
     }
     private void Start()
     {
@@ -76,5 +77,14 @@ public class GameRoot : MonoBehaviour
         //});
 
         SceneSystem.Instance.SetScene(new StartScene());       
+    }
+
+    private IEnumerator PreLoadAllAssets(string label)
+    {
+        var _handle=Addressables.DownloadDependenciesAsync(label,true);
+        while(!_handle.IsDone)
+        {
+            yield return null;
+        }
     }
 }

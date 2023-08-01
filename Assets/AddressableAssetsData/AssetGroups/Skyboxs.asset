@@ -20,17 +20,20 @@ MonoBehaviour:
   - m_GUID: 9c50d9ca340506c4c94c15773d7a71f5
     m_Address: Assets/Resources_Move/SkyBoxs/Skybox1.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a95513848477fb04cbc387091657798f
     m_Address: Assets/Resources_Move/SkyBoxs/Skybox2.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b071b6f1ff6a6474b9078b38a494cbf9
     m_Address: Assets/Resources_Move/SkyBoxs/Skybox3.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

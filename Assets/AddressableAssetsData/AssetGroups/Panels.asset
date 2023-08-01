@@ -20,57 +20,68 @@ MonoBehaviour:
   - m_GUID: 4bf1da46596e92e4fafaa159345dc31d
     m_Address: Assets/Resources_Move/Prefabs/Panels/BagPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e95c9080af7d6d949b8035a17cd24eeb
     m_Address: Assets/Resources_Move/Prefabs/Panels/ChestPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e06d591c584c5064aa839c89c5ea1b26
     m_Address: Assets/Resources_Move/Prefabs/Panels/FailPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 990c432aca2b1e44f8a6b750d1ed281e
     m_Address: Assets/Resources_Move/Prefabs/Panels/GamePanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b843a98cb80801499e415f3f0b829e0
     m_Address: Assets/Resources_Move/Prefabs/Panels/HandbookPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3934a656fc6c0a645b50ce8d4574f218
     m_Address: Assets/Resources_Move/Prefabs/Panels/LevelPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22cedd75a9df52140bf02302dbe863b0
     m_Address: Assets/Resources_Move/Prefabs/Panels/PausePanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 491f812cbf2492a4390690e8a1c30dfe
     m_Address: Assets/Resources_Move/Prefabs/Panels/RolePanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 957e54d966a25f4449b1f6a95e852baf
     m_Address: Assets/Resources_Move/Prefabs/Panels/SkillPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7302a4c3f5b0fb498545edebdfb5956
     m_Address: Assets/Resources_Move/Prefabs/Panels/SuccessPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 840eb5502312c5d4ba9fad4cfaee50ad
     m_Address: Assets/Resources_Move/Prefabs/Panels/VictoryPanel.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
