@@ -20,37 +20,44 @@ MonoBehaviour:
   - m_GUID: f6eeae6c097e7c04d8a925697e7bcd57
     m_Address: Assets/Resources_Move/Prefabs/Prop/Banners.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27c23409a713a8c408013bd4a2dde81c
     m_Address: Assets/Resources_Move/Prefabs/Prop/Bell.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c3778598d4a775478443b16f0fdc1fd
     m_Address: Assets/Resources_Move/Prefabs/Prop/DaoQi.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5ca91644849088469101509d3eaba16
     m_Address: Assets/Resources_Move/Prefabs/Prop/HuLu.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75ab7e36d744f1148a7e52d90ede2c37
     m_Address: Assets/Resources_Move/Prefabs/Prop/Money.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06970c89a5e62194a85f5ac4eef912f7
     m_Address: Assets/Resources_Move/Prefabs/Prop/Shield.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6026504bc9ae0f42ad735b3b0b94230
     m_Address: Assets/Resources_Move/Prefabs/Prop/Sword.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

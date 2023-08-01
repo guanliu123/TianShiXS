@@ -20,14 +20,12 @@ MonoBehaviour:
   - m_GUID: af817132c36bb4d4fbb09129740372a6
     m_Address: Assets/Resources_Move/MainPanelTexture.spriteatlas
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b8b046066d0d3b4a94c463ade2330ab
     m_Address: Assets/Scenes/LevelScene/LightingData.asset
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

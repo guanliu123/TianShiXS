@@ -102,8 +102,10 @@ public class GameManager : SingletonBase<GameManager>
     {
         //AsyncOperation sceneAsync= SceneSystem.Instance.SetScene(new LevelScene());
         await LevelManager.GetInstance().LoadLevelRes();
-        SceneSystem.GetInstance().SetScene(new LevelScene());       
+        //SceneSystem.GetInstance().SetScene(new LevelScene());       
     }
+
+
 
     public void StartGame()
     {

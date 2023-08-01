@@ -47,12 +47,33 @@ public class GameRoot : MonoBehaviour
         {
 
         };
-        while (!handle.IsDone)
+        if(sceneName!= "Scenes/LevelScene")
         {
-            // 在此可使用handle.PercentComplete进行进度展示
-            PanelManager.Instance.Push(new LoadingPanel());
-            LoadingPanel.PercentComplete = handle.PercentComplete;
-            yield return new WaitForSeconds(0.5f);
+            while (!handle.IsDone)
+            {
+                // 在此可使用handle.PercentComplete进行进度展示
+                //打开加载读条界面
+                PanelManager.Instance.Push(new LoadingPanel());
+                //修改进度条数值
+                LoadingPanel.PercentComplete = handle.PercentComplete;
+                //等待0.5秒
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+        else if(sceneName == "Scenes/LevelScene")
+        {
+            while (!handle.IsDone)
+            {
+                // 在此可使用handle.PercentComplete进行进度展示
+                //打开加载读条界面
+                PanelManager.Instance.Push(new LoadingPanel());
+                //加载场景资源
+                GameManager.Instance.StartLoad();
+                //修改进度条数值
+                LoadingPanel.PercentComplete = handle.PercentComplete;
+                //等待0.5秒
+                yield return new WaitForSeconds(0.5f);
+            }
         }
         PanelManager.Instance.Pop();
         handle.Result.ActivateAsync();
@@ -63,7 +84,7 @@ public class GameRoot : MonoBehaviour
         SceneSystem.Instance.SetScene(new StartScene());       
     }
 
-    private void PreLoadAllAssets(string label)
+    public void PreLoadAllAssets(string label)
     {
         var _handle=Addressables.DownloadDependenciesAsync(label,true);
         while(_handle.IsDone)

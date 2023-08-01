@@ -20,12 +20,14 @@ MonoBehaviour:
   - m_GUID: ef596339b05148148b09bdd9ae58c567
     m_Address: Assets/Resources_Move/Prefabs/Effects/3001.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dcc081456f56f7a4bb1ef2c4a655b9f5
     m_Address: Assets/Resources_Move/Prefabs/Effects/4002Effect.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

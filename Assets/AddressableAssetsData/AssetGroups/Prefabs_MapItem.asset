@@ -20,17 +20,20 @@ MonoBehaviour:
   - m_GUID: 16899050ab0ee6843945803885083eec
     m_Address: Assets/Resources_Move/Prefabs/Map/Item/1.fbx
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5f675cfe3461e042b3518d758343a4b
     m_Address: Assets/Resources_Move/Prefabs/Map/Item/2.fbx
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5eb1b8c8e6fcebb41b707fafbca86007
     m_Address: Assets/Resources_Move/Prefabs/Map/Item/BuffDoors.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

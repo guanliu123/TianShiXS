@@ -18,7 +18,7 @@ public class StartPanel : BasePanel
         
     }
     public override void OnEnter()
-    {   
+    {
         UIManager.Instance.GetSingleUI(UIType,(obj)=>
         {
             panel = obj;
@@ -71,7 +71,8 @@ public class StartPanel : BasePanel
                     //if (GameManager.Instance._UserData.Strength > 5)
                     //SceneSystem.Instance.SetScene(new LevelScene());
                     //PanelManager.GetInstance().Push(new LoadingPanel());
-                    GameManager.GetInstance().StartLoad();
+                    SceneSystem.GetInstance().SetScene(new LevelScene());
+                    
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>
@@ -88,7 +89,7 @@ public class StartPanel : BasePanel
                 UITool.GetOrAddComponentInChildren<Text>("LevelNum", obj).text = "第" + GameManager.GetInstance().nowLevel + "关";
             }
         });
-       
+        GameRoot.Instance.PreLoadAllAssets("gameing");
 
 
         //MonoManager.GetInstance().AddUpdateListener(StartUIEvent);
@@ -96,9 +97,6 @@ public class StartPanel : BasePanel
         {
             AudioListener.volume = Mathf.Abs(AudioListener.volume - 1);
         });*/
-
-       
-
     }
     public override void OnPause()
     {       

@@ -20,37 +20,44 @@ MonoBehaviour:
   - m_GUID: 03fddf1d527424f429f09cfb7f705586
     m_Address: Assets/Resources_Move/Prefabs/Enemy/2001.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99873a8fa95eb414996bc5a9e35a7b76
     m_Address: Assets/Resources_Move/Prefabs/Enemy/2002.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6b833d2a8a45484aa5583c55450b643
     m_Address: Assets/Resources_Move/Prefabs/Enemy/BOSS1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f42faf333a8a8143b9fc0842d17b21a
     m_Address: Assets/Resources_Move/Prefabs/Enemy/DoubleClaw.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 540eccf48e866874baab219159343ebe
     m_Address: Assets/Resources_Move/Prefabs/Enemy/Eagle.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d21ab708ee7e047469187a66b53b95a8
     m_Address: Assets/Resources_Move/Prefabs/Enemy/TaoWu.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9e7cc30f3328e74fbbb5d2cd15ea14d
     m_Address: Assets/Resources_Move/Prefabs/Enemy/Turtle.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - gameing
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
