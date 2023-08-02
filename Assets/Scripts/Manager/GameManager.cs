@@ -98,7 +98,7 @@ public class GameManager : SingletonBase<GameManager>
         LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 
-    public async void StartLoad()
+    public async Task StartLoad()
     {
         //AsyncOperation sceneAsync= SceneSystem.Instance.SetScene(new LevelScene());
         await LevelManager.GetInstance().LoadLevelRes();

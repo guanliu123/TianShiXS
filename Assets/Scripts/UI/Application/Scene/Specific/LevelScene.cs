@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 public class LevelScene : SceneBase
 {
-    private static readonly string sceneName = "Scenes/LevelScene";
+    public static readonly string sceneName = "Scenes/LevelScene";
 
     public override void OnEnter()
     {
         if (SceneManager.GetActiveScene().name != "LevelScene")
         {
-            
-            //SceneManager.LoadScene(sceneName);
-            GameRoot.Instance.SwitchScene(sceneName);
+            SceneManager.LoadScene(sceneName);
+            //GameRoot.Instance.SwitchScene(sceneName);
             SceneManager.sceneLoaded += SceneLoaded;
         }
         else

@@ -21,6 +21,8 @@ public class StartPanel : BasePanel
     {
         UIManager.Instance.GetSingleUI(UIType,(obj)=>
         {
+            Debug.Log("StartPanel OnEnter!");
+
             panel = obj;
             if(obj.activeSelf)
             {
@@ -65,13 +67,17 @@ public class StartPanel : BasePanel
                     }
                 });
 
+
+                Debug.Log("StartPanel OnEnter StartGame_Btn!");
                 UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
                 {
+                    Debug.Log("StartPanel StartGame_Btn onClick!");
+
                     AudioManager.GetInstance().PlaySound("NormalButton");
                     //if (GameManager.Instance._UserData.Strength > 5)
                     //SceneSystem.Instance.SetScene(new LevelScene());
                     //PanelManager.GetInstance().Push(new LoadingPanel());
-                    SceneSystem.GetInstance().SetScene(new LevelScene());
+                    GameRoot.Instance.SwitchScene(LevelScene.sceneName);
                     
                 });
 

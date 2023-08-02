@@ -12,7 +12,7 @@ public class MainScene : SceneBase
         if (SceneManager.GetActiveScene().name != sceneName)
         {
             SceneManager.LoadScene(sceneName);
-            GameRoot.Instance.SwitchScene(sceneName);
+            //GameRoot.Instance.SwitchScene(sceneName);
             SceneManager.sceneLoaded += SceneLoaded;
         }
         else
