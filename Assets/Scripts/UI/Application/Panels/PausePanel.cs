@@ -54,10 +54,14 @@ public class PausePanel : BasePanel
                 AudioManager.GetInstance().PlaySound("NormalButton");
                 Time.timeScale = 1;
                 GameManager.GetInstance().QuitGame();
-                SceneSystem.Instance.SetScene(new StartScene());
+                GameRoot.Instance.TryLoad("StartScene", () =>
+                {
+                    SceneSystem.GetInstance().SetScene(new StartScene()); 
+                });
+                //SceneSystem.Instance.SetScene(new StartScene());
                 //PanelManager.Instance.Clear();
                 //PanelManager.Instance.Push(new StartPanel());
-                
+
             });
         });
         

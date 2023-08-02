@@ -65,13 +65,18 @@ public class StartPanel : BasePanel
                     }
                 });
 
-                UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
+                UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(async () =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
                     //if (GameManager.Instance._UserData.Strength > 5)
-                    //SceneSystem.Instance.SetScene(new LevelScene());
                     //PanelManager.GetInstance().Push(new LoadingPanel());
-                    SceneSystem.GetInstance().SetScene(new LevelScene());
+                    await LevelManager.GetInstance().LoadLevelRes();
+                    GameRoot.Instance.TryLoad(LevelScene.sceneName, () =>
+                    {
+                        SceneSystem.GetInstance().SetScene(new LevelScene());
+                        GameManager.GetInstance().StartGame();
+                    });
+                    
                     
                 });
 

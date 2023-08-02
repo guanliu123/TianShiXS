@@ -3,34 +3,30 @@ using System.Collections.Generic;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class LoadScene : SceneBase
+public class LoadScene : MonoBehaviour
 {
-    private static readonly string sceneName = "Scenes/LoadScene";
+    public static LoadScene Instance { get; private set; }
 
-    public override void OnEnter()
+    public Slider slider;
+
+    private void Awake()
     {
-        if (SceneManager.GetActiveScene().name != "LoadScene")
-        {
-            //SceneManager.LoadScene(sceneName);
-            GameRoot.Instance.SwitchScene(sceneName);
-            SceneManager.sceneLoaded += SceneLoaded;
-        }
-        else
-        {
-            PanelManager.Instance.Push(new LoadPanel());
-        }
-        //MapManager.GetInstance().StartMapCreate();
+        if(Instance == null)
+            Instance = this;
     }
 
-    public override void OnExit()
+    private void Start()
     {
-        SceneManager.sceneLoaded -= SceneLoaded;
-        PanelManager.Instance.Clear();
+        
     }
 
-    private void SceneLoaded(Scene scene, LoadSceneMode mode)
+    public void SetPercent(float _percent)
     {
-        PanelManager.Instance.Push(new LoadPanel());
+        slider.value = _percent;
+        return;
     }
 }
+    
+

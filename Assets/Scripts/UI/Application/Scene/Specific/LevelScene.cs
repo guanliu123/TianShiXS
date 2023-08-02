@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 public class LevelScene : SceneBase
 {
-    private static readonly string sceneName = "Scenes/LevelScene";
+    public static readonly string sceneName = "Scenes/LevelScene";
 
     public override void OnEnter()
     {
@@ -14,7 +14,7 @@ public class LevelScene : SceneBase
         {
             
             //SceneManager.LoadScene(sceneName);
-            GameRoot.Instance.SwitchScene(sceneName);
+            //GameRoot.Instance.SwitchScene(sceneName);
             SceneManager.sceneLoaded += SceneLoaded;
         }
         else
@@ -32,7 +32,7 @@ public class LevelScene : SceneBase
 
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameManager.GetInstance().StartGame();
+        //GameManager.GetInstance().StartGame();
         PanelManager.Instance.Push(new GamePanel());            
     }
 }

@@ -26,21 +26,5 @@ public class LoadPanel : BasePanel
 #endif
 
     }
-
-    public override void OnPause()
-    {
-       
-    }
-
-    public override void OnResume()
-    {
-        
-    }
-
-    public override void OnExit()
-    {
-        
-    }
-
     
 }

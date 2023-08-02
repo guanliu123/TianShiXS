@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: eb98ca42c1b873d4995c5dc3a749acb5
   m_SerializeEntries:
-  - m_GUID: f9044cd227d6c014e90bf711580b6056
-    m_Address: Scenes/StartScene
+  - m_GUID: 5f90bb63da450084188d5699901cf551
+    m_Address: Scenes/LoadScene
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
