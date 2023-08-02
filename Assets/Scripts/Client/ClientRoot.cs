@@ -60,7 +60,7 @@ public class ClientRoot : MonoBehaviour
                     Debug.Log($"player_login success!");
                     GameManager.GetInstance()._UserData = data;
                     WXLoggedIn = true;
-                    GameRoot.Instance.SwitchScene(StartScene.sceneName);
+                    //GameRoot.Instance.SwitchScene(StartScene.sceneName);
                 }, (err) =>
                 {
                     Debug.Log($"player_login err:{err}");
@@ -71,7 +71,7 @@ public class ClientRoot : MonoBehaviour
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance()._UserData = data;
                             WXLoggedIn = true;
-                            GameRoot.Instance.SwitchScene(StartScene.sceneName);
+                            //GameRoot.Instance.SwitchScene(StartScene.sceneName);
                         }, (error) =>
                         {
                             Console.WriteLine("player_login_wx err:{0}", err);
