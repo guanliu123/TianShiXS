@@ -72,7 +72,9 @@ public class StartPanel : BasePanel
                         await loadLevelTask;
                         Debug.Log("TryLoad LevelScene down!");
                         SceneSystem.GetInstance().SetScene(new LevelScene());
+                        Debug.Log("SetScene LevelScene down!");
                         GameManager.GetInstance().StartGame();
+                        Debug.Log("StartGame!");
                     });
                 });
 
