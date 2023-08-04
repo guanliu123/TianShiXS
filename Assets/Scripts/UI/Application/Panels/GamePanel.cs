@@ -30,6 +30,8 @@ public class GamePanel : BasePanel
     }
     private void Init(GameObject panel)
     {
+        Debug.Log("GamePanel Init begin!");
+
         hideTime = 5f;
         hideTimer = 0f;
         ismoneyHide = false;
@@ -42,13 +44,18 @@ public class GamePanel : BasePanel
         hpSlider = UITool.GetOrAddComponentInChildren<Slider>("HpSlider", panel);
 
         hpSlider.value = 1f;
-        //energyOrigin = energySlider1.transform.position;
+
+        Debug.Log("GamePanel Init end!");
     }
     public override void OnEnter()
     {
+        Debug.Log("GamePanel OnEnter begin!");
+
         GameObject panel = null;
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
+            Debug.Log("GamePanel OnEnter GetSingleUI begin!");
+
             panel = obj;
             energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
             energySlider2 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar2", panel);
@@ -63,6 +70,8 @@ public class GamePanel : BasePanel
                 PanelManager.Instance.Push(new PausePanel());
                 AudioManager.GetInstance().PlaySound("NormalButton");
             });
+
+            Debug.Log("GamePanel OnEnter GetSingleUI end!");
         });
 
         /*UITool.GetOrAddComponentInChildren<Image>("EnergySlider1", panel).fillAmount.onValueChanged.AddListener((float value) =>
@@ -75,6 +84,8 @@ public class GamePanel : BasePanel
        
 
         MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
+
+        Debug.Log("GamePanel OnEnter end!");
     }
     public override void OnExit()
     {
