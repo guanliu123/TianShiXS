@@ -29,7 +29,7 @@ namespace UIFrameWork
             GameObject uiPrefab = Resources.Load<GameObject>(uIType.Path);
 
             GameObject uiInstance = null;
-            if(uiPrefab!=null)
+            if (uiPrefab != null)
             {
                 uiInstance = GameObject.Instantiate(uiPrefab, parent.transform);
                 uiInstance.name = uIType.Name;
@@ -44,6 +44,8 @@ namespace UIFrameWork
 
         public void GetSingleUI(UIType uIType, Action<GameObject> cb)
         {
+            Debug.Log($"GetSingleUI {uIType.Path} begin");
+
             if (uIType == null)
                 return;
             GameObject parent = GameObject.Find("Canvas/SafeAreaRect");
@@ -55,27 +57,31 @@ namespace UIFrameWork
             //如果内存池中存在该UI面板
             if (dicUI.ContainsKey(uIType))
             {
+                Debug.Log($"GetSingleUI {uIType.Path} dicUI find!");
                 cb.Invoke(dicUI[uIType]);
                 return;
             }
             foreach (Transform item in parent.transform)
             {
-                if(item.name==uIType.Name)
+                if (item.name == uIType.Name)
                 {
+                    Debug.Log($"GetSingleUI {uIType.Path} parent.transform find!");
                     cb.Invoke(item.gameObject);
                     return;
                 }
             }
-                
-            var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/"+uIType.Path+ ".prefab");
-            GameObject uiInstance = null;
+
+            var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/" + uIType.Path + ".prefab");
             uiPrefab.Completed += (handle) =>
             {
+                Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync Completed!");
 
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
+                    Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync Succeeded!");
+
                     GameObject result = handle.Result;
-                    uiInstance = GameObject.Instantiate(result, parent.transform);
+                    GameObject uiInstance = GameObject.Instantiate(result, parent.transform);
                     cb.Invoke(uiInstance);
                     uiInstance.name = uIType.Name;
                     dicUI.Add(uIType, uiInstance);
@@ -101,4 +107,3 @@ namespace UIFrameWork
 
     }
 }
-

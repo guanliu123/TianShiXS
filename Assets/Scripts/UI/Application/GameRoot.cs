@@ -3,6 +3,7 @@ using Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -79,19 +80,21 @@ public class GameRoot : MonoBehaviour
                 //载入成功后做些什么...
 
                 //开始协程
-                StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
+                //StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
+                WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack);
             }
         };
     }
 
-    private IEnumerator WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
+    private async void WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
     {
         var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Additive);
         while(_currLoadHandle.Status==AsyncOperationStatus.None) 
         {
             //开始加载时...
             LoadScene.Instance.SetPercent(_currLoadHandle.PercentComplete);
-            yield return null;
+            await Task.Delay(1000);
+            //yield return null;
 
         }
 
@@ -99,7 +102,8 @@ public class GameRoot : MonoBehaviour
         {
             //加载完毕时...
             LoadScene.Instance.SetPercent(1.0f);
-            yield return new WaitForSeconds(0.5f);
+            await Task.Delay(500);
+            //yield return new WaitForSeconds(0.5f);
             //卸载上一场景
             Addressables.UnloadSceneAsync(_lastLoadHandle).Completed += (op) =>
             {
@@ -107,12 +111,13 @@ public class GameRoot : MonoBehaviour
                 if(op.Status == AsyncOperationStatus.Succeeded)
                 {
                     //所有流程结束后回调
-                    _callBack?.Invoke();
+                    
                 }
+                _callBack?.Invoke();
             };
         }
 
-        yield return null;
+        //yield return null;
     }
 
     public void StartGame()

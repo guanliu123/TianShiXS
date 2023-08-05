@@ -19,7 +19,7 @@ MonoBehaviour:
     assetLoadType: 0
     compressDataPackage: 1
     VideoUrl: 
-    DST: D:/TSXS/TianShiXS/Build
+    DST: E:/UnityProj/TianShiXS/Bin
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;

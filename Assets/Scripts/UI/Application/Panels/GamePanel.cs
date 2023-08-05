@@ -30,6 +30,8 @@ public class GamePanel : BasePanel
     }
     private void Init(GameObject panel)
     {
+        Debug.Log("GamePanel Init begin!");
+
         hideTime = 5f;
         hideTimer = 0f;
         ismoneyHide = false;
@@ -42,13 +44,18 @@ public class GamePanel : BasePanel
         hpSlider = UITool.GetOrAddComponentInChildren<Slider>("HpSlider", panel);
 
         hpSlider.value = 1f;
-        //energyOrigin = energySlider1.transform.position;
+
+        Debug.Log("GamePanel Init end!");
     }
     public override void OnEnter()
     {
+        Debug.Log("GamePanel OnEnter begin!");
+
         GameObject panel = null;
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
+            Debug.Log("GamePanel OnEnter GetSingleUI begin!");
+
             panel = obj;
             energySlider1 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar1", panel);
             energySlider2 = UITool.GetOrAddComponentInChildren<Image>("EnergyBar2", panel);
@@ -63,6 +70,9 @@ public class GamePanel : BasePanel
                 PanelManager.Instance.Push(new PausePanel());
                 AudioManager.GetInstance().PlaySound("NormalButton");
             });
+
+            Debug.Log("GamePanel OnEnter GetSingleUI end!");
+            MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
         });
 
         /*UITool.GetOrAddComponentInChildren<Image>("EnergySlider1", panel).fillAmount.onValueChanged.AddListener((float value) =>
@@ -72,9 +82,11 @@ public class GamePanel : BasePanel
                 GameManager.GetInstance().CallSkillPanel();
             }
         });    */
-       
 
-        MonoManager.GetInstance().AddUpdateListener(GameUIEvent);
+
+        
+
+        Debug.Log("GamePanel OnEnter end!");
     }
     public override void OnExit()
     {
@@ -116,12 +128,12 @@ public class GamePanel : BasePanel
 
     public void HpBarListener()
     {
-        //hpSlider.value = Player._instance.nowHP / Player._instance.maxHP;
+        hpSlider.value = Player._instance.nowHP / Player._instance.maxHP;
         hpSlider.value = Mathf.Lerp(hpSlider.value, Player._instance.nowHP / Player._instance.maxHP, Time.deltaTime);
     }
     public void StageListener()
     {
-        stageText.text ="阶段：" + (LevelManager.GetInstance().nowStage+1)+"/"+LevelManager.GetInstance().maxStage;
+        stageText.text = "阶段：" + (LevelManager.GetInstance().nowStage + 1) + "/" + LevelManager.GetInstance().maxStage;
     }
     public void MoneyLabelTimer()
     {
@@ -130,7 +142,7 @@ public class GamePanel : BasePanel
             hideTimer += Time.deltaTime;
             if (hideTimer > hideTime)
             {
-                moneyLabel.DOMove(moneyLabel.position+Vector3.left*500f,1f).OnComplete(() => { moneyLabel.gameObject.SetActive(false); });
+                moneyLabel.DOMove(moneyLabel.position + Vector3.left * 500f, 1f).OnComplete(() => { moneyLabel.gameObject.SetActive(false); });
                 hideTimer = 0;
                 ismoneyHide = true;
             }
@@ -144,7 +156,7 @@ public class GamePanel : BasePanel
             {
                 moneyLabel.gameObject.SetActive(true);
                 ismoneyHide = false;
-                moneyLabel.DOMove(moneyOrigin, 1f);          
+                moneyLabel.DOMove(moneyOrigin, 1f);
             }
 
             hideTimer = 0;
@@ -153,6 +165,6 @@ public class GamePanel : BasePanel
     }
     public void LevelTextListener()
     {
-        levelText.text = GameManager.GetInstance().playerLevel+"";
+        levelText.text = GameManager.GetInstance().playerLevel + "";
     }
 }
