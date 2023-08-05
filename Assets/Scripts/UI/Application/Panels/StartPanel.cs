@@ -27,11 +27,6 @@ public class StartPanel : BasePanel
                 topArea = UITool.FindChildGameObject("TopArea", obj);
                 midArea = UITool.FindChildGameObject("MidArea", obj);
 
-                //UITool.GetOrAddComponentInChildren<Text>("StrengthText", topArea).text = GameManager.GetInstance()._UserData.Strength + " / " + 100;
-                //UITool.GetOrAddComponentInChildren<Text>("MoneyText", topArea).text = GameManager.GetInstance()._UserData.Coin + "";
-
-                //Debug.Log(GameManager.GetInstance()._UserData.Strength);
-
                 UITool.GetOrAddComponentInChildren<Button>("Role_Btn", obj).onClick.AddListener(() =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
@@ -65,19 +60,23 @@ public class StartPanel : BasePanel
                     }
                 });
 
-                UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(async () =>
+                UITool.GetOrAddComponentInChildren<Button>("StartGame_Btn", obj).onClick.AddListener(() =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
-                    //if (GameManager.Instance._UserData.Strength > 5)
-                    //PanelManager.GetInstance().Push(new LoadingPanel());
-                    await LevelManager.GetInstance().LoadLevelRes();
-                    GameRoot.Instance.TryLoad(LevelScene.sceneName, () =>
+
+                    Debug.Log("StartGame_Btn onClick!");
+                    var loadLevelTask = LevelManager.GetInstance().LoadLevelRes();
+                    Debug.Log("StartGame_Btn begin LoadLevelRes!");
+                    GameRoot.Instance.TryLoad(LevelScene.sceneName, async () =>
                     {
+                        Debug.Log("TryLoad LevelScene!");
+                        await loadLevelTask;
+                        Debug.Log("TryLoad LevelScene down!");
                         SceneSystem.GetInstance().SetScene(new LevelScene());
+                        Debug.Log("SetScene LevelScene down!");
                         GameManager.GetInstance().StartGame();
+                        Debug.Log("StartGame!");
                     });
-                    
-                    
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>

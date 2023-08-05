@@ -13,9 +13,7 @@ public class ClientRoot : MonoBehaviour
     public static ClientRoot Instance { get; private set; }
 
     public static bool WXLoggedIn = false;
-
-    public Button btnWXLogin;
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -60,7 +58,6 @@ public class ClientRoot : MonoBehaviour
                     Debug.Log($"player_login success!");
                     GameManager.GetInstance()._UserData = data;
                     WXLoggedIn = true;
-                    //GameRoot.Instance.SwitchScene(StartScene.sceneName);
                 }, (err) =>
                 {
                     Debug.Log($"player_login err:{err}");
@@ -71,7 +68,6 @@ public class ClientRoot : MonoBehaviour
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance()._UserData = data;
                             WXLoggedIn = true;
-                            //GameRoot.Instance.SwitchScene(StartScene.sceneName);
                         }, (error) =>
                         {
                             Console.WriteLine("player_login_wx err:{0}", err);
@@ -95,59 +91,6 @@ public class ClientRoot : MonoBehaviour
             if (e.code != null)
             {
                 WxSuccessLogin(e.code, "wx");
-                //GetSettingOption _getSettingCallBack = new GetSettingOption();
-                //_getSettingCallBack.success = (res) =>
-                //{
-                //    Debug.Log($"_getSettingCallBack success begin res:{JsonUtility.ToJson(res)}!");
-
-                //    //if (res.authSetting.ContainsKey("scope.userInfo") && res.authSetting["scope.userInfo"])
-                //    //{
-                //    //    GetUserInfoOption _userInfoCallBack = new GetUserInfoOption();
-                //    //    _userInfoCallBack.lang = "zh_CN";
-                //    //    _userInfoCallBack.withCredentials = true;
-                //    //    _userInfoCallBack.success = (ee) =>
-                //    //    {
-                //    //        WxSuccessLogin(e.code, ee.userInfo.nickName);
-                //    //    };
-                //    //    WX.GetUserInfo(_userInfoCallBack);
-                //    //}
-                //    //else
-                //    //{
-                //    //    var sysinfo = WX.GetSystemInfoSync();
-
-                //    //    //var btnWXLoginIns = Instantiate(btnWXLogin);
-                //    //    //btnWXLoginIns.GetComponent<RectTransform>().SetParent(GameObject.Find("Canvas").GetComponent<RectTransform>(), false);
-                //    //    //btnWXLoginIns.GetComponent<RectTransform>().position = new Vector3(
-                //    //    //    (float)(1080 / 2 /*- 1080 / sysinfo.windowWidth * 90*/),
-                //    //    //    (float)(1920 / 2 /*- 1920 / sysinfo.windowHeight * 40*/), 0);
-
-                //    //    var button = WX.CreateUserInfoButton((int)sysinfo.windowWidth / 2 - 90, (int)sysinfo.windowHeight / 2 - 40, 180, 80, "zh_CN", true);
-                //    //    button.OnTap((eee) =>
-                //    //    {
-                //    //        Debug.Log("button.OnTap!");
-                //    //        if (eee != null)
-                //    //        {
-                //    //            button.Destroy();
-                //    //            //Destroy(btnWXLoginIns);
-                //    //            WxSuccessLogin(e.code, eee.userInfo.nickName);
-                //    //        }
-                //    //        else
-                //    //        {
-                //    //            ShowModalOption _showModalCallBack = new ShowModalOption();
-                //    //            _showModalCallBack.title = "温馨提示";
-                //    //            _showModalCallBack.content = "需要您的用户信息登录游戏！";
-                //    //            _showModalCallBack.showCancel = false;
-                //    //            WX.ShowModal(_showModalCallBack);
-                //    //        }
-
-                //    //    });
-                //    //    button.Show();
-
-                //    //    Debug.Log($"_getSettingCallBack no scope.userInfo button{JsonUtility.ToJson(button)}!");
-                //    //    Debug.Log($"_getSettingCallBack no scope.userInfo sysinfo{JsonUtility.ToJson(sysinfo)}!");
-                //    //}
-                //};
-                //WX.GetSetting(_getSettingCallBack);
             }
             else
             {

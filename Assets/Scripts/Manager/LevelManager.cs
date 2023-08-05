@@ -68,26 +68,31 @@ public class LevelManager : BaseManager<LevelManager>
 
     public async Task LoadLevelRes()
     {
+        var waitList = new List<Task>();
+
         normalPlanes.Clear();
         widthPlanes.Clear();
 
-        await ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
+        waitList.Add(ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
             skybox = result;
-        }, ResourceType.Skybox);
+        }, ResourceType.Skybox));
         for(int i = 0; i < nowLevel.normalPlanes.Count; i++)
         {
-            await ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
+            waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
             {
                 normalPlanes.Add(result);
-            }, ResourceType.MapGround);
+            }, ResourceType.MapGround));
         }
         for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
         {
-            await ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
+            waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
             {
                 widthPlanes.Add(result);
-            }, ResourceType.MapGround);
+            }, ResourceType.MapGround));
         }
+
+        await Task.WhenAll(waitList);
+
         Debug.Log("关卡普通地面数量" + normalPlanes.Count);
         Debug.Log("关卡宽地面数量" + widthPlanes.Count);
     }

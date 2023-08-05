@@ -98,11 +98,10 @@ public class GameManager : SingletonBase<GameManager>
         LevelManager.GetInstance().ChangeLevel(levelNum);
     }
 
-    public async Task StartLoad()
+    public /*async Task*/ void StartLoad()
     {
-        //AsyncOperation sceneAsync= SceneSystem.Instance.SetScene(new LevelScene());
-        await LevelManager.GetInstance().LoadLevelRes();
-        SceneSystem.GetInstance().SetScene(new LevelScene());       
+        //await LevelManager.GetInstance().LoadLevelRes();
+        //SceneSystem.GetInstance().SetScene(new LevelScene());       
     }
 
 
@@ -117,17 +116,11 @@ public class GameManager : SingletonBase<GameManager>
 
         player.AddComponent<Player>().InitPlayer();
         player.AddComponent<PlayerController>();
-        //player.transform.GetChild(0).gameObject.SetActive(true);
         player.transform.position = Vector3.zero + new Vector3(0, 1, -1f);
 
         LevelManager.GetInstance().Start();
         CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
-
-        //RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
-        //{
-        //    _UserData = data;
-        //});
 
         Init();
     }
