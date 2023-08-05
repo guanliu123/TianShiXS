@@ -48,12 +48,14 @@ namespace UIFrameWork
 
             if (uIType == null)
                 return;
+            Debug.Log($"GetSingleUI {uIType.Path} Find parent");
             GameObject parent = GameObject.Find("Canvas/SafeAreaRect");
             if (!parent)
             {
-                Debug.LogError("无Canvas对象，请查询是否存在所有UI的根");
+                Debug.Log("无Canvas对象，请查询是否存在所有UI的根");
                 return;
             }
+            Debug.Log($"GetSingleUI {uIType.Path} ContainsKey dicUI");
             //如果内存池中存在该UI面板
             if (dicUI.ContainsKey(uIType))
             {
@@ -71,6 +73,7 @@ namespace UIFrameWork
                 }
             }
 
+            Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync begin!");
             var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/" + uIType.Path + ".prefab");
             uiPrefab.Completed += (handle) =>
             {
@@ -88,7 +91,7 @@ namespace UIFrameWork
                 }
                 else
                 {
-                    Debug.LogError($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
+                    Debug.Log($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
                 }
             };
         }
