@@ -3,6 +3,7 @@ using Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -33,38 +34,8 @@ public class GameRoot : MonoBehaviour
     }
     private void Start()
     {
-         //if (SceneManager.GetActiveScene().name == "LoadScene")
-         //    SceneSystem.Instance.SetScene(new LoadScene());
          if (SceneManager.GetActiveScene().name == "StartScene")
              SceneSystem.Instance.SetScene(new StartScene());    
-    }
-
-    public void SwitchScene(string sceneName)
-    {
-        StartCoroutine(Delay(sceneName));
-    }
-
-    private IEnumerator Delay(string sceneName)
-    {
-        var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single, false);
-
-        handle.Completed += (obj) =>
-        {
-
-        };
-        while (!handle.IsDone)
-        {
-            // 在此可使用handle.PercentComplete进行进度展示
-            //打开加载读条界面
-            PanelManager.Instance.Push(new LoadingPanel());
-            //修改进度条数值
-            LoadingPanel.PercentComplete = handle.PercentComplete;
-            //等待0.5秒
-            yield return new WaitForSeconds(0.5f);
-        }
-        handle.Result.ActivateAsync();
-        PanelManager.Instance.Pop();
-
     }
 
     public void TryLoad(string _nextSceneName,Action _callBack)
@@ -72,6 +43,7 @@ public class GameRoot : MonoBehaviour
         //加载中间过渡场景
         var _lastLoadHandle = Addressables.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
 
+        Debug.Log($"TryLoad _lastLoadHandle {loadingScene}");
         _lastLoadHandle.Completed += (op) =>
         {
             if (op.Status == AsyncOperationStatus.Succeeded)
@@ -80,39 +52,61 @@ public class GameRoot : MonoBehaviour
 
                 //开始协程
                 StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
+                //WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack);
+                //StartCoroutine(LoadLevelScene(_lastLoadHandle, _callBack));
             }
         };
     }
 
     private IEnumerator WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
     {
+        Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
+        Addressables.InitializeAsync();
         var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Additive);
-        while(_currLoadHandle.Status==AsyncOperationStatus.None) 
+        while (_currLoadHandle.Status==AsyncOperationStatus.None)
         {
             //开始加载时...
             LoadScene.Instance.SetPercent(_currLoadHandle.PercentComplete);
+            Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.PercentComplete}");
             yield return null;
+            //yield return null;
 
         }
 
-        if(_currLoadHandle.Status==AsyncOperationStatus.Succeeded)
+        Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.IsDone}");
+        
+        if (_currLoadHandle.Status==AsyncOperationStatus.Succeeded)
         {
             //加载完毕时...
             LoadScene.Instance.SetPercent(1.0f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.0f);
             //卸载上一场景
             Addressables.UnloadSceneAsync(_lastLoadHandle).Completed += (op) =>
             {
-
-                if(op.Status == AsyncOperationStatus.Succeeded)
+                Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName}");
+                if (op.Status == AsyncOperationStatus.Succeeded)
                 {
                     //所有流程结束后回调
                     _callBack?.Invoke();
+                    Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName} _callBack");
                 }
             };
         }
+    }
 
-        yield return null;
+    public IEnumerator LoadLevelScene(AsyncOperationHandle<SceneInstance> _lastLoadHandle, Action _callBack)
+    {
+        var _currLoadHandle = Addressables.LoadSceneAsync("Scenes/LevelScene", LoadSceneMode.Additive);
+        while(_currLoadHandle.Status == AsyncOperationStatus.None)
+            yield return null;
+        Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.Status}");
+        if (_currLoadHandle.Status == AsyncOperationStatus.Succeeded)
+        {
+            Addressables.UnloadSceneAsync(_lastLoadHandle).Completed+=(op)=>
+            {
+                _callBack?.Invoke();
+            };
+        }
     }
 
     public void StartGame()

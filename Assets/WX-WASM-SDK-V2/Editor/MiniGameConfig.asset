@@ -19,13 +19,13 @@ MonoBehaviour:
     assetLoadType: 0
     compressDataPackage: 1
     VideoUrl: 
-    DST: D:/TSXS/TianShiXS/Build
+    DST: E:/UnityProj/TianShiXS/Bin
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;
     bundleExcludeExtensions: json;
     AssetsUrl: 
-    MemorySize: 256
+    MemorySize: 496
     HideAfterCallMain: 1
     preloadFiles: prefabs_ui;defaultlocalgroup_assets_all;panels_assets_all;
     Orientation: 0
@@ -52,12 +52,13 @@ MonoBehaviour:
     profilingFuncs: 0
     Webgl2: 0
     fbslim: 1
-    DeleteStreamingAssets: 1
+    DeleteStreamingAssets: 0
     ProfilingMemory: 0
     CleanBuild: 0
     CustomNodePath: 
     showMonitorSuggestModal: 1
     enableProfileStats: 0
+    enableRenderAnalysis: 0
     iOSAutoGCInterval: 10000
   CompressTexture:
     halfSize: 0

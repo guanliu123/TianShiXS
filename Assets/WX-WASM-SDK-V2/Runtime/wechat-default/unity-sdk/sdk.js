@@ -299,30 +299,6 @@ export default {
             },
         });
     },
-    WX_CloseSocket(conf, callbackId) {
-        const config = formatJsonStr(conf);
-        wx.closeSocket({
-            ...config,
-            success(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('CloseSocketCallback', JSON.stringify({
-                    callbackId, type: 'success', res: JSON.stringify(res),
-                }));
-            },
-            fail(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('CloseSocketCallback', JSON.stringify({
-                    callbackId, type: 'fail', res: JSON.stringify(res),
-                }));
-            },
-            complete(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('CloseSocketCallback', JSON.stringify({
-                    callbackId, type: 'complete', res: JSON.stringify(res),
-                }));
-            },
-        });
-    },
     WX_CreateBLEConnection(conf, callbackId) {
         const config = formatJsonStr(conf);
         wx.createBLEConnection({
@@ -2033,30 +2009,6 @@ export default {
             },
         });
     },
-    WX_SendSocketMessage(conf, callbackId) {
-        const config = formatJsonStr(conf);
-        wx.sendSocketMessage({
-            ...config,
-            success(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('SendSocketMessageCallback', JSON.stringify({
-                    callbackId, type: 'success', res: JSON.stringify(res),
-                }));
-            },
-            fail(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('SendSocketMessageCallback', JSON.stringify({
-                    callbackId, type: 'fail', res: JSON.stringify(res),
-                }));
-            },
-            complete(res) {
-                formatResponse('GeneralCallbackResult', res);
-                moduleHelper.send('SendSocketMessageCallback', JSON.stringify({
-                    callbackId, type: 'complete', res: JSON.stringify(res),
-                }));
-            },
-        });
-    },
     WX_SetBLEMTU(conf, callbackId) {
         const config = formatJsonStr(conf);
         wx.setBLEMTU({
@@ -3662,38 +3614,6 @@ export default {
         (OnShowList || []).forEach((v) => {
             wx.offShow(v);
         });
-    },
-    WX_OnSocketClose() {
-        const callback = (res) => {
-            formatResponse('SocketTaskOnCloseListenerResult', res);
-            const resStr = JSON.stringify(res);
-            moduleHelper.send('_OnSocketCloseCallback', resStr);
-        };
-        wx.onSocketClose(callback);
-    },
-    WX_OnSocketError() {
-        const callback = (res) => {
-            formatResponse('GeneralCallbackResult', res);
-            const resStr = JSON.stringify(res);
-            moduleHelper.send('_OnSocketErrorCallback', resStr);
-        };
-        wx.onSocketError(callback);
-    },
-    WX_OnSocketMessage() {
-        const callback = (res) => {
-            formatResponse('SocketTaskOnMessageListenerResult', res);
-            const resStr = JSON.stringify(res);
-            moduleHelper.send('_OnSocketMessageCallback', resStr);
-        };
-        wx.onSocketMessage(callback);
-    },
-    WX_OnSocketOpen() {
-        const callback = (res) => {
-            formatResponse('OnSocketOpenListenerResult', res);
-            const resStr = JSON.stringify(res);
-            moduleHelper.send('_OnSocketOpenCallback', resStr);
-        };
-        wx.onSocketOpen(callback);
     },
     WX_OnTouchCancel() {
         if (!OnTouchCancelList) {

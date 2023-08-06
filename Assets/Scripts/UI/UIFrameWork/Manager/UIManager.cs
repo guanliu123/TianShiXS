@@ -29,7 +29,7 @@ namespace UIFrameWork
             GameObject uiPrefab = Resources.Load<GameObject>(uIType.Path);
 
             GameObject uiInstance = null;
-            if(uiPrefab!=null)
+            if (uiPrefab != null)
             {
                 uiInstance = GameObject.Instantiate(uiPrefab, parent.transform);
                 uiInstance.name = uIType.Name;
@@ -44,45 +44,54 @@ namespace UIFrameWork
 
         public void GetSingleUI(UIType uIType, Action<GameObject> cb)
         {
+            Debug.Log($"GetSingleUI {uIType.Path} begin");
+
             if (uIType == null)
                 return;
+            Debug.Log($"GetSingleUI {uIType.Path} Find parent");
             GameObject parent = GameObject.Find("Canvas/SafeAreaRect");
             if (!parent)
             {
-                Debug.LogError("无Canvas对象，请查询是否存在所有UI的根");
+                Debug.Log("无Canvas对象，请查询是否存在所有UI的根");
                 return;
             }
+            Debug.Log($"GetSingleUI {uIType.Path} ContainsKey dicUI");
             //如果内存池中存在该UI面板
             if (dicUI.ContainsKey(uIType))
             {
+                Debug.Log($"GetSingleUI {uIType.Path} dicUI find!");
                 cb.Invoke(dicUI[uIType]);
                 return;
             }
             foreach (Transform item in parent.transform)
             {
-                if(item.name==uIType.Name)
+                if (item.name == uIType.Name)
                 {
+                    Debug.Log($"GetSingleUI {uIType.Path} parent.transform find!");
                     cb.Invoke(item.gameObject);
                     return;
                 }
             }
-                
-            var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/"+uIType.Path+ ".prefab");
-            GameObject uiInstance = null;
+
+            Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync begin!");
+            var uiPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Resources_Move/" + uIType.Path + ".prefab");
             uiPrefab.Completed += (handle) =>
             {
+                Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync Completed!");
 
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
+                    Debug.Log($"GetSingleUI {uIType.Path} LoadAssetAsync Succeeded!");
+
                     GameObject result = handle.Result;
-                    uiInstance = GameObject.Instantiate(result, parent.transform);
+                    GameObject uiInstance = GameObject.Instantiate(result, parent.transform);
                     cb.Invoke(uiInstance);
                     uiInstance.name = uIType.Name;
                     dicUI.Add(uIType, uiInstance);
                 }
                 else
                 {
-                    Debug.LogError($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
+                    Debug.Log($"在路径:{uIType.Path}中没有找到名为{uIType.Name}的预设，请查询");
                 }
             };
         }
@@ -101,4 +110,3 @@ namespace UIFrameWork
 
     }
 }
-
