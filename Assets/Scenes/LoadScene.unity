@@ -302,6 +302,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &734821151
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TextEffect/Text2DOutline
+  m_Shader: {fileID: 4800000, guid: 10798a73f47ad1e47938ea442cbe376b, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _OutlineWidth: 6.34
+    - _ShadowOutlineWidth: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowOutlineColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &753625231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,8 +471,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6551718024448652013, guid: a63a7c02ea1aa924e8051d9c761cf587,
         type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551718024448652013, guid: a63a7c02ea1aa924e8051d9c761cf587,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551718024448652013, guid: a63a7c02ea1aa924e8051d9c761cf587,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1875.6001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551718024448652013, guid: a63a7c02ea1aa924e8051d9c761cf587,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1085.4
+      value: -937.80005
       objectReference: {fileID: 0}
     - target: {fileID: 8084759958232312598, guid: a63a7c02ea1aa924e8051d9c761cf587,
         type: 3}
@@ -662,50 +721,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1411583510
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: TextEffect/Text2DOutline
-  m_Shader: {fileID: 4800000, guid: 10798a73f47ad1e47938ea442cbe376b, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _OutlineWidth: 6.34
-    - _ShadowOutlineWidth: 0
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowOutlineColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1500078095
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66d5d1423fdcc943980eac43e57c600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnWXLogin: {fileID: 0}
 --- !u!1 &1541227789
 GameObject:
   m_ObjectHideFlags: 0

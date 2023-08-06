@@ -77,6 +77,7 @@ public class StartPanel : BasePanel
                         GameManager.GetInstance().StartGame();
                         Debug.Log("StartGame!");
                     });
+
                 });
 
                 UITool.GetOrAddComponentInChildren<Button>("Box_Btn", obj).onClick.AddListener(() =>

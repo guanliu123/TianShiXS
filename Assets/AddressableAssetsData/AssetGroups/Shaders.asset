@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Shaders
+  m_EditorClassIdentifier: 
+  m_GroupName: Shaders
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c55d609980f45344a8994187b5a97c8f
+  m_SerializeEntries:
+  - m_GUID: 550f7b33a3fd8554c891d52d59342c2f
+    m_Address: Assets/Game/Shaders/CamearEffectShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d026e53a02f91cb4aa445605912a3aab
+    m_Address: Assets/Game/Shaders/Dissolve_TexturCoords.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a28a8c9ad105c4249bfe3cc757a0c58e
+    m_Address: Assets/Game/Shaders/DistortAdd.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 596889d806a2a1e4da9daba030f28912
+    m_Address: Assets/Game/Shaders/DistortAlphaBlended.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50969505dc8274145812a310dda05e04
+    m_Address: Assets/Game/Shaders/Mask Add.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7dcc75c60839f64dafb5925bce87fc7
+    m_Address: Assets/Game/Shaders/ParticleAdditive_BrightnessRatio.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acc7696398e955046a781a0082a12017
+    m_Address: Assets/Game/Shaders/ParticleAdditive_BrightnessRatioZTestOff.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc9f6e2e4f3458a4eb678bf85003e32c
+    m_Address: Assets/Game/Shaders/ParticleAlphaBlended_BrightnessRatio.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73654ae7547b561469682e79a391743f
+    m_Address: Assets/Game/Shaders/ParticleAlphaBlended_BrightnessRatioZTestOff.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 785009c22afa84f47b6c85752a2465ab
+    m_Address: Assets/Game/Shaders/ParticlesAdditiveForTexture_Halo.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04ebdb1891039904ba3304d4d2b7d74c
+    m_Address: Assets/Game/Shaders/ParticlesAlphaBlendForTexture_Halo.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10798a73f47ad1e47938ea442cbe376b
+    m_Address: Assets/Game/Shaders/TextEffectShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 497235afdb7c30d4a91bbfd1468e4077, type: 2}
+    - {fileID: 11400000, guid: 362a67d3721e459478f1006c2e4740f5, type: 2}

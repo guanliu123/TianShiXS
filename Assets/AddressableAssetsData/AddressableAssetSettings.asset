@@ -15,9 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: ecbb59e03ef1f1e4ca3eb7ffd2d3502d
   m_currentHash:
     serializedVersion: 2
-    Hash: 21f4190c9e4d1a830dab3eeb5270b091
+    Hash: 164eb85f412fc54ef2729b59450c64b5
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -35,9 +35,9 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 800032f3be7facd4c93bf120ca390347
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: aa3baa41692950d429b04d9ac2761664
   m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
@@ -60,6 +60,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d62432d001c25a1498ce2a0ac78dac60, type: 2}
   - {fileID: 11400000, guid: 96997cdfb29707c4abb11c422100a45a, type: 2}
   - {fileID: 11400000, guid: 734ad94130f68ec4ebd59001e3c30096, type: 2}
+  - {fileID: 11400000, guid: 0f8a6c6f4a523ab43893df7b0346efac, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
