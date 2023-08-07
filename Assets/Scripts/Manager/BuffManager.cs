@@ -46,7 +46,7 @@ public class BuffManager : BaseManager<BuffManager>
     public void OnBuff(GameObject taker, int buffID)
     {
         string effect = BuffDic[buffID].effectPath;
-        GameManager.GetInstance().GenerateEffect(taker.transform, effect, true, 0.3F);
+        //GameManager.GetInstance().GenerateEffect(taker.transform, effect, true, 0.3F);
     }
 
     private void InitBuffEvent()
