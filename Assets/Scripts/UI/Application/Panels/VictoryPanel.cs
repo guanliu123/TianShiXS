@@ -23,8 +23,12 @@ public class VictoryPanel : BasePanel
             UITool.GetOrAddComponentInChildren<Button>("OK_Btn", panel).onClick.AddListener(() =>
             {
                 AudioManager.GetInstance().PlaySound("NormalButton");
-                PanelManager.Instance.Pop();
-                PanelManager.Instance.Push(new StartPanel());
+                //PanelManager.Instance.Pop();
+                //PanelManager.Instance.Push(new StartPanel());
+                GameRoot.Instance.TryLoad("StartScene", () =>
+                {
+                    SceneSystem.GetInstance().SetScene(new StartScene());
+                });
             });
         });
 
