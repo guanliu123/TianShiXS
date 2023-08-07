@@ -543,7 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66d5d1423fdcc943980eac43e57c600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnWXLogin: {fileID: 0}
 --- !u!1 &1818140172
 GameObject:
   m_ObjectHideFlags: 0
