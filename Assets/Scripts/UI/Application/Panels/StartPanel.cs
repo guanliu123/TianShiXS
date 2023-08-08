@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
 using Unity;
+using UnityEngine.SceneManagement;
 
 public class StartPanel : BasePanel
 {
@@ -130,6 +131,13 @@ public class StartPanel : BasePanel
     {
         topArea.SetActive(isShow);
         midArea.SetActive(isShow);
+    }
+
+    public static void FlushStr()
+    {
+        GameObject _panel = UIManager.Instance.GetSingleUI(new UIType(path));
+        UITool.GetOrAddComponentInChildren<Text>("StrengthText", _panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
+        return;
     }
 }
 
