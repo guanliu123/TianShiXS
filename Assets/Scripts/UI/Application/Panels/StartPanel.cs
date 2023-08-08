@@ -27,6 +27,9 @@ public class StartPanel : BasePanel
                 topArea = UITool.FindChildGameObject("TopArea", obj);
                 midArea = UITool.FindChildGameObject("MidArea", obj);
 
+                UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = ""+ GameManager.Instance.UserData.Strength + "/100";
+                UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+
                 UITool.GetOrAddComponentInChildren<Button>("Role_Btn", obj).onClick.AddListener(() =>
                 {
                     AudioManager.GetInstance().PlaySound("NormalButton");
@@ -119,6 +122,9 @@ public class StartPanel : BasePanel
             return;
         }
         UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
+
+        UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
+        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
     }
     private void SetAreaActive(bool isShow)
     {

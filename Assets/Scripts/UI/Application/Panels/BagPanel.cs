@@ -53,7 +53,7 @@ public class BagPanel : BasePanel
                 if (value) { foreach (var item in props[0]) item.SetActive(false); foreach (var item in props[1]) item.SetActive(true); }
             });
             //加入组的同时记录道具类型
-            foreach (var item in GameManager.GetInstance()._UserData.PropList)
+            foreach (var item in GameManager.GetInstance().UserData.PropList)
             {
                 if (!props.ContainsKey(item.PropID % 10)) props.Add(item.PropID % 10, new List<GameObject>());
                 ResourceManager.GetInstance().LoadRes<GameObject>("BagProp", result =>

@@ -12,15 +12,13 @@ public class ClientRoot : MonoBehaviour
 {
     public static ClientRoot Instance { get; private set; }
 
-    public static bool WXLoggedIn = false;
+    public bool WXLoggedIn = false;
     
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-    }
-    void Start()
-    {
+
         Debug.Log("Client Is Run");
         GameClient.Instance._client.connect_gate("wss://tsxs.ucat.games:3001", 3000);
         GameClient.Instance._client.onGateConnect += () =>
@@ -41,6 +39,10 @@ public class ClientRoot : MonoBehaviour
             Debug.Log(string.Format("connect hub:{0} faild!", hub_name));
         };
     }
+    void Start()
+    {
+       
+    }
 
     public void WxSuccessLogin(string code , string nickName)
     {
@@ -56,7 +58,7 @@ public class ClientRoot : MonoBehaviour
                 GameClient.Instance._player_login_Caller.get_hub(player_hub_name).player_login(token, nickName).callBack((UserData data) =>
                 {
                     Debug.Log($"player_login success!");
-                    GameManager.GetInstance()._UserData = data;
+                    GameManager.GetInstance().UserData = data;
                     WXLoggedIn = true;
                 }, (err) =>
                 {
@@ -66,7 +68,7 @@ public class ClientRoot : MonoBehaviour
                         GameClient.Instance._player_login_Caller.get_hub(player_hub_name).create_role(token, nickName).callBack((UserData data) =>
                         {
                             Debug.Log($"create_role success!");
-                            GameManager.GetInstance()._UserData = data;
+                            GameManager.GetInstance().UserData = data;
                             WXLoggedIn = true;
                         }, (error) =>
                         {

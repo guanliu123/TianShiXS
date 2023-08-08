@@ -34,8 +34,8 @@ public class GameRoot : MonoBehaviour
     }
     private void Start()
     {
-         if (SceneManager.GetActiveScene().name == "StartScene")
-             SceneSystem.Instance.SetScene(new StartScene());    
+        if (SceneManager.GetActiveScene().name == "StartScene")
+            SceneSystem.Instance.SetScene(new StartScene());
     }
 
     public void TryLoad(string _nextSceneName,Action _callBack)
@@ -122,6 +122,11 @@ public class GameRoot : MonoBehaviour
             Debug.Log(_handle.PercentComplete);
         }
         return;
+
+    }
+
+    private void Update()
+    {
 
     }
 }

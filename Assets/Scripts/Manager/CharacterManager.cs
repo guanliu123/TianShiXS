@@ -16,9 +16,9 @@ public class CharacterManager : SingletonBase<CharacterManager>
         RoleDataTool.ReadRoleData();
         roleMsgDic = RoleDataTool.roleMsgDic;
         characterDatasDic = new Dictionary<int, Dictionary<int, CharacterData>>(RoleDataTool.roleDataDic);
-        if (GameManager.GetInstance()._UserData.RoleList != null)
+        if (GameManager.GetInstance().UserData.RoleList != null)
         {
-            foreach (var item in GameManager.GetInstance()._UserData.RoleList)
+            foreach (var item in GameManager.GetInstance().UserData.RoleList)
             {
                 if (characterDatasDic.ContainsKey(item.RoleID))
                 {
@@ -43,7 +43,7 @@ public class CharacterManager : SingletonBase<CharacterManager>
     }
     public void UpgradeRole(int id, float increaseHP, float increaseATK,float increaseATKSpd)
     {
-        foreach(var item in GameManager.GetInstance()._UserData.RoleList)
+        foreach(var item in GameManager.GetInstance().UserData.RoleList)
         {
             if (item.RoleID == id)
             {
@@ -63,7 +63,7 @@ public class CharacterManager : SingletonBase<CharacterManager>
                 }
             }
 
-            UserData.UserData_to_protcol(GameManager.GetInstance()._UserData);
+            UserData.UserData_to_protcol(GameManager.GetInstance().UserData);
         }
     }
 }

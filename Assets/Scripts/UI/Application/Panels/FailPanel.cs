@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game;
+using System.Collections;
 using System.Collections.Generic;
 using UIFrameWork;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class FailPanel : BasePanel
     {
         GameManager.GetInstance().ClearFloatDamage();
         GameManager.GetInstance().QuitGame();
+        
         GameObject panel = null;
          UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {

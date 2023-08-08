@@ -34,7 +34,7 @@ public class GameManager : SingletonBase<GameManager>
     public List<GameObject> bulletList = new List<GameObject>();
 
     public int existBOSS { get; private set; }
-    public UserData _UserData { get => userData; set => userData = value; }
+    public UserData UserData { get => userData; set => userData = value; }
 
     private int evolutionNum = 0;
 
@@ -167,10 +167,15 @@ public class GameManager : SingletonBase<GameManager>
         WriteData();
         //DataCenter.Money += levelMoney;
 
-        //RequestCenter.AddCoinReq(GameClient.Instance, levelMoney, (data) =>
-        //{
-        //    userData = data;
-        //});
+        RequestCenter.AddCoinReq(GameClient.Instance, levelMoney, (data) =>
+        {
+            userData = data;
+        });
+
+        RequestCenter.CostStrengthReq(GameClient.Instance, 5, (data) =>
+        {
+            userData = data;
+        });
     }
 
     public void WriteData()
