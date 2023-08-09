@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
                 if (isHorizontalMode)
                 {
                     float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
-                    offset = new Vector3(transform.position.x + scaledX * nowSpeed, 1, -1);
-                    offset.x = Mathf.Clamp(-offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
+                    offset = new Vector3(transform.position.x - scaledX * nowSpeed, 1, -1);
+                    offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
 
                    // transform.position = offset;
                 }
