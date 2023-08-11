@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class StartPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/StartScenePanel";
-    GameObject panel;
+    private static GameObject panel = null;
     private GameObject topArea;
     private GameObject midArea;
 
@@ -28,8 +28,8 @@ public class StartPanel : BasePanel
                 topArea = UITool.FindChildGameObject("TopArea", obj);
                 midArea = UITool.FindChildGameObject("MidArea", obj);
 
-                UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = ""+ GameManager.Instance.UserData.Strength + "/100";
-                UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+                UITool.GetOrAddComponentInChildren<Text>("StrengthText", obj).text = ""+ GameManager.Instance.UserData.Strength + "/100";
+                UITool.GetOrAddComponentInChildren<Text>("MoneyText", obj).text = "" + GameManager.Instance.UserData.Coin;
 
                 UITool.GetOrAddComponentInChildren<Button>("Role_Btn", obj).onClick.AddListener(() =>
                 {
@@ -115,17 +115,21 @@ public class StartPanel : BasePanel
     public override void OnResume()
     {
         SetAreaActive(true);
-        //UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = DataCenter.Money + "";
-        Debug.Log(panel.name);
-        if (GameManager.GetInstance().nowLevel == 0)
-        {
-            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
-            return;
-        }
-        UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
 
-        UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
-        UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+        if (panel != null)
+        {
+            Debug.Log(panel.name);
+            if (GameManager.GetInstance().nowLevel == 0)
+            {
+                UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
+                return;
+            }
+            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
+
+            UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
+            UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+        }
+        
     }
     private void SetAreaActive(bool isShow)
     {
@@ -135,9 +139,12 @@ public class StartPanel : BasePanel
 
     public static void FlushStr()
     {
-        GameObject _panel = UIManager.Instance.GetSingleUI(new UIType(path));
-        UITool.GetOrAddComponentInChildren<Text>("StrengthText", _panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
-        return;
+        Debug.Log("StartPanel FlushStr");
+        if (panel != null)
+        {
+            Debug.Log("StartPanel FlushStr set!");
+            UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
+        }
     }
 }
 

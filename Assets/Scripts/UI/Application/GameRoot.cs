@@ -41,12 +41,12 @@ public class GameRoot : MonoBehaviour
     public void TryLoad(string _nextSceneName,Action _callBack)
     {
         //加载中间过渡场景
-        var _lastLoadHandle = Addressables.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
+        var _lastLoadHandle = SceneManager.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
 
         Debug.Log($"TryLoad _lastLoadHandle {loadingScene}");
-        _lastLoadHandle.Completed += (op) =>
+        _lastLoadHandle.completed += (op) =>
         {
-            if (op.Status == AsyncOperationStatus.Succeeded)
+            if (op.isDone)
             {
                 //载入成功后做些什么...
 
@@ -58,11 +58,11 @@ public class GameRoot : MonoBehaviour
         };
     }
 
-    private IEnumerator WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
+    private IEnumerator WaitForLoading(AsyncOperation _lastLoadHandle,string _nextSceneName,Action _callBack)
     {
         Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
         Addressables.InitializeAsync();
-        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Additive);
+        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single);
         while (_currLoadHandle.Status==AsyncOperationStatus.None)
         {
             //开始加载时...
@@ -75,22 +75,22 @@ public class GameRoot : MonoBehaviour
 
         Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.IsDone}");
         
-        if (_currLoadHandle.Status==AsyncOperationStatus.Succeeded)
+        if (_currLoadHandle.Status == AsyncOperationStatus.Succeeded)
         {
             //加载完毕时...
             LoadScene.Instance.SetPercent(1.0f);
             yield return new WaitForSeconds(1.0f);
             //卸载上一场景
-            Addressables.UnloadSceneAsync(_lastLoadHandle).Completed += (op) =>
-            {
-                Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName}");
-                if (op.Status == AsyncOperationStatus.Succeeded)
-                {
-                    //所有流程结束后回调
-                    _callBack?.Invoke();
-                    Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName} _callBack");
-                }
-            };
+            //SceneManager.UnloadSceneAsync(loadingScene).completed += (op) =>
+            //{
+            //    Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName}");
+            //    if (op.isDone)
+            //    {
+            //        //所有流程结束后回调
+            //        Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName} _callBack");
+            //    }
+            //};
+            _callBack?.Invoke();
         }
     }
 
