@@ -30,6 +30,7 @@ public class CameraManager : BaseManager<CameraManager>
 
     public void StartCameraEvent()
     {
+        mainCamera = Camera.main;
         MonoManager.GetInstance().AddUpdateListener(CameraEvent);
     }
     /*public void StopCameraEvent()
