@@ -35,7 +35,7 @@ namespace Game
             if (SceneManager.GetActiveScene().name == "StartScene")
             {
                 Debug.Log("FlushSrt");
-                StartPanel.FlushStr();
+                StartPanel.FlushStrAndCoin();
             }
         }
     }
