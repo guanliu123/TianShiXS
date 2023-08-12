@@ -59,6 +59,7 @@ public class ClientRoot : MonoBehaviour
                 {
                     Debug.Log($"player_login success!");
                     GameManager.GetInstance().UserData = data;
+                    StartPanel.FlushStrAndCoin();
                     WXLoggedIn = true;
                 }, (err) =>
                 {
@@ -69,6 +70,7 @@ public class ClientRoot : MonoBehaviour
                         {
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance().UserData = data;
+                            StartPanel.FlushStrAndCoin();
                             WXLoggedIn = true;
                         }, (error) =>
                         {
