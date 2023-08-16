@@ -26,10 +26,10 @@ public class PausePanel : BasePanel
             {
                 PoolManager.GetInstance().GetObj("SkillTag", async t =>
                 {
-                    await ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
+                    /*await ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
                     {
                         UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = result;
-                    }, ResourceType.Null, ".png");
+                    }, ResourceType.Null, ".png");*/
                     t.transform.position = content.position;
                     t.transform.SetParent(content);
                     skillIcons.Add(t);
