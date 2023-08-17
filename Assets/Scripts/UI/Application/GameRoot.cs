@@ -52,8 +52,6 @@ public class GameRoot : MonoBehaviour
 
                 //开始协程
                 StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
-                //WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack);
-                //StartCoroutine(LoadLevelScene(_lastLoadHandle, _callBack));
             }
         };
     }
@@ -68,7 +66,7 @@ public class GameRoot : MonoBehaviour
             //开始加载时...
             LoadScene.Instance.SetPercent(_currLoadHandle.PercentComplete);
             Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.PercentComplete}");
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
             //yield return null;
 
         }
@@ -80,16 +78,6 @@ public class GameRoot : MonoBehaviour
             //加载完毕时...
             LoadScene.Instance.SetPercent(1.0f);
             yield return new WaitForSeconds(1.0f);
-            //卸载上一场景
-            //SceneManager.UnloadSceneAsync(loadingScene).completed += (op) =>
-            //{
-            //    Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName}");
-            //    if (op.isDone)
-            //    {
-            //        //所有流程结束后回调
-            //        Debug.Log($"TryLoad WaitForLoading UnloadSceneAsync {_nextSceneName} _callBack");
-            //    }
-            //};
             _callBack?.Invoke();
         }
     }
