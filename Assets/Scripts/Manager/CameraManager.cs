@@ -23,8 +23,11 @@ public class CameraManager : BaseManager<CameraManager>
         cameraPos.Add(CameraPointType.OrginPoint, new Vector3(2.16f,4.55f,-7.1f));
         cameraRot.Add(CameraPointType.OrginPoint, new Vector3(10.02f,-14.32f,0));
 
-        cameraShaker = mainCamera.gameObject.GetComponent<CameraShaker>();
-        if (!cameraShaker) cameraShaker = mainCamera.gameObject.AddComponent<CameraShaker>();
+        if (mainCamera != null)
+        {
+            cameraShaker = mainCamera.gameObject.GetComponent<CameraShaker>();
+            if (!cameraShaker) cameraShaker = mainCamera.gameObject.AddComponent<CameraShaker>();
+        }
         //MonoManager.GetInstance().AddUpdateListener(CameraEvent);    
     }
 
@@ -45,16 +48,26 @@ public class CameraManager : BaseManager<CameraManager>
 
     public void CameraMove(CameraPointType cameraPointType, float moveTime)
     {
-        mainCamera.transform.DOMove(cameraPos[cameraPointType], moveTime);
-        mainCamera.transform.DORotate(cameraRot[cameraPointType], moveTime);
+        if (mainCamera != null)
+        {
+            Debug.Log("CameraMove DOMove begin!");
+            mainCamera.transform.DOMove(cameraPos[cameraPointType], moveTime);
+            Debug.Log("CameraMove DOMove end!");
+            Debug.Log("CameraMove DORotate begin!");
+            mainCamera.transform.DORotate(cameraRot[cameraPointType], moveTime);
+            Debug.Log("CameraMove DORotate end!");
+        }
     }
 
     private void CameraFollow()
     {
         Transform playerTra = Player._instance.gameObject.transform;
 
-        Vector3 newPoint = new Vector3(playerTra.position.x / 1.4f, mainCamera.transform.position.y, mainCamera.transform.position.z);
-        mainCamera.transform.position = newPoint;
+        if (mainCamera != null)
+        {
+            Vector3 newPoint = new Vector3(playerTra.position.x / 1.4f, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            mainCamera.transform.position = newPoint;
+        }
     }
     
     public void CameraShake(float duration,float strength)
