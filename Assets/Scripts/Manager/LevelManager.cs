@@ -162,6 +162,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     void LevelEvent()
     {
+        Debug.Log("-----------LevelEvent-------");
         SquareMove();
         StageCheck();
     }
@@ -280,17 +281,24 @@ public class LevelManager : BaseManager<LevelManager>
     //º”…œ«–ªªÃÏø’∫–
     public void ChangeStage()
     {
+        Debug.Log("-------------ChangeStage----------------");
         isChange = !isChange;
         if (isChange)
         {
+            Debug.Log("-------------CameraMove HighPoint begin----------------");
+            Debug.Log($"-------------CameraMove HighPoint begin nowLevel:{nowLevel}----------------");
             mapSize = nowLevel.widthSize;
             GameManager.GetInstance().CameraMove(CameraPointType.HighPoint, 1f);
+            Debug.Log("-------------CameraMove HighPoint end----------------");
         }
         else
         {
+            Debug.Log("-------------CameraMove MainPoint begin----------------");
+            Debug.Log($"-------------CameraMove MainPoint begin nowLevel:{nowLevel}----------------");
             mapSize = nowLevel.normalSize;
             GameManager.GetInstance().CameraMove(CameraPointType.MainPoint, 1f);
             GameManager.GetInstance().UnlockMove();
+            Debug.Log("-------------CameraMove MainPoint end----------------");
             /*smoke = PoolManager.GetInstance().GetObj("Smoke");
             smoke.transform.position= new Vector3(0, -6, 40);*/
         }

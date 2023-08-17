@@ -32,9 +32,9 @@ public class SkillPanel : BasePanel
             Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
             for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
             {
-                PoolManager.GetInstance().GetObj("SkillTag", t =>
+                PoolManager.GetInstance().GetObj("SkillTag", async t =>
                 {
-                    ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
+                    await ResourceManager.GetInstance().LoadRes<Sprite>(SkillManager.GetInstance().nowSkillIcons.ElementAt(i).Value, result =>
                     {
                         UITool.GetOrAddComponentInChildren<Image>("Icon", t).sprite = result;
                     }, ResourceType.Null, ".png");
@@ -56,12 +56,12 @@ public class SkillPanel : BasePanel
     }
     void SkillChoose(List<SkillUpgrade> su, int i, GameObject panel)
     {
-        PoolManager.GetInstance().GetObj(su[i - 1].quality, skillRect =>
+        PoolManager.GetInstance().GetObj(su[i - 1].quality, async skillRect =>
         {
             var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
             skillRect.transform.position = tra.position;
             skillRect.transform.SetParent(tra);
-            ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
+            await ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
             {
                 UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
             }, ResourceType.Null, ".png");
@@ -77,11 +77,21 @@ public class SkillPanel : BasePanel
     void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
     {
         button.onClick.AddListener(delegate {
-            AudioManager.GetInstance().PlaySound("NormalButton");
-            su[parameter - 1].skill.OnUse();
-            Time.timeScale = 1;
-            GameManager.GetInstance().PlayerEvolution();
-            PanelManager.Instance.Pop();
+            try
+            {
+                AudioManager.GetInstance().PlaySound("NormalButton");
+                su[parameter - 1].skill.OnUse();
+                Time.timeScale = 1;
+                GameManager.GetInstance().PlayerEvolution();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.Log(ex.Message);
+            }
+            finally
+            {
+                PanelManager.Instance.Pop();
+            }
         });
     }
 

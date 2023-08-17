@@ -402,7 +402,10 @@ public class AddBulletDamage : SkillBase
     {
         foreach (var item in Player._instance.nowBullet)
         {
-            BulletManager.GetInstance().increaseATK[item.Key] += 5;
+            if (BulletManager.GetInstance().increaseATK.ContainsKey(item.Key))
+            {
+                BulletManager.GetInstance().increaseATK[item.Key] += 5;
+            }
         }
         SkillManager.GetInstance().UpdateSkillPool(id);
     }
