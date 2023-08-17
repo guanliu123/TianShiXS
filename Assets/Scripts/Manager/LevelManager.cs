@@ -48,8 +48,10 @@ public class LevelManager : BaseManager<LevelManager>
     public Vector3 bossPoint = new Vector3(0, 2, 25);
 
     //======================缓存资源的句柄======================//
+    List<Task> waitList = new List<Task>();
     private List<GameObject> normalPlanes=new List<GameObject>();
     private List<GameObject> widthPlanes = new List<GameObject>();
+    private Dictionary<int,GameObject> enemys = new Dictionary<int, GameObject>();
     private Material skybox;
 
     public LevelManager()
@@ -68,8 +70,7 @@ public class LevelManager : BaseManager<LevelManager>
 
     public async Task LoadLevelRes()
     {
-        var waitList = new List<Task>();
-
+        waitList.Clear();
         normalPlanes.Clear();
         widthPlanes.Clear();
 
@@ -90,11 +91,35 @@ public class LevelManager : BaseManager<LevelManager>
                 widthPlanes.Add(result);
             }, ResourceType.MapGround));
         }
+        foreach(var item in nowLevel.StageDatas)
+        {
+            foreach(var t in item.BOSSList)
+            {
+                if (!enemys.ContainsKey(t))
+                {
+                    enemys.Add(t, new GameObject());
+                    LoadEnemy(t);
+                }
+            }
+            foreach(var t in item.WaveEnemyList)
+            {
+                if (!enemys.ContainsKey(t))
+                {
+                    enemys.Add(t, new GameObject());
+                    LoadEnemy(t);
+                }                   
+            }
+        }
 
         await Task.WhenAll(waitList);
-
-        Debug.Log("关卡普通地面数量" + normalPlanes.Count);
-        Debug.Log("关卡宽地面数量" + widthPlanes.Count);
+    }
+    private void LoadEnemy(int id)
+    {
+        waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(id.ToString(), result =>
+        {
+            if (!enemys.ContainsKey(id)) enemys.Add(id, result);
+            else enemys[id] = result;
+        }, ResourceType.Enemy));
     }
 
     public void InitLevel()
