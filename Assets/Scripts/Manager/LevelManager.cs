@@ -383,17 +383,10 @@ public class LevelManager : BaseManager<LevelManager>
                 } while (enemyPoints.Contains(_newPoint));
 
                 enemyPoints.Add(_newPoint);
-                PoolManager.GetInstance().GetObj(
-                nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)].ToString(),
-                t =>
-                {
-                    if (t)
-                    {
-                        t.transform.position = _newPoint;
-                        //t.transform.parent = ground.transform;
-                        t.transform.parent = enemyList.transform;
-                    }
-                }, ResourceType.Enemy);
+                var targetEnemy = nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)];
+                var t = PoolManager.GetInstance().GetObj(targetEnemy.ToString(), enemys[targetEnemy]);
+                t.transform.position = _newPoint;
+                t.transform.parent = enemyList.transform;
 
                 //Debug.Log("enemypos" + _newPoint);
                 enemyList.transform.parent = ground.transform;
@@ -407,15 +400,8 @@ public class LevelManager : BaseManager<LevelManager>
                 } while (enemyPoints.Contains(_newPoint));
 
                 enemyPoints.Add(_newPoint);
-                PoolManager.GetInstance().GetObj(
-                nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)].ToString(),
-                t =>
-                {
-                    if (t)
-                    {
-                        t.transform.position = _newPoint;
-                    }
-                }, ResourceType.Enemy);
+                var targetEnemy = nowLevel.StageDatas[nowStage].WaveEnemyList[Random.Range(0, nowLevel.StageDatas[nowStage].WaveEnemyList.Count)];
+                PoolManager.GetInstance().GetObj(targetEnemy.ToString(), enemys[targetEnemy]).transform.position = _newPoint;
             }
             requireEnemy--;
         }
