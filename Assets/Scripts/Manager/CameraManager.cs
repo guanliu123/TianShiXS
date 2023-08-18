@@ -50,12 +50,12 @@ public class CameraManager : BaseManager<CameraManager>
     {
         if (mainCamera != null)
         {
-            Debug.Log("CameraMove DOMove begin!");
+            //Debug.Log("CameraMove DOMove begin!");
             mainCamera.transform.DOMove(cameraPos[cameraPointType], moveTime);
-            Debug.Log("CameraMove DOMove end!");
-            Debug.Log("CameraMove DORotate begin!");
+            //Debug.Log("CameraMove DOMove end!");
+            //Debug.Log("CameraMove DORotate begin!");
             mainCamera.transform.DORotate(cameraRot[cameraPointType], moveTime);
-            Debug.Log("CameraMove DORotate end!");
+            //Debug.Log("CameraMove DORotate end!");
         }
     }
 

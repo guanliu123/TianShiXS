@@ -37,7 +37,7 @@ public class SkillManager : SingletonBase<SkillManager>
             //if(!skillDatas.ContainsKey(item.id)) skillDatas.Add(item.id, item);
             if (item.Value.num > 0 && item.Value.beforeSkills.Count <= 0)
             {
-                skillPool.Add(item.Value.id, item.Value.num);
+                skillPool[item.Value.id] = item.Value.num;
                 occurredSkill.Add(item.Value.id, 1);
                 randomValue += item.Value.probability;
             }
@@ -86,7 +86,7 @@ public class SkillManager : SingletonBase<SkillManager>
         {
             if (!occurredSkill.ContainsKey(item)) return;
         }
-        skillPool.Add(id, SkillDic[id].num);
+        skillPool[id] = SkillDic[id].num;
         randomValue += SkillDic[id].probability;
     }
 

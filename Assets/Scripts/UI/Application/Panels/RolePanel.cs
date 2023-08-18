@@ -44,8 +44,13 @@ public class RolePanel : BasePanel
     }
 
 
-    public void UpdatePlayerPanel(int index, GameObject playerPanel)
+    public async void UpdatePlayerPanel(int index, GameObject playerPanel)
     {
+        if (!players.ContainsKey(index))
+        {
+            return;
+        }
+
         choosePlayer = players.ElementAt(index).Key;
         //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
         Transform t = UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", playerPanel);
@@ -55,7 +60,7 @@ public class RolePanel : BasePanel
         }
         catch { }
         //GameObject.Instantiate(players.ElementAt(index).Value.imagePath,t).transform.parent = t;
-        ResourceManager.GetInstance().LoadRes<GameObject>(players.ElementAt(index).Value.imagePath, temp => {
+        await ResourceManager.GetInstance().LoadRes<GameObject>(players.ElementAt(index).Value.imagePath, temp => {
             GameObject.Instantiate(temp, t).transform.parent = t;
         }, ResourceType.UI);
 

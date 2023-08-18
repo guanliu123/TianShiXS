@@ -71,16 +71,25 @@ public class HandbookPanel : BasePanel
         skills = GameManager.GetInstance().GetSkills();
     }
 
-    public void UpdateEnemyPanel(int index, GameObject enemyPanel)
+    public async void UpdateEnemyPanel(int index, GameObject enemyPanel)
     {
         Transform t = UITool.GetOrAddComponentInChildren<Transform>("EnemyImage", enemyPanel);
         try
         {
             GameObject.Destroy(t.GetChild(0).gameObject);
         }
-        catch { }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"UpdateEnemyPanel Destroy faild:{ex.Message}");
+        }
+
         //GameObject.Instantiate(enemys[index].imagePath,t).transform.parent = t;
-        ResourceManager.GetInstance().LoadRes<GameObject>(enemys[index].imagePath, temp => {
+        if (index >= enemys.Count)
+        {
+            return;
+        }
+
+        await ResourceManager.GetInstance().LoadRes<GameObject>(enemys[index].imagePath, temp => {
             GameObject.Instantiate(temp, t).transform.parent = t;
         }, ResourceType.UI);
 
@@ -90,10 +99,15 @@ public class HandbookPanel : BasePanel
         //UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + enemys[index].Aggressivity;
     }
 
-    public void UpdateSkillPanel(int index, GameObject panel)
+    public async void UpdateSkillPanel(int index, GameObject panel)
     {
+        if (index >= skills.Count)
+        {
+            return;
+        }
+
         Debug.Log(skills[index].iconPath);
-        ResourceManager.GetInstance().LoadRes<Sprite>(skills[index].iconPath, t =>
+        await ResourceManager.GetInstance().LoadRes<Sprite>(skills[index].iconPath, t =>
         {
             UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = t;
         }, ResourceType.Null, ".png");
