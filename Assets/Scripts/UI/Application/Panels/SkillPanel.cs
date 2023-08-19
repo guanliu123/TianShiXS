@@ -30,7 +30,7 @@ public class SkillPanel : BasePanel
             //});
 
             Transform content = UITool.GetOrAddComponentInChildren<Transform>("Content", panel);
-            for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
+            /*for (int i = 0; i < SkillManager.GetInstance().nowSkillIcons.Count; i++)
             {
                 PoolManager.GetInstance().GetObj("SkillTag", async t =>
                 {
@@ -42,7 +42,7 @@ public class SkillPanel : BasePanel
                     t.transform.SetParent(content);
                     skillIcons.Add(t);
                 }, ResourceType.UI);
-            }
+            }*/
 
             List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
             for (int i = 1; i <= 3; i++)
