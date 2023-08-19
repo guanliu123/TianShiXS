@@ -86,7 +86,7 @@ public class SkillPanel : BasePanel
             }
             catch (System.Exception ex)
             {
-                Debug.Log(ex.Message);
+                Debug.LogError(ex.Message);
             }
             finally
             {
