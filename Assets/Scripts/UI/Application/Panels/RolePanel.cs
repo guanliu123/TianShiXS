@@ -36,20 +36,20 @@ public class RolePanel : BasePanel
 
             var t = UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", obj);
             t._panel = this;
+         
+            Debug.Log("测试1");
         });
-
         players = GameManager.GetInstance().GetPlayerRole();
-
         //UpdatePlayerPanel(0);      
     }
 
 
     public async void UpdatePlayerPanel(int index, GameObject playerPanel)
     {
-        if (!players.ContainsKey(index))
+        if (players.Count<=0)
         {
             return;
-        }
+        }   
 
         choosePlayer = players.ElementAt(index).Key;
         //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
