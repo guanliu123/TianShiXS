@@ -46,10 +46,10 @@ public class RolePanel : BasePanel
 
     public async void UpdatePlayerPanel(int index, GameObject playerPanel)
     {
-        if (players.Count<=0)
+        if (players.Count <= index)
         {
             return;
-        }   
+        }
 
         choosePlayer = players.ElementAt(index).Key;
         //UITool.GetOrAddComponentInChildren<Transform>("PlayerImage", panel) = players[index].characterData.icon;
