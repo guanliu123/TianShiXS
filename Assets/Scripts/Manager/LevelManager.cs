@@ -97,7 +97,7 @@ public class LevelManager : BaseManager<LevelManager>
             {
                 if (!enemys.ContainsKey(t))
                 {
-                    enemys.Add(t, new GameObject());
+                    enemys.Add(t, new GameObject(null));
                     LoadEnemy(t);
                 }
             }
@@ -105,11 +105,25 @@ public class LevelManager : BaseManager<LevelManager>
             {
                 if (!enemys.ContainsKey(t))
                 {
-                    enemys.Add(t, new GameObject());
+                    enemys.Add(t, new GameObject(null));
                     LoadEnemy(t);
                 }                   
             }
         }
+        bool flag = false;
+        do
+        {
+            for(int i = 0; i < enemys.Count; i++)
+            {
+                if (enemys.ElementAt(i).Value == null)
+                {
+                    LoadEnemy(enemys.ElementAt(i).Key);
+                    flag = true;
+                    break;
+                }
+                flag = false;
+            }
+        } while (flag);
 
         await Task.WhenAll(waitList);
     }
