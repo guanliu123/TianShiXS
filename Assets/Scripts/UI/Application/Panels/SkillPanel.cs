@@ -64,13 +64,12 @@ public class SkillPanel : BasePanel
             await ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
             {
                 UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
+                UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
+                var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
+                t.GetComponentInChildren<Text>().text = su[i - 1].describe;
+                SkillPromote(t, i, su);
             }, ResourceType.Null, ".png");
-            //更改品级框
-            UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
-            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
-            t.GetComponentInChildren<Text>().text = su[i - 1].describe;
-
-            SkillPromote(t, i, su);
+            //更改品级框       
         }, ResourceType.UI);
     }
 

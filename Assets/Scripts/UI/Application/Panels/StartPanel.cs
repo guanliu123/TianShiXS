@@ -99,7 +99,7 @@ public class StartPanel : BasePanel
     }
     public override void OnPause()
     {       
-        //SetAreaActive(false);
+        SetAreaActive(false);
     }
 
     public override void OnResume()
