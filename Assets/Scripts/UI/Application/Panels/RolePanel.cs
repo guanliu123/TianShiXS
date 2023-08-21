@@ -37,7 +37,6 @@ public class RolePanel : BasePanel
             var t = UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", obj);
             t._panel = this;
          
-            Debug.Log("测试1");
         });
         players = GameManager.GetInstance().GetPlayerRole();
         //UpdatePlayerPanel(0);      

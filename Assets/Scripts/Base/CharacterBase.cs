@@ -104,13 +104,25 @@ public class CharacterBase : MonoBehaviour, IAttack
     protected void InitData(bool isPlayer=false)
     {
         int askNum = isPlayer ? 0 : LevelManager.GetInstance().nowLevelNum;
-        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID) ||
+        /*if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID) ||
             !CharacterManager.GetInstance().characterDatasDic[characterID].ContainsKey(askNum))
         {
             Debug.Log("未获取到角色数据");
             if(characterTag!=CharacterTag.Player) Recovery(true);
             return;
+        }*/
+        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID)){
+            Debug.Log("未获取到ID为" + characterID + "的角色数据");
+            if (characterTag != CharacterTag.Player) Recovery(true);
+            return;
         }
+        else if (!CharacterManager.GetInstance().characterDatasDic[characterID].ContainsKey(askNum))
+        {
+            Debug.Log("未获取到ID为" + characterID + "的角色的第" + askNum + "关数据");
+            if (characterTag != CharacterTag.Player) Recovery(true);
+            return;
+        }
+
         characterData = CharacterManager.GetInstance().characterDatasDic[characterID][askNum];
         
         maxHP = characterData.MaxHP;
