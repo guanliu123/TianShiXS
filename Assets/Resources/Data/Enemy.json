@@ -3,7 +3,7 @@
     "EnemyID": 2001,
     "Name": "蝙蝠",
     "Describe": "小蝙蝠",
-    "LevelNum": 0,
+    "LevelNum": 1,
     "MaxHP": 40,
     "Bullets": [
       3003
@@ -17,7 +17,7 @@
     "EnemyID": 0.0,
     "Name": "",
     "Describe": "",
-    "LevelNum": 1,
+    "LevelNum": 2,
     "MaxHP": 40,
     "Bullets": [
       3003
@@ -31,7 +31,7 @@
     "EnemyID": 2002,
     "Name": "大眼怪",
     "Describe": "一只大眼怪",
-    "LevelNum": 0,
+    "LevelNum": 1,
     "MaxHP": 50,
     "Bullets": [
       3002
