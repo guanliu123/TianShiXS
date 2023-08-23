@@ -61,14 +61,15 @@ public class SkillPanel : BasePanel
             var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
             skillRect.transform.position = tra.position;
             skillRect.transform.SetParent(tra);
-            await ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
+            ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
             {
-                UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
-                UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
-                var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
-                t.GetComponentInChildren<Text>().text = su[i - 1].describe;
-                SkillPromote(t, i, su);
+                UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;              
             }, ResourceType.Null, ".png");
+            UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
+            var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
+            Debug.Log("技能"+i+"描述："+ su[i - 1].describe);
+            t.GetComponentInChildren<Text>().text = su[i - 1].describe;
+            SkillPromote(t, i, su);
             //更改品级框       
         }, ResourceType.UI);
     }
