@@ -50,8 +50,6 @@ namespace Abelkhan
         public bool IsLook;
         public float Heath;
         public float AttNum;
-        public float AttSpd;
-
         public static MsgPack.MessagePackObjectDictionary Role_to_protcol(Role _struct){
             var _protocol = new MsgPack.MessagePackObjectDictionary();
             _protocol.Add("RoleID", _struct.RoleID);
@@ -59,7 +57,6 @@ namespace Abelkhan
             _protocol.Add("IsLook", _struct.IsLook);
             _protocol.Add("Heath", _struct.Heath);
             _protocol.Add("AttNum", _struct.AttNum);
-            _protocol.Add("AttSpd", _struct.AttSpd);
             return _protocol;
         }
         public static Role protcol_to_Role(MsgPack.MessagePackObjectDictionary _protocol){
@@ -79,10 +76,6 @@ namespace Abelkhan
                 }
                 else if (((MsgPack.MessagePackObject)i.Key).AsString() == "AttNum"){
                     _structe15dab07_4671_3806_9f26_9880fe20019d.AttNum = ((MsgPack.MessagePackObject)i.Value).AsSingle();
-                }
-                else if (((MsgPack.MessagePackObject)i.Key).AsString() == "AttSpd")
-                {
-                    _structe15dab07_4671_3806_9f26_9880fe20019d.AttSpd = ((MsgPack.MessagePackObject)i.Value).AsSingle();
                 }
             }
             return _structe15dab07_4671_3806_9f26_9880fe20019d;
@@ -181,6 +174,7 @@ namespace Abelkhan
         public UserInformation User;
         public Int32 Coin;
         public Int32 Strength;
+        public Int32 LevelNum;
         public Int32 NormalChest;
         public Int32 RareChest;
         public Int32 EpicChest;
@@ -194,6 +188,7 @@ namespace Abelkhan
             _protocol.Add("User", new MsgPack.MessagePackObject(UserInformation.UserInformation_to_protcol(_struct.User)));
             _protocol.Add("Coin", _struct.Coin);
             _protocol.Add("Strength", _struct.Strength);
+            _protocol.Add("LevelNum", _struct.LevelNum);
             _protocol.Add("NormalChest", _struct.NormalChest);
             _protocol.Add("RareChest", _struct.RareChest);
             _protocol.Add("EpicChest", _struct.EpicChest);
@@ -239,6 +234,9 @@ namespace Abelkhan
                 }
                 else if (((MsgPack.MessagePackObject)i.Key).AsString() == "Strength"){
                     _structc2d657c3_3c93_3c3c_b65f_adc45e6eed7b.Strength = ((MsgPack.MessagePackObject)i.Value).AsInt32();
+                }
+                else if (((MsgPack.MessagePackObject)i.Key).AsString() == "LevelNum"){
+                    _structc2d657c3_3c93_3c3c_b65f_adc45e6eed7b.LevelNum = ((MsgPack.MessagePackObject)i.Value).AsInt32();
                 }
                 else if (((MsgPack.MessagePackObject)i.Key).AsString() == "NormalChest"){
                     _structc2d657c3_3c93_3c3c_b65f_adc45e6eed7b.NormalChest = ((MsgPack.MessagePackObject)i.Value).AsInt32();

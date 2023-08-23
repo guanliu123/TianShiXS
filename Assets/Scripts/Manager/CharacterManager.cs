@@ -38,7 +38,7 @@ public class CharacterManager : SingletonBase<CharacterManager>
         enemyMagDic = EnemyDataTool.enemyMsgDic;        
         foreach (var item in EnemyDataTool.enemyDataDic)
         {
-            characterDatasDic.Add(item.Key, item.Value);
+            characterDatasDic[item.Key] = item.Value;
         }
     }
     public void UpgradeRole(int id, float increaseHP, float increaseATK,float increaseATKSpd)

@@ -397,6 +397,62 @@ namespace Abelkhan
 
     }
 
+    public class player_archive_set_level_cb
+    {
+        private UInt64 cb_uuid;
+        private player_archive_rsp_cb module_rsp_cb;
+
+        public player_archive_set_level_cb(UInt64 _cb_uuid, player_archive_rsp_cb _module_rsp_cb)
+        {
+            cb_uuid = _cb_uuid;
+            module_rsp_cb = _module_rsp_cb;
+        }
+
+        public event Action<UserData> on_set_level_cb;
+        public event Action<Int32> on_set_level_err;
+        public event Action on_set_level_timeout;
+
+        public player_archive_set_level_cb callBack(Action<UserData> cb, Action<Int32> err)
+        {
+            on_set_level_cb += cb;
+            on_set_level_err += err;
+            return this;
+        }
+
+        public void timeout(UInt64 tick, Action timeout_cb)
+        {
+            TinyTimer.add_timer(tick, ()=>{
+                module_rsp_cb.set_level_timeout(cb_uuid);
+            });
+            on_set_level_timeout += timeout_cb;
+        }
+
+        public void call_cb(UserData info)
+        {
+            if (on_set_level_cb != null)
+            {
+                on_set_level_cb(info);
+            }
+        }
+
+        public void call_err(Int32 err)
+        {
+            if (on_set_level_err != null)
+            {
+                on_set_level_err(err);
+            }
+        }
+
+        public void call_timeout()
+        {
+            if (on_set_level_timeout != null)
+            {
+                on_set_level_timeout();
+            }
+        }
+
+    }
+
     public class player_archive_cost_prop_cb
     {
         private UInt64 cb_uuid;
@@ -737,6 +793,7 @@ namespace Abelkhan
     public class player_archive_rsp_cb : Common.IModule {
         public Dictionary<UInt64, player_archive_cost_strength_cb> map_cost_strength;
         public Dictionary<UInt64, player_archive_cost_coin_cb> map_cost_coin;
+        public Dictionary<UInt64, player_archive_set_level_cb> map_set_level;
         public Dictionary<UInt64, player_archive_cost_prop_cb> map_cost_prop;
         public Dictionary<UInt64, player_archive_open_chest_cb> map_open_chest;
         public Dictionary<UInt64, player_archive_add_coin_cb> map_add_coin;
@@ -751,6 +808,9 @@ namespace Abelkhan
             map_cost_coin = new Dictionary<UInt64, player_archive_cost_coin_cb>();
             modules.add_mothed("player_archive_rsp_cb_cost_coin_rsp", cost_coin_rsp);
             modules.add_mothed("player_archive_rsp_cb_cost_coin_err", cost_coin_err);
+            map_set_level = new Dictionary<UInt64, player_archive_set_level_cb>();
+            modules.add_mothed("player_archive_rsp_cb_set_level_rsp", set_level_rsp);
+            modules.add_mothed("player_archive_rsp_cb_set_level_err", set_level_err);
             map_cost_prop = new Dictionary<UInt64, player_archive_cost_prop_cb>();
             modules.add_mothed("player_archive_rsp_cb_cost_prop_rsp", cost_prop_rsp);
             modules.add_mothed("player_archive_rsp_cb_cost_prop_err", cost_prop_err);
@@ -842,6 +902,44 @@ namespace Abelkhan
                 if (map_cost_coin.TryGetValue(uuid, out player_archive_cost_coin_cb rsp))
                 {
                     map_cost_coin.Remove(uuid);
+                }
+                return rsp;
+            }
+        }
+
+        public void set_level_rsp(IList<MsgPack.MessagePackObject> inArray){
+            var uuid = ((MsgPack.MessagePackObject)inArray[0]).AsUInt64();
+            var _info = UserData.protcol_to_UserData(((MsgPack.MessagePackObject)inArray[1]).AsDictionary());
+            var rsp = try_get_and_del_set_level_cb(uuid);
+            if (rsp != null)
+            {
+                rsp.call_cb(_info);
+            }
+        }
+
+        public void set_level_err(IList<MsgPack.MessagePackObject> inArray){
+            var uuid = ((MsgPack.MessagePackObject)inArray[0]).AsUInt64();
+            var _err = ((MsgPack.MessagePackObject)inArray[1]).AsInt32();
+            var rsp = try_get_and_del_set_level_cb(uuid);
+            if (rsp != null)
+            {
+                rsp.call_err(_err);
+            }
+        }
+
+        public void set_level_timeout(UInt64 cb_uuid){
+            var rsp = try_get_and_del_set_level_cb(cb_uuid);
+            if (rsp != null){
+                rsp.call_timeout();
+            }
+        }
+
+        private player_archive_set_level_cb try_get_and_del_set_level_cb(UInt64 uuid){
+            lock(map_set_level)
+            {
+                if (map_set_level.TryGetValue(uuid, out player_archive_set_level_cb rsp))
+                {
+                    map_set_level.Remove(uuid);
                 }
                 return rsp;
             }
@@ -1145,6 +1243,20 @@ namespace Abelkhan
             lock(rsp_cb_player_archive_handle.map_cost_coin)
             {                rsp_cb_player_archive_handle.map_cost_coin.Add(uuid_dd194c99_4357_5e15_ada5_e1b081535e5b, cb_cost_coin_obj);
             }            return cb_cost_coin_obj;
+        }
+
+        public player_archive_set_level_cb set_level(Int32 level){
+            var uuid_ee38b504_19be_5308_94c3_49e15d96612c = (UInt64)Interlocked.Increment(ref uuid_229b670b_b203_3780_89af_1bc6486bd86f);
+
+            var _argv_677e440e_ec2f_3ed6_a6f7_ec55f2d6d32c = new ArrayList();
+            _argv_677e440e_ec2f_3ed6_a6f7_ec55f2d6d32c.Add(uuid_ee38b504_19be_5308_94c3_49e15d96612c);
+            _argv_677e440e_ec2f_3ed6_a6f7_ec55f2d6d32c.Add(level);
+            _client_handle.call_hub(hub_name_229b670b_b203_3780_89af_1bc6486bd86f, "player_archive_set_level", _argv_677e440e_ec2f_3ed6_a6f7_ec55f2d6d32c);
+
+            var cb_set_level_obj = new player_archive_set_level_cb(uuid_ee38b504_19be_5308_94c3_49e15d96612c, rsp_cb_player_archive_handle);
+            lock(rsp_cb_player_archive_handle.map_set_level)
+            {                rsp_cb_player_archive_handle.map_set_level.Add(uuid_ee38b504_19be_5308_94c3_49e15d96612c, cb_set_level_obj);
+            }            return cb_set_level_obj;
         }
 
         public player_archive_cost_prop_cb cost_prop(Int32 prop_id){

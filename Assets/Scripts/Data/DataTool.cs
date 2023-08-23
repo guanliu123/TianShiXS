@@ -190,7 +190,7 @@ public static class EnemyDataTool
             enemyData.energy = float.Parse(enemyDataJson["Energy"].ToString());
             enemyData.money = int.Parse(enemyDataJson["Money"].ToString());
 
-            enemyDataDic[characterID].Add(levelNum, enemyData);
+            enemyDataDic[characterID][levelNum] = enemyData;
         }
     }
 }
