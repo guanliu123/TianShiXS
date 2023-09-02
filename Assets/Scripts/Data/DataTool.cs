@@ -288,6 +288,7 @@ public static class LevelDataTool
                 if (levelID != -1&& !levelDataDic.ContainsKey(levelID))
                 {
                     levelDataDic.Add(levelID, levelData);
+                    levelData = new LevelData();
                 }
 
                 levelID = t;
@@ -308,7 +309,7 @@ public static class LevelDataTool
                 }
                 levelData.widthSize = new float[2] { 20, 40 };
 
-                levelData.StageDatas.Clear();
+                levelData.StageDatas = new List<StageData>();
             }
 
             StageData temp = new StageData();

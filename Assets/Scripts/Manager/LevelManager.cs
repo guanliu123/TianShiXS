@@ -185,6 +185,9 @@ public class LevelManager : BaseManager<LevelManager>
 
     public void Start()
     {
+        Debug.Log(nowLevelNum);
+        Debug.Log(nowLevel.StageDatas.Count);
+        Debug.Log(nowLevel.StageDatas[0].WaveEnemyList[0]);
         InitLevel();
         MonoManager.GetInstance().AddUpdateListener(LevelEvent);
     }
