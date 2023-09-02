@@ -16,6 +16,7 @@ public class LaserBullet : BulletBase
 
     private void Awake()
     {
+        bulletID = 3006;
         //bulletID = BulletType.LaserBullet;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 

@@ -6,16 +6,16 @@ using UnityEngine;
 public class CharacterManager : SingletonBase<CharacterManager>
 {
     public Dictionary<int, CharacterMsg> roleMsgDic = new Dictionary<int, CharacterMsg>();
-    public Dictionary<int, CharacterMsg> enemyMagDic = new Dictionary<int, CharacterMsg>();
+    public Dictionary<int, CharacterMsg> enemyMsgDic = new Dictionary<int, CharacterMsg>();
     //public Dictionary<CharacterType, Dictionary<int, CharacterData>> characterDatasDic = new Dictionary<CharacterType, Dictionary<int, CharacterData>>();
-    public Dictionary<int, Dictionary<int, CharacterData>> characterDatasDic = new Dictionary<int, Dictionary<int, CharacterData>>();
+    public Dictionary<int, CharacterData> characterDatasDic = new Dictionary<int, CharacterData>();
 
     public CharacterManager()
     {
         //角色数据读取部分
         RoleDataTool.ReadRoleData();
         roleMsgDic = RoleDataTool.roleMsgDic;
-        characterDatasDic = new Dictionary<int, Dictionary<int, CharacterData>>(RoleDataTool.roleDataDic);
+        characterDatasDic = new Dictionary<int, CharacterData>(RoleDataTool.roleDataDic);
         if (GameManager.GetInstance().UserData.RoleList != null)
         {
             foreach (var item in GameManager.GetInstance().UserData.RoleList)
@@ -23,19 +23,20 @@ public class CharacterManager : SingletonBase<CharacterManager>
                 if (characterDatasDic.ContainsKey(item.RoleID))
                 {
                     CharacterData t = new CharacterData();
-                    CharacterData originData = characterDatasDic[item.RoleID][0];
+                    CharacterData originData = characterDatasDic[item.RoleID];
 
                     t.MaxHP = originData.MaxHP + item.Heath;
                     t.ATK = originData.ATK + item.AttNum;
-                    t.ATKSpeed = originData.ATKSpeed + item.AttSpd;
+                    //t.ATKSpeed = originData.ATKSpeed + item.AttSpd;
+                    t.ATKSpeed = originData.ATKSpeed;
 
-                    characterDatasDic[item.RoleID][0] = t;
+                    characterDatasDic[item.RoleID] = t;
                 }
             }
         }
 
         EnemyDataTool.ReadEnemyData();
-        enemyMagDic = EnemyDataTool.enemyMsgDic;        
+        enemyMsgDic = EnemyDataTool.enemyMsgDic;        
         foreach (var item in EnemyDataTool.enemyDataDic)
         {
             characterDatasDic[item.Key] = item.Value;
@@ -49,17 +50,17 @@ public class CharacterManager : SingletonBase<CharacterManager>
             {
                 item.Heath += increaseHP;
                 item.AttNum += increaseATK;
-                item.AttSpd += increaseATKSpd;
+                //item.AttSpd += increaseATKSpd;
                 if (characterDatasDic.ContainsKey(id))
                 {
                     CharacterData t = new CharacterData();
-                    CharacterData originData = characterDatasDic[item.RoleID][0];
+                    CharacterData originData = characterDatasDic[item.RoleID];
 
                     t.MaxHP = originData.MaxHP + increaseHP;
                     t.ATK = originData.ATK + increaseATK;
                     t.ATKSpeed = originData.ATKSpeed + increaseATKSpd;
 
-                    characterDatasDic[item.RoleID][0] = t;
+                    characterDatasDic[item.RoleID] = t;
                 }
             }
 

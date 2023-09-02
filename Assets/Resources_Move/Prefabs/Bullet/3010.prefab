@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 3783769677897833029}
   - component: {fileID: 4270621781209101478}
   m_Layer: 10
-  m_Name: BounceBullet
+  m_Name: 3010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

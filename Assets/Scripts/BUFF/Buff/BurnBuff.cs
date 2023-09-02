@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-/*public class BurnBuff : BuffBase
+public class BurnBuff : BuffBase
 {
     public BurnBuff()
     {
         //buffID = BuffType.Burn;
+        buffID = 4004;
         coroutineType = CoroutineType.BurnBuff;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
         buffData = BuffManager.BuffDic[buffID];
@@ -40,4 +41,4 @@ using UnityEngine;
     {
         BuffManager.GetInstance().RemoveFromBuffList(buffID, _taker);
     }
-}*/
+}

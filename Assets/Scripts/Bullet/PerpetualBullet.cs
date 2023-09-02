@@ -9,9 +9,8 @@ public class PerpetualBullet : BulletBase
     private void Awake()
     {
         //bulletType = BulletType.PerpetualBullet;
-
+        bulletID = 3007;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
-
     }
 
     public override void OnEnter()
@@ -30,7 +29,7 @@ public class PerpetualBullet : BulletBase
         }
         for (int i = 0; i < num; i++)
         {
-            BulletManager.GetInstance().BulletLauncher(transform, -1, 0,attacker);
+            //BulletManager.GetInstance().BulletLauncher(transform, bulletID, 0,attacker,1);
             yield return new WaitForSeconds(0.2f);
         }
     }

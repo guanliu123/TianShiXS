@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 7416376199509664810}
   - component: {fileID: 4196982249030013369}
   m_Layer: 9
-  m_Name: BOSS1
+  m_Name: 2006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -70,7 +70,7 @@ public class GameManager : SingletonBase<GameManager>
         {
             if (item.Value == CharacterTag.Enemy) enemys.Add(DataManager.GetInstance().characterMsgDic[item.Key]);
         }*/
-        enemys = CharacterManager.GetInstance().enemyMagDic.Values.ToList<CharacterMsg>();
+        enemys = CharacterManager.GetInstance().enemyMsgDic.Values.ToList<CharacterMsg>();
 
         enemyCount = enemys.Count;
         return enemys;

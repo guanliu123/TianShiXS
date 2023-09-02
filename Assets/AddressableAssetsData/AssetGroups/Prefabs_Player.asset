@@ -17,35 +17,30 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 3ed3336d3eb5f564ab6816bd7008ee3f
   m_SerializeEntries:
+  - m_GUID: e81d48c447e3de14bb2dcaa5a8db60d3
+    m_Address: Assets/Resources_Move/Prefabs/Player/1004.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 834b89a81794b534097537fb77fc5223
+    m_Address: Assets/Resources_Move/Prefabs/Player/1005.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 950ee524fd852c44f9630fbdd3ab2417
+    m_Address: Assets/Resources_Move/Prefabs/Player/1003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d244c24c47c9f8a44a493e09d7fa579b
+    m_Address: Assets/Resources_Move/Prefabs/Player/1002.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a74aa6e1614e8504f8706cd43f1b7dbf
     m_Address: Assets/Resources_Move/Prefabs/Player/1001.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d244c24c47c9f8a44a493e09d7fa579b
-    m_Address: Assets/Resources_Move/Prefabs/Player/JinYiWei.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 950ee524fd852c44f9630fbdd3ab2417
-    m_Address: Assets/Resources_Move/Prefabs/Player/KuiJia.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 834b89a81794b534097537fb77fc5223
-    m_Address: Assets/Resources_Move/Prefabs/Player/ShiXu.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e81d48c447e3de14bb2dcaa5a8db60d3
-    m_Address: Assets/Resources_Move/Prefabs/Player/XiaKe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

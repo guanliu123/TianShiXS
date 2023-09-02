@@ -157,13 +157,6 @@ public struct LevelData
     [Header("关卡特殊地面类型")] public List<string> widthPlanes;
     [Header("关卡特殊地面长和宽")] public float[] widthSize;
     [Header("关卡天空盒")] public string skyboxName;
-    /*[Header("关卡敌人类型")] public List<CharacterType> enemyTypes;
-    [Header("关卡总波次")] public int waveNum;
-    [Header("波次敌人基础数量")] public int baseEnemyNum;
-    [Header("敌人增长数量")] public int riseEnemyNum;
-    [Header("波次buff门基础数量")] public int baseBuffDoorNum;
-    [Header("波次buff门增长数量")] public int riseBuffDoorNum;
-    [Header("关卡boss")] public CharacterType bossType;*/
     [Header("关卡阶段")] public List<StageData> StageDatas;
 }
 

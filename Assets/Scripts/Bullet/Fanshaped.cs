@@ -12,7 +12,7 @@ public class Fanshaped : BulletBase
 
     public void Awake()
     {
-        //bulletID = BulletType.Fanshaped;
+        bulletID = 3011;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 

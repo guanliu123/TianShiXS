@@ -28,27 +28,22 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 542c8c2bc55f82241a5db2cd01d96217
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/BigMouseImage.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a6b6541d1fe37a84cb604513af314c5e
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/ClawImage.prefab
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/2006Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cea2c562e92284d46ae5bd82667add48
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/EageleImage.prefab
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/2005Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fe2e1766622fcdb41af408c4f3b79bc2
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/JinWuWeiImage.prefab
+  - m_GUID: bb1d737088808fa47b7ebb72226e7723
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/2004Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 155e7a4372502fa45b772199e700be51
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/JinYiWeiImage.prefab
+  - m_GUID: 11f86e98d4464934f9e14f003ee49a48
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/2003Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -57,23 +52,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4a3ac524d3c07b4478026d5c478d7b76
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/ShiXuImage.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 11f86e98d4464934f9e14f003ee49a48
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/TaowuImage.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bb1d737088808fa47b7ebb72226e7723
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/TurtleImage.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4008642a532dd0b44b4be8a7f0af64b3
-    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/XiaKeImage.prefab
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/1004Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a3ac524d3c07b4478026d5c478d7b76
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/1005Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe2e1766622fcdb41af408c4f3b79bc2
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/1003Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155e7a4372502fa45b772199e700be51
+    m_Address: Assets/Resources_Move/Prefabs/UI/CharacterImage/1002Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

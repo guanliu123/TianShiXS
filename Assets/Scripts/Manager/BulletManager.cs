@@ -4,6 +4,18 @@ using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+public struct ShootData
+{
+    public Transform shooter;
+    public GameObject attacker;
+    public CharacterTag attackerTag;
+    public string objName;
+    public int n;
+    public BulletData initData;
+    public Dictionary<int, int> initBuffs;
+    public bool isFollowShooter;
+}
+
 public class BulletManager : SingletonBase<BulletManager>
 {
     //存储每种子弹数据
@@ -72,141 +84,117 @@ public class BulletManager : SingletonBase<BulletManager>
         bulletList.Clear();
     }
 
-    public void BulletLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
+    //b是用于一些载体子弹（比如连击弹幕）用的
+    public void BulletLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker, int variantCode = -1)
     {
+        ShootData shootData = new ShootData();
+        shootData.initBuffs = new Dictionary<int, int>();
+        shootData.initData = BulletDic[bulletID];
 
-        if (bulletID < 0) return;
-        if (BulletDic[bulletID].isRandomShoot)
-        {
-            RandomLauncher(shooter, bulletID, aggressivity, attacker);
-        }
-        else
-        {
-            StraightLauncher(shooter, bulletID, aggressivity, attacker);
-        }
-    }
-    private void RandomLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
-    {
-        Dictionary<int, int> initBuffs = new Dictionary<int, int>(BulletBuffs[bulletID]);
-        BulletData initData = BulletDic[bulletID];
-        CharacterTag attackerTag = CharacterTag.Null;
+        shootData.shooter = shooter;
+        shootData.attacker = attacker;
 
         //针对玩家发出的弹幕进行特化
         var character = attacker.GetComponent<CharacterBase>();
         if (character)
         {
-            attackerTag = character.characterTag;
-            if (attackerTag == CharacterTag.Player)
+            shootData.attackerTag = character.characterTag;
+            if (shootData.attackerTag == CharacterTag.Player)
             {
                 foreach (var item in increaseBuffs[bulletID])
                 {
-                    if (initBuffs.ContainsKey(item.Key)) initBuffs[item.Key] += item.Value;
-                    else initBuffs.Add(item.Key, item.Value);
+                    if (shootData.initBuffs.ContainsKey(item.Key)) shootData.initBuffs[item.Key] += item.Value;
+                    else shootData.initBuffs.Add(item.Key, item.Value);
                 }
 
-                initData.shootProbability += increaseProbability[bulletID];
-                initData.ATK += increaseATK[bulletID];
-                initData.existTime += increaseExistTime[bulletID];
+                shootData.initData.shootProbability += increaseProbability[bulletID];
+                shootData.initData.ATK += increaseATK[bulletID];
+                shootData.initData.existTime += increaseExistTime[bulletID];
             }
         }
-        initData.ATK += aggressivity;
 
-        if (UnityEngine.Random.Range(0, 100) > initData.shootProbability * 100) return;//概率发射
+        shootData.initData.ATK += aggressivity;
+        shootData.isFollowShooter = shootData.initData.isFollowShooter;
 
-        Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, 1f, shooter.transform.position.z);
-
-        int n = 1;
-        //确定好倍增buff的id后修改这里
-
-        /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
+        if (!shootData.initBuffs.ContainsKey(4005)) shootData.n = 1;
         else
         {
-            n = initBuffs[BuffType.Multiply] + 1;
-            n = n < 2 ? 2 : n;
-        }*/
+            shootData.n = shootData.initBuffs[4005] + 1;
+            shootData.n = shootData.n < 2 ? 2 : shootData.n;
+        }
+
+        //变式子弹
+        shootData.objName = bulletID.ToString();
+        if (variantCode > 0)
+        {
+            shootData.objName = bulletID + "_" + variantCode;
+        }
+
+        if (UnityEngine.Random.Range(0, 100) > shootData.initData.shootProbability * 100) return;//概率发射
+        if (BulletDic[bulletID].isRandomShoot)
+        {
+            RandomLauncher(shootData);
+        }
+        else
+        {
+            StraightLauncher(shootData);
+        }
+    }
+    private void RandomLauncher(ShootData sd)
+    {
+        Vector3 instantPos = new Vector3(
+                    sd.shooter.position.x, 1f, sd.shooter.position.z);
+
+        int n = 1;
+
         for (int i = 0; i < n; i++)
         {
-            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
+            PoolManager.GetInstance().GetObj(sd.objName, t =>
             {
-                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+                t.GetComponent<BulletBase>().InitBullet(sd.attacker, sd.attackerTag, sd.initData, sd.initBuffs);
                 bulletList.Add(t);
 
                 t.transform.position = instantPos;
-                t.transform.rotation = Quaternion.Euler(shooter.transform.rotation.eulerAngles +
+                t.transform.rotation = Quaternion.Euler(sd.shooter.rotation.eulerAngles +
                      new Vector3(0, UnityEngine.Random.Range(-60, 60), 0));
-                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+                if (sd.isFollowShooter) t.transform.parent = sd.shooter;
             }, ResourceType.Bullet);
         }
     }
-    private void StraightLauncher(Transform shooter, int bulletID, float aggressivity, GameObject attacker)
+    private void StraightLauncher(ShootData sd)
     {
-        Dictionary<int, int> initBuffs = new Dictionary<int, int>(BulletBuffs[bulletID]);
-        BulletData initData = BulletDic[bulletID];
-        CharacterTag attackerTag = CharacterTag.Null;
-
-        //针对玩家发出的弹幕进行特化
-        var character = attacker.GetComponent<CharacterBase>();
-        if (character)
-        {
-            attackerTag = character.characterTag;
-            if (attackerTag == CharacterTag.Player)
-            {
-                foreach (var item in increaseBuffs[bulletID])
-                {
-                    if (initBuffs.ContainsKey(item.Key)) initBuffs[item.Key] += item.Value;
-                    else initBuffs.Add(item.Key, item.Value);
-                }
-
-                initData.shootProbability += increaseProbability[bulletID];
-                initData.ATK += increaseATK[bulletID];
-                initData.existTime += increaseExistTime[bulletID];
-            }
-        }
-        initData.ATK += aggressivity;
-
-        if (UnityEngine.Random.Range(0, 100) > initData.shootProbability * 100) return;//概率发射
-
         Vector3 instantPos = new Vector3(
-                    shooter.transform.position.x, 1f, shooter.transform.position.z);
+                    sd.shooter.position.x, 1f, sd.shooter.position.z);
 
-        int n = 1;
-        //确定好倍增buff的id后修改这里
-        /*if (!initBuffs.ContainsKey(BuffType.Multiply)) n = 1;
-        else
+        for (int i = 0; i < sd.n; i++)
         {
-            n = initBuffs[BuffType.Multiply] + 1;
-            n = n < 2 ? 2 : n;
-        }*/
-        for (int i = 0; i < n; i++)
-        {
-            PoolManager.GetInstance().GetObj(bulletID.ToString(), t =>
+            PoolManager.GetInstance().GetObj(sd.objName, t =>
             {
-                t.GetComponent<BulletBase>().InitBullet(attacker, attackerTag, initData, initBuffs);
+                t.GetComponent<BulletBase>().InitBullet(sd.attacker, sd.attackerTag, sd.initData, sd.initBuffs);
                 bulletList.Add(t);
                 //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
-                if (n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
+                if (sd.n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
                 {
-                    Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
+                    Vector3 point = new Vector3(instantPos.x + (i - sd.n / 2) * 1f, instantPos.y, instantPos.z);
                     t.transform.position = point;
                 }
                 else
                 {
-                    if (i < n / 2)
+                    if (i < sd.n / 2)
                     {
-                        Vector3 point = new Vector3(instantPos.x + (i - n / 2) * 1f, instantPos.y, instantPos.z);
+                        Vector3 point = new Vector3(instantPos.x + (i - sd.n / 2) * 1f, instantPos.y, instantPos.z);
                         t.transform.position = point;
                     }
                     else
                     {
-                        Vector3 point = new Vector3(instantPos.x + (i - n / 2 + 1) * 1f, instantPos.y, instantPos.z);
+                        Vector3 point = new Vector3(instantPos.x + (i - sd.n / 2 + 1) * 1f, instantPos.y, instantPos.z);
                         t.transform.position = point;
                     }
                 }
 
-                t.transform.rotation = shooter.transform.rotation;
-                if (BulletDic[bulletID].isFollowShooter) t.transform.parent = shooter;
+                t.transform.rotation = sd.shooter.rotation;
+                if (sd.isFollowShooter) t.transform.parent = sd.shooter;
             }, ResourceType.Bullet);
         }
     }

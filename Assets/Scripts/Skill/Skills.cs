@@ -14,10 +14,6 @@ namespace Skills
     public class AddCritProbability : SkillBase
     {
         public override int id { get; set; } =5001;
-        /*public AddCritProbability()
-        {
-            id = 5001;
-        }*/
 
         public override void OnUse()
         {
@@ -44,7 +40,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //Player._instance.AddBullet(BulletType.PoisonBullet);
+            Player._instance.AddBullet(3004);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -56,7 +52,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().BulletEvolute(BuffType.Poison,BulletType.PoisonBullet);
+            BulletManager.GetInstance().BulletEvolute(4002,3004);
             
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -67,7 +63,7 @@ namespace Skills
         public override int id { get; set; } = 5005;
         public override void OnUse()
         {
-            //BulletManager.GetInstance().increaseProbability[BulletType.PoisonBullet] += 0.1f;
+            BulletManager.GetInstance().increaseProbability[4002] += 0.1f;
             
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -82,7 +78,7 @@ namespace Skills
             foreach(var item in Player._instance.nowBullet)
             {
                 //BulletManager.GetInstance().BulletEvolute(BuffType.Frost, item.Key);
-                //Player._instance.AddBullet(BulletType.IceBullet);
+                Player._instance.AddBullet(3005);
 
                 //BulletManager.GetInstance().ChangeBullet(BulletType.TaiChiDart, BulletType.IceBullet);
             }
@@ -96,7 +92,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BuffManager.GetInstance().BuffEvent[BuffType.Frost]._probability += 0.1f;
+            BuffManager.GetInstance().BuffEvent[4003]._probability += 0.1f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -107,7 +103,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BuffManager.GetInstance().BuffEvent[BuffType.Frost]._duration += 0.5f;
+            BuffManager.GetInstance().BuffEvent[4003]._duration += 0.5f;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -129,7 +125,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //Player._instance.AddBullet(BulletType.Fanshaped);
+            Player._instance.AddBullet(3011);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -141,7 +137,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().increaseShootTimer[BulletType.Fanshaped] += 0.1f;
+            BulletManager.GetInstance().increaseShootTimer[3011] += 0.1f;
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -154,7 +150,7 @@ namespace Skills
         {
             /*Player._instance.nowBullet.Add(BulletType.LaserBullet,
                 BulletManager.GetInstance().BulletDic[BulletType.LaserBullet].damageInterval);*/
-            //Player._instance.AddBullet(BulletType.LaserBullet);
+            Player._instance.AddBullet(3006);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -167,7 +163,7 @@ namespace Skills
         public override void OnUse()
         {
             //Debug.Log("获得使激光弹幕发射时间增长");
-            //BulletManager.GetInstance().increaseExistTime[BulletType.LaserBullet]+=2f;
+            BulletManager.GetInstance().increaseExistTime[3006] +=2f;
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -179,7 +175,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //Player._instance.AddBullet(BulletType.PerpetualBullet);
+            Player._instance.AddBullet(3007);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -190,7 +186,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().BulletEvolute(BuffType.Multiply, BulletType.PerpetualBullet);
+            BulletManager.GetInstance().BulletEvolute(4005, 3007);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -202,8 +198,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            Debug.Log("获得使连击子弹连击次数增加");
-            //BulletManager.GetInstance().haveSpecialEvolved[BulletType.PerpetualBullet] = true;
+            BulletManager.GetInstance().haveSpecialEvolved[3007] = true;
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -215,7 +210,7 @@ namespace Skills
 
         public override void OnUse()
         {
-           //Player._instance.AddBullet(BulletType.FireBall);
+           Player._instance.AddBullet(3008);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -227,8 +222,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            Debug.Log("增加火球大小");
-            //BulletManager.GetInstance().haveSpecialEvolved[BulletType.FireBall] = true;
+            BulletManager.GetInstance().haveSpecialEvolved[3008] = true;
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -240,7 +234,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().BulletEvolute(BuffType.Multiply, BulletType.FireBall);
+            BulletManager.GetInstance().BulletEvolute(4005, 3008);
 
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
@@ -252,7 +246,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //Player._instance.AddBullet(BulletType.RotateBullet);
+            Player._instance.AddBullet(3009);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -263,7 +257,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().haveSpecialEvolved[BulletType.RotateBullet] = true;
+            BulletManager.GetInstance().haveSpecialEvolved[3009] = true;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -274,7 +268,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //Player._instance.AddBullet(BulletType.BounceBullet);
+            Player._instance.AddBullet(3010);
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -285,7 +279,7 @@ namespace Skills
 
         public override void OnUse()
         {
-            //BulletManager.GetInstance().haveSpecialEvolved[BulletType.RotateBullet] = true;
+            BulletManager.GetInstance().haveSpecialEvolved[3010] = true;
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
@@ -344,7 +338,7 @@ namespace Skills
         {
             foreach (var item in Player._instance.nowBullet)
             {
-                //BulletManager.GetInstance().BulletEvolute(BuffType.Multiply, item.Key);
+                BulletManager.GetInstance().BulletEvolute(4005, item.Key);
             }
             SkillManager.GetInstance().UpdateSkillPool(id);
         }

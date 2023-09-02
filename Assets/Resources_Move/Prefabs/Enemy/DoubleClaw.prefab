@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843236539994685554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0.69693637, y: 1.381236e-14, z: -9.1968085e-15, w: 0.717133}
   m_LocalPosition: {x: 2.991493e-15, y: -0.000000014901161, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1018324599832077564}
   - {fileID: 285287192229679397}
@@ -42,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6284095832628782307}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-hand.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +60,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555249, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5916618223814070622}
   m_RootOrder: 0
@@ -72,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3435230228573268732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,6 +91,7 @@ Transform:
   m_LocalRotation: {x: 0.70148766, y: 0.088968255, z: 0.70148736, w: 0.08896742}
   m_LocalPosition: {x: -0.00000007220537, y: -0.025104158, z: -0.12360704}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000026}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4380816436411092689}
   m_Father: {fileID: 5043442462211040573}
@@ -103,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3348513018780164498}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +124,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.00000044703484, y: -0.0000005364418, z: 0.00000043399632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6072677774943749771}
   m_Father: {fileID: 5310864859961773800}
@@ -135,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6890992600669212146}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,6 +156,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.44553542, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4168923649734302137}
   m_RootOrder: 0
@@ -166,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1057762741507455293}
   - component: {fileID: 3248528905891758992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "\u67F1\u4F53.001"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,6 +188,7 @@ Transform:
   m_LocalRotation: {x: -0.6732554, y: 7.344634e-18, z: -7.3446376e-18, w: 0.73941004}
   m_LocalPosition: {x: 1.6191948e-17, y: 0.62, z: -0.24}
   m_LocalScale: {x: 0.25239602, y: 0.48362088, z: 0.8322419}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4524005916664096572}
   m_RootOrder: 1
@@ -198,10 +204,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -363,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4861105702330704873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,6 +388,7 @@ Transform:
   m_LocalRotation: {x: 0.00022933914, y: -0.00017364461, z: 0.49643987, w: 0.8680711}
   m_LocalPosition: {x: 0.40750587, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1485409180606932996}
   - {fileID: 249548719231601212}
@@ -396,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673290641854317452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-forearm.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,6 +422,7 @@ Transform:
   m_LocalRotation: {x: 0.000000010919685, y: 0.03240972, z: -0.000000008386307, w: 0.99947464}
   m_LocalPosition: {x: 0.000000007450581, y: 0.71237594, z: -0.00000011920929}
   m_LocalScale: {x: 1.0000008, y: 0.9999991, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5916618223814070622}
   m_Father: {fileID: 5539792392625811297}
@@ -427,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6072677774943749771}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,6 +455,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000014901161, y: 0, z: -0.00000009872019}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9042035302597951950}
   m_Father: {fileID: 3348513018780164498}
@@ -459,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2497022231727961624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_upper_arm_ik_pole.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,6 +487,7 @@ Transform:
   m_LocalRotation: {x: -0.10956155, y: 0.42121667, z: -0.20335314, w: 0.87705207}
   m_LocalPosition: {x: 1.6937361, y: -0.8977146, z: 0.9031396}
   m_LocalScale: {x: 1, y: 21.902534, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6667385337935966797}
   m_Father: {fileID: 4971531961318517989}
@@ -490,7 +502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667385337935966797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_upper_arm_ik_pole.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,6 +519,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.14247537, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2497022231727961624}
   m_RootOrder: 0
@@ -520,7 +533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3607948309813469027}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-wei_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,6 +550,7 @@ Transform:
   m_LocalRotation: {x: -0.4034541, y: 0.0058643883, z: -0.0024538236, w: 0.9149778}
   m_LocalPosition: {x: -0.000000007806337, y: 0.27745903, z: -5.3290705e-15}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2662360226651437745}
   - {fileID: 8374122007585937586}
@@ -553,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749790424593122854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-hand.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,6 +584,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555249, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4542463865917862454}
   m_RootOrder: 0
@@ -583,7 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3824038179953787729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,6 +615,7 @@ Transform:
   m_LocalRotation: {x: -0.60515463, y: -0.3458624, z: -0.35613447, w: 0.6223627}
   m_LocalPosition: {x: 0.061419886, y: -0.5169346, z: 0.23470363}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8028652485925527960}
   - {fileID: 6717481240893028799}
@@ -618,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798923011368297691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,6 +652,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.0000001359731, y: -0.0000001907465, z: -0.00000015459955}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5605819486573929984}
   m_Father: {fileID: 5214448461272736450}
@@ -650,7 +667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485409180606932996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_swing.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,6 +684,7 @@ Transform:
   m_LocalRotation: {x: 0.3201382, y: 0.25787583, z: -0.6192714, w: 0.6689653}
   m_LocalPosition: {x: 0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2579707084281952951}
   m_Father: {fileID: 4861105702330704873}
@@ -681,7 +699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5960245295000260963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,6 +717,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000048428774, y: 0.0000000037252903, z: -0.000000059604645}
   m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1607110934427292374}
   m_Father: {fileID: 8089163589919504717}
@@ -713,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088021292230212739}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,6 +749,7 @@ Transform:
   m_LocalRotation: {x: -0.7594064, y: 0.00000007755951, z: 0.00000009052829, w: 0.6506166}
   m_LocalPosition: {x: -1.3322679e-14, y: -0.36757985, z: -0.0000000037252903}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 758100583773513}
   m_Father: {fileID: 1998375310781923463}
@@ -744,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6432154628934859932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,6 +781,7 @@ Transform:
   m_LocalRotation: {x: 0.114151895, y: -0.012525746, z: -0.2751795, w: 0.9545097}
   m_LocalPosition: {x: -0.00000011920929, y: 1.2920077, z: -0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6368792944303046291}
   m_Father: {fileID: 45625871370832069}
@@ -775,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6830591628741818858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,6 +814,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000017881393, y: -0.00000059604645, z: -0.00000004284084}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8374024450546028617}
   m_Father: {fileID: 6329455135020182665}
@@ -807,7 +829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1669298074699319672}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,6 +846,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.27745914, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 347431826595669841}
   m_RootOrder: 0
@@ -837,7 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3767558193002837483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,6 +877,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3230019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6789186551043545222}
   m_RootOrder: 0
@@ -867,7 +891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8679473313077034068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,6 +908,7 @@ Transform:
   m_LocalRotation: {x: 0.12858436, y: -0.000000009860737, z: 0.000000054703623, w: 0.9916986}
   m_LocalPosition: {x: 0.000000007450581, y: 1.2920078, z: 0.0000000037252903}
   m_LocalScale: {x: 1.0000008, y: 1.0000008, z: 1.000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 705227199909903370}
   m_Father: {fileID: 8727091301892629469}
@@ -898,7 +923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8727091301892629469}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,6 +940,7 @@ Transform:
   m_LocalRotation: {x: -0.067515604, y: 0.04578437, z: 0.003101438, w: 0.9966624}
   m_LocalPosition: {x: -0.000000059604645, y: 0.00000020652078, z: -0.000000074505806}
   m_LocalScale: {x: 0.99999005, y: 0.9999898, z: 0.9999899}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8679473313077034068}
   m_Father: {fileID: 3475849584768831460}
@@ -929,7 +955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3258025302505759887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-torso.parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,6 +972,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12149725, z: 3.096951}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7441739352181389045}
   m_Father: {fileID: 1155192048350217709}
@@ -960,7 +987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285287192229679397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,6 +1004,7 @@ Transform:
   m_LocalRotation: {x: 0.000000007450581, y: -2.1175826e-21, z: 2.646978e-23, w: 1}
   m_LocalPosition: {x: -1.3102541e-20, y: 0.000000013096724, z: -0.000000009313226}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3548292525251638666}
   m_Father: {fileID: 4843236539994685554}
@@ -991,7 +1019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5916618223814070622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,6 +1036,7 @@ Transform:
   m_LocalRotation: {x: 0.09037691, y: 0.022916215, z: 0.17074026, w: 0.9808948}
   m_LocalPosition: {x: 0.00000014528632, y: 0.7123763, z: -0.00000029802322}
   m_LocalScale: {x: 0.9999991, y: 1.0000008, z: 0.9999997}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6284095832628782307}
   m_Father: {fileID: 1673290641854317452}
@@ -1022,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7001083861567161665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,6 +1068,7 @@ Transform:
   m_LocalRotation: {x: 0.00022933914, y: 0.00017364461, z: -0.49643987, w: 0.8680711}
   m_LocalPosition: {x: -0.40750587, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3475849584768831460}
   - {fileID: 2516749712299064955}
@@ -1055,7 +1085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6796950042816077205}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,6 +1102,7 @@ Transform:
   m_LocalRotation: {x: 0.9143647, y: -0.000000016927746, z: -0.07621757, w: 0.3976532}
   m_LocalPosition: {x: -2.5188277, y: 1.8898507, z: 1.849864}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2996499312091470012}
   m_Father: {fileID: 1155192048350217709}
@@ -1086,7 +1117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5270114104640061241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,6 +1134,7 @@ Transform:
   m_LocalRotation: {x: -0.60515463, y: 0.3458624, z: 0.35613447, w: 0.6223627}
   m_LocalPosition: {x: -0.061419886, y: -0.5169346, z: 0.23470363}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4001554084006258409}
   - {fileID: 5635118530121896428}
@@ -1121,7 +1153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607683285736757528}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,6 +1170,7 @@ Transform:
   m_LocalRotation: {x: 0.9143647, y: 0.000000016927746, z: 0.07621757, w: 0.3976532}
   m_LocalPosition: {x: 2.5188277, y: 1.8898507, z: 1.849864}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6455535759060049930}
   m_Father: {fileID: 1155192048350217709}
@@ -1152,7 +1185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908988966240565284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,6 +1202,7 @@ Transform:
   m_LocalRotation: {x: -0.09277767, y: 7.226319e-15, z: 0.00000002211993, w: 0.9956869}
   m_LocalPosition: {x: -3.9968033e-15, y: 0.000000053216354, z: 0.000000032247044}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2614985861958455769}
   m_Father: {fileID: 5662458011122662175}
@@ -1183,7 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607110934427292374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,6 +1234,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.35618818, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5960245295000260963}
   m_RootOrder: 0
@@ -1213,7 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705227199909903370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_ik.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,6 +1265,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.4247525, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8679473313077034068}
   m_RootOrder: 0
@@ -1243,7 +1279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5635118530121896428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-upper_arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,6 +1296,7 @@ Transform:
   m_LocalRotation: {x: -0.13652346, y: -0.34197667, z: 0.65514696, w: 0.6596937}
   m_LocalPosition: {x: -0.40750587, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1.0000001, y: 0.99999976, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5089767401949820557}
   m_Father: {fileID: 5270114104640061241}
@@ -1274,7 +1311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3452708694954845152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,6 +1328,7 @@ Transform:
   m_LocalRotation: {x: 0.0016271825, y: 0.0000000606128, z: -0.000000011110924, w: 0.9999987}
   m_LocalPosition: {x: 3.996803e-15, y: 0.58025914, z: 0.000000003725292}
   m_LocalScale: {x: 1.000001, y: 0.9999984, z: 1.000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2044951881521480620}
   m_Father: {fileID: 8607212142396585719}
@@ -1305,7 +1343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6570499880848250879}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,6 +1360,7 @@ Transform:
   m_LocalRotation: {x: 0.000000014901161, y: 1.2434498e-14, z: -9.071105e-16, w: 1}
   m_LocalPosition: {x: -5.754681e-15, y: -0.5108909, z: 0.000000044703484}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1767758546263986759}
   m_Father: {fileID: 758100583773513}
@@ -1336,7 +1375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6619784056067616754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-forearm.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,6 +1392,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006298469, y: -0.032409668, z: -0.000000018869194, w: 0.99947464}
   m_LocalPosition: {x: -0.000000074505806, y: 0.712376, z: 0.00000008940697}
   m_LocalScale: {x: 1.000001, y: 0.99999917, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4542463865917862454}
   m_Father: {fileID: 5695427439592920668}
@@ -1367,7 +1407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8028652485925527960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,6 +1425,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000013154931, y: 0.00000005052425, z: -0.0000000019390427}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4114901224908155724}
   m_Father: {fileID: 3824038179953787729}
@@ -1399,7 +1440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1998375310781923463}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,6 +1457,7 @@ Transform:
   m_LocalRotation: {x: 0.75940645, y: -0.000000077559534, z: -0.00000009052831, w: 0.6506165}
   m_LocalPosition: {x: -0, y: 0.000000029802322, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2088021292230212739}
   m_Father: {fileID: 6212080661005043290}
@@ -1430,7 +1472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4271616057052548325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,6 +1489,7 @@ Transform:
   m_LocalRotation: {x: -0.0491318, y: -4.267191e-14, z: 0.000000011713949, w: 0.99879235}
   m_LocalPosition: {x: -3.5527111e-15, y: 0.5108907, z: -0.000000026077032}
   m_LocalScale: {x: 1.0000005, y: 0.9999988, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8607212142396585719}
   m_Father: {fileID: 2563552188453522680}
@@ -1461,7 +1504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2102691778827150569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,6 +1522,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000040978193, y: -0.0000006891787, z: 0}
   m_LocalScale: {x: 0.9999998, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 368190935246303303}
   m_Father: {fileID: 3602391636683403184}
@@ -1493,7 +1537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5279051554975586949}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,6 +1555,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000008940697, y: -0.00000008940697, z: -0.000000461936}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8582985986519145484}
   m_Father: {fileID: 3867127041675219743}
@@ -1525,7 +1570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8793642387338498940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_fk.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,6 +1587,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2773741673858528219}
   m_RootOrder: 0
@@ -1555,7 +1601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3475849584768831460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_swing.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,6 +1618,7 @@ Transform:
   m_LocalRotation: {x: 0.3201382, y: -0.25787583, z: 0.6192714, w: 0.6689653}
   m_LocalPosition: {x: -0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8727091301892629469}
   m_Father: {fileID: 7001083861567161665}
@@ -1586,7 +1633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5089767401949820557}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-upper_arm.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,6 +1650,7 @@ Transform:
   m_LocalRotation: {x: 0.00000012113705, y: 0.032774284, z: -0.000000048454822, w: 0.9994628}
   m_LocalPosition: {x: 0.00000017881393, y: 0.64600366, z: 0.00000016391277}
   m_LocalScale: {x: 0.99999994, y: 0.9999995, z: 0.9999997}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5695427439592920668}
   m_Father: {fileID: 5635118530121896428}
@@ -1617,7 +1665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8374122007585937586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-wei_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,6 +1682,7 @@ Transform:
   m_LocalRotation: {x: 0.23099627, y: -0.06120772, z: 0.0003868304, w: 0.97102743}
   m_LocalPosition: {x: 0.000000017695129, y: 0.3868428, z: -0.000000016298145}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8019580914798808072}
   m_Father: {fileID: 3607948309813469027}
@@ -1648,7 +1697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2585737620592301967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,6 +1714,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.588397, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2206877181877527706}
   m_RootOrder: 0
@@ -1678,7 +1728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408955001893700504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1695,6 +1745,7 @@ Transform:
   m_LocalRotation: {x: -0.60515463, y: -0.3458624, z: -0.35613447, w: 0.6223627}
   m_LocalPosition: {x: 0.061419886, y: -0.5169346, z: 0.23470363}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8376061963757462653}
   m_Father: {fileID: 3548292525251638666}
@@ -1709,7 +1760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6074138067218349032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,6 +1777,7 @@ Transform:
   m_LocalRotation: {x: 0.6957685, y: -0.00000008562407, z: -0.00000008294213, w: 0.7182661}
   m_LocalPosition: {x: -0, y: 0.000000029802322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5662458011122662175}
   - {fileID: 3220475437459627200}
@@ -1741,7 +1793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5017408245126621245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,6 +1810,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.69588435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 187313280107527410}
   m_RootOrder: 0
@@ -1771,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3510889629544770522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1789,6 +1842,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.0000001359731, y: -0.0000001907465, z: -0.00000015459955}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4184085358648777281}
   m_Father: {fileID: 5310467870409885549}
@@ -1803,7 +1857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2943541868730194268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,6 +1874,7 @@ Transform:
   m_LocalRotation: {x: 0.000000062655346, y: -0.02761811, z: -0.000000026785738, w: 0.9996186}
   m_LocalPosition: {x: -0.00000010430813, y: 0.7123756, z: 0.00000011920929}
   m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7094980825143399081}
   m_Father: {fileID: 3602391636683403184}
@@ -1834,7 +1889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2516749712299064955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_parent_socket.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,6 +1906,7 @@ Transform:
   m_LocalRotation: {x: 0.002546011, y: -0.35071966, z: 0.89771307, w: 0.2666468}
   m_LocalPosition: {x: -0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6902854376612468555}
   m_Father: {fileID: 7001083861567161665}
@@ -1865,7 +1921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2739332684521501330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,6 +1938,7 @@ Transform:
   m_LocalRotation: {x: -0.049131934, y: -2.9059627e-14, z: 0.000000011713963, w: 0.99879235}
   m_LocalPosition: {x: -6.2172515e-15, y: 0.000000019557774, z: 0.000000007450581}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8632970361379139202}
   m_Father: {fileID: 758100583773513}
@@ -1896,7 +1953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141058227702630464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-upper_arm.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,6 +1970,7 @@ Transform:
   m_LocalRotation: {x: 0.00000012486434, y: -0.032774296, z: 0.000000033545664, w: 0.9994628}
   m_LocalPosition: {x: -0.00000017881393, y: 0.64600366, z: 0.00000016391277}
   m_LocalScale: {x: 1.0000004, y: 0.9999992, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5539792392625811297}
   m_Father: {fileID: 6717481240893028799}
@@ -1927,7 +1985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8293739856727400228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1944,6 +2002,7 @@ Transform:
   m_LocalRotation: {x: 0.000000107230335, y: 0.027618166, z: 0.000000077562184, w: 0.9996186}
   m_LocalPosition: {x: 0.000000037252903, y: 0.7123756, z: -0.00000011920929}
   m_LocalScale: {x: 1.0000004, y: 1, z: 0.9999995}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6884913269053095572}
   m_Father: {fileID: 5624375659819771514}
@@ -1958,7 +2017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4971531961318517989}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,6 +2034,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 2.0810318}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2563552188453522680}
   - {fileID: 7781434884293767975}
@@ -1991,7 +2051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4542463865917862454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,6 +2068,7 @@ Transform:
   m_LocalRotation: {x: 0.090376884, y: -0.022916282, z: -0.17074023, w: 0.9808948}
   m_LocalPosition: {x: -0.00000016763806, y: 0.71237665, z: 0.00000022351742}
   m_LocalScale: {x: 0.99999905, y: 1.0000007, z: 0.9999996}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1749790424593122854}
   m_Father: {fileID: 6619784056067616754}
@@ -2022,7 +2083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8080732713275043113}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2039,6 +2100,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3675797, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8632970361379139202}
   m_RootOrder: 0
@@ -2052,7 +2114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7094980825143399081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2069,6 +2131,7 @@ Transform:
   m_LocalRotation: {x: 0.00000001408642, y: -0.0047936654, z: 0.000000011641669, w: 0.9999885}
   m_LocalPosition: {x: -0.00000011920929, y: -0.000000040978193, z: 0.0000001937151}
   m_LocalScale: {x: 1, y: 0.99999976, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1589460713403411595}
   m_Father: {fileID: 2943541868730194268}
@@ -2083,7 +2146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155192048350217709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,6 +2163,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: -1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 343365984257690256}
   - {fileID: 7178719706935300061}
@@ -2119,7 +2183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8597514861999416918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_ik.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,6 +2200,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.4247525, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7085052745477062500}
   m_RootOrder: 0
@@ -2149,7 +2214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120144975983934928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2166,6 +2231,7 @@ Transform:
   m_LocalRotation: {x: 0.0025459402, y: -0.3507197, z: 0.897713, w: 0.26664692}
   m_LocalPosition: {x: -0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3577289321578555591}
   m_Father: {fileID: 7001083861567161665}
@@ -2180,7 +2246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075603059381018901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2197,6 +2263,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32300177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7167329122898932780}
   m_RootOrder: 0
@@ -2210,7 +2277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5043442462211040573}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,6 +2294,7 @@ Transform:
   m_LocalRotation: {x: -0.000000014901161, y: -2.8865799e-15, z: -3.7865758e-17, w: 1}
   m_LocalPosition: {x: -4.2561034e-16, y: 0.000000033527613, z: -0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1897925899943118544}
   - {fileID: 4884652317259171891}
@@ -2244,7 +2312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7781434884293767975}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_upper_arm_ik_pole.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2261,6 +2329,7 @@ Transform:
   m_LocalRotation: {x: -0.10956155, y: -0.42121667, z: 0.20335314, w: 0.87705207}
   m_LocalPosition: {x: -1.6937361, y: -0.8977146, z: 0.9031396}
   m_LocalScale: {x: 1, y: 21.902534, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2350375244012526663}
   m_Father: {fileID: 4971531961318517989}
@@ -2275,7 +2344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2614985861958455769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2292,6 +2361,7 @@ Transform:
   m_LocalRotation: {x: 0.000000016763805, y: 7.660539e-15, z: -2.88658e-15, w: 1}
   m_LocalPosition: {x: -3.096329e-16, y: 0.000000032967364, z: 0.0000000020954758}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1427406620187574344}
   m_Father: {fileID: 908988966240565284}
@@ -2306,7 +2376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7178719706935300061}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_ik.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2323,6 +2393,7 @@ Transform:
   m_LocalRotation: {x: 0.402198, y: 0.08655861, z: -0.5900346, w: 0.6946968}
   m_LocalPosition: {x: 3.7500181, y: -0.03176075, z: 4.089472}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5214448461272736450}
   m_Father: {fileID: 1155192048350217709}
@@ -2337,7 +2408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18918118329004776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2354,6 +2425,7 @@ Transform:
   m_LocalRotation: {x: 0.000000031664968, y: -2.1440521e-21, z: 9.9261674e-23, w: 1}
   m_LocalPosition: {x: -1.3552527e-20, y: 0.6463464, z: -0.0000000037252903}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8839546766961054960}
   m_Father: {fileID: 4843236539994685554}
@@ -2368,7 +2440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6789186551043545222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,6 +2458,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000044703484, y: -0.000000044703484, z: -0.00000017136335}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3767558193002837483}
   m_Father: {fileID: 4666044653041144125}
@@ -2401,7 +2474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524005916664096572}
   - component: {fileID: 4126077997930905809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoubleClaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2418,6 +2491,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1155192048350217709}
   - {fileID: 1057762741507455293}
@@ -2426,7 +2500,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &4126077997930905809
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2439,10 +2513,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3999402492078293948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8582985986519145484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2469,6 +2545,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32300177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5279051554975586949}
   m_RootOrder: 0
@@ -2482,7 +2559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8377947289098325603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-chest_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,6 +2576,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.64634657, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1018324599832077564}
   m_RootOrder: 0
@@ -2512,7 +2590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4884652317259171891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2529,6 +2607,7 @@ Transform:
   m_LocalRotation: {x: -0.1524553, y: -0.7933306, z: -0.28550404, w: 0.5156272}
   m_LocalPosition: {x: -2.2019672e-15, y: 0.000000037252903, z: -0.000000014901161}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9201040637353612368}
   m_Father: {fileID: 5043442462211040573}
@@ -2543,7 +2622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4380816436411092689}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,6 +2639,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.27745914, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3435230228573268732}
   m_RootOrder: 0
@@ -2573,7 +2653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8019580914798808072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2590,6 +2670,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000015716068, y: 9.313226e-10, z: -4.656613e-10, w: 1}
   m_LocalPosition: {x: -0.000000007450581, y: 0.0000000721775, z: 0.000000033527613}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2976317094166033714}
   m_Father: {fileID: 8374122007585937586}
@@ -2604,7 +2685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170003465594094744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_parent.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,6 +2702,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3230019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4005656108959731936}
   m_RootOrder: 0
@@ -2634,7 +2716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45625871370832069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,6 +2733,7 @@ Transform:
   m_LocalRotation: {x: -0.0025459554, y: -0.3507197, z: 0.897713, w: -0.26664692}
   m_LocalPosition: {x: 0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6432154628934859932}
   m_Father: {fileID: 4861105702330704873}
@@ -2665,7 +2748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7345538719523325877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2682,6 +2765,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.35618818, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 368190935246303303}
   m_RootOrder: 0
@@ -2695,7 +2779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1754514562336786831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2712,6 +2796,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.33678782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6455535759060049930}
   m_RootOrder: 0
@@ -2725,7 +2810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3379940890218935343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,6 +2827,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.69588435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9201040637353612368}
   m_RootOrder: 0
@@ -2755,7 +2841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7457783610274449684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2772,6 +2858,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.12015474, z: 0.61058664}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6074138067218349032}
   m_Father: {fileID: 7441739352181389045}
@@ -2786,7 +2873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4001554084006258409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2804,6 +2891,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000013154931, y: 0.00000005052425, z: -0.0000000019390427}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7062178660049446259}
   m_Father: {fileID: 5270114104640061241}
@@ -2818,7 +2906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4666044653041144125}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2835,6 +2923,7 @@ Transform:
   m_LocalRotation: {x: -0.13652332, y: 0.34197655, z: -0.65514714, w: 0.65969366}
   m_LocalPosition: {x: 0.4075059, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6789186551043545222}
   m_Father: {fileID: 3824038179953787729}
@@ -2849,7 +2938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5605819486573929984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,6 +2955,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4798923011368297691}
   m_RootOrder: 0
@@ -2879,7 +2969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6368792944303046291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2896,6 +2986,7 @@ Transform:
   m_LocalRotation: {x: 0.08963393, y: -0.009541235, z: 0.10541872, w: 0.99033415}
   m_LocalPosition: {x: 0.00000011920929, y: 1.4247525, z: 0.00000008940697}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1013395428154533495}
   m_Father: {fileID: 6432154628934859932}
@@ -2910,7 +3001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4184085358648777281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2927,6 +3018,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3510889629544770522}
   m_RootOrder: 0
@@ -2940,7 +3032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343365984257690256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_ik.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2957,6 +3049,7 @@ Transform:
   m_LocalRotation: {x: 0.402198, y: -0.08655861, z: 0.5900346, w: 0.6946968}
   m_LocalPosition: {x: -3.7500181, y: -0.03176075, z: 4.089472}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5310467870409885549}
   m_Father: {fileID: 1155192048350217709}
@@ -2971,7 +3064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607212142396585719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2988,6 +3081,7 @@ Transform:
   m_LocalRotation: {x: -0.092777796, y: 0.000000059347528, z: 0.000000027649925, w: 0.9956868}
   m_LocalPosition: {x: -1.5543117e-14, y: 0.36758, z: -0.000000040396117}
   m_LocalScale: {x: 0.9999991, y: 1.0000015, z: 0.99999905}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3452708694954845152}
   m_Father: {fileID: 4271616057052548325}
@@ -3002,7 +3096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7167329122898932780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3020,6 +3114,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000059604645, y: 0.000000059604645, z: 0.00000029802322}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1075603059381018901}
   m_Father: {fileID: 3599460198011711941}
@@ -3034,7 +3129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6516726050942839502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3051,6 +3146,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.38684273, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2662360226651437745}
   m_RootOrder: 0
@@ -3064,7 +3160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2996499312091470012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3082,6 +3178,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.00000026077032, y: -0.0000001937151, z: -0.00000014901161}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8109652293093970969}
   m_Father: {fileID: 6796950042816077205}
@@ -3096,7 +3193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1013395428154533495}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3113,6 +3210,7 @@ Transform:
   m_LocalRotation: {x: 0.014493644, y: 0.06844063, z: 0.05701086, w: 0.9959195}
   m_LocalPosition: {x: 0.000000044703484, y: 0.00000011920929, z: 0.00000023841858}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6953638442999613333}
   m_Father: {fileID: 6368792944303046291}
@@ -3127,7 +3225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2837089531761817020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3144,6 +3242,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.38684273, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5278450394602549662}
   m_RootOrder: 0
@@ -3157,7 +3256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2350375244012526663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_upper_arm_ik_pole.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3174,6 +3273,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.14247537, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7781434884293767975}
   m_RootOrder: 0
@@ -3187,7 +3287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5624375659819771514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-forearm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3204,6 +3304,7 @@ Transform:
   m_LocalRotation: {x: 0.114151895, y: -0.012525746, z: -0.2751795, w: 0.9545097}
   m_LocalPosition: {x: -0.000000059604645, y: 1.2920074, z: 0.00000014901161}
   m_LocalScale: {x: 1, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8089163589919504717}
   - {fileID: 8293739856727400228}
@@ -3220,7 +3321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7062178660049446259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shoulder.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3237,6 +3338,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.588397, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4001554084006258409}
   m_RootOrder: 0
@@ -3250,7 +3352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504785881595411707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chest_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3267,6 +3369,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.70169204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4242322184229169839}
   m_RootOrder: 0
@@ -3280,7 +3383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427406620187574344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3297,6 +3400,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.580259, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2614985861958455769}
   m_RootOrder: 0
@@ -3310,7 +3414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3220475437459627200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3327,6 +3431,7 @@ Transform:
   m_LocalRotation: {x: -0.6957685, y: 0.00000008562406, z: 0.00000008294213, w: 0.7182661}
   m_LocalPosition: {x: 2.2204499e-15, y: 0.5802596, z: 0.0000000037252903}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4843236539994685554}
   m_Father: {fileID: 6074138067218349032}
@@ -3341,7 +3446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2563552188453522680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3358,6 +3463,7 @@ Transform:
   m_LocalRotation: {x: 0.7904554, y: -0.000000073017986, z: -0.00000009422961, w: 0.6125196}
   m_LocalPosition: {x: -1.6412822e-14, y: 0.18526661, z: 0.7692337}
   m_LocalScale: {x: 0.99999976, y: 1.0000005, z: 0.99999964}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4271616057052548325}
   m_Father: {fileID: 4971531961318517989}
@@ -3372,7 +3478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3602391636683403184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-forearm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3389,6 +3495,7 @@ Transform:
   m_LocalRotation: {x: 0.1141519, y: 0.012525756, z: 0.27517962, w: 0.9545097}
   m_LocalPosition: {x: -0.00000020861626, y: 1.2920074, z: 0.00000032782555}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2102691778827150569}
   - {fileID: 2943541868730194268}
@@ -3405,7 +3512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2579707084281952951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3422,6 +3529,7 @@ Transform:
   m_LocalRotation: {x: -0.067515604, y: -0.04578437, z: -0.003101438, w: 0.9966624}
   m_LocalPosition: {x: 0.000000059604645, y: 0.00000020652078, z: -0.000000074505806}
   m_LocalScale: {x: 0.99999005, y: 0.9999898, z: 0.9999899}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7085052745477062500}
   m_Father: {fileID: 1485409180606932996}
@@ -3436,7 +3544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 758100583773513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3453,6 +3561,7 @@ Transform:
   m_LocalRotation: {x: 0.7904553, y: -0.00000007301802, z: -0.000000094229605, w: 0.61251974}
   m_LocalPosition: {x: 1.2258601e-21, y: 0.000000014446641, z: -0.000000013763437}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6570499880848250879}
   - {fileID: 665287871848336043}
@@ -3469,7 +3578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6884913269053095572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3487,6 +3596,7 @@ Transform:
     w: 0.9999885}
   m_LocalPosition: {x: -0.0000000037252903, y: 0.000000115484, z: -0.00000022351742}
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3623863115063513798}
   m_Father: {fileID: 8293739856727400228}
@@ -3501,7 +3611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4114901224908155724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shoulder.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3518,6 +3628,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.588397, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8028652485925527960}
   m_RootOrder: 0
@@ -3531,7 +3642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441739352181389045}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3548,6 +3659,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0.0006723404}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4242322184229169839}
   - {fileID: 3494969420731834886}
@@ -3565,7 +3677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665287871848336043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3582,6 +3694,7 @@ Transform:
   m_LocalRotation: {x: 0.000000029802322, y: 1.3100632e-14, z: 8.1244515e-16, w: 1}
   m_LocalPosition: {x: -5.754681e-15, y: -0.5108909, z: 0.000000044703484}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5043442462211040573}
   m_Father: {fileID: 758100583773513}
@@ -3596,7 +3709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 368190935246303303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3614,6 +3727,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000074505806, y: 0.00000014714897, z: 0.00000011920929}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7345538719523325877}
   m_Father: {fileID: 2102691778827150569}
@@ -3628,7 +3742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897925899943118544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3645,6 +3759,7 @@ Transform:
   m_LocalRotation: {x: -0.15245524, y: 0.79333085, z: 0.285504, w: 0.51562697}
   m_LocalPosition: {x: -2.2019672e-15, y: 0.000000037252903, z: -0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 187313280107527410}
   m_Father: {fileID: 5043442462211040573}
@@ -3659,7 +3774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963783035394997980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-upper_arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3676,6 +3791,7 @@ Transform:
   m_LocalRotation: {x: -0.17168409, y: 0.30587313, z: -0.6468237, w: 0.67718923}
   m_LocalPosition: {x: 0.4075059, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3599460198011711941}
   - {fileID: 5624375659819771514}
@@ -3691,7 +3807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5662458011122662175}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3708,6 +3824,7 @@ Transform:
   m_LocalRotation: {x: 0.09277761, y: 0.00000005934762, z: -0.00000001658995, w: 0.9956869}
   m_LocalPosition: {x: -3.330669e-16, y: 0.00000027113492, z: 6.9849193e-10}
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.99999964}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 908988966240565284}
   m_Father: {fileID: 6074138067218349032}
@@ -3722,7 +3839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2662360226651437745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3739,6 +3856,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000080206055, y: -2.3283064e-10, z: 1.891749e-10, w: 1}
   m_LocalPosition: {x: 0.000000026269905, y: -0.0000000933839, z: 0.00000005405521}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6516726050942839502}
   m_Father: {fileID: 3607948309813469027}
@@ -3753,7 +3871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2708407901219631226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-wei_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3770,6 +3888,7 @@ Transform:
   m_LocalRotation: {x: 0.70148766, y: 0.088968255, z: 0.70148736, w: 0.08896742}
   m_LocalPosition: {x: -0.00000007220537, y: -0.025104158, z: -0.12360704}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000026}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347431826595669841}
   - {fileID: 3607948309813469027}
@@ -3786,7 +3905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5539792392625811297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-forearm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3803,6 +3922,7 @@ Transform:
   m_LocalRotation: {x: 0.11996456, y: -0.032774422, z: -0.2726958, w: 0.954029}
   m_LocalPosition: {x: 0.000000029802322, y: 0.6460038, z: 0.00000035762787}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1673290641854317452}
   m_Father: {fileID: 2141058227702630464}
@@ -3817,7 +3937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6329455135020182665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3834,6 +3954,7 @@ Transform:
   m_LocalRotation: {x: 0.09586286, y: -0.054694574, z: -0.16772124, w: 0.9796369}
   m_LocalPosition: {x: -0.00000014901161, y: 1.424752, z: 0.00000014901161}
   m_LocalScale: {x: 0.99999976, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6830591628741818858}
   m_Father: {fileID: 3602391636683403184}
@@ -3848,7 +3969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8374024450546028617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3866,6 +3987,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0, y: 0.00000023841858, z: -0.00000027753413}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4366600149610446936}
   m_Father: {fileID: 6830591628741818858}
@@ -3880,7 +4002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2206877181877527706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3897,6 +4019,7 @@ Transform:
   m_LocalRotation: {x: -0.60515463, y: 0.3458624, z: 0.35613447, w: 0.6223627}
   m_LocalPosition: {x: -0.061419886, y: -0.5169346, z: 0.23470363}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2585737620592301967}
   m_Father: {fileID: 3548292525251638666}
@@ -3911,7 +4034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9201040637353612368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3929,6 +4052,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000045754824, y: 0.00000008393674, z: -0.0000001894528}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3379940890218935343}
   m_Father: {fileID: 4884652317259171891}
@@ -3943,7 +4067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1589460713403411595}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3960,6 +4084,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3561882, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7094980825143399081}
   m_RootOrder: 0
@@ -3973,7 +4098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249548719231601212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_parent_socket.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3990,6 +4115,7 @@ Transform:
   m_LocalRotation: {x: -0.0025460022, y: -0.3507197, z: 0.89771307, w: -0.2666468}
   m_LocalPosition: {x: 0.000000015477156, y: -0.000000032432297, z: -0.000000013202069}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4005656108959731936}
   m_Father: {fileID: 4861105702330704873}
@@ -4004,7 +4130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8089163589919504717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4022,6 +4148,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.0000000037252903, y: -0.000000661239, z: -0.0000002682209}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5960245295000260963}
   m_Father: {fileID: 5624375659819771514}
@@ -4036,7 +4163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4168923649734302137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4053,6 +4180,7 @@ Transform:
   m_LocalRotation: {x: 0.23099627, y: -0.06120772, z: 0.0003868304, w: 0.97102743}
   m_LocalPosition: {x: 0.000000017695129, y: 0.3868428, z: -0.000000016298145}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6890992600669212146}
   m_Father: {fileID: 3607948309813469027}
@@ -4067,7 +4195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5265957769867050027}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4084,6 +4212,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3230019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9125595016171649129}
   m_RootOrder: 0
@@ -4097,7 +4226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4423855807758977436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_parent.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4114,6 +4243,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3230019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6902854376612468555}
   m_RootOrder: 0
@@ -4127,7 +4257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8376061963757462653}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4144,6 +4274,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.588397, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408955001893700504}
   m_RootOrder: 0
@@ -4157,7 +4288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6953638442999613333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_fk.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4174,6 +4305,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.3555247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1013395428154533495}
   m_RootOrder: 0
@@ -4187,7 +4319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9125595016171649129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4205,6 +4337,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000044703484, y: -0.000000044703484, z: -0.00000017136335}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5265957769867050027}
   m_Father: {fileID: 7481479803700607004}
@@ -4219,7 +4352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6717481240893028799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-upper_arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4236,6 +4369,7 @@ Transform:
   m_LocalRotation: {x: -0.13652346, y: 0.34197667, z: -0.65514696, w: 0.6596937}
   m_LocalPosition: {x: 0.40750587, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1.0000001, y: 0.99999976, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2141058227702630464}
   m_Father: {fileID: 3824038179953787729}
@@ -4250,7 +4384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 347431826595669841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4268,6 +4402,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.0000000128018804, y: -0.00000010666587, z: -6.714256e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1669298074699319672}
   m_Father: {fileID: 2708407901219631226}
@@ -4282,7 +4417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044951881521480620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4299,6 +4434,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.64634657, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3452708694954845152}
   m_RootOrder: 0
@@ -4312,7 +4448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8839546766961054960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4329,6 +4465,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32317373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 18918118329004776}
   m_RootOrder: 0
@@ -4342,7 +4479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632970361379139202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4359,6 +4496,7 @@ Transform:
   m_LocalRotation: {x: 0.0000000037252903, y: 2.2204463e-15, z: 1.208146e-15, w: 1}
   m_LocalPosition: {x: -3.5527145e-15, y: -0.00000016205013, z: -0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8080732713275043113}
   m_Father: {fileID: 2739332684521501330}
@@ -4373,7 +4511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3623863115063513798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4390,6 +4528,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3561882, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6884913269053095572}
   m_RootOrder: 0
@@ -4403,7 +4542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5278450394602549662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wei_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4420,6 +4559,7 @@ Transform:
   m_LocalRotation: {x: -0.4034541, y: 0.0058643883, z: -0.0024538236, w: 0.9149778}
   m_LocalPosition: {x: -0.000000007806337, y: 0.27745903, z: -5.3290705e-15}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2837089531761817020}
   m_Father: {fileID: 2708407901219631226}
@@ -4434,7 +4574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4005656108959731936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4451,6 +4591,7 @@ Transform:
   m_LocalRotation: {x: 0.00000069066914, y: -0.35957262, z: 0.0000003133961, w: 0.9331171}
   m_LocalPosition: {x: -0.00000009313226, y: 0.000000029802322, z: -0.000000230968}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 170003465594094744}
   m_Father: {fileID: 249548719231601212}
@@ -4465,7 +4606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3867127041675219743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4482,6 +4623,7 @@ Transform:
   m_LocalRotation: {x: 0.000000055891945, y: -0.021216536, z: 0.000000035398223, w: 0.99977493}
   m_LocalPosition: {x: 0.00000008940697, y: 0.6460037, z: 0.000000059604645}
   m_LocalScale: {x: 1, y: 0.99999976, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5279051554975586949}
   m_Father: {fileID: 8405454250548465043}
@@ -4496,7 +4638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310864859961773800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4513,6 +4655,7 @@ Transform:
   m_LocalRotation: {x: 0.09586283, y: 0.054694563, z: 0.1677212, w: 0.9796369}
   m_LocalPosition: {x: 0.00000023841858, y: 1.424752, z: -0.00000011920929}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3348513018780164498}
   m_Father: {fileID: 5624375659819771514}
@@ -4527,7 +4670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018324599832077564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4544,6 +4687,7 @@ Transform:
   m_LocalRotation: {x: 0.0000000055879354, y: -2.1440521e-21, z: 1.9852333e-23, w: 1}
   m_LocalPosition: {x: -1.3102541e-20, y: 0.000000013096724, z: -0.000000009313226}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8377947289098325603}
   m_Father: {fileID: 4843236539994685554}
@@ -4558,7 +4702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6902854376612468555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4575,6 +4719,7 @@ Transform:
   m_LocalRotation: {x: 0.0000006806884, y: 0.35957262, z: -0.00000026548844, w: 0.9331171}
   m_LocalPosition: {x: 0.000000033527613, y: -0.00000008940697, z: 0.00000017136335}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4423855807758977436}
   m_Father: {fileID: 2516749712299064955}
@@ -4589,7 +4734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3599460198011711941}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4606,6 +4751,7 @@ Transform:
   m_LocalRotation: {x: 0.00000007265952, y: 0.021216515, z: 0.000000022356774, w: 0.99977493}
   m_LocalPosition: {x: -0.0000003427267, y: 0.6460037, z: -0.00000014901161}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7167329122898932780}
   m_Father: {fileID: 963783035394997980}
@@ -4620,7 +4766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7085052745477062500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-forearm_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4637,6 +4783,7 @@ Transform:
   m_LocalRotation: {x: 0.12858436, y: 0.000000009860737, z: -0.000000054703623, w: 0.9916986}
   m_LocalPosition: {x: -0.000000007450581, y: 1.2920078, z: 0.0000000037252903}
   m_LocalScale: {x: 1.0000008, y: 1.0000008, z: 1.000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8597514861999416918}
   m_Father: {fileID: 2579707084281952951}
@@ -4651,7 +4798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5695427439592920668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-forearm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4668,6 +4815,7 @@ Transform:
   m_LocalRotation: {x: 0.11996454, y: 0.032774415, z: 0.27269593, w: 0.95402896}
   m_LocalPosition: {x: -0, y: 0.6460035, z: -0.000000074505806}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6619784056067616754}
   m_Father: {fileID: 5089767401949820557}
@@ -4682,7 +4830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3548292525251638666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4699,6 +4847,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000018626451, y: -5.293956e-23, z: 2.646978e-23, w: 1}
   m_LocalPosition: {x: -1.318195e-20, y: 0.000000012805685, z: 0.0000000055879354}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5270114104640061241}
   - {fileID: 3824038179953787729}
@@ -4716,7 +4865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4366600149610446936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4733,6 +4882,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.33888116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8374024450546028617}
   m_RootOrder: 0
@@ -4746,7 +4896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7481479803700607004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-upper_arm_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4763,6 +4913,7 @@ Transform:
   m_LocalRotation: {x: -0.13652332, y: -0.34197655, z: 0.65514714, w: 0.65969366}
   m_LocalPosition: {x: -0.4075059, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9125595016171649129}
   m_Father: {fileID: 5270114104640061241}
@@ -4777,7 +4928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2976317094166033714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-wei_3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4794,6 +4945,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.44553542, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8019580914798808072}
   m_RootOrder: 0
@@ -4807,7 +4959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6212080661005043290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4824,6 +4976,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.12015474, z: 0.6105869}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1998375310781923463}
   m_Father: {fileID: 7441739352181389045}
@@ -4838,7 +4991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8305300006673338381}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hips_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4855,6 +5008,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.526269, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494969420731834886}
   m_RootOrder: 0
@@ -4868,7 +5022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5214448461272736450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4886,6 +5040,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.0000001359731, y: 0.000000044994522, z: -0.0000003874302}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4798923011368297691}
   m_Father: {fileID: 7178719706935300061}
@@ -4900,7 +5055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187313280107527410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4918,6 +5073,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000083285094, y: -0.000000030111842, z: 0.00000021240947}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5017408245126621245}
   m_Father: {fileID: 1897925899943118544}
@@ -4932,7 +5088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4242322184229169839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4949,6 +5105,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.12015474, z: 0.6105869}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1504785881595411707}
   m_Father: {fileID: 7441739352181389045}
@@ -4963,7 +5120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2773741673858528219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4980,6 +5137,7 @@ Transform:
   m_LocalRotation: {x: 0.014493668, y: -0.06844063, z: -0.057010863, w: 0.9959195}
   m_LocalPosition: {x: -0.000000014901161, y: -0.00000017881393, z: -0.00000014901161}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8793642387338498940}
   m_Father: {fileID: 2183913484373148001}
@@ -4994,7 +5152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183913484373148001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-hand_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5011,6 +5169,7 @@ Transform:
   m_LocalRotation: {x: 0.08963394, y: 0.009541239, z: -0.105418734, w: 0.99033415}
   m_LocalPosition: {x: -0.00000014901161, y: 1.4247524, z: 0.00000035762787}
   m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2773741673858528219}
   m_Father: {fileID: 3577289321578555591}
@@ -5025,7 +5184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6455535759060049930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5043,6 +5202,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000026077032, y: -0.0000001937151, z: -0.00000014901161}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1754514562336786831}
   m_Father: {fileID: 8607683285736757528}
@@ -5057,7 +5217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8109652293093970969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5074,6 +5234,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.33678782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2996499312091470012}
   m_RootOrder: 0
@@ -5087,7 +5248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310467870409885549}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5105,6 +5266,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.0000001359731, y: 0.000000044994522, z: -0.0000003874302}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3510889629544770522}
   m_Father: {fileID: 343365984257690256}
@@ -5119,7 +5281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767758546263986759}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-hips_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5136,6 +5298,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.5108906, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6570499880848250879}
   m_RootOrder: 0
@@ -5149,7 +5312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8405454250548465043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-upper_arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5166,6 +5329,7 @@ Transform:
   m_LocalRotation: {x: -0.17168406, y: -0.3058731, z: 0.64682376, w: 0.67718923}
   m_LocalPosition: {x: -0.4075059, y: 0.93377715, z: 0.018390844}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3867127041675219743}
   - {fileID: 3602391636683403184}
@@ -5181,7 +5345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3494969420731834886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5198,6 +5362,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.12015474, z: 0.6105869}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8305300006673338381}
   m_Father: {fileID: 7441739352181389045}
@@ -5212,7 +5377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9042035302597951950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5229,6 +5394,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.33888116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6072677774943749771}
   m_RootOrder: 0
@@ -5242,7 +5408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3577289321578555591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5259,6 +5425,7 @@ Transform:
   m_LocalRotation: {x: 0.1141519, y: 0.012525756, z: 0.27517962, w: 0.9545097}
   m_LocalPosition: {x: -0.00000014901161, y: 1.2920077, z: 0.00000017881393}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2183913484373148001}
   m_Father: {fileID: 2120144975983934928}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5763443504990552776}
   - component: {fileID: 6357474042154065486}
   m_Layer: 0
-  m_Name: PerpetualBullet_Base
+  m_Name: 3007_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

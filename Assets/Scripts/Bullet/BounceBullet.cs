@@ -14,6 +14,7 @@ public class BounceBullet : BulletBase
     private void Awake()
     {
         //bulletID = BulletType.BounceBullet;
+        bulletID = 3010;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 

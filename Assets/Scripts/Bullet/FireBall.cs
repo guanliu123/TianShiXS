@@ -6,7 +6,7 @@ public class FireBall : BulletBase
 {
     public void Awake()
     {
-        //bulletID = BulletType.FireBall;
+        bulletID = 3008;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
         bulletAction += Move;

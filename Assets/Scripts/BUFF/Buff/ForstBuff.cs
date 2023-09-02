@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class ForstBuff : BuffBase
+public class ForstBuff : BuffBase
 {
     public ForstBuff()
     {
         //buffID = BuffType.Frost;
+        buffID = 4003;
         //buffData = DataManager.GetInstance().AskBuffDate(buffType);
         buffData = BuffManager.BuffDic[buffID];
 
@@ -23,7 +24,7 @@ using UnityEngine;
     public override void OnAdd(GameObject _attacker, GameObject _bullet, GameObject _taker)
     {
         IAttack t = _taker.GetComponent<IAttack>();
-        if (t==null) return;
+        if (t == null) return;
 
         t.TakeMove(-100, _duration);
     }
@@ -35,4 +36,4 @@ using UnityEngine;
         t.canActive = true;
         t.animator.speed = 1;
     }
-}*/
+}

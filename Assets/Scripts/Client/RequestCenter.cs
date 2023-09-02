@@ -51,6 +51,16 @@ namespace Game
                 Debug.Log("请求发送失败，错误代码：" + err);
             });
         }
+        public static void SetLevelReq(GameClient client,int level, Action<UserData> cb)
+        {
+            client._player_archive_Caller.get_hub(client._player_hub_name).set_level(level).callBack((UserData data) =>
+            {
+                cb.Invoke(data);
+            }, (err) =>
+            {
+                Debug.Log("请求发送失败，错误代码：" + err);
+            });
+        }
 
         public static void CostCoinReq(GameClient client, int amount, EMCostCoinPath coinPath, int id, Action<UserData> cb)
         {

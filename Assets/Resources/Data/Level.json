@@ -16,6 +16,7 @@
   },
   {
     "ID": 0.0,
+    "Energy": 0.0,
     "NormalPlaneNum": 0.0,
     "WidthPlaneNum": 0.0,
     "StageID": 1,
@@ -31,9 +32,109 @@
   },
   {
     "ID": 0.0,
+    "Energy": 0.0,
     "NormalPlaneNum": 0.0,
     "WidthPlaneNum": 0.0,
     "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 2,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 3,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
     "IsSpecial": false,
     "BossList": [],
     "WaveEnemyNum": [
@@ -41,6 +142,2131 @@
     ],
     "WaveEnemyList": [
       2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 4,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 5,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 6,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      12,
+      8
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 7,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      12,
+      8
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 8,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      12,
+      8
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 9,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      12,
+      8
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 10,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      12,
+      8
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 11,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      30
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      15,
+      10
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 12,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      30
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      15,
+      10
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 13,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      30
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      15,
+      10
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 14,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      30
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      15,
+      10
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 15,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      30
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      15,
+      10
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      9,
+      15
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 16,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      35
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      17,
+      13
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 17,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      35
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      17,
+      13
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 18,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      35
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      17,
+      13
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 19,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      35
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      17,
+      13
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 20,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      35
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      17,
+      13
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      11,
+      17
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 21,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      7
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      6,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 22,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      7
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      6,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 23,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      7
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      6,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 24,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      7
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      6,
+      10
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 25,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      20
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      10,
+      5
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      5,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      7
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      6,
+      10
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 26,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      13,
+      7
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      8,
+      9
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      8,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 27,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      12
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      13,
+      7
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      8,
+      9
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      8,
+      12
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 28,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      13,
+      7
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      8,
+      9
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      8,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 29,
+    "Energy": 5,
+    "NormalPlaneNum": 1,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      12
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      13,
+      7
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      8,
+      9
+    ],
+    "WaveEnemyList": [
+      2001
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2003
+    ],
+    "WaveEnemyNum": [
+      8,
+      12
+    ],
+    "WaveEnemyList": [
+      2002
+    ]
+  },
+  {
+    "ID": 30,
+    "Energy": 5,
+    "NormalPlaneNum": 3,
+    "WidthPlaneNum": 1,
+    "StageID": 0,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      25
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 1,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      6,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 2,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      13,
+      7
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 3,
+    "IsSpecial": true,
+    "BossList": [],
+    "WaveEnemyNum": [
+      7,
+      13
+    ],
+    "WaveEnemyList": [
+      2005
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 4,
+    "IsSpecial": false,
+    "BossList": [],
+    "WaveEnemyNum": [
+      8,
+      9
+    ],
+    "WaveEnemyList": [
+      2004
+    ]
+  },
+  {
+    "ID": 0.0,
+    "Energy": 0.0,
+    "NormalPlaneNum": 0.0,
+    "WidthPlaneNum": 0.0,
+    "StageID": 5,
+    "IsSpecial": true,
+    "BossList": [
+      2006
+    ],
+    "WaveEnemyNum": [
+      8,
+      12
+    ],
+    "WaveEnemyList": [
+      2005
     ]
   }
 ]

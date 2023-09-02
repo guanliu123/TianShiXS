@@ -94,7 +94,7 @@ public class CharacterBase : MonoBehaviour, IAttack
     {
         if (nowBullet.ContainsKey(bulletID))
         {
-            //BulletManager.GetInstance().BulletEvolute(BuffType.Multiply,bulletID);
+            BulletManager.GetInstance().BulletEvolute(4005,bulletID);
             return;
         }
         nowBullet.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].damageInterval);
@@ -103,21 +103,21 @@ public class CharacterBase : MonoBehaviour, IAttack
 
     protected void InitData(bool isPlayer=false)
     {
-        int askNum = isPlayer ? 0 : LevelManager.GetInstance().nowLevelNum;
-        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID) ||
-            !CharacterManager.GetInstance().characterDatasDic[characterID].ContainsKey(askNum))
+        int levelNum =isPlayer?0 : LevelManager.GetInstance().nowLevelNum-1;
+        if (!CharacterManager.GetInstance().characterDatasDic.ContainsKey(characterID))
         {
-            Debug.Log("未获取到角色ID为："+characterID+"的第"+askNum+"关数据。");
+            Debug.Log("未获取到角色ID为："+characterID+"的数据。");
             if (characterTag != CharacterTag.Player) Recovery(true);
             return;
         }
 
-        characterData = CharacterManager.GetInstance().characterDatasDic[characterID][askNum];
+        characterData = CharacterManager.GetInstance().characterDatasDic[characterID];
         
-        maxHP = characterData.MaxHP;
+        maxHP = (int)characterData.MaxHP*Mathf.Pow(1.1f,levelNum);
         nowHP = maxHP;
-        aggressivity = characterData.ATK;
-        ATKSpeed = characterData.ATKSpeed;       
+        aggressivity = (int)characterData.ATK * Mathf.Pow(1.1f, levelNum);
+        ATKSpeed = characterData.ATKSpeed;
+        
 
         if (hpSlider)
         {
@@ -217,7 +217,7 @@ public class CharacterBase : MonoBehaviour, IAttack
 
             if (item.Key == 3003)//近战攻击
             {
-                if ((transform.position - Player._instance.transform.position).magnitude < 2f && bulletTimer[item.Key] <= 0)
+                if ((transform.position - Player._instance.transform.position).magnitude < 3f && bulletTimer[item.Key] <= 0)
                 {
                     TransitionState(CharacterStateType.Attack);
                     Player._instance.ChangeHealth(gameObject,

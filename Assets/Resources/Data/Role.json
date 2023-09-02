@@ -1,13 +1,57 @@
 [
   {
     "RoleID": 1001,
-    "Name": "普通道士",
-    "Describe": "使用普通的太极剑攻击",
+    "Name": "龙虎小道",
+    "Describe": "使用太极剑攻击，无惊无喜，不卑不亢",
     "MaxHP": 100,
     "Bullets": [
       3001
     ],
     "ATK": 0,
     "ATKSpeed": 0
+  },
+  {
+    "RoleID": 1002,
+    "Name": "锦衣卫",
+    "Describe": "用剑如神，攻击速度比其他角色更快",
+    "MaxHP": 110,
+    "Bullets": [
+      3001
+    ],
+    "ATK": 0,
+    "ATKSpeed": 0.2
+  },
+  {
+    "RoleID": 1003,
+    "Name": "金吾卫",
+    "Describe": "盔甲着身，攻击大开大合,使用月牙形弹幕，初始血量更多，攻速减慢，攻击力增强",
+    "MaxHP": 200,
+    "Bullets": [
+      3011
+    ],
+    "ATK": 15,
+    "ATKSpeed": -0.3
+  },
+  {
+    "RoleID": 1004,
+    "Name": "侠客",
+    "Describe": "江湖中人，手法老练，出场额外拥有毒镖弹幕",
+    "MaxHP": 100,
+    "Bullets": [
+      3001,3004
+    ],
+    "ATK": 0,
+    "ATKSpeed": 0
+  },
+  {
+    "RoleID": 1005,
+    "Name": "时序",
+    "Describe": "每升级一次，所有属性得到大幅增加",
+    "MaxHP": 110,
+    "Bullets": [
+      3001
+    ],
+    "ATK": 5,
+    "ATKSpeed": 0.1
   }
 ]

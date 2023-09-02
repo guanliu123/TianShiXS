@@ -12,7 +12,7 @@ public class NormalBullet : BulletBase
     private void Awake()
     {
         //bulletID = BulletType.NormalBullet;
-
+        bulletID = 3002;
         bulletAction += Move;
     }
 

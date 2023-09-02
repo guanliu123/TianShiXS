@@ -8,6 +8,7 @@ public class RotateBullet : BulletBase
     private void Awake()
     {
         //bulletID = BulletType.RotateBullet;
+        bulletID = 3009;
         bulletData = BulletManager.GetInstance().BulletDic[bulletID];
 
 

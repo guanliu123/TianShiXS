@@ -59,7 +59,7 @@ public class LevelManager : BaseManager<LevelManager>
         levelDatasDic = LevelDataTool.ReadLevelData();
 
         nowLevelNum = 1;
-        nowLevel = levelDatasDic[1];
+        nowLevel = levelDatasDic[nowLevelNum];
     }
 
     public void ChangeLevel(int levelNum)
@@ -460,7 +460,7 @@ public class LevelManager : BaseManager<LevelManager>
             if (nowStage >= nowLevel.StageDatas.Count)
             {
                 //Ω· ¯”Œœ∑               
-                PanelManager.Instance.Push(new VictoryPanel());
+                PanelManager.Instance.Push(new VictoryPanel(nowLevelNum));
                 return;
             }
             nowWave = 0;

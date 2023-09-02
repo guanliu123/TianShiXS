@@ -6,7 +6,22 @@
   },
   {
     "BuffID": 4002,
-    "Duration": 3,
+    "Duration": 5,
+    "Probability": 1
+  },
+  {
+    "BuffID": 4003,
+    "Duration": 5,
+    "Probability": 0.5
+  },
+  {
+    "BuffID": 4004,
+    "Duration": 6,
+    "Probability": 0.6
+  },
+  {
+    "BuffID": 4005,
+    "Duration": 9999,
     "Probability": 1
   }
 ]

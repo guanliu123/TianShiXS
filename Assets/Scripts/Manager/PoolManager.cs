@@ -17,6 +17,10 @@ public class PoolData
     //构造函数，进行PoolData的一些初始化
     public PoolData(GameObject obj, GameObject _poolObj, bool resetFather = false)
     {
+        GeneratePar(obj, _poolObj);
+    }
+    private void GeneratePar(GameObject obj, GameObject _poolObj)
+    {
         string fatherName = obj.name;
         fatherObj = new GameObject(fatherName);
         poolObj = _poolObj;
@@ -35,6 +39,7 @@ public class PoolData
             fatherObj = obj;
             fatherObj.transform.parent = poolObj.transform;
         }*/
+        if (fatherObj == null) GeneratePar(obj, PoolManager.GetInstance().poolObj);
         obj.transform.SetParent(fatherObj.transform);
     }
     //将物体从缓存池取出
@@ -60,7 +65,7 @@ public class PoolManager : BaseManager<PoolManager>
     private Dictionary<string, PoolData> poolDic
         = new Dictionary<string, PoolData>();
     //缓存池的父物体
-    private GameObject poolObj;
+    public GameObject poolObj;
 
     public override void Reset()
     {

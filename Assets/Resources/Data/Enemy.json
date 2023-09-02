@@ -1,44 +1,80 @@
 [
   {
     "EnemyID": 2001,
-    "Name": "蝙蝠",
-    "Describe": "小蝙蝠",
-    "LevelNum": 1,
-    "MaxHP": 40,
+    "Name": "云蝠",
+    "Describe": "传说蝙蝠原为天界的福禄童子，将蝙蝠与云纹组合在一起，即为“宏福齐天”。（使用飓风攻击敌人）",
+    "MaxHP": 30,
     "Bullets": [
       3003
     ],
-    "ATK": 0,
+    "ATK": 10,
     "ATKSpeed": 0,
     "Energy": 20,
-    "Money": 2
-  },
-  {
-    "EnemyID": 0.0,
-    "Name": "",
-    "Describe": "",
-    "LevelNum": 2,
-    "MaxHP": 40,
-    "Bullets": [
-      3003
-    ],
-    "ATK": 0,
-    "ATKSpeed": 0,
-    "Energy": 20,
-    "Money": 3
+    "Money": 5
   },
   {
     "EnemyID": 2002,
-    "Name": "大眼怪",
-    "Describe": "一只大眼怪",
-    "LevelNum": 1,
-    "MaxHP": 50,
+    "Name": "薄鱼",
+    "Describe": "山海经中，东南三百里外的女烝之山下有一条河，水中有很多怪鱼，名叫薄鱼，脑门中央只有一只眼睛，据说只要是它露面了，必然是天下大旱，赤地千里，（用眼睛发出射线攻击）",
+    "MaxHP": 40,
     "Bullets": [
       3002
     ],
-    "ATK": 0,
+    "ATK": 15,
     "ATKSpeed": 0,
     "Energy": 30,
-    "Money": 2
+    "Money": 5
+  },
+  {
+    "EnemyID": 2003,
+    "Name": "貔貅",
+    "Describe": "别称“ 辟邪、 天禄”，是一种凶猛的瑞兽，此时处于幼年时期，还没有长出羽翼（可以喷出火球）",
+    "MaxHP": 1000,
+    "Bullets": [
+      3002
+    ],
+    "ATK": 40,
+    "ATKSpeed": 0,
+    "Energy": 0,
+    "Money": 50
+  },
+  {
+    "EnemyID": 2004,
+    "Name": "霸下",
+    "Describe": "龙生九子中的第六子，外形似龟，善驮重物，多用以驮负碑础，性格忠厚，害怕生人。（受击三次后回血）",
+    "MaxHP": 60,
+    "Bullets": [
+      3003
+    ],
+    "ATK": 10,
+    "ATKSpeed": 0,
+    "Energy": 20,
+    "Money": 5
+  },
+  {
+    "EnemyID": 2005,
+    "Name": "青鸟",
+    "Describe": "传说中西王母的使者，在人间和仙界之间送信，飞行速度极快，双翼可以震出罡风（有几率闪避玩家的攻击）",
+    "MaxHP": 30,
+    "Bullets": [
+      3002
+    ],
+    "ATK": 20,
+    "ATKSpeed": 0,
+    "Energy": 30,
+    "Money": 5
+  },
+  {
+    "EnemyID": 2006,
+    "Name": "玉鼠",
+    "Describe": "传说中，玉鼠当年在财神爷手下当差，一说是散财童子，因触犯法规被贬下凡，成了玉鼠，但财神爷并没有剥夺它聚财的能力，玉鼠下界给人送财，得到人们喜爱。（受击后反弹伤害）",
+    "MaxHP": 1500,
+    "Bullets": [
+      3002
+    ],
+    "ATK": 10,
+    "ATKSpeed": 0,
+    "Energy": 0,
+    "Money": 50
   }
 ]

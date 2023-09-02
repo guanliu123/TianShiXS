@@ -17,89 +17,60 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 16438445c74e4b145804ba23dcd25baa
   m_SerializeEntries:
-  - m_GUID: f17cca8187e6b934da9d41fe629b45b5
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/3001.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a8434bd1195fe24fa679f856eac2961
     m_Address: Assets/Resources_Move/Prefabs/Bullet/3002.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c642ca54acc1ee24db32e4e9efd11ad2
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/BounceBullet.prefab
+  - m_GUID: f17cca8187e6b934da9d41fe629b45b5
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3001.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bf5eeeb4aad848448c1b578d643b20e
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/Fanshaped.prefab
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3011.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e08467dac35c9fe43b13914e34fda789
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/FireBall.prefab
+  - m_GUID: c642ca54acc1ee24db32e4e9efd11ad2
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3010.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 80c7bc8f8cf779e4397dac4388174c64
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/GasBomb.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5a27ff71e70968341b20d0478e8d6ca1
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/IceBulet.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eed53ce7923bd4548afb30a1077279fe
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/LaserBullet.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 426056c52b656bb4f8b5ee4c66bc6839
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/PerpetualBullet.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 707a93e15a7dabb4583c535927e5aa53
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/PerpetualBullet_Base.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fdef229c8df9723468b2d038c0fce105
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/PoisonBullet.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 27c668fd83ea9fc499c25c85b6c76627
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/PoisonousFloor.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10c63fb7d78c0b448ab740f80ce1f331
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/RotateBullet.prefab
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3009.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bdf04692ebb319048a262851112836e2
-    m_Address: Assets/Resources_Move/Prefabs/Bullet/TrackingBullet.prefab
+  - m_GUID: e08467dac35c9fe43b13914e34fda789
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3008.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - gameing
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 707a93e15a7dabb4583c535927e5aa53
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3007_1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 426056c52b656bb4f8b5ee4c66bc6839
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3007.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eed53ce7923bd4548afb30a1077279fe
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3006.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a27ff71e70968341b20d0478e8d6ca1
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3005.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdef229c8df9723468b2d038c0fce105
+    m_Address: Assets/Resources_Move/Prefabs/Bullet/3004.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 846c94680a3fb974899804430cb9d757, type: 2}

@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using Abelkhan;
+using Game;
 using System.Collections;
 using System.Collections.Generic;
 using UIFrameWork;
@@ -8,14 +9,22 @@ using UnityEngine.UI;
 public class VictoryPanel : BasePanel
 {
     private static readonly string path = "Prefabs/Panels/VictoryPanel";
-    public VictoryPanel() : base(new UIType(path))
+    private int levelNum;
+    public VictoryPanel(int levelNum) : base(new UIType(path))
     {
-
+        this.levelNum = levelNum;
     }
 
     public override void OnEnter()
     {
         GameManager.GetInstance().ClearFloatDamage();
+        if (levelNum==GameManager.GetInstance().UserData.LevelNum)
+        {
+            RequestCenter.SetLevelReq(GameClient.Instance, GameManager.GetInstance().UserData.LevelNum + 1, (data) =>
+            {
+              GameManager.GetInstance().UserData = data;
+            });
+        }
         GameManager.GetInstance().QuitGame();
 
         GameObject panel = null;
@@ -33,7 +42,5 @@ public class VictoryPanel : BasePanel
                 });
             });
         });
-
-        
     }
 }

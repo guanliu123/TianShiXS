@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7292877002769896175}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_spin_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.004966736, y: 0.07948196, z: -0.07840301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4139835610994970588}
   - {fileID: 4179931013567220444}
@@ -41,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8702924658275372304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe_F.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +59,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8826351030190466834}
   m_RootOrder: 0
@@ -71,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569039288380121802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,6 +90,7 @@ Transform:
   m_LocalRotation: {x: 0.000000007450581, y: 0.0000056205317, z: -9.31323e-10, w: 1}
   m_LocalPosition: {x: 0.000000029802322, y: 0.0000000037252903, z: -0.000000022351742}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8191669412482795749}
   m_Father: {fileID: 742573106435718515}
@@ -102,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5139078001590582081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_heel_ik.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +122,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.073165774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8580584136363587759}
   m_RootOrder: 0
@@ -132,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8191669412482795749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +153,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6569039288380121802}
   m_RootOrder: 0
@@ -162,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6162395154395441736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-WEI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +184,7 @@ Transform:
   m_LocalRotation: {x: 0.9959197, y: -0.000000040936474, z: -0.00000015146568, w: -0.090244375}
   m_LocalPosition: {x: -0.00000010347354, y: -0.7371339, z: -0.15899655}
   m_LocalScale: {x: 1, y: 1, z: 1.0000037}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6777227977085965674}
   - {fileID: 3366849889417585742}
@@ -195,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3139510196229067556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +218,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.45338792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5020365451386746161}
   m_RootOrder: 0
@@ -225,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3867320615385439293}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,6 +249,7 @@ Transform:
   m_LocalRotation: {x: 0.7455993, y: -0.63118446, z: 0.21373053, w: 0.0026891213}
   m_LocalPosition: {x: 0.00000000532801, y: 0.000000023596254, z: -0.000000017706416}
   m_LocalScale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4676752257873917844}
   m_Father: {fileID: 4188700473477076109}
@@ -256,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8346611974412760944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,6 +281,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000018407035, y: 0.9931769, z: 0.11661807, w: -0.00000013428901}
   m_LocalPosition: {x: -0.31850827, y: 0.81749517, z: 0.18849468}
   m_LocalScale: {x: 1, y: 0.99999964, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3496592401001194719}
   - {fileID: 2312629903275800372}
@@ -289,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2788887138042994243}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-foot_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,6 +315,7 @@ Transform:
   m_LocalRotation: {x: -0.12131523, y: -0.42653748, z: -0.40817532, w: 0.7979607}
   m_LocalPosition: {x: 0.00000008940697, y: 0.12939456, z: -0.000000037252903}
   m_LocalScale: {x: 1.0021589, y: 1.0021586, z: 1.0021589}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 696135126201061988}
   - {fileID: 1336632994522795436}
@@ -323,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554050664385956735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,6 +350,7 @@ Transform:
   m_LocalRotation: {x: -0.00000013977458, y: 0.6005808, z: -0.00000006988724, w: 0.79956406}
   m_LocalPosition: {x: -0.000000014901161, y: 0.000000007450581, z: -0.000000048428774}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8499993885526441133}
   m_Father: {fileID: 4117799963158237678}
@@ -354,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8499993885526441133}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,6 +382,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.036153283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4554050664385956735}
   m_RootOrder: 0
@@ -384,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1313255119681074921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,6 +413,7 @@ Transform:
   m_LocalRotation: {x: 0.00000016748434, y: -0.7024135, z: -0.000000026168662, w: 0.7117691}
   m_LocalPosition: {x: 0.00000012665987, y: 0.0723064, z: 0.000000029802322}
   m_LocalScale: {x: 1.0000004, y: 0.99999964, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2563068958342331290}
   m_Father: {fileID: 4209053828972419197}
@@ -415,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3867959849851214358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,6 +445,7 @@ Transform:
   m_LocalRotation: {x: 0.00000015426926, y: -0.013799414, z: -0.00000022597192, w: 0.9999048}
   m_LocalPosition: {x: 0.000000037252903, y: 0.09839669, z: 0.000000022351742}
   m_LocalScale: {x: 0.85733443, y: 0.8573349, z: 0.8573349}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8868210692077383705}
   m_Father: {fileID: 6617380642621505817}
@@ -446,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7611758433868921249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_roll2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,6 +477,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.04000002, y: 0, z: 0.00000000298337}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6155031625846402930}
   m_Father: {fileID: 8794465738651789238}
@@ -477,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554419490591958277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,6 +509,7 @@ Transform:
   m_LocalRotation: {x: -0.000000071129925, y: -0.15555903, z: -0.00000006789676, w: 0.98782665}
   m_LocalPosition: {x: 0.000000074505806, y: 0.00000011175871, z: 0}
   m_LocalScale: {x: 1.1664062, y: 1.1664057, z: 1.1664059}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5259515083438341027}
   m_Father: {fileID: 4439774687903787347}
@@ -508,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711178071939151542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,6 +541,7 @@ Transform:
   m_LocalRotation: {x: -0.0000003050598, y: 0.013804906, z: 0.00000034245957, w: 0.99990475}
   m_LocalPosition: {x: 0.000000007450581, y: 0.09839669, z: -0.000000074505806}
   m_LocalScale: {x: 0.9648409, y: 1.0742074, z: 0.96484077}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4696746589581101444}
   m_Father: {fileID: 2790295619059164961}
@@ -539,7 +556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7457259717037359342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,6 +573,7 @@ Transform:
   m_LocalRotation: {x: -0.6482315, y: 0.000000040179337, z: 0.4322034, w: 0.62689406}
   m_LocalPosition: {x: 0.67198485, y: 0.72034895, z: 0.445335}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 714130659799681601}
   m_Father: {fileID: 6898029536407677736}
@@ -570,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3921025813385896883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,6 +605,7 @@ Transform:
   m_LocalRotation: {x: -0.028871015, y: 0.924916, z: -0.37888914, w: -0.011827768}
   m_LocalPosition: {x: -0.000000016143787, y: 0.11175453, z: -0.0000000055879354}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7234371299086900322}
   m_Father: {fileID: 4588304081036395744}
@@ -601,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6979507643238490972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,6 +637,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1475927200875087471}
   m_RootOrder: 0
@@ -631,7 +651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307783753701868393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,6 +669,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000059604645, y: -0.000000074505806, z: 0.000000067055225}
   m_LocalScale: {x: 1.0048704, y: 1.0048699, z: 1.0048699}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 291662306250962963}
   m_Father: {fileID: 6250745164384635129}
@@ -663,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701700637049448191}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,6 +702,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000007450581, y: -0.000000014901161, z: -0.000000007450581}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8265387902800630787}
   m_Father: {fileID: 6887373613468341153}
@@ -695,7 +717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123086182087748476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,6 +734,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12957251, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8482479460237432075}
   m_Father: {fileID: 7261481286916453508}
@@ -726,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4089371317042944050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,6 +766,7 @@ Transform:
   m_LocalRotation: {x: -0.17840885, y: 8.868944e-10, z: 0.000000061149485, w: 0.98395646}
   m_LocalPosition: {x: -6.661338e-15, y: 0.8716015, z: 0.000000007450581}
   m_LocalScale: {x: 1, y: 0.9999996, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6942532055289924901}
   m_Father: {fileID: 8427779101653656096}
@@ -757,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6357066696300202262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_heel_ik.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,6 +798,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.073165774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9106100602875645127}
   m_RootOrder: 0
@@ -787,7 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2442633884278902479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_F_ik_pole.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,6 +829,7 @@ Transform:
   m_LocalRotation: {x: 0.018565392, y: 0.67797464, z: 0.5265464, w: 0.51259595}
   m_LocalPosition: {x: -0.4698484, y: 0.54563946, z: 0.15743}
   m_LocalScale: {x: 1, y: 30.354803, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1352597378405413463}
   m_Father: {fileID: 814242952373731872}
@@ -818,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8396072192346397467}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,6 +862,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000027031703, y: 0.000000020489097, z: 0.0000000018626451}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8340533057138849660}
   m_Father: {fileID: 8031624467850768641}
@@ -850,7 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138690225160232955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_fk.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,6 +894,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.11175457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 956910999805997192}
   m_RootOrder: 0
@@ -880,7 +908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2624146331722633817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,6 +925,7 @@ Transform:
   m_LocalRotation: {x: 0.00000009743845, y: 1, z: -0.000000029802298, w: -0.0000002663161}
   m_LocalPosition: {x: -0.000000001459913, y: 0, z: 0.0000000061550836}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7622124459865705745}
   m_Father: {fileID: 1336632994522795436}
@@ -911,7 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273687427518509852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-thigh_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,6 +957,7 @@ Transform:
   m_LocalRotation: {x: 0.21238533, y: -0.04914217, z: 0.61312556, w: 0.7593119}
   m_LocalPosition: {x: -0.31850824, y: 0.8174951, z: 0.18849473}
   m_LocalScale: {x: 0.99856615, y: 0.99856555, z: 0.9985659}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742573106435718515}
   - {fileID: 4959397649385844074}
@@ -943,7 +973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3569137571818003819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,6 +990,7 @@ Transform:
   m_LocalRotation: {x: 0.24748917, y: -0.092974, z: 0.59981644, w: 0.7551988}
   m_LocalPosition: {x: -0.31850824, y: 0.8174951, z: 0.18849473}
   m_LocalScale: {x: 1.0007174, y: 0.99856603, z: 1.0007178}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8736854652460488017}
   m_Father: {fileID: 742883306806955000}
@@ -974,7 +1005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4188700473477076109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,6 +1022,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000018407035, y: 0.9931769, z: 0.11661807, w: -0.00000013428901}
   m_LocalPosition: {x: 0.3185085, y: 0.8174952, z: 0.18849462}
   m_LocalScale: {x: 1, y: 0.99999964, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4439774687903787347}
   - {fileID: 6623013650420983040}
@@ -1007,7 +1039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5936557374161620786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02_F.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,6 +1056,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.07999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4888285147093246071}
   m_RootOrder: 0
@@ -1037,7 +1070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4223012416600784169}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,6 +1087,7 @@ Transform:
   m_LocalRotation: {x: -0.0000002727576, y: 1, z: -0.00000004470363, w: -0.00000039947415}
   m_LocalPosition: {x: -0.0000000014622283, y: 0, z: 0.000000008013409}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3078710235482508745}
   m_Father: {fileID: 6671034964982566350}
@@ -1068,7 +1102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3608979151610976112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1085,6 +1119,7 @@ Transform:
   m_LocalRotation: {x: -0.0000000018407035, y: 0.9931769, z: 0.11661807, w: -0.00000013428901}
   m_LocalPosition: {x: 0.3185083, y: -0.57915246, z: -0.14407682}
   m_LocalScale: {x: 1, y: 0.99999964, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8201656601044928400}
   - {fileID: 5905984752780026053}
@@ -1101,7 +1136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690946897380113032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,6 +1154,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000003911001, y: -0.00000005202519, z: 0.0000000045675392}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7266960123491528789}
   m_Father: {fileID: 1522108486377092573}
@@ -1133,7 +1169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50538462447397425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,6 +1186,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12957251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7292877002769896175}
   m_Father: {fileID: 5980037392383506925}
@@ -1164,7 +1201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8019624402460244752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,6 +1218,7 @@ Transform:
   m_LocalRotation: {x: 0.0000000962272, y: -0.23082751, z: -0.0000004947465, w: 0.9729947}
   m_LocalPosition: {x: -0.000000040978193, y: 0.06469728, z: -0.000000044703484}
   m_LocalScale: {x: 1.0021586, y: 1.0021595, z: 1.002159}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5916984900254103337}
   m_Father: {fileID: 4959397649385844074}
@@ -1195,7 +1233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8201656601044928400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_swing.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,6 +1250,7 @@ Transform:
   m_LocalRotation: {x: -0.5214852, y: 0.6981885, z: -0.46294644, w: -0.16206986}
   m_LocalPosition: {x: -0.000000006485076, y: 0.00000002359625, z: -0.000000017276708}
   m_LocalScale: {x: 0.9999999, y: 0.99999976, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8806047877176661709}
   m_Father: {fileID: 3608979151610976112}
@@ -1226,7 +1265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8736854652460488017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh_F.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,6 +1282,7 @@ Transform:
   m_LocalRotation: {x: 0.00000014441092, y: 0.027825797, z: 0.00000028602673, w: 0.9996128}
   m_LocalPosition: {x: -0.000000040978193, y: 0.09839675, z: -0.000000022351742}
   m_LocalScale: {x: 1.0000004, y: 0.9999996, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1447384664398311128}
   m_Father: {fileID: 3569137571818003819}
@@ -1257,7 +1297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 653180088818192364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1274,6 +1314,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03234866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5916984900254103337}
   m_RootOrder: 0
@@ -1287,7 +1328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6623013650420983040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_parent_socket.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,6 +1345,7 @@ Transform:
   m_LocalRotation: {x: 0.8439597, y: -0.41571993, z: 0.33295265, w: -0.06365201}
   m_LocalPosition: {x: 0.00000000532801, y: 0.000000023596254, z: -0.000000017706416}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6408143034455294293}
   m_Father: {fileID: 4188700473477076109}
@@ -1318,7 +1360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775448552014421435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_heel_ik.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,6 +1377,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.05587727, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8430559487409970121}
   m_RootOrder: 0
@@ -1348,7 +1391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2940277655160596433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,6 +1408,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000011665127, y: 0.9429765, z: 0.08573151}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2015646977320293677}
   m_Father: {fileID: 2951255095807776816}
@@ -1379,7 +1423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4067814892653142476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ZUI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1396,6 +1440,7 @@ Transform:
   m_LocalRotation: {x: 0.6171529, y: -0.0000013126394, z: -0.0000012670563, w: 0.78684324}
   m_LocalPosition: {x: 0.00000009217349, y: 0.41502357, z: 0.2498436}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1634374236206768018}
   m_Father: {fileID: 9118866876639877967}
@@ -1410,7 +1455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8482479460237432075}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_spin_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,6 +1472,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000059604645, y: 0.118511915, z: -0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8580584136363587759}
   - {fileID: 8661162241135962916}
@@ -1442,7 +1488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7998217670584362633}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ZUI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,6 +1505,7 @@ Transform:
   m_LocalRotation: {x: 0.5478531, y: -0.00000039864224, z: -0.00000047128665, w: 0.83657455}
   m_LocalPosition: {x: 0.00000009217349, y: 0.41502357, z: 0.2498436}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8655048648819809491}
   m_Father: {fileID: 9118866876639877967}
@@ -1473,7 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5117873311409210751}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,6 +1537,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03658291, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 652840576709717469}
   m_RootOrder: 0
@@ -1503,7 +1551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3282496728103375277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1520,6 +1568,7 @@ Transform:
   m_LocalRotation: {x: 0.000000053134077, y: -0.0034703594, z: 0.39958653, w: 0.9166889}
   m_LocalPosition: {x: 0.000000015784359, y: 0.45338765, z: 0.0000000096915755}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4314289343952083609}
   m_Father: {fileID: 7446155863622767959}
@@ -1534,7 +1583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2738167522425347630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_ik_pole.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1551,6 +1600,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.014461309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2432952340598825448}
   m_RootOrder: 0
@@ -1564,7 +1614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83246033948759514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,6 +1631,7 @@ Transform:
   m_LocalRotation: {x: 0.17840853, y: -8.8685614e-10, z: -0.00000006114944, w: 0.9839565}
   m_LocalPosition: {x: -1.4627188e-14, y: 0.000000014901161, z: -0.0000000037252903}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4841309104196196065}
   m_Father: {fileID: 2015646977320293677}
@@ -1595,7 +1646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8430559487409970121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_heel_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1612,6 +1663,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: 0.004966736, y: -0.07948196, z: 0.07840301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1775448552014421435}
   m_Father: {fileID: 4747663005426559403}
@@ -1626,7 +1678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6155031625846402930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_roll1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1643,6 +1695,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: -0.0019999756, y: 0.14821196, z: 0.00063632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4173559710152553833}
   m_Father: {fileID: 7611758433868921249}
@@ -1657,7 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8868210692077383705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,6 +1728,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000014901161, y: 0.000000022351742, z: 0.000000022351742}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9026233111479801416}
   m_Father: {fileID: 3867959849851214358}
@@ -1689,7 +1743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463881069557251624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_rock1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,6 +1760,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: -0.07999998, y: 0, z: 0.000000012227666}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6491033395897236908}
   m_Father: {fileID: 6296568661478740611}
@@ -1720,7 +1775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696746589581101444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin_F.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,6 +1792,7 @@ Transform:
   m_LocalRotation: {x: -0.00000020319314, y: -0.040256817, z: 0.00000017709492, w: 0.9991894}
   m_LocalPosition: {x: -0, y: 0.06469725, z: -0.000000007450581}
   m_LocalScale: {x: 1, y: 0.99999946, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4588304081036395744}
   m_Father: {fileID: 4711178071939151542}
@@ -1751,7 +1807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1338511996464037621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,6 +1824,7 @@ Transform:
   m_LocalRotation: {x: -0.00000008998785, y: 1, z: 0.00000001490119, w: 0.00000013315805}
   m_LocalPosition: {x: -0.0000000014623034, y: 0, z: -0.0000000024257183}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4988015699173785162}
   m_Father: {fileID: 2880832137286834683}
@@ -1782,7 +1839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5996068439169203688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1799,6 +1856,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8563182925204972980}
   m_RootOrder: 0
@@ -1812,7 +1870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6189179334614427669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,6 +1887,7 @@ Transform:
   m_LocalRotation: {x: -0.23287174, y: 0.9134594, z: 0.22477941, w: 0.2466514}
   m_LocalPosition: {x: -1.7763568e-15, y: 0.0000000074505793, z: 0.000000007450578}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5560767083932521015}
   m_Father: {fileID: 742883306806955000}
@@ -1843,7 +1902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7891911712778195957}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,6 +1920,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000044703484, y: 0.1967935, z: -0.000000029802322}
   m_LocalScale: {x: 1.0590978, y: 1.0590978, z: 1.0590978}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 291929424251427472}
   m_Father: {fileID: 1064125476123864624}
@@ -1875,7 +1935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2631811250908903285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_spin_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1892,6 +1952,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000059604645, y: 0.118511915, z: -0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9106100602875645127}
   - {fileID: 6296568661478740611}
@@ -1907,7 +1968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2069989831290447595}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1924,6 +1985,7 @@ Transform:
   m_LocalRotation: {x: -2.6193445e-10, y: -1.2976286e-12, z: 3.0655556e-10, w: 1}
   m_LocalPosition: {x: 0.00000001656585, y: 0.000000057159923, z: 0.00000000820728}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3235527911801904390}
   m_Father: {fileID: 7446155863622767959}
@@ -1938,7 +2000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8806047877176661709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,6 +2017,7 @@ Transform:
   m_LocalRotation: {x: -0.20378004, y: -0.14056751, z: -0.029578863, w: 0.96842116}
   m_LocalPosition: {x: -0, y: -0.000000059604645, z: -0.00000009685755}
   m_LocalScale: {x: 0.9964573, y: 0.99645734, z: 0.9964575}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5884183199678188152}
   m_Father: {fileID: 8201656601044928400}
@@ -1969,7 +2032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5928317443511101090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1986,6 +2049,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.45338792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5958175195791953267}
   m_RootOrder: 0
@@ -1999,7 +2063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8580584136363587759}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_heel_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,6 +2080,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: -0.000000059604645, y: -0.118511856, z: 0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5139078001590582081}
   m_Father: {fileID: 8482479460237432075}
@@ -2030,7 +2095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5082659176943674478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,6 +2112,7 @@ Transform:
   m_LocalRotation: {x: 0.00000008195639, y: -3.0642155e-14, z: -3.375078e-14, w: 1}
   m_LocalPosition: {x: -7.1054274e-15, y: -0.15221949, z: 0.0000000037252874}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742883306806955000}
   m_Father: {fileID: 5742117157727230860}
@@ -2061,7 +2127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2880832137286834683}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-toe_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,6 +2144,7 @@ Transform:
   m_LocalRotation: {x: -0.3788892, y: 0.011828006, z: 0.028870877, w: 0.924916}
   m_LocalPosition: {x: 0.0000000082197005, y: 0.111754514, z: -0.0000000018626451}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1338511996464037621}
   m_Father: {fileID: 7536433051845106140}
@@ -2092,7 +2159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5943067704724399663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2109,6 +2176,7 @@ Transform:
   m_LocalRotation: {x: -0.14887564, y: 0.15378217, z: 0.0234443, w: 0.97654366}
   m_LocalPosition: {x: 0.000000007450581, y: -0.000000014901161, z: 0.000000059604645}
   m_LocalScale: {x: 0.9985665, y: 0.99856585, z: 0.9985661}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5510322302803705096}
   m_Father: {fileID: 3496592401001194719}
@@ -2123,7 +2191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5474384221445870449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_ik_pole.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2140,6 +2208,7 @@ Transform:
   m_LocalRotation: {x: 0.14658614, y: 0.8450664, z: 0.3551997, w: -0.37176397}
   m_LocalPosition: {x: 0.4665148, y: -0.9059993, z: 0.16517928}
   m_LocalScale: {x: 1, y: 30.357784, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 299072023739057872}
   m_Father: {fileID: 814242952373731872}
@@ -2154,7 +2223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2951255095807776816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2171,6 +2240,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8461535618906915946}
   - {fileID: 9165397499004636355}
@@ -2188,7 +2258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742117157727230860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,6 +2275,7 @@ Transform:
   m_LocalRotation: {x: 0.00000004223469, y: 0.9931769, z: 0.11661793, w: 0.00000013903201}
   m_LocalPosition: {x: -4.440892e-16, y: 0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1485539752178022714}
   - {fileID: 5082659176943674478}
@@ -2221,7 +2292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8031624467850768641}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_roll.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2238,6 +2309,7 @@ Transform:
   m_LocalRotation: {x: 0.37888947, y: -0.011827969, z: -0.028870916, w: 0.92491585}
   m_LocalPosition: {x: -0.0049667503, y: -0.07948196, z: -0.07840301}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8396072192346397467}
   m_Father: {fileID: 7226388970459619678}
@@ -2252,7 +2324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352824865393240268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2269,6 +2341,7 @@ Transform:
   m_LocalRotation: {x: -0.36239147, y: -0.20636171, z: -0.74236494, w: 0.5243868}
   m_LocalPosition: {x: 0.000000052154064, y: 0.144613, z: -0.000000013038516}
   m_LocalScale: {x: 0.7896727, y: 0.789673, z: 0.78967255}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5139649812571499797}
   - {fileID: 6671034964982566350}
@@ -2286,7 +2359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4754619306651120474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2303,6 +2376,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.04040781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256087012629914487}
   m_RootOrder: 0
@@ -2316,7 +2390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5246778292546497892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2333,6 +2407,7 @@ Transform:
   m_LocalRotation: {x: -0.00000030569007, y: 0.95128477, z: -0.3083136, w: -0.0000007407875}
   m_LocalPosition: {x: 0.000000017873965, y: 0.14633143, z: 0.0000000017296315}
   m_LocalScale: {x: 1.0000002, y: 0.9999998, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5713138136038764364}
   m_Father: {fileID: 2563068958342331290}
@@ -2347,7 +2422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514597490999298910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2364,6 +2439,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4589830322455406143}
   m_RootOrder: 0
@@ -2377,7 +2453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2887489239601751098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-foot_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2394,6 +2470,7 @@ Transform:
   m_LocalRotation: {x: -0.10533109, y: -0.45776415, z: -0.4127991, w: 0.7803552}
   m_LocalPosition: {x: -0.00000003259629, y: 0.064697295, z: -0.000000026077032}
   m_LocalScale: {x: 0.999895, y: 1.0002384, z: 0.9998734}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8826351030190466834}
   m_Father: {fileID: 5446757010102140015}
@@ -2408,7 +2485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206336733925859472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shin_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,6 +2503,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000022351742, y: 0.19679342, z: 0}
   m_LocalScale: {x: 1.0742067, y: 1.0742071, z: 1.0742067}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1839339121528041561}
   - {fileID: 5115427069253074534}
@@ -2442,7 +2520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903361531517153927}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2459,6 +2537,7 @@ Transform:
   m_LocalRotation: {x: 0.67955977, y: 0.6148422, z: -0.37389556, w: 0.14272265}
   m_LocalPosition: {x: -0.000000006485065, y: -0.000000011574965, z: 0.0000000077052915}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6409290918779352434}
   m_Father: {fileID: 6517105762349592439}
@@ -2473,7 +2552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5180385420660480370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2490,6 +2569,7 @@ Transform:
   m_LocalRotation: {x: 0.34668705, y: 0.28430495, z: -0.51431733, w: 0.73106533}
   m_LocalPosition: {x: 0.31850827, y: -0.57915246, z: -0.14407682}
   m_LocalScale: {x: 1.001776, y: 0.99645674, z: 1.0017762}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4311264239958561790}
   m_Father: {fileID: 742883306806955000}
@@ -2504,7 +2584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7791572047364923965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2521,6 +2601,7 @@ Transform:
   m_LocalRotation: {x: 0.000000042234667, y: 0.9931769, z: 0.11661788, w: 0.00000013903201}
   m_LocalPosition: {x: -0.000000017986459, y: -0.14494325, z: 0.23963505}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8427779101653656096}
   m_Father: {fileID: 814242952373731872}
@@ -2535,7 +2616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8655048648819809491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ZUI_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2552,6 +2633,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32097217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7998217670584362633}
   m_RootOrder: 0
@@ -2566,7 +2648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4085714793942033406}
   - component: {fileID: 1240294624290337773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,13 +2662,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125311387870017574}
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8177084699139197433}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!137 &1240294624290337773
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2598,10 +2681,12 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2882,7 +2967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4139835610994970588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_heel_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2899,6 +2984,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: -0.004966736, y: -0.07948196, z: 0.07840301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 538822223339082570}
   m_Father: {fileID: 7292877002769896175}
@@ -2913,7 +2999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7359224464039029576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2930,6 +3016,7 @@ Transform:
   m_LocalRotation: {x: -0.00000012209026, y: 0.030056402, z: 0.00000033423942, w: 0.99954826}
   m_LocalPosition: {x: 0.000000029802322, y: 0.098396674, z: 0.00000004656613}
   m_LocalScale: {x: 1.0035552, y: 1.0035552, z: 1.0035549}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3963409287772927544}
   m_Father: {fileID: 8875018039135797570}
@@ -2944,7 +3031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7134762856584114693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2961,6 +3048,7 @@ Transform:
   m_LocalRotation: {x: 0.000000023846507, y: 0.9762291, z: 0.2167414, w: -0.00000013110605}
   m_LocalPosition: {x: -3.1086245e-14, y: 0.17444934, z: -0.000000033527613}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 901856426290146999}
   m_Father: {fileID: 2015646977320293677}
@@ -2975,7 +3063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634374236206768018}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ZUI_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2992,6 +3080,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3091474, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4067814892653142476}
   m_RootOrder: 0
@@ -3005,7 +3094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994173505878841886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3022,6 +3111,7 @@ Transform:
   m_LocalRotation: {x: 0.00000042864198, y: -0.6005806, z: 0.000000516001, w: 0.79956424}
   m_LocalPosition: {x: 0.00000004377216, y: -0.000000014901161, z: -0.000000029802322}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4326122690942509685}
   m_Father: {fileID: 2017621660715722631}
@@ -3036,7 +3126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6664626642665369229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3053,6 +3143,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.17444934, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7780218588262956828}
   m_RootOrder: 0
@@ -3066,7 +3157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6579964207141900862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chest_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3083,6 +3174,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.5024025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8461535618906915946}
   m_RootOrder: 0
@@ -3096,7 +3188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3494267812352205983}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-ZUI_2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3113,6 +3205,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3091474, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1135351645717535174}
   m_RootOrder: 0
@@ -3126,7 +3219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064125476123864624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3143,6 +3236,7 @@ Transform:
   m_LocalRotation: {x: 0.000000114911536, y: 0.1436461, z: -0.000000034630876, w: 0.98962915}
   m_LocalPosition: {x: 0.00000009313226, y: -0.000000022351742, z: -0.0000000037252903}
   m_LocalScale: {x: 1.195685, y: 1.1956853, z: 1.1956854}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7891911712778195957}
   m_Father: {fileID: 8834990654352312746}
@@ -3157,7 +3251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4725252962941028921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3174,6 +3268,7 @@ Transform:
   m_LocalRotation: {x: -1.2545468e-35, y: -2.3092639e-14, z: -9.325874e-15, w: 1}
   m_LocalPosition: {x: -1.5543122e-14, y: 0.00000008940697, z: -0.000000059604645}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4320881647426281638}
   m_Father: {fileID: 901856426290146999}
@@ -3188,7 +3283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2432952340598825448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_ik_pole.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3205,6 +3300,7 @@ Transform:
   m_LocalRotation: {x: -0.17822531, y: 0.70795107, z: 0.5443656, w: 0.41316724}
   m_LocalPosition: {x: -0.5046289, y: -0.6879918, z: 0.21519904}
   m_LocalScale: {x: 0.99999994, y: 18.37584, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2738167522425347630}
   m_Father: {fileID: 814242952373731872}
@@ -3219,7 +3315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3243152767719862907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3236,6 +3332,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006870485, y: 0.9512848, z: -0.30831352, w: 0.00000067761795}
   m_LocalPosition: {x: -0.00000004422686, y: 0.14633155, z: -9.674181e-10}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6494492792219384150}
   m_Father: {fileID: 968209074338206362}
@@ -3250,7 +3347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7536433051845106140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-foot_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3267,6 +3364,7 @@ Transform:
   m_LocalRotation: {x: -0.14229684, y: 0.36411, z: 0.74841076, w: 0.535777}
   m_LocalPosition: {x: -0.000000014901161, y: 0.12939458, z: 0.0000000037252903}
   m_LocalScale: {x: 0.7981092, y: 0.79810905, z: 0.79810923}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7999375912738648655}
   - {fileID: 2880832137286834683}
@@ -3284,7 +3382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 562913532429329934}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3301,6 +3399,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.17085081, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2631811250908903285}
   m_Father: {fileID: 2113836114693827968}
@@ -3315,7 +3414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033130245754826508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_F_ik_pole.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3332,6 +3431,7 @@ Transform:
   m_LocalRotation: {x: -0.08908938, y: 0.515293, z: 0.72028595, w: -0.45576793}
   m_LocalPosition: {x: 0.5055833, y: 0.73611176, z: 0.20268735}
   m_LocalScale: {x: 0.99999994, y: 22.771074, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1901015798909147787}
   m_Father: {fileID: 814242952373731872}
@@ -3346,7 +3446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8493449249187076820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3364,6 +3464,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000013743104, y: 0.000000044703484, z: -0.000000059604645}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8437162013701940479}
   m_Father: {fileID: 8306431094883214121}
@@ -3378,7 +3479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6337822313437380663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3396,6 +3497,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.00000008195639, y: 0.000000033527613, z: 0.0000000018626451}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 244051769778662649}
   m_Father: {fileID: 5897609789876382342}
@@ -3410,7 +3512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3390041308338478642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_parent_socket.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3427,6 +3529,7 @@ Transform:
   m_LocalRotation: {x: 0.76982474, y: 0.387111, z: -0.50641274, w: 0.032572348}
   m_LocalPosition: {x: -0.000000006485065, y: -0.000000011574965, z: 0.0000000077052915}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1779530367061529452}
   m_Father: {fileID: 6517105762349592439}
@@ -3441,7 +3544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5713138136038764364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3458,6 +3561,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5246778292546497892}
   m_RootOrder: 0
@@ -3471,7 +3575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070357485171802183}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3488,6 +3592,7 @@ Transform:
   m_LocalRotation: {x: -0.000000009313227, y: 1.3933298e-14, z: 5.8841825e-15, w: 1}
   m_LocalPosition: {x: 1.223327e-14, y: 0.000000030035153, z: -0.00000000925502}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4581902216018592748}
   m_Father: {fileID: 7617479009554357335}
@@ -3502,7 +3607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4037363343533728743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_parent.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3519,6 +3624,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1779530367061529452}
   m_RootOrder: 0
@@ -3532,7 +3638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6968886209978613972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3549,6 +3655,7 @@ Transform:
   m_LocalRotation: {x: 0.028871065, y: 0.92491597, z: -0.37888923, w: 0.011827743}
   m_LocalPosition: {x: 0.00000004175958, y: 0.1117546, z: -0.0000000027939677}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3016810540244971923}
   m_Father: {fileID: 2788887138042994243}
@@ -3563,7 +3670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956910999805997192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3581,6 +3688,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000004859487, y: -0.0000000055879354, z: -0.00000004284084}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138690225160232955}
   m_Father: {fileID: 7400815643174208305}
@@ -3595,7 +3703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538822223339082570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_heel_ik.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3612,6 +3720,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.05587727, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4139835610994970588}
   m_RootOrder: 0
@@ -3625,7 +3734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1956316471818344940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3642,6 +3751,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.07999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2777635320109025341}
   m_RootOrder: 0
@@ -3655,7 +3765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6296568661478740611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_rock2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3672,6 +3782,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: -0.038000107, y: -0.14821196, z: 0.00063632056}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4463881069557251624}
   m_Father: {fileID: 2631811250908903285}
@@ -3686,7 +3797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3827717389719747125}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3703,6 +3814,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.15446842, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5760558783599189037}
   m_RootOrder: 0
@@ -3716,7 +3828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4457902599229588588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3733,6 +3845,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.07999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8979327607682646449}
   m_RootOrder: 0
@@ -3746,7 +3859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8826351030190466834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3763,6 +3876,7 @@ Transform:
   m_LocalRotation: {x: 0.02887102, y: 0.92491615, z: -0.37888893, w: 0.011827771}
   m_LocalPosition: {x: 0.00000007128189, y: 0.11175453, z: 0.000000049360096}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8702924658275372304}
   m_Father: {fileID: 2887489239601751098}
@@ -3777,7 +3891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6250745164384635129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3794,6 +3908,7 @@ Transform:
   m_LocalRotation: {x: 0.47772774, y: -0.00000016970851, z: 0.00000003609123, w: 0.878508}
   m_LocalPosition: {x: 0.000000044703484, y: 0.19679344, z: 0.000000037252903}
   m_LocalScale: {x: 0.9986914, y: 0.9986918, z: 0.9986916}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 307783753701868393}
   - {fileID: 4117799963158237678}
@@ -3810,7 +3925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6040321858184998249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3827,6 +3942,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.30893686, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6942532055289924901}
   m_RootOrder: 0
@@ -3840,7 +3956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3328712054355375159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_roll.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3857,6 +3973,7 @@ Transform:
   m_LocalRotation: {x: 0.37888947, y: 0.011828051, z: 0.02887088, w: 0.92491585}
   m_LocalPosition: {x: 0.0049667214, y: -0.07948196, z: -0.07840301}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6975934763507116679}
   m_Father: {fileID: 4099381497509174128}
@@ -3871,7 +3988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3600060375055620016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_4_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3888,6 +4005,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.45338792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8748138319577717094}
   m_RootOrder: 0
@@ -3901,7 +4019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748138319577717094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3918,6 +4036,7 @@ Transform:
   m_LocalRotation: {x: -7.4483915e-28, y: 1.2341772e-10, z: -0.0000000015064343, w: 1}
   m_LocalPosition: {x: 0.00000013846348, y: 0.0000002188608, z: 0.000000024796464}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3600060375055620016}
   m_Father: {fileID: 5191597879798792710}
@@ -3932,7 +4051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9177461744852545380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3950,6 +4069,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000007450581, y: 0.0000000037252903, z: -0.000000037252903}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2535459632849095403}
   m_Father: {fileID: 1839339121528041561}
@@ -3964,7 +4084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7149564154019586147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-thigh.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3981,6 +4101,7 @@ Transform:
   m_LocalRotation: {x: 0.5481016, y: -0.12212545, z: 0.76077366, w: 0.32541296}
   m_LocalPosition: {x: -0.318508, y: -0.57915276, z: -0.14407675}
   m_LocalScale: {x: 1.1956848, y: 1.195685, z: 1.1956851}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4461746318663509338}
   - {fileID: 2472086930604268375}
@@ -3996,7 +4117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5191597879798792710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-WEI_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4013,6 +4134,7 @@ Transform:
   m_LocalRotation: {x: 0.000000053134077, y: -0.0034703594, z: 0.39958653, w: 0.9166889}
   m_LocalPosition: {x: 0.000000015784359, y: 0.45338765, z: 0.0000000096915755}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8748138319577717094}
   m_Father: {fileID: 7446155863622767959}
@@ -4027,7 +4149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9001626059812039170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_rock2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4044,6 +4166,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: 0.037999988, y: -0.1482119, z: 0.00063632056}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6752055116158036712}
   m_Father: {fileID: 4747663005426559403}
@@ -4058,7 +4181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8621703425649752853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4075,6 +4198,7 @@ Transform:
   m_LocalRotation: {x: 0.53118134, y: -0.11491533, z: 0.77268255, w: 0.32802847}
   m_LocalPosition: {x: -0.318508, y: -0.57915276, z: -0.14407673}
   m_LocalScale: {x: 0.9145164, y: 1.1956851, z: 0.9145165}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7289243389824281747}
   m_Father: {fileID: 742883306806955000}
@@ -4089,7 +4213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3459329564811688597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4107,6 +4231,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 9.931969e-10, y: -0.000000026768934, z: 0.00000001907272}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7013615384052833002}
   m_Father: {fileID: 899432654040704758}
@@ -4121,7 +4246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4676752257873917844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4138,6 +4263,7 @@ Transform:
   m_LocalRotation: {x: 0.31732017, y: 0.0000001335626, z: -0.000000011784932, w: 0.9483185}
   m_LocalPosition: {x: 0.000000037252903, y: 0.19679342, z: -0.00000008940697}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8306431094883214121}
   m_Father: {fileID: 3867320615385439293}
@@ -4152,7 +4278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5211179495818138421}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4169,6 +4295,7 @@ Transform:
   m_LocalRotation: {x: 0.2474893, y: -0.09297395, z: 0.5998165, w: 0.75519866}
   m_LocalPosition: {x: -0.31850824, y: 0.8174951, z: 0.18849473}
   m_LocalScale: {x: 0.99999964, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4252755639872268688}
   m_Father: {fileID: 742883306806955000}
@@ -4183,7 +4310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430788378732434597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4200,6 +4327,7 @@ Transform:
   m_LocalRotation: {x: 0.6433812, y: 0.660424, z: 0.25266394, w: -0.29336286}
   m_LocalPosition: {x: -0.028682088, y: 0.0042082556, z: 0.10498701}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6282088642530318993}
   m_Father: {fileID: 7536433051845106140}
@@ -4214,7 +4342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5905984752780026053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_parent_socket.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4231,6 +4359,7 @@ Transform:
   m_LocalRotation: {x: -0.55771756, y: 0.7778366, z: -0.22795242, w: -0.17877086}
   m_LocalPosition: {x: -0.000000006485076, y: 0.00000002359625, z: -0.000000017276708}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8347593681733951025}
   m_Father: {fileID: 3608979151610976112}
@@ -4245,7 +4374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9026233111479801416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4262,6 +4391,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8868210692077383705}
   m_RootOrder: 0
@@ -4275,7 +4405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7847787227418065709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4292,6 +4422,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.027938617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7766585627518701035}
   m_RootOrder: 0
@@ -4305,7 +4436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9165397499004636355}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4322,6 +4453,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000011665127, y: 0.9429765, z: 0.08573151}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4391275746487598792}
   m_Father: {fileID: 2951255095807776816}
@@ -4336,7 +4468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447384664398311128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4353,6 +4485,7 @@ Transform:
   m_LocalRotation: {x: 0.3769089, y: 0.027802996, z: -0.011312274, w: 0.92576385}
   m_LocalPosition: {x: -0.00000008195639, y: 0.09839672, z: 0.000000022351742}
   m_LocalScale: {x: 1.0003608, y: 0.99823046, z: 1.0014133}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5446757010102140015}
   m_Father: {fileID: 8736854652460488017}
@@ -4367,7 +4500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6285616970088316034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-hips_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4384,6 +4517,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1522195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1485539752178022714}
   m_RootOrder: 0
@@ -4397,7 +4531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8437162013701940479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_fk.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4414,6 +4548,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.11175457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8493449249187076820}
   m_RootOrder: 0
@@ -4427,7 +4562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291929424251427472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_ik.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4444,6 +4579,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.14461304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7891911712778195957}
   m_RootOrder: 0
@@ -4457,7 +4593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4311264239958561790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4474,6 +4610,7 @@ Transform:
   m_LocalRotation: {x: -0.00000016117502, y: -0.026407061, z: 0.0000002310486, w: 0.9996513}
   m_LocalPosition: {x: 0.000000014901161, y: 0.09839672, z: -0.000000018626451}
   m_LocalScale: {x: 0.9999992, y: 1.000001, z: 0.9999992}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1999024209494103713}
   m_Father: {fileID: 5180385420660480370}
@@ -4488,7 +4625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3496592401001194719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_swing.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4505,6 +4642,7 @@ Transform:
   m_LocalRotation: {x: 0.55979484, y: 0.76030886, z: -0.32946882, w: 0.0032394216}
   m_LocalPosition: {x: 0.0000000053280242, y: -0.00000002151506, z: -0.000000009005928}
   m_LocalScale: {x: 0.99999994, y: 0.9999997, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5943067704724399663}
   m_Father: {fileID: 8346611974412760944}
@@ -4519,7 +4657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336632994522795436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-toe_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4536,6 +4674,7 @@ Transform:
   m_LocalRotation: {x: -0.3788892, y: -0.011828029, z: -0.028870873, w: 0.924916}
   m_LocalPosition: {x: 0.00000004175959, y: 0.1117546, z: -0.000000006519258}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2624146331722633817}
   m_Father: {fileID: 2788887138042994243}
@@ -4550,7 +4689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828313750609513123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-ZUI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4567,6 +4706,7 @@ Transform:
   m_LocalRotation: {x: -0.000000022351742, y: -8.881784e-16, z: -1.3774248e-15, w: 1}
   m_LocalPosition: {x: -8.3962405e-14, y: 0.00000011175871, z: -0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2035980491706242931}
   m_Father: {fileID: 4581507909032152877}
@@ -4581,7 +4721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6856549148636549334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4598,6 +4738,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.027938617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6837305788613231375}
   m_RootOrder: 0
@@ -4611,7 +4752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7382413340451974557}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4628,6 +4769,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.038758583, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 714130659799681601}
   m_RootOrder: 0
@@ -4641,7 +4783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7261481286916453508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_ik.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4658,6 +4800,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.58175343, y: -0.86305726, z: 0.10253632}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1123086182087748476}
   m_Father: {fileID: 6898029536407677736}
@@ -4672,7 +4815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2035980491706242931}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-ZUI_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4689,6 +4832,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32097217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3828313750609513123}
   m_RootOrder: 0
@@ -4702,7 +4846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6494492792219384150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4719,6 +4863,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3243152767719862907}
   m_RootOrder: 0
@@ -4732,7 +4877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2563068958342331290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4749,6 +4894,7 @@ Transform:
   m_LocalRotation: {x: 0.7944533, y: -0.17961419, z: 0.3136646, w: -0.48805448}
   m_LocalPosition: {x: -0.000000022351742, y: 0.07230652, z: -0.000000052154064}
   m_LocalScale: {x: 1.0060015, y: 1.0866363, z: 0.98156005}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5246778292546497892}
   m_Father: {fileID: 1313255119681074921}
@@ -4763,7 +4909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6671034964982566350}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4780,6 +4926,7 @@ Transform:
   m_LocalRotation: {x: -0.30831346, y: 0.00000017387804, z: -0.0000001503851, w: 0.9512848}
   m_LocalPosition: {x: 0.0000000065123835, y: 0.14633161, z: 0.00000006326515}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4223012416600784169}
   m_Father: {fileID: 1352824865393240268}
@@ -4794,7 +4941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8461535618906915946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4811,6 +4958,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000011665127, y: 0.9429765, z: 0.08573151}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6579964207141900862}
   m_Father: {fileID: 2951255095807776816}
@@ -4825,7 +4973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6080986808768343713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4843,6 +4991,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000004966843, y: -0.00000001286412, z: -0.0000000109527605}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5015303511967112632}
   m_Father: {fileID: 8921380390532689816}
@@ -4857,7 +5006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839339121528041561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,6 +5024,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000008195639, y: -0.000000007450581, z: 0.000000022351742}
   m_LocalScale: {x: 0.79810905, y: 0.7981091, z: 0.79810935}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9177461744852545380}
   m_Father: {fileID: 206336733925859472}
@@ -4889,7 +5039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5560767083932521015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4907,6 +5057,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000013278519, y: 0.0000000025948896, z: -0.000000032798514}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 726137733530863352}
   m_Father: {fileID: 6189179334614427669}
@@ -4921,7 +5072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839463361603545247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4938,6 +5089,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000011665127, y: 0.9429765, z: 0.08573151}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6055388341261528642}
   m_Father: {fileID: 2951255095807776816}
@@ -4952,7 +5104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4391275746487598792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hips_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4969,6 +5121,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.3768018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9165397499004636355}
   m_RootOrder: 0
@@ -4982,7 +5135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8921380390532689816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4999,6 +5152,7 @@ Transform:
   m_LocalRotation: {x: -0.3849664, y: 0.29446617, z: 0.6288565, w: 0.6079721}
   m_LocalPosition: {x: 0.000000078231096, y: 0.14461307, z: -0.000000018626451}
   m_LocalScale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6080986808768343713}
   m_Father: {fileID: 3202383782393685438}
@@ -5013,7 +5167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8675070861202922523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_ik.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5030,6 +5184,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.57678664, y: 0.6116709, z: 0.09510301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5999609105695197855}
   m_Father: {fileID: 6898029536407677736}
@@ -5044,7 +5199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 244051769778662649}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5061,6 +5216,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6337822313437380663}
   m_RootOrder: 0
@@ -5074,7 +5230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5139649812571499797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5092,6 +5248,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000058549155, y: 0.0000000015908483, z: -0.0000000065840453}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2495809458462178963}
   m_Father: {fileID: 1352824865393240268}
@@ -5106,7 +5263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7766585627518701035}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5124,6 +5281,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000049077542, y: -0.000000011175871, z: -0.000000011175871}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7847787227418065709}
   m_Father: {fileID: 7999375912738648655}
@@ -5138,7 +5296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4365725010485987774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5155,6 +5313,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.036153283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 291662306250962963}
   m_RootOrder: 0
@@ -5168,7 +5327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4959397649385844074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shin_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5185,6 +5344,7 @@ Transform:
   m_LocalRotation: {x: 0.3770782, y: -0.00000012377203, z: 0.000000020125517, w: 0.92618144}
   m_LocalPosition: {x: 0.00000010058284, y: 0.19679348, z: -0.000000022351742}
   m_LocalScale: {x: 0.99927884, y: 0.9992789, z: 0.99927855}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1443293078413818219}
   - {fileID: 8019624402460244752}
@@ -5201,7 +5361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7238158726246229428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5218,6 +5378,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4252755639872268688}
   m_RootOrder: 0
@@ -5231,7 +5392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2345381408661466231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_rock1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5248,6 +5409,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: -0.07999998, y: 0, z: 0.000000012227751}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4979301222664691856}
   m_Father: {fileID: 4179931013567220444}
@@ -5262,7 +5424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6409290918779352434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5279,6 +5441,7 @@ Transform:
   m_LocalRotation: {x: 0.32548583, y: -0.00000008519874, z: 0.0000000773191, w: 0.9455469}
   m_LocalPosition: {x: -0.000000022351742, y: 0.1967935, z: 0.000000044703484}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1522108486377092573}
   m_Father: {fileID: 903361531517153927}
@@ -5293,7 +5456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017621660715722631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5310,6 +5473,7 @@ Transform:
   m_LocalRotation: {x: 0.0000002737312, y: -0.13415046, z: 0.00000002261261, w: 0.99096096}
   m_LocalPosition: {x: 0.000000059604645, y: 0.07230648, z: -0.00000008754432}
   m_LocalScale: {x: 0.78967303, y: 0.78967273, z: 0.7896728}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3994173505878841886}
   m_Father: {fileID: 2472086930604268375}
@@ -5324,7 +5488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4888285147093246071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5341,6 +5505,7 @@ Transform:
   m_LocalRotation: {x: 0.25266385, y: -0.29336274, z: 0.6433813, w: 0.66042405}
   m_LocalPosition: {x: 0.028682137, y: 0.004208319, z: 0.10498704}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5936557374161620786}
   m_Father: {fileID: 2788887138042994243}
@@ -5355,7 +5520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8563182925204972980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5372,6 +5537,7 @@ Transform:
   m_LocalRotation: {x: 0.0000002801835, y: 0.9512848, z: -0.30831346, w: 0.00000060907723}
   m_LocalPosition: {x: 0.000000018337435, y: 0.14633147, z: 0.000000009627797}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5996068439169203688}
   m_Father: {fileID: 860653610897465211}
@@ -5386,7 +5552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5259515083438341027}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5404,6 +5570,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000008940697, y: 0.19679335, z: -0.000000029802322}
   m_LocalScale: {x: 1.0742067, y: 1.0742071, z: 1.0742067}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5252273819025214549}
   m_Father: {fileID: 4554419490591958277}
@@ -5418,7 +5585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118866876639877967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5435,6 +5602,7 @@ Transform:
   m_LocalRotation: {x: -0.000000022351742, y: 5.3290705e-15, z: 2.553513e-14, w: 1}
   m_LocalPosition: {x: 1.731948e-14, y: -0.000000029802322, z: 0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4581507909032152877}
   - {fileID: 4107084691905259167}
@@ -5452,7 +5620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2020822984900662207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5469,6 +5637,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.4441912, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6777227977085965674}
   m_RootOrder: 0
@@ -5482,7 +5651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 742573106435718515}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5499,6 +5668,7 @@ Transform:
   m_LocalRotation: {x: 0.0000000316338, y: -0.030037763, z: 0.0000004214744, w: 0.9995488}
   m_LocalPosition: {x: -0, y: 0.09839683, z: -0.000000022351742}
   m_LocalScale: {x: 1.0014356, y: 1.0014366, z: 1.0014362}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6569039288380121802}
   m_Father: {fileID: 1273687427518509852}
@@ -5513,7 +5683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6752055116158036712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_rock1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5530,6 +5700,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: 0.07999998, y: 0, z: -0.000000012227751}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8080842623436511800}
   m_Father: {fileID: 9001626059812039170}
@@ -5544,7 +5715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352597378405413463}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_F_ik_pole.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5561,6 +5732,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.012939453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2442633884278902479}
   m_RootOrder: 0
@@ -5574,7 +5746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4747663005426559403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_spin_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5591,6 +5763,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.004966736, y: 0.07948199, z: -0.07840301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8430559487409970121}
   - {fileID: 9001626059812039170}
@@ -5606,7 +5779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4314289343952083609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_4_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5623,6 +5796,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.45338792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3282496728103375277}
   m_RootOrder: 0
@@ -5636,7 +5810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4117799963158237678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5653,6 +5827,7 @@ Transform:
   m_LocalRotation: {x: 0.000000073249474, y: 0.16123353, z: 0.0000002404084, w: 0.9869163}
   m_LocalPosition: {x: -0.00000011920929, y: 0.07230645, z: -0.000000011175871}
   m_LocalScale: {x: 1.0048708, y: 1.00487, z: 1.0048702}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4554050664385956735}
   m_Father: {fileID: 6250745164384635129}
@@ -5667,7 +5842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3963409287772927544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5685,6 +5860,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0, y: -0.000000037252903, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7347717625511817728}
   m_Father: {fileID: 7359224464039029576}
@@ -5699,7 +5875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901015798909147787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_F_ik_pole.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5716,6 +5892,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.012939453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2033130245754826508}
   m_RootOrder: 0
@@ -5729,7 +5906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714130659799681601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5747,6 +5924,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000044703484, y: 0.00000014901161, z: 0.000000014901161}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7382413340451974557}
   m_Father: {fileID: 7457259717037359342}
@@ -5761,7 +5939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2171388399344620425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5779,6 +5957,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000014901161, y: -0.000000014901161, z: -0.000000037252903}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8445488210160694816}
   m_Father: {fileID: 8145060381249297989}
@@ -5793,7 +5972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5496400818488721376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5810,6 +5989,7 @@ Transform:
   m_LocalRotation: {x: 0.00000004470349, y: -1.5987212e-14, z: -3.275158e-14, w: 1}
   m_LocalPosition: {x: -1.5543122e-14, y: 0.00000008940697, z: -0.000000059604645}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9118866876639877967}
   m_Father: {fileID: 901856426290146999}
@@ -5824,7 +6004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7098935926258731594}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-torso.parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,6 +6021,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.000000011795469, y: -0.07090381, z: 0.25726545}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2951255095807776816}
   m_Father: {fileID: 6898029536407677736}
@@ -5855,7 +6036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696135126201061988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5873,6 +6054,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000042650925, y: -0.000000048428774, z: 0.00000012479722}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6837305788613231375}
   m_Father: {fileID: 2788887138042994243}
@@ -5887,7 +6069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6079677171033001359}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5904,6 +6086,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7859068229486144011}
   m_RootOrder: 0
@@ -5917,7 +6100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8055965657480034701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5934,6 +6117,7 @@ Transform:
   m_LocalRotation: {x: -0.00000010849909, y: 0.00000012852253, z: 0.00000099279, w: 1}
   m_LocalPosition: {x: 0.000000011175871, y: 0.000000020489097, z: -0.000000044703484}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8585722536930568943}
   m_Father: {fileID: 1443293078413818219}
@@ -5948,7 +6132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7622124459865705745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe_F.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5965,6 +6149,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2624146331722633817}
   m_RootOrder: 0
@@ -5978,7 +6163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6491033395897236908}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_roll2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5995,6 +6180,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.04000002, y: 0, z: -0.0000000029834233}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7545823766902497271}
   m_Father: {fileID: 4463881069557251624}
@@ -6009,7 +6195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6001200510800712262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6026,6 +6212,7 @@ Transform:
   m_LocalRotation: {x: 0.000000008343893, y: 0.99923545, z: 0.039096534, w: -0.00000013293348}
   m_LocalPosition: {x: 2.5673907e-16, y: -0.8716013, z: 0.000000014872056}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5742117157727230860}
   m_Father: {fileID: 6055388341261528642}
@@ -6040,7 +6227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8347593681733951025}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6057,6 +6244,7 @@ Transform:
   m_LocalRotation: {x: 0.0000005487928, y: 0.97410005, z: 0.00000013385191, w: 0.22611743}
   m_LocalPosition: {x: -0.000000067055225, y: -0.000000018626451, z: 0.000000051688403}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932616265377807646}
   m_Father: {fileID: 5905984752780026053}
@@ -6071,7 +6259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7859068229486144011}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6089,6 +6277,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000007450581, y: 0.000000007450581, z: -0.000000007450581}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6079677171033001359}
   m_Father: {fileID: 4461746318663509338}
@@ -6103,7 +6292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581507909032152877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-ZUI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6120,6 +6309,7 @@ Transform:
   m_LocalRotation: {x: 0.5478531, y: -0.00000039864224, z: -0.00000047128665, w: 0.83657455}
   m_LocalPosition: {x: 0.00000009217349, y: 0.41502357, z: 0.2498436}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3828313750609513123}
   m_Father: {fileID: 9118866876639877967}
@@ -6134,7 +6324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6438150655689263846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6151,6 +6341,7 @@ Transform:
   m_LocalRotation: {x: -0.30831346, y: -0.0000005367719, z: -0.00000038070817, w: 0.9512848}
   m_LocalPosition: {x: 0.000000018337436, y: 0.14633147, z: 0.000000007765152}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1475927200875087471}
   m_Father: {fileID: 860653610897465211}
@@ -6165,7 +6356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1443293078413818219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6183,6 +6374,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000057742, y: 0.000000055879354, z: -0.00000009685755}
   m_LocalScale: {x: 1.0021584, y: 1.0021594, z: 1.0021589}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8055965657480034701}
   m_Father: {fileID: 4959397649385844074}
@@ -6197,7 +6389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6361351610752872593}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6214,6 +6406,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03234866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4763780198866502740}
   m_RootOrder: 0
@@ -6227,7 +6420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4589830322455406143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6244,6 +6437,7 @@ Transform:
   m_LocalRotation: {x: -0.000000053156803, y: 0.9512848, z: -0.3083135, w: -0.00000068265706}
   m_LocalPosition: {x: 0.000000006512387, y: 0.14633162, z: 0.000000069784406}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 514597490999298910}
   m_Father: {fileID: 1352824865393240268}
@@ -6258,7 +6452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4381735376750933547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6276,6 +6470,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000046724004, y: 0.000000043091006, z: 0.000000011490442}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 652840576709717469}
   m_Father: {fileID: 860653610897465211}
@@ -6290,7 +6485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417830585317798296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6307,6 +6502,7 @@ Transform:
   m_LocalRotation: {x: -0.028871046, y: 0.92491597, z: -0.37888923, w: -0.0118278945}
   m_LocalPosition: {x: 0.000000008219697, y: 0.11175451, z: -0.0000000037252903}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7587942007891409081}
   m_Father: {fileID: 7536433051845106140}
@@ -6321,7 +6517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7999375912738648655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6339,6 +6535,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000008190071, y: -0.00000006146729, z: 0.000000020489097}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7766585627518701035}
   m_Father: {fileID: 7536433051845106140}
@@ -6353,7 +6550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248914795788125132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6371,6 +6568,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.0000000781052, y: 0.000000014243689, z: 0.000000032978164}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 338832626272984521}
   m_Father: {fileID: 4244284298832805985}
@@ -6385,7 +6583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5510322302803705096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6402,6 +6600,7 @@ Transform:
   m_LocalRotation: {x: 0.3770782, y: -0.00000012377203, z: 0.000000020125517, w: 0.92618144}
   m_LocalPosition: {x: 0.00000007636845, y: 0.19679362, z: -0.000000007450581}
   m_LocalScale: {x: 0.99927884, y: 0.9992789, z: 0.99927855}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4677403150277129476}
   m_Father: {fileID: 5943067704724399663}
@@ -6416,7 +6615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8585722536930568943}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6433,6 +6632,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03234866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8055965657480034701}
   m_RootOrder: 0
@@ -6446,7 +6646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5015303511967112632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_fk.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6463,6 +6663,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1463316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6080986808768343713}
   m_RootOrder: 0
@@ -6476,7 +6677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4099381497509174128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_roll1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6493,6 +6694,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: 0.0019999729, y: 0.1482119, z: 0.00063632114}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3328712054355375159}
   m_Father: {fileID: 4979301222664691856}
@@ -6507,7 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7400815643174208305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6524,6 +6726,7 @@ Transform:
   m_LocalRotation: {x: -0.17000616, y: -0.4667819, z: -0.5555321, w: 0.6667809}
   m_LocalPosition: {x: -0.0000000037252903, y: 0.12939456, z: -0.000000052154064}
   m_LocalScale: {x: 0.9999997, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 956910999805997192}
   m_Father: {fileID: 2569973615607727377}
@@ -6538,7 +6741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135351645717535174}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-ZUI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6555,6 +6758,7 @@ Transform:
   m_LocalRotation: {x: 0.00000004470348, y: 9.237054e-14, z: -3.3772034e-14, w: 1}
   m_LocalPosition: {x: -3.5011997e-13, y: -0.000000014901161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3494267812352205983}
   m_Father: {fileID: 4107084691905259167}
@@ -6569,7 +6773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 932616265377807646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_parent.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6586,6 +6790,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8347593681733951025}
   m_RootOrder: 0
@@ -6599,7 +6804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4988015699173785162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe_F.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6616,6 +6821,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1338511996464037621}
   m_RootOrder: 0
@@ -6629,7 +6835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363481099883925378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6647,6 +6853,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000010430813, y: -0.000000040978193, z: -0.00000010617077}
   m_LocalScale: {x: 0.78967285, y: 0.78967273, z: 0.7896726}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8196633924032237866}
   m_Father: {fileID: 2472086930604268375}
@@ -6661,7 +6868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9106100602875645127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_heel_ik.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6678,6 +6885,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: -0.000000059604645, y: -0.118511915, z: 0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6357066696300202262}
   m_Father: {fileID: 2631811250908903285}
@@ -6692,7 +6900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860653610897465211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6709,6 +6917,7 @@ Transform:
   m_LocalRotation: {x: -0.36688802, y: 0.28144935, z: 0.51360923, w: 0.7227621}
   m_LocalPosition: {x: -0.000000052154064, y: 0.14461303, z: -0.0000000037252903}
   m_LocalScale: {x: 1.0048702, y: 1.0048703, z: 1.00487}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4381735376750933547}
   - {fileID: 6438150655689263846}
@@ -6726,7 +6935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522108486377092573}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6743,6 +6952,7 @@ Transform:
   m_LocalRotation: {x: -0.3849662, y: -0.2944661, z: -0.62885696, w: 0.6079718}
   m_LocalPosition: {x: 0.00000006519258, y: 0.14461303, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690946897380113032}
   m_Father: {fileID: 6409290918779352434}
@@ -6757,7 +6967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8285603769594345661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6774,6 +6984,7 @@ Transform:
   m_LocalRotation: {x: -0.3556809, y: -0.024867363, z: 0.8557655, w: -0.3748841}
   m_LocalPosition: {x: 0.31850854, y: 0.81749517, z: 0.18849458}
   m_LocalScale: {x: 0.9259233, y: 1.1664062, z: 0.9259235}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2790295619059164961}
   m_Father: {fileID: 742883306806955000}
@@ -6788,7 +6999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439774687903787347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_swing.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6805,6 +7016,7 @@ Transform:
   m_LocalRotation: {x: 0.78189194, y: -0.42056102, z: 0.460185, w: 0.0017918614}
   m_LocalPosition: {x: 0.00000000532801, y: 0.000000023596254, z: -0.000000017706416}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4554419490591958277}
   m_Father: {fileID: 4188700473477076109}
@@ -6819,7 +7031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299072023739057872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VIS_thigh_ik_pole.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6836,6 +7048,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.014461309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5474384221445870449}
   m_RootOrder: 0
@@ -6849,7 +7062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 901856426290146999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6866,6 +7079,7 @@ Transform:
   m_LocalRotation: {x: 0.00000007741076, y: 0.8782411, z: 0.47821808, w: 0.00000019377056}
   m_LocalPosition: {x: -0, y: 0, z: 0.000000029802322}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4725252962941028921}
   - {fileID: 5496400818488721376}
@@ -6882,7 +7096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2359395560126560712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6899,6 +7113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.11175457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6975934763507116679}
   m_RootOrder: 0
@@ -6912,7 +7127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6820295838644729582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6929,6 +7144,7 @@ Transform:
   m_LocalRotation: {x: -0.6482315, y: -0.000000040179337, z: -0.4322034, w: 0.62689406}
   m_LocalPosition: {x: -0.67198485, y: 0.72034895, z: 0.445335}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 227176275444693095}
   m_Father: {fileID: 6898029536407677736}
@@ -6943,7 +7159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934686283089092928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6960,6 +7176,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.4533878, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4825764885492459060}
   m_RootOrder: 0
@@ -6973,7 +7190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8080842623436511800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_roll2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6990,6 +7207,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.04000002, y: 0, z: 0.00000000298337}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7226388970459619678}
   m_Father: {fileID: 6752055116158036712}
@@ -7004,7 +7222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244284298832805985}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_roll.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7021,6 +7239,7 @@ Transform:
   m_LocalRotation: {x: 0.30831322, y: -0.00000014364004, z: -0.000000073507564, w: 0.9512849}
   m_LocalPosition: {x: 0.00000004412209, y: -0.118511915, z: -0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248914795788125132}
   m_Father: {fileID: 7545823766902497271}
@@ -7035,7 +7254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6408143034455294293}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7052,6 +7271,7 @@ Transform:
   m_LocalRotation: {x: 0.0000006109531, y: 0.99999094, z: 0.000000014901321, w: 0.0042609116}
   m_LocalPosition: {x: 0.000000029802322, y: 0.000000037252903, z: 0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8985331472434620483}
   m_Father: {fileID: 6623013650420983040}
@@ -7066,7 +7286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3365493269871384918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7083,6 +7303,7 @@ Transform:
   m_LocalRotation: {x: 0.00000049041347, y: 0.72163963, z: 0.00000032006085, w: 0.6922689}
   m_LocalPosition: {x: -0, y: 0.072306514, z: -0.000000044703484}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 968209074338206362}
   m_Father: {fileID: 1999024209494103713}
@@ -7097,7 +7318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1920705241151567659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7114,6 +7335,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.038758583, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 227176275444693095}
   m_RootOrder: 0
@@ -7127,7 +7349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8875018039135797570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-thigh.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7144,6 +7366,7 @@ Transform:
   m_LocalRotation: {x: 0.317107, y: 0.24259113, z: -0.53306437, w: 0.7459458}
   m_LocalPosition: {x: 0.31850827, y: -0.57915246, z: -0.14407682}
   m_LocalScale: {x: 0.9964569, y: 0.9964572, z: 0.9964572}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7359224464039029576}
   - {fileID: 6250745164384635129}
@@ -7159,7 +7382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3221404735617996381}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7176,6 +7399,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.4441912, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7582205399147809814}
   m_RootOrder: 0
@@ -7189,7 +7413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5897609789876382342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7206,6 +7430,7 @@ Transform:
   m_LocalRotation: {x: 0.34668708, y: 0.28430504, z: -0.5143173, w: 0.73106533}
   m_LocalPosition: {x: 0.31850827, y: -0.57915246, z: -0.14407682}
   m_LocalScale: {x: 0.99999976, y: 0.99999994, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6337822313437380663}
   m_Father: {fileID: 742883306806955000}
@@ -7220,7 +7445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8427779101653656096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7237,6 +7462,7 @@ Transform:
   m_LocalRotation: {x: 0.077698976, y: -0.00000011761434, z: -0.00000005879299, w: 0.9969769}
   m_LocalPosition: {x: -5.551115e-15, y: 0.15221968, z: -0.0000000143190855}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4089371317042944050}
   m_Father: {fileID: 7791572047364923965}
@@ -7251,7 +7477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3366849889417585742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-WEI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7268,6 +7494,7 @@ Transform:
   m_LocalRotation: {x: 0.021209527, y: 0.0089934375, z: -0.2913429, w: 0.95634127}
   m_LocalPosition: {x: 1.1734337e-15, y: 0.44419104, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5958175195791953267}
   - {fileID: 7446155863622767959}
@@ -7284,7 +7511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2790295619059164961}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh_F.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7301,6 +7528,7 @@ Transform:
   m_LocalRotation: {x: 0.000000080101344, y: 0.013793672, z: -0.00000028687464, w: 0.9999049}
   m_LocalPosition: {x: 0.00000008195639, y: 0.098396756, z: 0.000000029802322}
   m_LocalScale: {x: 1.0000005, y: 0.99999976, z: 1.0000008}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4711178071939151542}
   m_Father: {fileID: 8285603769594345661}
@@ -7315,7 +7543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6055388341261528642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7332,6 +7560,7 @@ Transform:
   m_LocalRotation: {x: 0.000000013133334, y: 0.99923545, z: 0.039096534, w: 0.0000001337738}
   m_LocalPosition: {x: -0, y: 0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6001200510800712262}
   m_Father: {fileID: 1839463361603545247}
@@ -7346,7 +7575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6517105762349592439}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7363,6 +7592,7 @@ Transform:
   m_LocalRotation: {x: -0.000000001840693, y: 0.9931769, z: 0.1166179, w: -0.00000013428898}
   m_LocalPosition: {x: -0.318508, y: -0.57915276, z: -0.1440768}
   m_LocalScale: {x: 1, y: 0.99999964, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8834990654352312746}
   - {fileID: 3390041308338478642}
@@ -7379,7 +7609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999024209494103713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7396,6 +7626,7 @@ Transform:
   m_LocalRotation: {x: 0.4775106, y: -0.026368536, z: 0.014335021, w: 0.8781132}
   m_LocalPosition: {x: -0.000000044703484, y: 0.09839663, z: 0.00000005029142}
   m_LocalScale: {x: 1.0006552, y: 0.9949591, z: 1.0044205}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3365493269871384918}
   m_Father: {fileID: 4311264239958561790}
@@ -7410,7 +7641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7582205399147809814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7427,6 +7658,7 @@ Transform:
   m_LocalRotation: {x: 0.9959197, y: -0.000000040936474, z: -0.00000015146568, w: -0.090244375}
   m_LocalPosition: {x: -0.00000010347354, y: -0.7371339, z: -0.15899655}
   m_LocalScale: {x: 1, y: 1, z: 1.0000037}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3221404735617996381}
   m_Father: {fileID: 742883306806955000}
@@ -7441,7 +7673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8661162241135962916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_rock2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7458,6 +7690,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: 0.037999988, y: -0.14821196, z: 0.00063632056}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8794465738651789238}
   m_Father: {fileID: 8482479460237432075}
@@ -7472,7 +7705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 294950578754734076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7489,6 +7722,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03658291, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2495809458462178963}
   m_RootOrder: 0
@@ -7502,7 +7736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979301222664691856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_roll2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7519,6 +7753,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.04000002, y: 0, z: -0.00000000298337}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4099381497509174128}
   m_Father: {fileID: 2345381408661466231}
@@ -7533,7 +7768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485539752178022714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7550,6 +7785,7 @@ Transform:
   m_LocalRotation: {x: 0.000000022351742, y: -2.2204462e-14, z: -1.4210855e-14, w: 1}
   m_LocalPosition: {x: -7.1054274e-15, y: -0.15221949, z: 0.0000000037252874}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6285616970088316034}
   m_Father: {fileID: 5742117157727230860}
@@ -7564,7 +7800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6617380642621505817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-thigh_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7581,6 +7817,7 @@ Transform:
   m_LocalRotation: {x: -0.3791612, y: -0.035203256, z: 0.8456242, w: -0.37405506}
   m_LocalPosition: {x: 0.31850854, y: 0.81749517, z: 0.1884946}
   m_LocalScale: {x: 1.1664062, y: 1.1664058, z: 1.1664059}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3867959849851214358}
   - {fileID: 206336733925859472}
@@ -7596,7 +7833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2373742703745399537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7613,6 +7850,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1463316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4592789619248689689}
   m_RootOrder: 0
@@ -7626,7 +7864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6942532055289924901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7644,6 +7882,7 @@ Transform:
     w: 0.9610143}
   m_LocalPosition: {x: 3.1086245e-15, y: 0.17444935, z: 0.000000022351742}
   m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6040321858184998249}
   m_Father: {fileID: 4089371317042944050}
@@ -7658,7 +7897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7234371299086900322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-toe_F.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7675,6 +7914,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3921025813385896883}
   m_RootOrder: 0
@@ -7688,7 +7928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4173559710152553833}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_roll.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7705,6 +7945,7 @@ Transform:
   m_LocalRotation: {x: 0.30831322, y: 0.0000005670101, z: 0.00000015681542, w: 0.9512849}
   m_LocalPosition: {x: 0.00000004412209, y: -0.118511856, z: -0.08583632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4592789619248689689}
   m_Father: {fileID: 6155031625846402930}
@@ -7719,7 +7960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7347717625511817728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7736,6 +7977,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3963409287772927544}
   m_RootOrder: 0
@@ -7749,7 +7991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475927200875087471}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7766,6 +8008,7 @@ Transform:
   m_LocalRotation: {x: -0.00000009091921, y: 1, z: -0.000000014901123, w: 0.00000013315805}
   m_LocalPosition: {x: -0.000000001459951, y: 0, z: 0.0000000012955574}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6979507643238490972}
   m_Father: {fileID: 6438150655689263846}
@@ -7780,7 +8023,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588304081036395744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-foot_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7797,6 +8040,7 @@ Transform:
   m_LocalRotation: {x: -0.12895389, y: 0.34521353, z: 0.7950061, w: 0.48183376}
   m_LocalPosition: {x: 0.00000011175871, y: 0.06469733, z: -0.000000014901161}
   m_LocalScale: {x: 0.975992, y: 1.1122262, z: 0.9763676}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3921025813385896883}
   m_Father: {fileID: 4696746589581101444}
@@ -7811,7 +8055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779530367061529452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7828,6 +8072,7 @@ Transform:
   m_LocalRotation: {x: 0.0000005908605, y: 0.9741002, z: -0.00000053349544, w: -0.22611691}
   m_LocalPosition: {x: 0.000000018626451, y: 0, z: 0.0000000037252903}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4037363343533728743}
   m_Father: {fileID: 3390041308338478642}
@@ -7842,7 +8087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179931013567220444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_rock2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7859,6 +8104,7 @@ Transform:
   m_LocalRotation: {x: 6.123235e-17, y: 1, z: -6.123235e-17, w: 0.00000013315805}
   m_LocalPosition: {x: -0.037999988, y: -0.1482119, z: 0.00063632056}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2345381408661466231}
   m_Father: {fileID: 7292877002769896175}
@@ -7873,7 +8119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6837305788613231375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7890,6 +8136,7 @@ Transform:
   m_LocalRotation: {x: 0.00000089427346, y: -8.712675e-10, z: 0.0000000667232, w: 1}
   m_LocalPosition: {x: 0.00000010208373, y: -0.000000018626451, z: 0.00000004284084}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6856549148636549334}
   m_Father: {fileID: 696135126201061988}
@@ -7904,7 +8151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016810540244971923}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe_F.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7921,6 +8168,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6968886209978613972}
   m_RootOrder: 0
@@ -7934,7 +8182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4841309104196196065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7951,6 +8199,7 @@ Transform:
   m_LocalRotation: {x: -0.17840838, y: 8.868801e-10, z: 0.000000061149294, w: 0.9839566}
   m_LocalPosition: {x: -1.3058998e-14, y: -0.000000011175871, z: 0.000000014901161}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7780218588262956828}
   m_Father: {fileID: 83246033948759514}
@@ -7965,7 +8214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7176639925189227685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7982,6 +8231,7 @@ Transform:
   m_LocalRotation: {x: 0.74559927, y: 0.6311845, z: -0.21373047, w: 0.0026892459}
   m_LocalPosition: {x: 0.0000000053280242, y: -0.00000002151506, z: -0.000000009005928}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2569973615607727377}
   m_Father: {fileID: 8346611974412760944}
@@ -7996,7 +8246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 227176275444693095}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8014,6 +8264,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000044703484, y: 0.00000014901161, z: 0.000000014901161}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1920705241151567659}
   m_Father: {fileID: 6820295838644729582}
@@ -8028,7 +8279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107084691905259167}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-ZUI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8045,6 +8296,7 @@ Transform:
   m_LocalRotation: {x: 0.6171529, y: -0.0000013126394, z: -0.0000012670563, w: 0.78684324}
   m_LocalPosition: {x: 0.00000009217349, y: 0.41502357, z: 0.2498436}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1135351645717535174}
   m_Father: {fileID: 9118866876639877967}
@@ -8059,7 +8311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1256087012629914487}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8076,6 +8328,7 @@ Transform:
   m_LocalRotation: {x: 0.0000005271286, y: 0.0000005736947, z: 0.00000012852252, w: 1}
   m_LocalPosition: {x: -0.000000014901161, y: 0.000000029802322, z: -0.000000074505806}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4754619306651120474}
   m_Father: {fileID: 4912745332184123959}
@@ -8090,7 +8343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7780218588262956828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8107,6 +8360,7 @@ Transform:
   m_LocalRotation: {x: -0.00000008195639, y: -6.039613e-14, z: 3.5527133e-14, w: 1}
   m_LocalPosition: {x: 2.2468138e-14, y: 0.000000044703484, z: 0.000000022351742}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6664626642665369229}
   m_Father: {fileID: 4841309104196196065}
@@ -8121,7 +8375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8196633924032237866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8139,6 +8393,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000029802322, y: 0.00000008568168, z: 0.000000029802322}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 638020320616540438}
   m_Father: {fileID: 363481099883925378}
@@ -8153,7 +8408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 742883306806955000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8170,6 +8425,7 @@ Transform:
   m_LocalRotation: {x: -0.000000059604645, y: 3.5527137e-15, z: 3.28626e-14, w: 1}
   m_LocalPosition: {x: 5.3290705e-15, y: -0.000000007450582, z: 0.000000026077029}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8621703425649752853}
   - {fileID: 5180385420660480370}
@@ -8203,7 +8459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 638020320616540438}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8220,6 +8476,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03615325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8196633924032237866}
   m_RootOrder: 0
@@ -8233,7 +8490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7266960123491528789}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_fk.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8250,6 +8507,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1463316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 690946897380113032}
   m_RootOrder: 0
@@ -8263,7 +8521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2495809458462178963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8280,6 +8538,7 @@ Transform:
   m_LocalRotation: {x: -0.00000023841858, y: 1.4210854e-14, z: 8.792967e-14, w: 1}
   m_LocalPosition: {x: 0.000000026155135, y: 0.000000051892414, z: 0.00000003898245}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 294950578754734076}
   m_Father: {fileID: 5139649812571499797}
@@ -8294,7 +8553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7289243389824281747}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-thigh.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8311,6 +8570,7 @@ Transform:
   m_LocalRotation: {x: -0.00000008568689, y: -0.011043851, z: -0.00000007451034, w: 0.999939}
   m_LocalPosition: {x: 0.000000029802322, y: 0.09839673, z: -0.000000074505806}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4209053828972419197}
   m_Father: {fileID: 8621703425649752853}
@@ -8325,7 +8585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8834990654352312746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_swing.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8342,6 +8602,7 @@ Transform:
   m_LocalRotation: {x: 0.6890968, y: 0.3784175, z: -0.61174315, w: 0.08784172}
   m_LocalPosition: {x: -0.000000006485065, y: -0.000000011574965, z: 0.0000000077052915}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1064125476123864624}
   m_Father: {fileID: 6517105762349592439}
@@ -8356,7 +8617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2777635320109025341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8373,6 +8634,7 @@ Transform:
   m_LocalRotation: {x: 0.6297992, y: 0.62979925, z: 0.3214861, w: -0.3214851}
   m_LocalPosition: {x: -0.038000066, y: 0.025923694, z: 0.086423874}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1956316471818344940}
   m_Father: {fileID: 860653610897465211}
@@ -8387,7 +8649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5958175195791953267}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8405,6 +8667,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.000000060642535, y: -0.00000013250082, z: -0.000000005748869}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5928317443511101090}
   m_Father: {fileID: 3366849889417585742}
@@ -8419,7 +8682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7587942007891409081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-toe_F.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8436,6 +8699,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 417830585317798296}
   m_RootOrder: 0
@@ -8449,7 +8713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4326122690942509685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8466,6 +8730,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03615325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3994173505878841886}
   m_RootOrder: 0
@@ -8479,7 +8744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3202383782393685438}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8496,6 +8761,7 @@ Transform:
   m_LocalRotation: {x: 0.32548574, y: -0.0000001233658, z: 9.849543e-10, w: 0.9455469}
   m_LocalPosition: {x: 0.0000000018626451, y: 0.19679342, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8921380390532689816}
   m_Father: {fileID: 7232386706299981055}
@@ -8510,7 +8776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6898029536407677736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8524,9 +8790,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7295787083643240033}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5980037392383506925}
   - {fileID: 8675070861202922523}
@@ -8540,7 +8807,7 @@ Transform:
   - {fileID: 814242952373731872}
   m_Father: {fileID: 8177084699139197433}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!1 &7357354105098724869
 GameObject:
   m_ObjectHideFlags: 0
@@ -8550,7 +8817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581902216018592748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-spine.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8567,6 +8834,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.8716015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4070357485171802183}
   m_RootOrder: 0
@@ -8580,7 +8848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6887373613468341153}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8597,6 +8865,7 @@ Transform:
   m_LocalRotation: {x: -0.3556809, y: -0.024867425, z: 0.85576546, w: -0.37488422}
   m_LocalPosition: {x: 0.31850854, y: 0.81749517, z: 0.1884946}
   m_LocalScale: {x: 0.9999998, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1701700637049448191}
   m_Father: {fileID: 742883306806955000}
@@ -8611,7 +8880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763780198866502740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8628,6 +8897,7 @@ Transform:
   m_LocalRotation: {x: 0.0000002417886, y: -0.26967445, z: -0.0000009652199, w: 0.9629516}
   m_LocalPosition: {x: -0.000000011175871, y: -0.000000013038516, z: -0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6361351610752872593}
   m_Father: {fileID: 5115427069253074534}
@@ -8642,7 +8912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 814242952373731872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8659,6 +8929,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7791572047364923965}
   - {fileID: 2033130245754826508}
@@ -8677,7 +8948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7232386706299981055}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8694,6 +8965,7 @@ Transform:
   m_LocalRotation: {x: 0.6795595, y: -0.6148424, z: 0.37389567, w: 0.14272285}
   m_LocalPosition: {x: -0.000000006485076, y: 0.00000002359625, z: -0.000000017276708}
   m_LocalScale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3202383782393685438}
   m_Father: {fileID: 3608979151610976112}
@@ -8708,7 +8980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652840576709717469}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8725,6 +8997,7 @@ Transform:
   m_LocalRotation: {x: -0.00000037252903, y: 1.0658142e-13, z: -3.1263878e-13, w: 1}
   m_LocalPosition: {x: -0.000000031781134, y: 0.00000010334897, z: 0.000000017658863}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5117873311409210751}
   m_Father: {fileID: 4381735376750933547}
@@ -8739,7 +9012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338832626272984521}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8756,6 +9029,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1463316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1248914795788125132}
   m_RootOrder: 0
@@ -8769,7 +9043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084671916587813625}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8786,6 +9060,7 @@ Transform:
   m_LocalRotation: {x: 0.53118145, y: -0.114915304, z: 0.7726824, w: 0.32802835}
   m_LocalPosition: {x: -0.318508, y: -0.57915276, z: -0.14407675}
   m_LocalScale: {x: 0.9999998, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6186657131909997283}
   m_Father: {fileID: 742883306806955000}
@@ -8800,7 +9075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8340533057138849660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8817,6 +9092,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.11175457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8396072192346397467}
   m_RootOrder: 0
@@ -8830,7 +9106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4825764885492459060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8847,6 +9123,7 @@ Transform:
   m_LocalRotation: {x: 0.00000014913353, y: -0.0019832838, z: 0.22835766, w: 0.9735753}
   m_LocalPosition: {x: -0.00000003475469, y: 0.45338765, z: -0.000000013620593}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 934686283089092928}
   m_Father: {fileID: 3366849889417585742}
@@ -8861,7 +9138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8445488210160694816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_ik_target.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8878,6 +9155,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.04040779, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2171388399344620425}
   m_RootOrder: 0
@@ -8891,7 +9169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7617479009554357335}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8908,6 +9186,7 @@ Transform:
   m_LocalRotation: {x: 0.07769902, y: -0.00000011761438, z: -0.00000005879303, w: 0.9969769}
   m_LocalPosition: {x: -4.635181e-15, y: -0.000000019324943, z: -0.0000000033178376}
   m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4070357485171802183}
   m_Father: {fileID: 5742117157727230860}
@@ -8922,7 +9201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4912745332184123959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.parent.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8939,6 +9218,7 @@ Transform:
   m_LocalRotation: {x: 0.62749267, y: -0.000000112848284, z: 0.6265115, w: -0.46231633}
   m_LocalPosition: {x: -0.6912247, y: -0.59662986, z: 0.38088563}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1256087012629914487}
   m_Father: {fileID: 6898029536407677736}
@@ -8953,7 +9233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589983014065617028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8970,6 +9250,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6186657131909997283}
   m_RootOrder: 0
@@ -8983,7 +9264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5884183199678188152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9000,6 +9281,7 @@ Transform:
   m_LocalRotation: {x: 0.47772774, y: -0.00000016970851, z: 0.00000003609123, w: 0.878508}
   m_LocalPosition: {x: -0.000000014901161, y: 0.19679357, z: 0.00000004004687}
   m_LocalScale: {x: 0.9986914, y: 0.9986918, z: 0.9986916}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4040721594500651866}
   m_Father: {fileID: 8806047877176661709}
@@ -9014,7 +9296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8265387902800630787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9031,6 +9313,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1701700637049448191}
   m_RootOrder: 0
@@ -9044,7 +9327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5252273819025214549}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_ik.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9061,6 +9344,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12939459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5259515083438341027}
   m_RootOrder: 0
@@ -9074,7 +9358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 968209074338206362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9091,6 +9375,7 @@ Transform:
   m_LocalRotation: {x: -0.6252203, y: -0.32548028, z: 0.09181452, w: 0.70337206}
   m_LocalPosition: {x: -0.0000000018626451, y: 0.072306566, z: -0.000000014901161}
   m_LocalScale: {x: 0.9996746, y: 0.9978761, z: 1.0024788}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3243152767719862907}
   m_Father: {fileID: 3365493269871384918}
@@ -9105,7 +9390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726137733530863352}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9122,6 +9407,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.20733817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5560767083932521015}
   m_RootOrder: 0
@@ -9135,7 +9421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015646977320293677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine_fk.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9152,6 +9438,7 @@ Transform:
   m_LocalRotation: {x: 0.00000004656204, y: 0.9762291, z: 0.2167414, w: 0.00000014673807}
   m_LocalPosition: {x: -0, y: 0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 83246033948759514}
   - {fileID: 7134762856584114693}
@@ -9167,7 +9454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8306431094883214121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_fk.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9184,6 +9471,7 @@ Transform:
   m_LocalRotation: {x: -0.1700062, y: 0.46678188, z: 0.5555321, w: 0.6667808}
   m_LocalPosition: {x: -0, y: 0.12939453, z: 0.000000029802322}
   m_LocalScale: {x: 0.9999997, y: 0.9999999, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8493449249187076820}
   m_Father: {fileID: 4676752257873917844}
@@ -9198,7 +9486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5115427069253074534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_tweak.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9215,6 +9503,7 @@ Transform:
   m_LocalRotation: {x: -0.00000029022064, y: 0.23069023, z: 0.00000017988884, w: 0.9730273}
   m_LocalPosition: {x: 0.000000052154064, y: 0.06469729, z: 0.000000014901161}
   m_LocalScale: {x: 0.79810905, y: 0.79810905, z: 0.79810923}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4763780198866502740}
   m_Father: {fileID: 206336733925859472}
@@ -9229,7 +9518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8979327607682646449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9246,6 +9535,7 @@ Transform:
   m_LocalRotation: {x: 0.32148558, y: -0.3214855, z: 0.62979907, w: 0.62979937}
   m_LocalPosition: {x: 0.03800009, y: 0.02592373, z: 0.086423896}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4457902599229588588}
   m_Father: {fileID: 1352824865393240268}
@@ -9260,7 +9550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677403150277129476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_F_ik.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9277,6 +9567,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12939459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5510322302803705096}
   m_RootOrder: 0
@@ -9290,7 +9581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7013615384052833002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-pelvis.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9307,6 +9598,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.20733815, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3459329564811688597}
   m_RootOrder: 0
@@ -9320,7 +9612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8794465738651789238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_rock1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9337,6 +9629,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: 0.07999998, y: 0, z: -0.000000012227751}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7611758433868921249}
   m_Father: {fileID: 8661162241135962916}
@@ -9351,7 +9644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6282088642530318993}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-heel.02_F.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9368,6 +9661,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.07999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1430788378732434597}
   m_RootOrder: 0
@@ -9381,7 +9675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2312629903275800372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_parent_socket.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9398,6 +9692,7 @@ Transform:
   m_LocalRotation: {x: 0.61467314, y: 0.7788989, z: -0.122386806, w: -0.022694314}
   m_LocalPosition: {x: 0.0000000053280242, y: -0.00000002151506, z: -0.000000009005928}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6764553065442034816}
   m_Father: {fileID: 8346611974412760944}
@@ -9412,7 +9707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4040721594500651866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-shin_ik.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9429,6 +9724,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.1446131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5884183199678188152}
   m_RootOrder: 0
@@ -9442,7 +9738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7446155863622767959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-WEI_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9459,6 +9755,7 @@ Transform:
   m_LocalRotation: {x: 0.00000014913353, y: -0.0019832838, z: 0.22835766, w: 0.9735753}
   m_LocalPosition: {x: -0.00000003475469, y: 0.45338765, z: -0.000000013620593}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2069989831290447595}
   - {fileID: 5191597879798792710}
@@ -9475,7 +9772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7545823766902497271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_roll1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9492,6 +9789,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: 0.0019998536, y: 0.14821196, z: 0.00063632114}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4244284298832805985}
   m_Father: {fileID: 6491033395897236908}
@@ -9506,7 +9804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6186657131909997283}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9523,6 +9821,7 @@ Transform:
   m_LocalRotation: {x: 0.0000005811453, y: 0.00000013783574, z: 0.0000009797513, w: 1}
   m_LocalPosition: {x: 0.000000014901161, y: 0.000000022351742, z: -0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 589983014065617028}
   m_Father: {fileID: 2084671916587813625}
@@ -9537,7 +9836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6764553065442034816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9554,6 +9853,7 @@ Transform:
   m_LocalRotation: {x: -0.00000049733086, y: 0.99999094, z: -0.00000003445923, w: -0.0042609116}
   m_LocalPosition: {x: -0.000000027939677, y: -0.000000011175871, z: -0.000000007450581}
   m_LocalScale: {x: 0.99999994, y: 0.99999964, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7577184952089428269}
   m_Father: {fileID: 2312629903275800372}
@@ -9568,7 +9868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5916984900254103337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9585,6 +9885,7 @@ Transform:
   m_LocalRotation: {x: 0.00000018847413, y: 0.26967454, z: 0.0000009840794, w: 0.96295154}
   m_LocalPosition: {x: 0.000000007450581, y: -0.000000024214387, z: 0.000000029802322}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 653180088818192364}
   m_Father: {fileID: 8019624402460244752}
@@ -9599,7 +9900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3078710235482508745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9616,6 +9917,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.32778916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4223012416600784169}
   m_RootOrder: 0
@@ -9629,7 +9931,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5980037392383506925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_F_ik.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9646,6 +9948,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.57678664, y: 0.6116709, z: 0.09510301}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 50538462447397425}
   m_Father: {fileID: 6898029536407677736}
@@ -9660,7 +9963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899432654040704758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9677,6 +9980,7 @@ Transform:
   m_LocalRotation: {x: 0.23287171, y: 0.9134595, z: 0.22477955, w: -0.24665113}
   m_LocalPosition: {x: -1.7763568e-15, y: 0.0000000074505793, z: 0.000000007450578}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3459329564811688597}
   m_Father: {fileID: 742883306806955000}
@@ -9691,7 +9995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7577184952089428269}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_parent.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9708,6 +10012,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6764553065442034816}
   m_RootOrder: 0
@@ -9721,7 +10026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6975934763507116679}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_F_ik_target.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9739,6 +10044,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.00000005473167, y: -0.000000067055225, z: -0.000000011175871}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2359395560126560712}
   m_Father: {fileID: 3328712054355375159}
@@ -9753,7 +10059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4209053828972419197}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9770,6 +10076,7 @@ Transform:
   m_LocalRotation: {x: 0.0000005124384, y: -0.011023508, z: 0.00000017294073, w: 0.99993926}
   m_LocalPosition: {x: 0.000000014901161, y: 0.098396726, z: -0.000000029802322}
   m_LocalScale: {x: 0.97169906, y: 1.0590982, z: 0.971699}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1313255119681074921}
   m_Father: {fileID: 7289243389824281747}
@@ -9784,7 +10091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4461746318663509338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_tweak.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9801,6 +10108,7 @@ Transform:
   m_LocalRotation: {x: -0.0000003652727, y: 0.011033123, z: -0.00000012249996, w: 0.99993914}
   m_LocalPosition: {x: 0.000000044703484, y: 0.09839672, z: -0.000000037252903}
   m_LocalScale: {x: 0.8363408, y: 0.8363408, z: 0.83634067}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7859068229486144011}
   m_Father: {fileID: 7149564154019586147}
@@ -9815,7 +10123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5999609105695197855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot_F_ik.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9832,6 +10140,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -0.17085072, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4747663005426559403}
   m_Father: {fileID: 8675070861202922523}
@@ -9846,7 +10155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2472086930604268375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ORG-shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9864,6 +10173,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000014901161, y: 0.19679353, z: 0.000000007450581}
   m_LocalScale: {x: 1.0590978, y: 1.0590978, z: 1.0590978}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 363481099883925378}
   - {fileID: 2017621660715722631}
@@ -9880,7 +10190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320881647426281638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-WGT-chest_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9897,6 +10207,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.30893686, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4725252962941028921}
   m_RootOrder: 0
@@ -9910,7 +10221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145060381249297989}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9927,6 +10238,7 @@ Transform:
   m_LocalRotation: {x: 0.627492, y: 0.0000000743276, z: -0.62651086, w: -0.462318}
   m_LocalPosition: {x: 0.6912242, y: -0.59663045, z: 0.3808857}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2171388399344620425}
   m_Father: {fileID: 6898029536407677736}
@@ -9941,7 +10253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113836114693827968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-foot_ik.parent.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9958,6 +10270,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.58175284, y: -0.8630576, z: 0.10253632}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 562913532429329934}
   m_Father: {fileID: 6898029536407677736}
@@ -9972,7 +10285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5020365451386746161}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WEI_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9989,6 +10302,7 @@ Transform:
   m_LocalRotation: {x: 0.021209527, y: 0.0089934375, z: -0.2913429, w: 0.95634127}
   m_LocalPosition: {x: 1.1734337e-15, y: 0.44419104, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3139510196229067556}
   m_Father: {fileID: 6162395154395441736}
@@ -10006,8 +10320,9 @@ GameObject:
   - component: {fileID: 8570471349771054620}
   - component: {fileID: 7645979323897286865}
   - component: {fileID: 5962927708952354533}
-  m_Layer: 0
-  m_Name: Turtle
+  - component: {fileID: 329375540581858897}
+  m_Layer: 9
+  m_Name: 2004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10023,6 +10338,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4085714793942033406}
   - {fileID: 6898029536407677736}
@@ -10031,7 +10347,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8570471349771054620
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10044,10 +10360,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &7645979323897286865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10056,11 +10374,19 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8804827100948796227}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.39, z: -0.21}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.013967, z: 2}
+  m_Center: {x: 0, y: 0.89698344, z: -0.21000004}
 --- !u!54 &5962927708952354533
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10068,15 +10394,55 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8804827100948796227}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &329375540581858897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804827100948796227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd1da69ed60b644093e4280a5697e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData:
+    MaxHP: 0
+    bulletList: 
+    ATK: 0
+    ATKSpeed: 0
+    energy: 0
+    money: 0
+  characterID: 0
+  characterTag: 0
+  maxHP: 0
+  nowHP: 0
+  aggressivity: 0
+  ATKSpeed: 0
+  _avoidance: 0
+  animator: {fileID: 0}
+  hpSlider: {fileID: 0}
+  canActive: 0
 --- !u!1 &8822968883297852828
 GameObject:
   m_ObjectHideFlags: 0
@@ -10086,7 +10452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291662306250962963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_tweak.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10104,6 +10470,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.00000008195639, y: 0.000000029802322, z: 0.000000059604645}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4365725010485987774}
   m_Father: {fileID: 307783753701868393}
@@ -10118,7 +10485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4252755639872268688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_tweak.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10136,6 +10503,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: 0.000000007450581, y: -0.000000026077032, z: -0.000000022351742}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7238158726246229428}
   m_Father: {fileID: 5211179495818138421}
@@ -10150,7 +10518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7226388970459619678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-heel.02_F_roll1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10167,6 +10535,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.000000031786513, z: -0, w: 1}
   m_LocalPosition: {x: -0.0019999756, y: 0.1482119, z: 0.00063632}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8031624467850768641}
   m_Father: {fileID: 8080842623436511800}
@@ -10181,7 +10550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3235527911801904390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10198,6 +10567,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.4533878, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2069989831290447595}
   m_RootOrder: 0
@@ -10211,7 +10581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2569973615607727377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_fk.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10228,6 +10598,7 @@ Transform:
   m_LocalRotation: {x: 0.3173202, y: -0.00000006088882, z: -0.000000025534023, w: 0.9483185}
   m_LocalPosition: {x: 0.000000033527613, y: 0.19679348, z: 0.000000014901161}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7400815643174208305}
   m_Father: {fileID: 7176639925189227685}
@@ -10242,7 +10613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592789619248689689}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MCH-thigh_ik_target.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10260,6 +10631,7 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.00000003244339, y: -0.000000029144774, z: 0.000000031547813}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2373742703745399537}
   m_Father: {fileID: 4173559710152553833}
@@ -10274,7 +10646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8985331472434620483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_F_parent.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10291,6 +10663,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.049198374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6408143034455294293}
   m_RootOrder: 0
@@ -10304,7 +10677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2535459632849095403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin_F_tweak.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10321,6 +10694,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.03234866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9177461744852545380}
   m_RootOrder: 0
@@ -10334,7 +10708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6777227977085965674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-WEI_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10351,6 +10725,7 @@ Transform:
   m_LocalRotation: {x: 0.000000008381904, y: -9.246492e-13, z: 2.1595019e-14, w: 1}
   m_LocalPosition: {x: 2.0664924e-14, y: -0.00000002142042, z: -0.0000000037252903}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2020822984900662207}
   m_Father: {fileID: 6162395154395441736}
@@ -10365,7 +10740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5446757010102140015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DEF-shin_F.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10382,6 +10757,7 @@ Transform:
   m_LocalRotation: {x: -0.00000006582766, y: 0.04011582, z: -0.00000046230812, w: 0.99919504}
   m_LocalPosition: {x: -0.00000006519258, y: 0.06469725, z: -0.000000022351742}
   m_LocalScale: {x: 1.0000004, y: 0.99999964, z: 1.0000004}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2887489239601751098}
   m_Father: {fileID: 1447384664398311128}
@@ -10396,7 +10772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5760558783599189037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tweak_spine.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10413,6 +10789,7 @@ Transform:
   m_LocalRotation: {x: 0.00000004470349, y: -1.5987212e-14, z: -3.275158e-14, w: 1}
   m_LocalPosition: {x: 7.993606e-15, y: 0.3089369, z: 0.00000002980232}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3827717389719747125}
   m_Father: {fileID: 901856426290146999}

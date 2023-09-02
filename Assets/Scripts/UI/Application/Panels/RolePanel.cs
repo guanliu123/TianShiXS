@@ -36,7 +36,11 @@ public class RolePanel : BasePanel
 
             var t = UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", obj);
             t._panel = this;
-         
+            UITool.GetOrAddComponentInChildren<Button>("Upgrade_Btn", obj).onClick.AddListener(() =>
+            {
+                AudioManager.GetInstance().PlaySound("BuyButton");
+                Upgrade(choosePlayer);
+            });
         });
         players = GameManager.GetInstance().GetPlayerRole();
         //UpdatePlayerPanel(0);      
@@ -65,8 +69,15 @@ public class RolePanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;
 
-        //UITool.GetOrAddComponentInChildren<Text>("RoleSkill", panel).text = players.ElementAt(index).Value.describe;
-        //UITool.GetOrAddComponentInChildren<Text>("RoleHP", panel).text = "血量："+ players.ElementAt(index).Value.MaxHP;
-        //UITool.GetOrAddComponentInChildren<Text>("RoleAttack", panel).text = "攻击力" + players.ElementAt(index).Value.Aggressivity;
+        UITool.GetOrAddComponentInChildren<Transform>("Skill", panel).GetChild(1).
+            GetComponent<Text>().text = players.ElementAt(index).Value.describe;
+        UITool.GetOrAddComponentInChildren<Transform>("Heath", panel).GetChild(1).
+            GetComponent<Text>().text = CharacterManager.GetInstance().characterDatasDic[choosePlayer].MaxHP.ToString();
+        UITool.GetOrAddComponentInChildren<Transform>("Attack", panel).GetChild(1).
+            GetComponent<Text>().text = CharacterManager.GetInstance().characterDatasDic[choosePlayer].ATK.ToString();
+    }
+    private void Upgrade(int roleID)
+    {
+        Debug.Log("对角色" + CharacterManager.GetInstance().roleMsgDic[roleID].name + "进行升级");
     }
 }

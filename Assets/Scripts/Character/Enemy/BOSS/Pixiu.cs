@@ -1,9 +1,9 @@
-﻿using PlayerStates;
+using PlayerStates;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigMouse : CharacterBase
+public class Pixiu :CharacterBase
 {
     void Awake()
     {
