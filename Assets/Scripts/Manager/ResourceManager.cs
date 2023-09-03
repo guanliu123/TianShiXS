@@ -58,7 +58,7 @@ public class ResourceManager : SingletonBase<ResourceManager>
         await handle.Task;
 
         if (handle.Status == AsyncOperationStatus.Succeeded) callback(handle.Result);
-        else Debug.Log($"加载{objName}资源失败！");      
+        else Debug.Log($"加载{objName}资源失败！ path:{path}");      
     }
 
     public async void LoadRes<T>(string path, UnityAction<T> callback) where T : Object

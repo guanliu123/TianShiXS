@@ -211,7 +211,11 @@ public static class BulletDataTool
 
     public static Dictionary<int, BulletData> ReadBulletData()
     {
+        Debug.Log("Begin ReadBulletData!");
+
         string jsonString = Resources.Load<TextAsset>("Data/Bullet").text;
+
+        Debug.Log("Resources.Load Bullet.json!");
 
         Dictionary<int, BulletData> bulletDataDic = new Dictionary<int, BulletData>();
 

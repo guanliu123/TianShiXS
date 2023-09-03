@@ -36,9 +36,13 @@ public class BulletManager : SingletonBase<BulletManager>
 
     public BulletManager()
     {
+        Debug.Log("Begin BulletManager Constructor!");
+
         BulletDic = BulletDataTool.ReadBulletData();
 
         Init();
+
+        Debug.Log("End BulletManager Constructor!");
     }
     private void Init()
     {
@@ -163,6 +167,8 @@ public class BulletManager : SingletonBase<BulletManager>
     }
     private void StraightLauncher(ShootData sd)
     {
+        Debug.Log("StraightLauncher begin!");
+
         Vector3 instantPos = new Vector3(
                     sd.shooter.position.x, 1f, sd.shooter.position.z);
 
@@ -197,6 +203,8 @@ public class BulletManager : SingletonBase<BulletManager>
                 if (sd.isFollowShooter) t.transform.parent = sd.shooter;
             }, ResourceType.Bullet);
         }
+
+        Debug.Log("StraightLauncher end!");
     }
 
     public void BulletEvolute(int evolutionID, int bulletType)
