@@ -207,11 +207,11 @@ public class BulletManager : SingletonBase<BulletManager>
         Debug.Log("StraightLauncher end!");
     }
 
-    public void BulletEvolute(int evolutionID, int bulletType)
+    public void BulletEvolute(int evolutionID, int bulletID)
     {
-        if (!evolvableBuffList.ContainsKey(bulletType) || !evolvableBuffList[bulletType].Contains(evolutionID)) return;
-        if (!increaseBuffs[bulletType].ContainsKey(evolutionID)) increaseBuffs[bulletType].Add(evolutionID, 1);
-        else increaseBuffs[bulletType][evolutionID]++;
+        //if (!evolvableBuffList.ContainsKey(bulletID) || !evolvableBuffList[bulletID].Contains(evolutionID)) return;
+        if (!increaseBuffs[bulletID].ContainsKey(evolutionID)) increaseBuffs[bulletID].Add(evolutionID, 1);
+        else increaseBuffs[bulletID][evolutionID]++;
         //if (!BulletDic[bulletType].evolvableList.Contains(evolutionType)) return;
 
         /*if (BulletBuffs[bulletType].ContainsKey(evolutionType))

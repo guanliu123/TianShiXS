@@ -248,8 +248,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public void CallSkillPanel()
     {
-        PanelManager.Instance.Push(new SkillPanel());
-        Time.timeScale = 0f;
+        PanelManager.Instance.Push(new SkillPanel());        
         ChangeEnergy(-playerEnergy);
     }
 

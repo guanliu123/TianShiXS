@@ -97,8 +97,8 @@ public class CharacterBase : MonoBehaviour, IAttack
             BulletManager.GetInstance().BulletEvolute(4005,bulletID);
             return;
         }
-        nowBullet.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].damageInterval);
-        bulletTimer.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].damageInterval);
+        nowBullet.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].transmissionFrequency);
+        bulletTimer.Add(bulletID, BulletManager.GetInstance().BulletDic[bulletID].transmissionFrequency);
     }
 
     protected void InitData(bool isPlayer=false)

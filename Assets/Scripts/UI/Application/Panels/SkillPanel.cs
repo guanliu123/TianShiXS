@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UIFrameWork;
 using System.Linq;
+using System;
 
 public class SkillPanel : BasePanel
 {
@@ -17,6 +18,7 @@ public class SkillPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = null;
+        Time.timeScale = 0f;
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
             panel = obj;
@@ -44,7 +46,7 @@ public class SkillPanel : BasePanel
                 }, ResourceType.UI);
             }*/
 
-            List<SkillUpgrade> su = SkillManager.GetInstance().RandomSkill();
+            SkillUpgrade[] su = SkillManager.GetInstance().RandomSkill().ToArray();
             for (int i = 1; i <= 3; i++)
             {
                 //GameObject skillRect = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel).gameObject;
@@ -54,17 +56,23 @@ public class SkillPanel : BasePanel
         });
 
     }
-    void SkillChoose(List<SkillUpgrade> su, int i, GameObject panel)
+    void SkillChoose(SkillUpgrade[] su, int i, GameObject panel)
     {
         PoolManager.GetInstance().GetObj(su[i - 1].quality, async skillRect =>
         {
             var tra = UITool.GetOrAddComponentInChildren<Transform>("Skill" + i, panel);
             skillRect.transform.position = tra.position;
             skillRect.transform.SetParent(tra);
-            ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
-            {
-                UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;              
-            }, ResourceType.Null, ".png");
+            
+                ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
+                {
+                try
+                {
+                    UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
+                    }
+                    catch { }
+                }, ResourceType.Null, ".png");
+            
             UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
             var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);
             Debug.Log("技能"+i+"描述："+ su[i - 1].describe);
@@ -74,24 +82,22 @@ public class SkillPanel : BasePanel
         }, ResourceType.UI);
     }
 
-    void SkillPromote(Button button, int parameter, List<SkillUpgrade> su)
+    void SkillPromote(Button button, int parameter, SkillUpgrade[] su)
     {
         button.onClick.AddListener(delegate {
-            try
-            {
+            
                 AudioManager.GetInstance().PlaySound("NormalButton");
                 su[parameter - 1].skill.OnUse();
                 Time.timeScale = 1;
                 GameManager.GetInstance().PlayerEvolution();
-            }
-            catch (System.Exception ex)
+            
+            /*catch (System.Exception ex)
             {
                 Debug.LogError(ex.Message);
-            }
-            finally
-            {
+            }*/
+            
                 PanelManager.Instance.Pop();
-            }
+            
         });
     }
 

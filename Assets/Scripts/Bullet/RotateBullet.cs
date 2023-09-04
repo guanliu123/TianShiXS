@@ -39,7 +39,7 @@ public class RotateBullet : BulletBase
             divisionTimer -= Time.deltaTime;
             if (divisionTimer <= 0)
             {
-                BulletManager.GetInstance().BulletLauncher(transform, -1, 0,attacker);
+                //BulletManager.GetInstance().BulletLauncher(transform, -1, 0,attacker);
                 divisionTimer = 0.3f;
             }
         }

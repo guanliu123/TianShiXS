@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4289792831236246733}
   - component: {fileID: 2048170895403022343}
   - component: {fileID: 735766104351328006}
+  - component: {fileID: 1462567390786755465}
   m_Layer: 10
   m_Name: 3005
   m_TagString: Untagged
@@ -29,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.18457, y: 0.18457, z: 0.5697875}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,10 +54,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &735766104351328006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -88,8 +93,47 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534922181543844306}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2.5612936, y: 3.5558448, z: 3.4550266}
   m_Center: {x: 0.07465273, y: 0.14231503, z: 0.36966038}
+--- !u!114 &1462567390786755465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534922181543844306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a6235779b111c45a6d33cf3bcd81f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletData:
+    transmissionFrequency: 0
+    isRandomShoot: 0
+    existTime: 0
+    moveSpeed: 0
+    rotateSpeed: 0
+    buffList: 
+    evolvableList: 
+    crit: 0
+    critRate: 0
+    ATK: 0
+    damageInterval: 0
+    isFollowShooter: 0
+    shootProbability: 0
+    audioPath: 
+    effectPath: 
+  bulletID: 0
+  attacker: {fileID: 0}
+  isCrit: 0

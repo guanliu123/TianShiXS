@@ -29,7 +29,7 @@ public class PerpetualBullet : BulletBase
         }
         for (int i = 0; i < num; i++)
         {
-            //BulletManager.GetInstance().BulletLauncher(transform, bulletID, 0,attacker,1);
+            BulletManager.GetInstance().BulletLauncher(transform, bulletID, 0,attacker,1);
             yield return new WaitForSeconds(0.2f);
         }
     }

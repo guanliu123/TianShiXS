@@ -75,13 +75,12 @@ namespace Skills
 
         public override void OnUse()
         {
-            foreach(var item in Player._instance.nowBullet)
-            {
+            
                 //BulletManager.GetInstance().BulletEvolute(BuffType.Frost, item.Key);
-                Player._instance.AddBullet(3005);
+            Player._instance.AddBullet(3005);
 
                 //BulletManager.GetInstance().ChangeBullet(BulletType.TaiChiDart, BulletType.IceBullet);
-            }
+            
             SkillManager.GetInstance().UpdateSkillPool(id);
         }
     }
