@@ -176,8 +176,12 @@ public class BulletManager : SingletonBase<BulletManager>
         {
             PoolManager.GetInstance().GetObj(sd.objName, t =>
             {
+                Debug.Log("StraightLauncher GetObj begin!");
+
                 t.GetComponent<BulletBase>().InitBullet(sd.attacker, sd.attackerTag, sd.initData, sd.initBuffs);
                 bulletList.Add(t);
+
+                Debug.Log("StraightLauncher GetObj bulletList.Add(t)!");
                 //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
                 if (sd.n % 2 != 0)//整除2不等于0，中间需要单独放弹幕
