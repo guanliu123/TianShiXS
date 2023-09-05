@@ -18,7 +18,7 @@ public class VictoryPanel : BasePanel
     public override void OnEnter()
     {
         GameManager.GetInstance().ClearFloatDamage();
-        if (levelNum==GameManager.GetInstance().UserData.LevelNum)
+        if (levelNum>=GameManager.GetInstance().UserData.LevelNum)
         {
             RequestCenter.SetLevelReq(GameClient.Instance, GameManager.GetInstance().UserData.LevelNum + 1, (data) =>
             {

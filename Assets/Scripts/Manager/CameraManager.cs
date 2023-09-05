@@ -32,17 +32,17 @@ public class CameraManager : BaseManager<CameraManager>
     }
 
     public void StartCameraEvent()
-    {
-        mainCamera = Camera.main;
+    {        
         MonoManager.GetInstance().AddUpdateListener(CameraEvent);
     }
-    /*public void StopCameraEvent()
+    public void StopCameraEvent()
     {
         MonoManager.GetInstance().RemoveUpdeteListener(CameraEvent);
-    }*/
+    }
 
     private void CameraEvent()
     {
+        if(mainCamera==null) mainCamera = Camera.main;
         CameraFollow();
     }
 
@@ -75,24 +75,4 @@ public class CameraManager : BaseManager<CameraManager>
         cameraShaker.Shake(strength, duration);
         //MonoManager.GetInstance().StartCoroutine(Shake(duration,strength));
     }
-    /*private IEnumerator Shake(float duration,float strength)
-    {
-        Vector3 originPos = mainCamera.transform.position;
-        float elapsed = 0.0f;//摇晃进行时间
-        strength *= 0.05F;
-        while (elapsed < duration)
-        {
-            float x = Random.Range(-2f, 2f) * strength;//x轴随机抖动幅度
-            float y = Random.Range(-2f, 2f) * strength;//y轴随机抖动幅度
-
-            Vector3 t = new Vector3(originPos.x+x, originPos.y+y, originPos.z);
-            //mainCamera.transform.localPosition = t;
-
-
-            elapsed += Time.deltaTime;
-
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
-        mainCamera.transform.localPosition = originPos;//再次复原
-    }*/
 }

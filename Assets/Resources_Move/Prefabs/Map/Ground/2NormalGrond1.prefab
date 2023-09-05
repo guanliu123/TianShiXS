@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7070447885587930641}
   - component: {fileID: 7070447885587930640}
   m_Layer: 0
-  m_Name: NormalGrond2
+  m_Name: 2NormalGrond1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

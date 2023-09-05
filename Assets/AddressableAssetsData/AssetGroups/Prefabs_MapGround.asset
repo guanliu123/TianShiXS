@@ -30,7 +30,7 @@ MonoBehaviour:
     - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb7696a67114ef14094ecdb47e123cfa
-    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/2NormalGrond2.prefab
+    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/2NormalGrond1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - gameing

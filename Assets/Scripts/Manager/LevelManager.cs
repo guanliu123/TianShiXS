@@ -80,17 +80,37 @@ public class LevelManager : BaseManager<LevelManager>
         }, ResourceType.Skybox));
         for(int i = 0; i < nowLevel.normalPlanes.Count; i++)
         {
-            waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
+            try
             {
-                normalPlanes.Add(result);
-            }, ResourceType.MapGround));
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
+                {
+                    normalPlanes.Add(result);
+                }, ResourceType.MapGround));
+            }
+            catch
+            {
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1NormalGround1", result =>
+                {
+                    normalPlanes.Add(result);
+                }, ResourceType.MapGround));
+            }
         }
         for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
         {
-            waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
+            try
             {
-                widthPlanes.Add(result);
-            }, ResourceType.MapGround));
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
+                {
+                    widthPlanes.Add(result);
+                }, ResourceType.MapGround));
+            }
+            catch
+            {
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1WidthGround1", result =>
+                {
+                    widthPlanes.Add(result);
+                }, ResourceType.MapGround));
+            }
         }
         foreach(var item in nowLevel.StageDatas)
         {

@@ -163,6 +163,7 @@ public class GameManager : SingletonBase<GameManager>
         Player._instance.ResetRole();
         GameObject.Destroy(player.GetComponent<Player>());
         GameObject.Destroy(player.GetComponent<PlayerController>());
+        CameraManager.GetInstance().StopCameraEvent();
         CameraMove(CameraPointType.OrginPoint, 1f);
         WriteData();
         //DataCenter.Money += levelMoney;
