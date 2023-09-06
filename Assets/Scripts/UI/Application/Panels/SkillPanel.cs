@@ -64,14 +64,14 @@ public class SkillPanel : BasePanel
             skillRect.transform.position = tra.position;
             skillRect.transform.SetParent(tra);
             
-                ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
+                await ResourceManager.GetInstance().LoadRes<Sprite>(su[i - 1].iconPath, result =>
                 {
-                try
-                {
-                    UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
+                    try
+                    {
+                        UITool.GetOrAddComponentInChildren<Image>("Skill_Icon", skillRect).sprite = result;
                     }
                     catch { }
-                }, ResourceType.Null, ".png");
+                }, () => { }, ResourceType.Null, ".png");
             
             UITool.GetOrAddComponentInChildren<Transform>("Tag", skillRect).gameObject.SetActive(su[i - 1].isNew);
             var t = UITool.GetOrAddComponentInChildren<Button>("Skill_Btn", skillRect);

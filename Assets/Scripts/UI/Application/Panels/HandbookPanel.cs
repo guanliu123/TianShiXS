@@ -91,7 +91,7 @@ public class HandbookPanel : BasePanel
 
         await ResourceManager.GetInstance().LoadRes<GameObject>(enemys[index].imagePath, temp => {
             GameObject.Instantiate(temp, t).transform.parent = t;
-        }, ResourceType.UI);
+        }, ()=> { }, ResourceType.UI);
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = enemys[index].name;
         UITool.GetOrAddComponentInChildren<Text>("IntroductionText", panel).text = enemys[index].describe;
@@ -110,7 +110,7 @@ public class HandbookPanel : BasePanel
         await ResourceManager.GetInstance().LoadRes<Sprite>(skills[index].iconPath, t =>
         {
             UITool.GetOrAddComponentInChildren<Image>("SkillImage", panel).sprite = t;
-        }, ResourceType.Null, ".png");
+        }, () => { }, ResourceType.Null, ".png");
         UITool.GetOrAddComponentInChildren<Text>("SkillNameText", panel).text = skills[index].name;
         UITool.GetOrAddComponentInChildren<Text>("DescribeText", panel).text = skills[index].describe;
 

@@ -19,7 +19,7 @@ public class BagPanel : BasePanel
     public override void OnEnter()
     {
         GameObject panel = null;
-        UIManager.Instance.GetSingleUI(UIType, (obj) =>
+        UIManager.Instance.GetSingleUI(UIType, async (obj) =>
         {
             panel = obj;
             Transform bagPanel = UITool.GetOrAddComponentInChildren<Transform>("ObjArea", panel);
@@ -56,14 +56,14 @@ public class BagPanel : BasePanel
             foreach (var item in GameManager.GetInstance().UserData.PropList)
             {
                 if (!props.ContainsKey(item.PropID % 10)) props.Add(item.PropID % 10, new List<GameObject>());
-                ResourceManager.GetInstance().LoadRes<GameObject>("BagProp", result =>
+                await ResourceManager.GetInstance().LoadRes<GameObject>("BagProp", result =>
                 {
                     UITool.GetOrAddComponentInChildren<Image>("ObjIcom", result).sprite = ResourceManager.GetInstance().LoadByPath<Sprite>("");
                     UITool.GetOrAddComponentInChildren<Text>("ObjCount", result).text = item.Count + "";
                     result.transform.SetParent(bagPanel);
 
                     props[item.PropID % 10].Add(result);
-                }, ResourceType.UI);
+                }, () => { }, ResourceType.UI);
                 //载入物品的图标            
             }
         });

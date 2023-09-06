@@ -107,13 +107,13 @@ public class AudioManager : BaseManager<AudioManager>
             playingList.Add(emptyList[0]);
             emptyList.RemoveAt(0);
         }
-        ResourceManager.Instance.LoadRes<AudioClip>(audioName, result =>
+        await ResourceManager.Instance.LoadRes<AudioClip>(audioName, result =>
         {
             source.clip = result;
             source.loop = isLoop;
             source.volume = soundValue;
             source.Play();
-        }, ResourceType.Audio);
+        }, () => { }, ResourceType.Audio);
         /*source.clip = audio;
         source.loop = isLoop;
         source.volume = soundValue;

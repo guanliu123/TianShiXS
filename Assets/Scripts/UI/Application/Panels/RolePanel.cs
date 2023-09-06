@@ -65,7 +65,7 @@ public class RolePanel : BasePanel
         //GameObject.Instantiate(players.ElementAt(index).Value.imagePath,t).transform.parent = t;
         await ResourceManager.GetInstance().LoadRes<GameObject>(players.ElementAt(index).Value.imagePath, temp => {
             GameObject.Instantiate(temp, t).transform.parent = t;
-        }, ResourceType.UI);
+        }, () => { }, ResourceType.UI);
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;
 

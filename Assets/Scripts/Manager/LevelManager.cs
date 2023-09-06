@@ -77,7 +77,7 @@ public class LevelManager : BaseManager<LevelManager>
 
         waitList.Add(ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
             skybox = result;
-        }, ResourceType.Skybox));
+        }, ()=> { }, ResourceType.Skybox));
         for(int i = 0; i < nowLevel.normalPlanes.Count; i++)
         {
             try
@@ -85,14 +85,18 @@ public class LevelManager : BaseManager<LevelManager>
                 waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
                 {
                     normalPlanes.Add(result);
+                },
+                () =>
+                {
+                    waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1NormalGround1", result =>
+                    {
+                        normalPlanes.Add(result);
+                    }, () => { }, ResourceType.MapGround));
                 }, ResourceType.MapGround));
             }
-            catch
+            catch(System.Exception ex)
             {
-                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1NormalGround1", result =>
-                {
-                    normalPlanes.Add(result);
-                }, ResourceType.MapGround));
+                Debug.Log(ex.Message);
             }
         }
         for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
@@ -102,14 +106,17 @@ public class LevelManager : BaseManager<LevelManager>
                 waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
                 {
                     widthPlanes.Add(result);
+                },
+                () => {
+                    waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1WidthGround1", result =>
+                    {
+                        widthPlanes.Add(result);
+                    }, () => { }, ResourceType.MapGround));
                 }, ResourceType.MapGround));
             }
-            catch
+            catch (System.Exception ex)
             {
-                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1WidthGround1", result =>
-                {
-                    widthPlanes.Add(result);
-                }, ResourceType.MapGround));
+                Debug.Log(ex.Message);
             }
         }
         foreach(var item in nowLevel.StageDatas)
@@ -154,7 +161,7 @@ public class LevelManager : BaseManager<LevelManager>
         {
             if (!enemys.ContainsKey(id)) enemys.Add(id, result);
             else enemys[id] = result;
-        }, ResourceType.Enemy));
+        }, () => { }, ResourceType.Enemy));
     }
 
     public void InitLevel()
