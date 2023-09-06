@@ -176,12 +176,21 @@ public class BulletManager : SingletonBase<BulletManager>
         {
             PoolManager.GetInstance().GetObj(sd.objName, t =>
             {
+                if (t == null)
+                {
+                    return;
+                }
                 Debug.Log("StraightLauncher GetObj begin!");
 
-                t.GetComponent<BulletBase>().InitBullet(sd.attacker, sd.attackerTag, sd.initData, sd.initBuffs);
-                bulletList.Add(t);
+                var b = t.GetComponent<BulletBase>();
+                if (b != null)
+                {
+                    b.InitBullet(sd.attacker, sd.attackerTag, sd.initData, sd.initBuffs);
+                    Debug.Log("StraightLauncher GetObj InitBullet!");
 
-                Debug.Log("StraightLauncher GetObj bulletList.Add(t)!");
+                    bulletList.Add(t);
+                    Debug.Log("StraightLauncher GetObj bulletList.Add(t)!");
+                }
                 //GameObject t = PoolManager.GetInstance().GetBullet(bulletType.ToString(), attacker, attackerTag, initData, initBuffs);
 
                 if (sd.n % 2 != 0)//整除2不等于0，中间需要单独放弹幕

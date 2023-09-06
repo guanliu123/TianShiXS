@@ -20,7 +20,7 @@ public class LevelPanel : BasePanel {
     {
         //levelNum = LevelManager.GetInstance().levelDatasDic.Count;
         levelNum = GameManager.GetInstance().UserData.LevelNum;
-        levelNum >= 1 ? levelNum : 1;
+        levelNum = levelNum >= 1 ? levelNum : 1;
         GameObject panel = null;
         UIManager.Instance.GetSingleUI(UIType, (obj) =>
         {
