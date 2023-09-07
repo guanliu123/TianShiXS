@@ -41,26 +41,26 @@ public class GameRoot : MonoBehaviour
     public void TryLoad(string _nextSceneName,Action _callBack)
     {
         //加载中间过渡场景
-        var _lastLoadHandle = SceneManager.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
+        AsyncOperationHandle<SceneInstance> _lastLoadHandle = Addressables.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
 
         Debug.Log($"TryLoad _lastLoadHandle {loadingScene}");
-        _lastLoadHandle.completed += (op) =>
+        _lastLoadHandle.Completed += (op) =>
         {
-            if (op.isDone)
+            if (op.IsDone)
             {
                 //载入成功后做些什么...
-
+                StartCoroutine(LevelManager.GetInstance().LoadMap());
                 //开始协程
                 StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
             }
         };
     }
 
-    private IEnumerator WaitForLoading(AsyncOperation _lastLoadHandle,string _nextSceneName,Action _callBack)
+    private IEnumerator WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
     {
         Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
         Addressables.InitializeAsync();
-        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single);
+        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single,false);
         while (_currLoadHandle.Status==AsyncOperationStatus.None)
         {
             //开始加载时...
@@ -70,6 +70,13 @@ public class GameRoot : MonoBehaviour
             //yield return null;
 
         }
+        if(_nextSceneName==LevelScene.sceneName)
+        {
+            while (!LevelManager.GetInstance().LoadMapHandel)
+            {
+                yield return null;
+            }
+        }
 
         Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.IsDone}");
         
@@ -77,7 +84,9 @@ public class GameRoot : MonoBehaviour
         {
             //加载完毕时...
             LoadScene.Instance.SetPercent(1.0f);
-            yield return new WaitForSeconds(1.0f);
+            _currLoadHandle.WaitForCompletion().ActivateAsync();
+            //Addressables.UnloadSceneAsync(_lastLoadHandle);
+            yield return new WaitForSeconds(0f);
             _callBack?.Invoke();
         }
     }

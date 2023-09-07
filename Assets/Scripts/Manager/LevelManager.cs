@@ -43,9 +43,11 @@ public class LevelManager : BaseManager<LevelManager>
 
     public int enemyDensity = 5;//敌人密度，简单定义为一片地面最多不能生成超过这么多敌人
     public List<Vector3> enemyPoints = new List<Vector3>();//已经生成了敌人的点位，不能重复在一个点上生成敌人
+    public bool LoadMapHandel = false;//地图加载判断句柄
 
     public Vector3 specialPoint = new Vector3(0, 2, 20);//特殊阶段生成固定敌人的大致位置
     public Vector3 bossPoint = new Vector3(0, 2, 25);
+
 
     //======================缓存资源的句柄======================//
     List<Task> waitList = new List<Task>();
@@ -69,16 +71,18 @@ public class LevelManager : BaseManager<LevelManager>
         //nowPlane = nowLevel.normalPlanes;
     }
 
-    public async Task LoadLevelRes()
+    public IEnumerator LoadMap()
     {
         waitList.Clear();
         normalPlanes.Clear();
         widthPlanes.Clear();
 
+        LoadMapHandel = false;
+
         waitList.Add(ResourceManager.GetInstance().LoadRes<Material>(nowLevel.skyboxName, result => {
             skybox = result;
-        }, ()=> { }, ResourceType.Skybox));
-        for(int i = 0; i < nowLevel.normalPlanes.Count; i++)
+        }, () => { }, ResourceType.Skybox));
+        for (int i = 0; i < nowLevel.normalPlanes.Count; i++)
         {
             try
             {
@@ -94,10 +98,11 @@ public class LevelManager : BaseManager<LevelManager>
                     }, () => { }, ResourceType.MapGround));
                 }, ResourceType.MapGround));
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 Debug.Log(ex.Message);
             }
+            yield return null;
         }
         for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
         {
@@ -118,7 +123,15 @@ public class LevelManager : BaseManager<LevelManager>
             {
                 Debug.Log(ex.Message);
             }
+            yield return null;
         }
+        LoadMapHandel = true;
+    }
+
+    public async Task LoadLevelRes()
+    {
+       
+
         foreach(var item in nowLevel.StageDatas)
         {
             foreach(var t in item.BOSSList)
