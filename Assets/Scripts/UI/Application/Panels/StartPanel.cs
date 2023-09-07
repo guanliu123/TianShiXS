@@ -69,10 +69,9 @@ public class StartPanel : BasePanel
                 Debug.Log("StartGame_Btn onClick!");
                 var loadLevelTask = LevelManager.GetInstance().LoadLevelRes();
                 Debug.Log("StartGame_Btn begin LoadLevelRes!");
-                GameRoot.Instance.TryLoad(LevelScene.sceneName, async () =>
+                GameRoot.Instance.TryLoad(LevelScene.sceneName, loadLevelTask, async () =>
                 {
                     Debug.Log("TryLoad LevelScene!");
-                    await loadLevelTask;
                     Debug.Log("TryLoad LevelScene down!");
                     SceneSystem.GetInstance().SetScene(new LevelScene());
                     Debug.Log("SetScene LevelScene down!");

@@ -38,17 +38,22 @@ public class GameRoot : MonoBehaviour
             SceneSystem.Instance.SetScene(new StartScene());
     }
 
-    public void TryLoad(string _nextSceneName,Action _callBack)
+    public void TryLoad(string _nextSceneName, Task wait, Action _callBack)
     {
         //加载中间过渡场景
         var _lastLoadHandle = SceneManager.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
 
         Debug.Log($"TryLoad _lastLoadHandle {loadingScene}");
-        _lastLoadHandle.completed += (op) =>
+        _lastLoadHandle.completed += async (op) =>
         {
             if (op.isDone)
             {
                 //载入成功后做些什么...
+                LoadScene.Instance.SetPercent(0.3f);
+                if (wait != null)
+                {
+                    await wait;
+                }
 
                 //开始协程
                 StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));

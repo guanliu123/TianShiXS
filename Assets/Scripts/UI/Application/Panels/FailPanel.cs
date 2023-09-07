@@ -1,6 +1,7 @@
 ﻿using Game;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UIFrameWork;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ public class FailPanel : BasePanel
                 //SceneSystem.GetInstance().SetScene(new StartScene());
                 /*PanelManager.Instance.Pop();
                 PanelManager.Instance.Push(new StartPanel());*/
-                GameRoot.Instance.TryLoad("StartScene", () =>
+                GameRoot.Instance.TryLoad("StartScene", null, () =>
                 {
                     SceneSystem.GetInstance().SetScene(new StartScene());
                 });
