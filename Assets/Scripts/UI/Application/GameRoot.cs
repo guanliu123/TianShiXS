@@ -77,7 +77,6 @@ public class GameRoot : MonoBehaviour
                 yield return null;
             }
         }
-
         Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.IsDone}");
         
         if (_currLoadHandle.Status == AsyncOperationStatus.Succeeded)

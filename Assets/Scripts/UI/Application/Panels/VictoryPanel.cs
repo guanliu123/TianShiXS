@@ -37,7 +37,7 @@ public class VictoryPanel : BasePanel
                 AudioManager.GetInstance().PlaySound("NormalButton");
                 //PanelManager.Instance.Pop();
                 //PanelManager.Instance.Push(new StartPanel());
-                GameRoot.Instance.TryLoad("StartScene", null, () =>
+                GameRoot.Instance.TryLoad("StartScene", () =>
                 {
                     SceneSystem.GetInstance().SetScene(new StartScene());
                 });

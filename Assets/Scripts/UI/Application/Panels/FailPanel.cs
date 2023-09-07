@@ -29,7 +29,7 @@ public class FailPanel : BasePanel
                 //SceneSystem.GetInstance().SetScene(new StartScene());
                 /*PanelManager.Instance.Pop();
                 PanelManager.Instance.Push(new StartPanel());*/
-                GameRoot.Instance.TryLoad("StartScene", null, () =>
+                GameRoot.Instance.TryLoad("StartScene", () =>
                 {
                     SceneSystem.GetInstance().SetScene(new StartScene());
                 });
