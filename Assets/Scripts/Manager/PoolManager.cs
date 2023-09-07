@@ -79,29 +79,29 @@ public class PoolManager : BaseManager<PoolManager>
     /// <returns></returns>
     public async void GetObj(string poolName, UnityAction<GameObject> callback, ResourceType resourceType)
     {
-        GameObject t = null;
-        if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
-        {
-            t = poolDic[poolName].GetObj();
-            if (t != null) callback(t);
-        }
+        //if (poolDic.ContainsKey(poolName) && poolDic[poolName].poolList.Count > 0)
+        //{
+        //    t = poolDic[poolName].GetObj();
+        //    if (t != null) callback(t);
+        //}
 
-        //GameObject t1 = null;
-        else
+        ////GameObject t1 = null;
+        //else
+        //{
+        GameObject t = null;
+        await ResourceManager.Instance.LoadRes<GameObject>(poolName, result =>
         {
-            await ResourceManager.Instance.LoadRes<GameObject>(poolName, result =>
+            if (!result)
             {
-                if (!result)
-                {
-                    Debug.Log($"对象池新生成{poolName}对象不正确，可能是给出的对象名称/加载路径/资源类型不正确");
-                    return;
-                }
-                t = GameObject.Instantiate(result);
-                callback(t);
-            }, () => { }, resourceType);
-        }
-        /*if(t1!=null) t = GameObject.Instantiate(t1);
-        return t;*/
+                Debug.Log($"对象池新生成{poolName}对象不正确，可能是给出的对象名称/加载路径/资源类型不正确");
+                return;
+            }
+            t = GameObject.Instantiate(result);
+            callback(t);
+        }, () => { }, resourceType);
+        //}
+        ///*if(t1!=null) t = GameObject.Instantiate(t1);
+        //return t;*/
     }
 
     /// <summary>
@@ -146,13 +146,15 @@ public class PoolManager : BaseManager<PoolManager>
     /// <param name="obj">物品本身</param>
     public void PushObj(string poolName, GameObject obj)
     {
-        if (poolObj == null)
-            poolObj = new GameObject("Pool");//实例化，此后所以在缓存池的物体全部为
-        if (poolDic.ContainsKey(poolName))//如果缓存池中已经存在其类型，则将物体加入其中
-            poolDic[poolName].PushObj(obj);
-        else//若缓存池中没有此类物体，则添加至字典
-            poolDic.Add(poolName, new PoolData(obj, poolObj));
-        //采用的结构是PoolData 类，里面含有链式结构PoolList 
+        obj.SetActive(false);
+        GameObject.Destroy(obj);
+        //if (poolObj == null)
+        //    poolObj = new GameObject("Pool");//实例化，此后所以在缓存池的物体全部为
+        //if (poolDic.ContainsKey(poolName))//如果缓存池中已经存在其类型，则将物体加入其中
+        //    poolDic[poolName].PushObj(obj);
+        //else//若缓存池中没有此类物体，则添加至字典
+        //    poolDic.Add(poolName, new PoolData(obj, poolObj));
+        ////采用的结构是PoolData 类，里面含有链式结构PoolList 
     }
     //清空某个池子
     public void Clear(string poolName)
