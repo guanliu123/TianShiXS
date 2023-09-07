@@ -30,13 +30,13 @@ MonoBehaviour:
     - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb7696a67114ef14094ecdb47e123cfa
-    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/2NormalGrond1.prefab
+    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/2NormalGround1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - gameing
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5dfe40c214511d742af25f8130df3af8
-    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/3NormalGrond3.prefab
+    m_Address: Assets/Resources_Move/Prefabs/Map/Ground/3NormalGround1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - gameing
