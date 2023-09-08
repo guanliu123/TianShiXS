@@ -66,18 +66,11 @@ public class StartPanel : BasePanel
             {
                 AudioManager.GetInstance().PlaySound("NormalButton");
 
-                Debug.Log("StartGame_Btn onClick!");
-                var loadLevelTask = LevelManager.GetInstance().LoadLevelRes();
-                Debug.Log("StartGame_Btn begin LoadLevelRes!");
-                GameRoot.Instance.TryLoad(LevelScene.sceneName, async() =>
+                var taskLoad = LevelManager.GetInstance().LoadLevelRes();
+                GameRoot.Instance.TryLoad(LevelScene.sceneName, taskLoad , () =>
                 {
-                    Debug.Log("TryLoad LevelScene!");
-                    await loadLevelTask;
-                    Debug.Log("TryLoad LevelScene down!");
                     SceneSystem.GetInstance().SetScene(new LevelScene());
-                    Debug.Log("SetScene LevelScene down!");
                     GameManager.GetInstance().StartGame();
-                    Debug.Log("StartGame!");
                 });
 
             });

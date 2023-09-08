@@ -38,29 +38,48 @@ public class GameRoot : MonoBehaviour
             SceneSystem.Instance.SetScene(new StartScene());
     }
 
-    public void TryLoad(string _nextSceneName,Action _callBack)
+    public void TryLoad(string _nextSceneName, Task wait, Action _callBack)
     {
         //加载中间过渡场景
-        AsyncOperationHandle<SceneInstance> _lastLoadHandle = Addressables.LoadSceneAsync(loadingScene,LoadSceneMode.Single);
+        var _lastLoadHandle = SceneManager.LoadSceneAsync(loadingScene, LoadSceneMode.Single);
 
         Debug.Log($"TryLoad _lastLoadHandle {loadingScene}");
-        _lastLoadHandle.Completed += (op) =>
+        _lastLoadHandle.completed += async (op) =>
         {
-            if (op.IsDone)
+            if (op.isDone)
             {
                 //载入成功后做些什么...
-                StartCoroutine(LevelManager.GetInstance().LoadMap());
+                LoadScene.Instance.SetPercent(0.2f);
+                if (wait != null)
+                {
+                    await wait;
+                }
+
                 //开始协程
-                StartCoroutine(WaitForLoading(_lastLoadHandle, _nextSceneName, _callBack));
+                StartCoroutine(LevelManager.GetInstance().LoadMap());
+                StartCoroutine(WaitForLoading(_nextSceneName, _callBack));
             }
         };
     }
 
-    private IEnumerator WaitForLoading(AsyncOperationHandle<SceneInstance> _lastLoadHandle,string _nextSceneName,Action _callBack)
+    private IEnumerator WaitForLoading(string _nextSceneName,Action _callBack)
     {
         Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
         Addressables.InitializeAsync();
-        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single,false);
+
+        if (_nextSceneName == LevelScene.sceneName)
+        {
+            var fake = 0.25f;
+            LoadScene.Instance.SetPercent(fake);
+            while (!LevelManager.GetInstance().LoadMapHandel)
+            {
+                fake += 0.03f;
+                LoadScene.Instance.SetPercent(fake);
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+
+        var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single, false);
         while (_currLoadHandle.Status==AsyncOperationStatus.None)
         {
             //开始加载时...
@@ -69,13 +88,6 @@ public class GameRoot : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             //yield return null;
 
-        }
-        if(_nextSceneName==LevelScene.sceneName)
-        {
-            while (!LevelManager.GetInstance().LoadMapHandel)
-            {
-                yield return null;
-            }
         }
         Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.IsDone}");
         
@@ -87,21 +99,6 @@ public class GameRoot : MonoBehaviour
             //Addressables.UnloadSceneAsync(_lastLoadHandle);
             yield return new WaitForSeconds(0f);
             _callBack?.Invoke();
-        }
-    }
-
-    public IEnumerator LoadLevelScene(AsyncOperationHandle<SceneInstance> _lastLoadHandle, Action _callBack)
-    {
-        var _currLoadHandle = Addressables.LoadSceneAsync("Scenes/LevelScene", LoadSceneMode.Additive);
-        while(_currLoadHandle.Status == AsyncOperationStatus.None)
-            yield return null;
-        Debug.Log($"TryLoad WaitForLoading _currLoadHandle {_currLoadHandle.Status}");
-        if (_currLoadHandle.Status == AsyncOperationStatus.Succeeded)
-        {
-            Addressables.UnloadSceneAsync(_lastLoadHandle).Completed+=(op)=>
-            {
-                _callBack?.Invoke();
-            };
         }
     }
 

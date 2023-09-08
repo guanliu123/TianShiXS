@@ -26,10 +26,10 @@ public class FailPanel : BasePanel
             UITool.GetOrAddComponentInChildren<Button>("Back_Btn", panel).onClick.AddListener(() =>
             {
                 AudioManager.GetInstance().PlaySound("NormalButton");
-                //SceneSystem.GetInstance().SetScene(new StartScene());
-                /*PanelManager.Instance.Pop();
-                PanelManager.Instance.Push(new StartPanel());*/
-                GameRoot.Instance.TryLoad("StartScene", () =>
+            //SceneSystem.GetInstance().SetScene(new StartScene());
+            /*PanelManager.Instance.Pop();
+            PanelManager.Instance.Push(new StartPanel());*/
+                GameRoot.Instance.TryLoad("StartScene", null, () =>
                 {
                     SceneSystem.GetInstance().SetScene(new StartScene());
                 });
