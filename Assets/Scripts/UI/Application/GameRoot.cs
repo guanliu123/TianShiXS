@@ -49,20 +49,17 @@ public class GameRoot : MonoBehaviour
             if (op.isDone)
             {
                 //载入成功后做些什么...
-                LoadScene.Instance.SetPercent(0.2f);
-                if (wait != null)
-                {
-                    await wait;
-                }
-
                 //开始协程
-                StartCoroutine(LevelManager.GetInstance().LoadMap());
-                StartCoroutine(WaitForLoading(_nextSceneName, _callBack));
+                if (_nextSceneName == LevelScene.sceneName)
+                {
+                    StartCoroutine(LevelManager.GetInstance().LoadMap());
+                }
+                StartCoroutine(WaitForLoading(_nextSceneName, wait, _callBack));
             }
         };
     }
 
-    private IEnumerator WaitForLoading(string _nextSceneName,Action _callBack)
+    private IEnumerator WaitForLoading(string _nextSceneName, Task wait, Action _callBack)
     {
         Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
         Addressables.InitializeAsync();
@@ -73,10 +70,18 @@ public class GameRoot : MonoBehaviour
             LoadScene.Instance.SetPercent(fake);
             while (!LevelManager.GetInstance().LoadMapHandel)
             {
-                fake += 0.03f;
+                fake += 0.01f;
                 LoadScene.Instance.SetPercent(fake);
                 yield return new WaitForSeconds(0.5f);
             }
+
+            while (wait != null && !wait.IsCompleted)
+            {
+                fake += 0.01f;
+                LoadScene.Instance.SetPercent(fake);
+                yield return new WaitForSeconds(0.5f);
+            }
+            wait.Wait();
         }
 
         var _currLoadHandle = Addressables.LoadSceneAsync(_nextSceneName, LoadSceneMode.Single, false);

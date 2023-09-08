@@ -87,32 +87,79 @@ public class LevelManager : BaseManager<LevelManager>
         ResourceType.Skybox);
         for (int i = 0; i < nowLevel.normalPlanes.Count; i++)
         {
-            yield return ResourceManager.GetInstance().LoadResYield<GameObject>(nowLevel.normalPlanes[i], result =>
+            try
             {
-                normalPlanes.Add(result);
-            },
-            () =>
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.normalPlanes[i], result =>
+                {
+                    if (result != null)
+                    {
+                        normalPlanes.Add(result);
+                    }
+                },
+                () =>
+                {
+                    waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1NormalGround1", result =>
+                    {
+                        if (result != null)
+                        {
+                            normalPlanes.Add(result);
+                        }
+                    }, 
+                    () => { }, 
+                    ResourceType.MapGround));
+                },
+                ResourceType.MapGround));
+            }
+            catch
             {
                 waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1NormalGround1", result =>
                 {
-                    normalPlanes.Add(result);
-                }, () => { }, ResourceType.MapGround));
-            }, 
-            ResourceType.MapGround);
+                    if (result != null)
+                    {
+                        normalPlanes.Add(result);
+                    }
+                }, 
+                () => { }, 
+                ResourceType.MapGround));
+            }
         }
         for (int i = 0; i < nowLevel.widthPlanes.Count; i++)
         {
-            yield return ResourceManager.GetInstance().LoadResYield<GameObject>(nowLevel.widthPlanes[i], result =>
+            try
             {
-                widthPlanes.Add(result);
-            },
-            () => {
+                waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>(nowLevel.widthPlanes[i], result =>
+                {
+                    if (result != null)
+                    {
+                        widthPlanes.Add(result);
+                    }
+                },
+                () =>
+                {
+                    waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1WidthGround1", result =>
+                    {
+                        if (result != null)
+                        {
+                            widthPlanes.Add(result);
+                        }
+                    }, 
+                    () => { }, 
+                    ResourceType.MapGround));
+                },
+                ResourceType.MapGround));
+            }
+            catch
+            {
                 waitList.Add(ResourceManager.GetInstance().LoadRes<GameObject>("1WidthGround1", result =>
                 {
-                    widthPlanes.Add(result);
-                }, () => { }, ResourceType.MapGround));
-            }, 
-            ResourceType.MapGround);
+                    if (result != null)
+                    {
+                        widthPlanes.Add(result);
+                    }
+                }, 
+                () => { }, 
+                ResourceType.MapGround));
+            }
         }
         LoadMapHandel = true;
     }

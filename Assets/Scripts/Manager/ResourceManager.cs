@@ -34,26 +34,34 @@ public class ResourceManager : SingletonBase<ResourceManager>
         }
         else if (pathDic.ContainsKey(resourceType))
         {
-            //res = Resources.Load<T>(pathDic[resourceType]+objName);
-            path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;           
-            //LoadRes<T>(path,callback);
+            path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;   
         }
         else
         {
             Debug.Log("加载资源时传入的资源类型不正确！");
             return;
         }
-        var handle = Addressables.LoadAssetAsync<T>(path);
-        await handle.Task;
 
-        if (handle.Status == AsyncOperationStatus.Succeeded)
+        try
         {
-            callback(handle.Result);
+            var handle = Addressables.LoadAssetAsync<T>(path);
+            await handle.Task;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                Debug.Log($"LoadRes catch 加载{objName}资源成功！ path:{path}");
+                callback(handle.Result);
+            }
+            else
+            {
+                faild();
+                Debug.Log($"LoadRes 加载{objName}资源失败！ path:{path}");
+            }
         }
-        else
+        catch
         {
             faild();
-            Debug.Log($"加载{objName}资源失败！ path:{path}");
+            Debug.Log($"LoadRes catch 加载{objName}资源失败！ path:{path}");
         }
     }
 
@@ -69,9 +77,7 @@ public class ResourceManager : SingletonBase<ResourceManager>
         }
         else if (pathDic.ContainsKey(resourceType))
         {
-            //res = Resources.Load<T>(pathDic[resourceType]+objName);
             path += pathDic[resourceType].Item1 + objName + pathDic[resourceType].Item2;
-            //LoadRes<T>(path,callback);
         }
         else
         {
