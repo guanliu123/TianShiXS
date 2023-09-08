@@ -32,7 +32,8 @@ public class CameraManager : BaseManager<CameraManager>
     }
 
     public void StartCameraEvent()
-    {        
+    {
+        mainCamera = Camera.main;
         MonoManager.GetInstance().AddUpdateListener(CameraEvent);
     }
     public void StopCameraEvent()
@@ -42,12 +43,16 @@ public class CameraManager : BaseManager<CameraManager>
 
     private void CameraEvent()
     {
-        if(mainCamera==null) mainCamera = Camera.main;
-        CameraFollow();
+        if (mainCamera != null)
+            CameraFollow();
     }
 
     public void CameraMove(CameraPointType cameraPointType, float moveTime)
     {
+        do
+        {
+            mainCamera = Camera.main;
+        } while (mainCamera==null);
         if (mainCamera != null)
         {
             //Debug.Log("CameraMove DOMove begin!");

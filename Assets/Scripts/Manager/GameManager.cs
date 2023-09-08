@@ -119,8 +119,8 @@ public class GameManager : SingletonBase<GameManager>
         player.transform.position = Vector3.zero + new Vector3(0, 1, -1f);
 
         LevelManager.GetInstance().Start();
-        CameraMove(CameraPointType.MainPoint, 1f);
         CameraManager.GetInstance().StartCameraEvent();
+        CameraMove(CameraPointType.MainPoint, 1f);
 
         Init();
     }

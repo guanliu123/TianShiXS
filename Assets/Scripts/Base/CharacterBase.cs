@@ -217,7 +217,7 @@ public class CharacterBase : MonoBehaviour, IAttack
 
             if (item.Key == 3003)//½üÕ½¹¥»÷
             {
-                if ((transform.position - Player._instance.transform.position).magnitude < 3f && bulletTimer[item.Key] <= 0)
+                if ((transform.position - Player._instance.transform.position).magnitude < 1.5f && bulletTimer[item.Key] <= 0)
                 {
                     TransitionState(CharacterStateType.Attack);
                     Player._instance.ChangeHealth(gameObject,
