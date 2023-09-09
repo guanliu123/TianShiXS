@@ -41,6 +41,15 @@ namespace UIFrameWork
             while (stackPanel.Count > 0)//每一个面板都要销毁
                 stackPanel.Pop().OnExit();
         }
+
+        public BasePanel Peek()
+        {
+            if (stackPanel.Count > 0)
+            {
+                return stackPanel.Peek();
+            }
+            return null;
+        }
     }
 }
 

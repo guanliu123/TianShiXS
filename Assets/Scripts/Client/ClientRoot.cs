@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using UIFrameWork;
 using UnityEngine;
 using UnityEngine.UI;
 using WeChatWASM;
@@ -59,7 +60,10 @@ public class ClientRoot : MonoBehaviour
                 {
                     Debug.Log($"player_login success!");
                     GameManager.GetInstance().UserData = data;
-                    StartPanel.FlushStrAndCoin();
+                    if (PanelManager.Instance.Peek()?.UIType.Name == "StartScenePanel")
+                    {
+                        StartPanel.FlushStrAndCoin();
+                    }
                     WXLoggedIn = true;
                 }, (err) =>
                 {
@@ -70,7 +74,10 @@ public class ClientRoot : MonoBehaviour
                         {
                             Debug.Log($"create_role success!");
                             GameManager.GetInstance().UserData = data;
-                            StartPanel.FlushStrAndCoin();
+                            if (PanelManager.Instance.Peek()?.UIType.Name == "StartScenePanel")
+                            {
+                                StartPanel.FlushStrAndCoin();
+                            }
                             WXLoggedIn = true;
                         }, (error) =>
                         {

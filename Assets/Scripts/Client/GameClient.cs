@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Abelkhan;
 using UnityEngine.SceneManagement;
+using UIFrameWork;
 
 namespace Game
 {
@@ -35,7 +36,10 @@ namespace Game
             if (SceneManager.GetActiveScene().name == "StartScene")
             {
                 Debug.Log("FlushSrt");
-                StartPanel.FlushStrAndCoin();
+                if (PanelManager.Instance.Peek()?.UIType.Name == "StartScenePanel")
+                {
+                    StartPanel.FlushStrAndCoin();
+                }
             }
         }
     }

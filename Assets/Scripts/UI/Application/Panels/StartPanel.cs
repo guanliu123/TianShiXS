@@ -98,21 +98,28 @@ public class StartPanel : BasePanel
     public override void OnResume()
     {
         SetAreaActive(true);
+        Debug.Log($"StartPanel OnResume!");
 
         if (panel != null)
         {
-            Debug.Log(panel.name);
+            FlushStrAndCoin();
+
+            Debug.Log($"StartPanel OnResume panel.name:{panel.name}");
             if (GameManager.GetInstance().nowLevel == 0)
             {
-                UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "关卡选择";
+                var tLevelNum = UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel);
+                if (tLevelNum != null)
+                {
+                    tLevelNum.text = "关卡选择";
+                }
                 return;
             }
-            UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel).text = "第" + GameManager.GetInstance().nowLevel + "关";
-
-            UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
-            UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+            var tLevelNum1 = UITool.GetOrAddComponentInChildren<Text>("LevelNum", panel);
+            if (tLevelNum1 != null)
+            {
+                tLevelNum1.text = "第" + GameManager.GetInstance().nowLevel + "关";
+            }
         }
-        
     }
     private void SetAreaActive(bool isShow)
     {
@@ -126,8 +133,25 @@ public class StartPanel : BasePanel
         if (panel != null)
         {
             Debug.Log("StartPanel FlushStr set!");
-            UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel).text = "" + GameManager.Instance.UserData.Strength + "/100";
-            UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel).text = "" + GameManager.Instance.UserData.Coin;
+
+            try
+            {
+                var tStrengthText = UITool.GetOrAddComponentInChildren<Text>("StrengthText", panel);
+                if (tStrengthText != null)
+                {
+                    tStrengthText.text = "" + GameManager.Instance.UserData.Strength + "/100";
+                }
+
+                var tMoneyText = UITool.GetOrAddComponentInChildren<Text>("MoneyText", panel);
+                if (tMoneyText != null)
+                {
+                    tMoneyText.text = "" + GameManager.Instance.UserData.Coin;
+                }
+            }
+            catch(System.Exception ex)
+            {
+                Debug.Log(ex);
+            }
         }
     }
 }

@@ -62,8 +62,8 @@ public class GameRoot : MonoBehaviour
     private IEnumerator WaitForLoading(string _nextSceneName, Task wait, Action _callBack)
     {
         Debug.Log($"TryLoad WaitForLoading {_nextSceneName}");
-        Addressables.InitializeAsync();
 
+        Addressables.InitializeAsync();
         if (_nextSceneName == LevelScene.sceneName)
         {
             var fake = 0.25f;
