@@ -50,6 +50,7 @@ namespace Abelkhan
         public bool IsLook;
         public float Heath;
         public float AttNum;
+        public Int32 Level;
         public static MsgPack.MessagePackObjectDictionary Role_to_protcol(Role _struct){
             var _protocol = new MsgPack.MessagePackObjectDictionary();
             _protocol.Add("RoleID", _struct.RoleID);
@@ -57,6 +58,7 @@ namespace Abelkhan
             _protocol.Add("IsLook", _struct.IsLook);
             _protocol.Add("Heath", _struct.Heath);
             _protocol.Add("AttNum", _struct.AttNum);
+            _protocol.Add("Level", _struct.Level);
             return _protocol;
         }
         public static Role protcol_to_Role(MsgPack.MessagePackObjectDictionary _protocol){
@@ -76,6 +78,9 @@ namespace Abelkhan
                 }
                 else if (((MsgPack.MessagePackObject)i.Key).AsString() == "AttNum"){
                     _structe15dab07_4671_3806_9f26_9880fe20019d.AttNum = ((MsgPack.MessagePackObject)i.Value).AsSingle();
+                }
+                else if (((MsgPack.MessagePackObject)i.Key).AsString() == "Level"){
+                    _structe15dab07_4671_3806_9f26_9880fe20019d.Level = ((MsgPack.MessagePackObject)i.Value).AsInt32();
                 }
             }
             return _structe15dab07_4671_3806_9f26_9880fe20019d;

@@ -789,6 +789,62 @@ namespace Abelkhan
 
     }
 
+    public class player_archive_set_role_info_cb
+    {
+        private UInt64 cb_uuid;
+        private player_archive_rsp_cb module_rsp_cb;
+
+        public player_archive_set_role_info_cb(UInt64 _cb_uuid, player_archive_rsp_cb _module_rsp_cb)
+        {
+            cb_uuid = _cb_uuid;
+            module_rsp_cb = _module_rsp_cb;
+        }
+
+        public event Action<UserData> on_set_role_info_cb;
+        public event Action<Int32> on_set_role_info_err;
+        public event Action on_set_role_info_timeout;
+
+        public player_archive_set_role_info_cb callBack(Action<UserData> cb, Action<Int32> err)
+        {
+            on_set_role_info_cb += cb;
+            on_set_role_info_err += err;
+            return this;
+        }
+
+        public void timeout(UInt64 tick, Action timeout_cb)
+        {
+            TinyTimer.add_timer(tick, ()=>{
+                module_rsp_cb.set_role_info_timeout(cb_uuid);
+            });
+            on_set_role_info_timeout += timeout_cb;
+        }
+
+        public void call_cb(UserData info)
+        {
+            if (on_set_role_info_cb != null)
+            {
+                on_set_role_info_cb(info);
+            }
+        }
+
+        public void call_err(Int32 err)
+        {
+            if (on_set_role_info_err != null)
+            {
+                on_set_role_info_err(err);
+            }
+        }
+
+        public void call_timeout()
+        {
+            if (on_set_role_info_timeout != null)
+            {
+                on_set_role_info_timeout();
+            }
+        }
+
+    }
+
 /*this cb code is codegen by abelkhan for c#*/
     public class player_archive_rsp_cb : Common.IModule {
         public Dictionary<UInt64, player_archive_cost_strength_cb> map_cost_strength;
@@ -800,6 +856,7 @@ namespace Abelkhan
         public Dictionary<UInt64, player_archive_add_strength_cb> map_add_strength;
         public Dictionary<UInt64, player_archive_add_skill_cb> map_add_skill;
         public Dictionary<UInt64, player_archive_add_monster_cb> map_add_monster;
+        public Dictionary<UInt64, player_archive_set_role_info_cb> map_set_role_info;
         public player_archive_rsp_cb(Common.ModuleManager modules)
         {
             map_cost_strength = new Dictionary<UInt64, player_archive_cost_strength_cb>();
@@ -829,6 +886,9 @@ namespace Abelkhan
             map_add_monster = new Dictionary<UInt64, player_archive_add_monster_cb>();
             modules.add_mothed("player_archive_rsp_cb_add_monster_rsp", add_monster_rsp);
             modules.add_mothed("player_archive_rsp_cb_add_monster_err", add_monster_err);
+            map_set_role_info = new Dictionary<UInt64, player_archive_set_role_info_cb>();
+            modules.add_mothed("player_archive_rsp_cb_set_role_info_rsp", set_role_info_rsp);
+            modules.add_mothed("player_archive_rsp_cb_set_role_info_err", set_role_info_err);
         }
 
         public void cost_strength_rsp(IList<MsgPack.MessagePackObject> inArray){
@@ -1173,6 +1233,44 @@ namespace Abelkhan
             }
         }
 
+        public void set_role_info_rsp(IList<MsgPack.MessagePackObject> inArray){
+            var uuid = ((MsgPack.MessagePackObject)inArray[0]).AsUInt64();
+            var _info = UserData.protcol_to_UserData(((MsgPack.MessagePackObject)inArray[1]).AsDictionary());
+            var rsp = try_get_and_del_set_role_info_cb(uuid);
+            if (rsp != null)
+            {
+                rsp.call_cb(_info);
+            }
+        }
+
+        public void set_role_info_err(IList<MsgPack.MessagePackObject> inArray){
+            var uuid = ((MsgPack.MessagePackObject)inArray[0]).AsUInt64();
+            var _err = ((MsgPack.MessagePackObject)inArray[1]).AsInt32();
+            var rsp = try_get_and_del_set_role_info_cb(uuid);
+            if (rsp != null)
+            {
+                rsp.call_err(_err);
+            }
+        }
+
+        public void set_role_info_timeout(UInt64 cb_uuid){
+            var rsp = try_get_and_del_set_role_info_cb(cb_uuid);
+            if (rsp != null){
+                rsp.call_timeout();
+            }
+        }
+
+        private player_archive_set_role_info_cb try_get_and_del_set_role_info_cb(UInt64 uuid){
+            lock(map_set_role_info)
+            {
+                if (map_set_role_info.TryGetValue(uuid, out player_archive_set_role_info_cb rsp))
+                {
+                    map_set_role_info.Remove(uuid);
+                }
+                return rsp;
+            }
+        }
+
     }
 
     public class player_archive_caller {
@@ -1341,6 +1439,20 @@ namespace Abelkhan
             lock(rsp_cb_player_archive_handle.map_add_monster)
             {                rsp_cb_player_archive_handle.map_add_monster.Add(uuid_9804a865_66e7_5add_a0c5_87003e361e6f, cb_add_monster_obj);
             }            return cb_add_monster_obj;
+        }
+
+        public player_archive_set_role_info_cb set_role_info(Role info){
+            var uuid_a8c0c202_ade2_58dd_8cde_6d534dac61f2 = (UInt64)Interlocked.Increment(ref uuid_229b670b_b203_3780_89af_1bc6486bd86f);
+
+            var _argv_79b44343_03d4_3f49_8253_d3a24f7c8da9 = new ArrayList();
+            _argv_79b44343_03d4_3f49_8253_d3a24f7c8da9.Add(uuid_a8c0c202_ade2_58dd_8cde_6d534dac61f2);
+            _argv_79b44343_03d4_3f49_8253_d3a24f7c8da9.Add(Role.Role_to_protcol(info));
+            _client_handle.call_hub(hub_name_229b670b_b203_3780_89af_1bc6486bd86f, "player_archive_set_role_info", _argv_79b44343_03d4_3f49_8253_d3a24f7c8da9);
+
+            var cb_set_role_info_obj = new player_archive_set_role_info_cb(uuid_a8c0c202_ade2_58dd_8cde_6d534dac61f2, rsp_cb_player_archive_handle);
+            lock(rsp_cb_player_archive_handle.map_set_role_info)
+            {                rsp_cb_player_archive_handle.map_set_role_info.Add(uuid_a8c0c202_ade2_58dd_8cde_6d534dac61f2, cb_set_role_info_obj);
+            }            return cb_set_role_info_obj;
         }
 
     }
