@@ -27,6 +27,7 @@ public struct ResourceDatas
 public struct CharacterData
 {
     //[Header("当前数据所属关卡")] public int levelNum;
+    [Header("角色等级")] public int level;
     [Header("角色最大血量")] public float MaxHP;
     [Header("角色攻击方式")] public List<int> bulletList;
     [Header("角色基础攻击力加成")] public float ATK;

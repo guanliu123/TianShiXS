@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
 
-                //手指按在角色上或者按在屏幕1/3以下的位置
-                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject || touch.position.y < Screen.height / 3)
+                //手指按在角色上或者按在屏幕1/2以下的位置
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject || touch.position.y < Screen.height / 2)
                 {
                     isDragging = true;
                 }

@@ -1,7 +1,10 @@
 ﻿using Abelkhan;
+using Game;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WeChatWASM;
+using static UnityEditor.Progress;
 
 public class CharacterManager : SingletonBase<CharacterManager>
 {
@@ -25,6 +28,7 @@ public class CharacterManager : SingletonBase<CharacterManager>
                     CharacterData t = new CharacterData();
                     CharacterData originData = characterDatasDic[item.RoleID];
 
+                    t.level = item.Level;
                     t.MaxHP = originData.MaxHP + item.Heath;
                     t.ATK = originData.ATK + item.AttNum;
                     //t.ATKSpeed = originData.ATKSpeed + item.AttSpd;
@@ -42,9 +46,53 @@ public class CharacterManager : SingletonBase<CharacterManager>
             characterDatasDic[item.Key] = item.Value;
         }
     }
-    public void UpgradeRole(int id, float increaseHP, float increaseATK,float increaseATKSpd)
+    public void UpgradeRole(int id)
     {
-        foreach(var item in GameManager.GetInstance().UserData.RoleList)
+        float increaseHP=0;
+        float increaseATK=0;
+        float increaseATKSpd=0;
+        switch (id)
+        {
+            case 1001:increaseHP =10;increaseATK =15;increaseATKSpd =0; break;   
+            case 1002: increaseHP =10; increaseATK =15; increaseATKSpd =0; break;   
+            case 1003: increaseHP =10; increaseATK =15; increaseATKSpd =0; break;   
+            case 1004: increaseHP =10; increaseATK =15; increaseATKSpd =0; break;   
+            case 1005: increaseHP =20; increaseATK =20; increaseATKSpd =0; break;   
+        }
+        if (GameManager.GetInstance().UserData.RoleList != null)
+        {
+            foreach (var item in GameManager.GetInstance().UserData.RoleList)
+            {
+                if (item.RoleID == id)
+                {
+                    Role role = item;
+                    role.Level++;
+                    role.Heath += increaseHP;
+                    role.AttNum += increaseATK;
+                    //攻速
+
+                    RequestCenter.SetRoleInfo(GameClient.Instance, role, (data) =>
+                    {
+                        GameManager.GetInstance().UserData = data;
+                    });
+                }
+            }
+        }     
+
+        if (characterDatasDic.ContainsKey(id))
+        {
+            Debug.Log(2);
+            CharacterData t = new CharacterData();
+            CharacterData originData = characterDatasDic[id];
+
+            t.level++;
+            t.MaxHP = originData.MaxHP + increaseHP;
+            t.ATK = originData.ATK + increaseATK;
+            t.ATKSpeed = originData.ATKSpeed + increaseATKSpd;
+
+            characterDatasDic[id] = t;
+        }
+        /*foreach(var item in GameManager.GetInstance().UserData.RoleList)
         {
             if (item.RoleID == id)
             {
@@ -63,8 +111,6 @@ public class CharacterManager : SingletonBase<CharacterManager>
                     characterDatasDic[item.RoleID] = t;
                 }
             }
-
-            UserData.UserData_to_protcol(GameManager.GetInstance().UserData);
-        }
+        }*/
     }
 }

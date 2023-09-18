@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UIFrameWork;
@@ -12,6 +13,8 @@ public class RolePanel : BasePanel
     GameObject panel;
     Dictionary<int, CharacterMsg> players = new Dictionary<int, CharacterMsg>();
     int choosePlayer;
+    int nowIndex;
+    GameObject nowPlayerPanel;
 
     public RolePanel() : base(new UIType(path))
     {
@@ -36,7 +39,8 @@ public class RolePanel : BasePanel
 
             var t = UITool.GetOrAddComponentInChildren<PlayerPortraitList>("Portrait_List", obj);
             t._panel = this;
-            UITool.GetOrAddComponentInChildren<Button>("Upgrade_Btn", obj).onClick.AddListener(() =>
+            var bt = UITool.GetOrAddComponentInChildren<Button>("Upgrade_Btn", obj);
+            bt.onClick.AddListener(() =>
             {
                 AudioManager.GetInstance().PlaySound("BuyButton");
                 Upgrade(choosePlayer);
@@ -49,6 +53,10 @@ public class RolePanel : BasePanel
 
     public async void UpdatePlayerPanel(int index, GameObject playerPanel)
     {
+        Debug.Log(1);
+        nowIndex = index;
+        nowPlayerPanel = playerPanel;
+
         if (players.Count <= index)
         {
             return;
@@ -69,6 +77,7 @@ public class RolePanel : BasePanel
 
         UITool.GetOrAddComponentInChildren<Text>("NameText", panel).text = players.ElementAt(index).Value.name;
 
+        UITool.GetOrAddComponentInChildren<Text>("LevelText", panel).text = CharacterManager.GetInstance().characterDatasDic[choosePlayer].level.ToString();
         UITool.GetOrAddComponentInChildren<Transform>("Skill", panel).GetChild(1).
             GetComponent<Text>().text = players.ElementAt(index).Value.describe;
         UITool.GetOrAddComponentInChildren<Transform>("Heath", panel).GetChild(1).
@@ -79,5 +88,17 @@ public class RolePanel : BasePanel
     private void Upgrade(int roleID)
     {
         Debug.Log("对角色" + CharacterManager.GetInstance().roleMsgDic[roleID].name + "进行升级");
+        //每20级需要的金钱倍率上升0.1
+        float t = 0;
+        if (CharacterManager.GetInstance().characterDatasDic[roleID].level % 20 == 0) t = (CharacterManager.GetInstance().characterDatasDic[roleID].level / 20) * 0.1f;
+        //初始需要的升级钱数是10
+        int cost = (int)((Mathf.Pow(1.1f, CharacterManager.GetInstance().characterDatasDic[choosePlayer].level) + t) * 10f);
+        if (GameManager.GetInstance().UserData.Coin < cost) return;
+        RequestCenter.CostCoinReq(GameClient.Instance, cost, Abelkhan.EMCostCoinPath.UpdateRole, roleID, (data) =>
+        {
+            GameManager.GetInstance().UserData = data;
+        });
+        CharacterManager.GetInstance().UpgradeRole(roleID);
+        UpdatePlayerPanel(nowIndex, nowPlayerPanel);
     }
 }

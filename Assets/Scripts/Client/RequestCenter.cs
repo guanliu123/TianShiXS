@@ -73,6 +73,17 @@ namespace Game
             });
         }
 
+        public static void SetRoleInfo(GameClient client,Role role, Action<UserData> cb)
+        {
+            client._player_archive_Caller.get_hub(client._player_hub_name).set_role_info(role).callBack((UserData data) =>
+            {
+                cb.Invoke(data);
+            }, (err) =>
+            {
+                Debug.Log("请求发送失败，错误代码：" + err);
+            });
+        }
+
         public static void CostStrengthReq(GameClient client, int amount, Action<UserData> cb)
         {
             client._player_archive_Caller.get_hub(client._player_hub_name).cost_strength(amount).callBack((UserData data) =>
