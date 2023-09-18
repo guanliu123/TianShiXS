@@ -25,7 +25,11 @@ public class PlayerController : MonoBehaviour
         offset = Vector3.up+Vector3.back;
     }
 
-    private void Update()
+/*    private void Update()
+    {
+        
+    }*/
+    private void FixedUpdate()
     {
         if (!canMove)
         {
@@ -52,7 +56,7 @@ public class PlayerController : MonoBehaviour
             {
                 isDragging = false;
             }
-            else if (touch.phase==TouchPhase.Moved && isDragging)
+            else if (touch.phase == TouchPhase.Moved && isDragging)
             {
                 if (isHorizontalMode)
                 {
@@ -60,7 +64,7 @@ public class PlayerController : MonoBehaviour
                     offset = new Vector3(transform.position.x - scaledX * nowSpeed, 1, -1);
                     offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
 
-                   // transform.position = offset;
+                    // transform.position = offset;
                 }
                 else
                 {
@@ -72,13 +76,9 @@ public class PlayerController : MonoBehaviour
 
                     //transform.position = offset;
                 }
-                
+
             }
         }
-    }
-    private void FixedUpdate()
-    {
-        if (!canMove) return;
         transform.position = offset;
     }
 
