@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private float nowSpeed = 3.6f;
     private float normalSpeed = 3.6f;
-    private float fightSpeed = 5f;
+    private float fightSpeed = 8f;
     float minNum = -500f;
     float maxNum = 500f;
 
@@ -43,11 +43,11 @@ public class PlayerController : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 // 检测手指是否按在角色物体上
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                //Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                //RaycastHit hit;
 
                 //手指按在角色上或者按在屏幕1/2以下的位置
-                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject || touch.position.y < Screen.height / 2)
+                if (/*(Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject) ||*/ touch.position.y < (Screen.height / 2))
                 {
                     isDragging = true;
                 }
@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
                     float scaledX = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.x));
                     float scaledY = Mathf.Lerp(-1f, 1f, Mathf.InverseLerp(minNum, maxNum, touch.deltaPosition.y));
                     offset = new Vector3(transform.position.x - scaledX * nowSpeed, 1, transform.position.z - scaledY * nowSpeed);
-                    offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.2f, LevelManager.GetInstance().mapSize[1] / 2 - 0.2f);
-                    offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 3f, LevelManager.GetInstance().mapSize[0] / 3 - 5f);
+                    offset.x = Mathf.Clamp(offset.x, -LevelManager.GetInstance().mapSize[1] / 2 - 0.5f, LevelManager.GetInstance().mapSize[1] / 2 - 0.5f);
+                    offset.z = Mathf.Clamp(offset.z, -LevelManager.GetInstance().mapSize[0] / 3 - 1.5f, LevelManager.GetInstance().mapSize[0] / 3 - 1.5f);
 
                     //transform.position = offset;
                 }

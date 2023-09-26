@@ -19,11 +19,14 @@ public class VictoryPanel : BasePanel
     public override void OnEnter()
     {
         GameManager.GetInstance().ClearFloatDamage();
+        Debug.Log($"levelNum:{levelNum}, UserData.LevelNum:{GameManager.GetInstance().UserData.LevelNum}");
         if (levelNum>=GameManager.GetInstance().UserData.LevelNum)
         {
+            Debug.Log("SetLevelReq begin");
             RequestCenter.SetLevelReq(GameClient.Instance, GameManager.GetInstance().UserData.LevelNum + 1, (data) =>
             {
-              GameManager.GetInstance().UserData = data;
+                GameManager.GetInstance().UserData = data;
+                Debug.Log($"SetLevelReq callback UserData.LevelNum:{GameManager.GetInstance().UserData.LevelNum}");
             });
         }
         GameManager.GetInstance().QuitGame();
